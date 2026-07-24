@@ -34,6 +34,9 @@
       --bronze: #9a7038;
       --bronze-soft: rgba(154, 112, 56, 0.11);
 
+      --past: #75818b;
+      --past-soft: rgba(117, 129, 139, 0.14);
+
       --border: rgba(23, 33, 43, 0.14);
       --shadow: 0 18px 45px rgba(23, 33, 43, 0.09);
 
@@ -292,6 +295,35 @@
     .card p {
       color: var(--muted);
       font-size: 0.96rem;
+    }
+
+    .resume-card {
+      display: flex;
+      min-height: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .resume-card .resume-label {
+      margin-bottom: 8px;
+      color: var(--blueprint);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .resume-card h3 {
+      margin-bottom: 10px;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 2rem;
+      font-weight: 400;
+    }
+
+    .resume-card p:not(.resume-label) {
+      max-width: 30ch;
+      margin-bottom: 24px;
     }
 
     /* =========================
@@ -621,7 +653,15 @@
       bottom: 12px;
       left: 7px;
       width: 2px;
-      background: linear-gradient(var(--blueprint), rgba(7,84,165,0.12));
+      background: linear-gradient(
+        to bottom,
+        var(--bronze) 0%,
+        var(--bronze) 30%,
+        var(--blueprint) 47%,
+        var(--blueprint) 54%,
+        var(--past) 70%,
+        rgba(117, 129, 139, 0.18) 100%
+      );
     }
 
     .t-item {
@@ -636,14 +676,11 @@
       left: -30px;
       width: 12px;
       height: 12px;
-      background: var(--blueprint);
       border-radius: 50%;
-      box-shadow: 0 0 0 4px var(--blueprint-soft);
     }
 
     .t-item .when {
       margin-bottom: 3px;
-      color: var(--blueprint);
       font-size: 0.79rem;
       font-weight: 800;
     }
@@ -656,6 +693,36 @@
     .t-item p {
       color: var(--muted);
       font-size: 0.95rem;
+    }
+
+    /* Future: planned milestones */
+    .t-item.future::before {
+      background: var(--bronze);
+      box-shadow: 0 0 0 4px var(--bronze-soft);
+    }
+
+    .t-item.future .when {
+      color: var(--bronze);
+    }
+
+    /* Present: active work */
+    .t-item.present::before {
+      background: var(--blueprint);
+      box-shadow: 0 0 0 4px var(--blueprint-soft);
+    }
+
+    .t-item.present .when {
+      color: var(--blueprint);
+    }
+
+    /* Past: completed work */
+    .t-item.past::before {
+      background: var(--past);
+      box-shadow: 0 0 0 4px var(--past-soft);
+    }
+
+    .t-item.past .when {
+      color: var(--past);
     }
 
     /* =========================
@@ -962,7 +1029,25 @@
 
       <div class="grid-2">
         <div class="timeline">
-          <div class="t-item">
+          <div class="t-item future">
+            <p class="when">Early 2027</p>
+            <h3>Publish the Book Through ZT, LLC</h3>
+            <p>
+              Complete the manuscript and publish the book through Amazon KDP and this website,
+              turning the project into useful work that can reach and serve readers.
+            </p>
+          </div>
+
+          <div class="t-item future">
+            <p class="when">January 2027</p>
+            <h3>Take the Civil PE Exam</h3>
+            <p>
+              Sit for the Civil PE exam after focused preparation, continuing the path toward
+              professional licensure, technical responsibility, and long-term engineering work.
+            </p>
+          </div>
+
+          <div class="t-item present">
             <p class="when">Present</p>
             <h3>Author &amp; Founder — ZT, LLC</h3>
             <p>
@@ -972,7 +1057,7 @@
             </p>
           </div>
 
-          <div class="t-item">
+          <div class="t-item past">
             <p class="when">May 2026</p>
             <h3>B.S. Mechanical Engineering</h3>
             <p>
@@ -981,7 +1066,7 @@
             </p>
           </div>
 
-          <div class="t-item">
+          <div class="t-item past">
             <p class="when">December 2025</p>
             <h3>Fundamentals of Engineering Exam — Passed</h3>
             <p>
@@ -990,7 +1075,7 @@
             </p>
           </div>
 
-          <div class="t-item">
+          <div class="t-item past">
             <p class="when">December 2020</p>
             <h3>B.S. Mathematics</h3>
             <p>
@@ -1042,11 +1127,11 @@
       </p>
 
       <div class="tools-row">
-        <article class="card">
-          <div class="card-icon">CV</div>
+        <article class="card resume-card">
+          <p class="resume-label">Professional background</p>
           <h3>Résumé</h3>
 
-          <p style="margin-bottom: 20px;">
+          <p>
             Education, credentials, and professional experience in one PDF.
           </p>
 
