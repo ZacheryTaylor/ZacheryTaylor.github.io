@@ -59,11 +59,6 @@
       overflow-x: hidden;
     }
 
-    /*
-      Blueprint grid:
-      This is CSS only — not an image.
-      It creates the technical / drafting feel.
-    */
     body::before {
       content: "";
       position: fixed;
@@ -76,10 +71,6 @@
       background-size: 58px 58px;
     }
 
-    /*
-      Soft drafting-paper texture:
-      This creates a warm, clean, slightly architectural background.
-    */
     body::after {
       content: "";
       position: fixed;
@@ -356,11 +347,6 @@
       font-size: 1.1rem;
     }
 
-    /*
-      This replaces a typical image-heavy hero card.
-      It uses geometric lines to evoke drafting,
-      structure, bridges, blueprints, and technical systems.
-    */
     .hero-panel {
       position: relative;
       min-height: 465px;
@@ -417,6 +403,42 @@
         linear-gradient(-44deg, transparent 49.5%, rgba(255,255,255,0.28) 50%, transparent 50.5%) 0 0 / 90px 90px;
     }
 
+    .headshot-wrap {
+      position: absolute;
+      top: 42px;
+      left: 32px;
+      z-index: 3;
+      width: 126px;
+      height: 158px;
+      padding: 5px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.48);
+      border-radius: 10px;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+      transform: rotate(-2deg);
+    }
+
+    .headshot-wrap::before {
+      content: "ZT / AUTHOR";
+      position: absolute;
+      top: -20px;
+      left: 1px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.58rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+    }
+
+    .headshot-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 6px;
+      filter: grayscale(100%) contrast(1.05);
+    }
+
     .hero-panel-content {
       position: relative;
       z-index: 2;
@@ -471,12 +493,6 @@
       color: var(--muted);
     }
 
-    /*
-      CSS book-cover concept:
-      dark graphite, silver flow lines, bronze details.
-      It references the polished-metal image's feeling,
-      without using the image itself.
-    */
     .book-cover {
       position: relative;
       aspect-ratio: 3 / 4;
@@ -643,230 +659,6 @@
     }
 
     /* =========================
-       ENGINEERING PATH
-    ========================== */
-
-    .path-layout {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 40px;
-      align-items: start;
-    }
-
-    /*
-      Abstract bridge/structure panel:
-      CSS-only steel truss pattern.
-    */
-    .structure-card {
-      position: relative;
-      min-height: 475px;
-      overflow: hidden;
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      background: #17212b;
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      color: var(--white);
-    }
-
-    .structure-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: 0.55;
-      background:
-        linear-gradient(63deg, transparent 48%, rgba(255,255,255,0.75) 49%, rgba(255,255,255,0.75) 51%, transparent 52%) 0 0 / 74px 74px,
-        linear-gradient(-63deg, transparent 48%, rgba(255,255,255,0.42) 49%, rgba(255,255,255,0.42) 51%, transparent 52%) 0 0 / 74px 74px,
-        repeating-linear-gradient(90deg, rgba(255,255,255,0.12) 0 3px, transparent 3px 37px);
-    }
-
-    .structure-card::after {
-      content: "";
-      position: absolute;
-      right: 20px;
-      bottom: 0;
-      left: 20px;
-      height: 70%;
-      border-top: 3px solid rgba(255,255,255,0.58);
-      border-right: 3px solid rgba(255,255,255,0.2);
-      border-left: 3px solid rgba(255,255,255,0.2);
-      transform: perspective(240px) rotateX(46deg);
-      transform-origin: bottom;
-    }
-
-    .structure-card > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .structure-card .small-label {
-      margin-bottom: 7px;
-      color: #84baf0;
-      font-size: 0.71rem;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-    }
-
-    .structure-card h3 {
-      max-width: 11ch;
-      margin-bottom: 10px;
-      font-family: "Instrument Serif", Georgia, serif;
-      font-size: 2.3rem;
-      font-weight: 400;
-      line-height: 1;
-    }
-
-    .structure-card p {
-      color: rgba(255,255,255,0.76);
-      font-size: 0.91rem;
-    }
-
-    /* =========================
-       ASPIRATIONS
-    ========================== */
-
-    .aspiration-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .quote-panel {
-      position: relative;
-      min-height: 100%;
-      overflow: hidden;
-      padding: 38px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      background:
-        radial-gradient(circle at 20% 18%, rgba(154,112,56,0.23), transparent 20%),
-        linear-gradient(145deg, #153c68, #071b33);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      color: var(--white);
-    }
-
-    .quote-panel::before {
-      content: "";
-      position: absolute;
-      top: 26px;
-      right: 26px;
-      width: 165px;
-      height: 165px;
-      border: 1px solid rgba(255,255,255,0.22);
-      border-radius: 50%;
-      box-shadow:
-        0 0 0 22px rgba(255,255,255,0.035),
-        0 0 0 45px rgba(255,255,255,0.025);
-    }
-
-    .quote-panel::after {
-      content: "Z";
-      position: absolute;
-      right: -12px;
-      bottom: -80px;
-      color: rgba(255,255,255,0.055);
-      font-family: "Instrument Serif", Georgia, serif;
-      font-size: 15rem;
-      line-height: 1;
-    }
-
-    .quote-panel > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .quote-panel p {
-      max-width: 14ch;
-      font-family: "Instrument Serif", Georgia, serif;
-      font-size: clamp(2.15rem, 4vw, 3.2rem);
-      line-height: 1.04;
-    }
-
-    .quote-panel small {
-      margin-top: 20px;
-      color: rgba(255,255,255,0.75);
-      font-size: 0.85rem;
-    }
-
-    /* =========================
-       VISUAL LANGUAGE
-    ========================== */
-
-    .principles {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .principle {
-      min-height: 220px;
-      padding: 26px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      overflow: hidden;
-      position: relative;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-    }
-
-    .principle::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: 0.78;
-      pointer-events: none;
-    }
-
-    .principle.blueprint::before {
-      background:
-        linear-gradient(rgba(7,84,165,0.16) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(7,84,165,0.16) 1px, transparent 1px);
-      background-size: 26px 26px;
-    }
-
-    .principle.structure::before {
-      background:
-        linear-gradient(50deg, transparent 48%, rgba(23,33,43,0.17) 49%, rgba(23,33,43,0.17) 51%, transparent 52%) 0 0 / 52px 52px,
-        linear-gradient(-50deg, transparent 48%, rgba(23,33,43,0.10) 49%, rgba(23,33,43,0.10) 51%, transparent 52%) 0 0 / 52px 52px;
-    }
-
-    .principle.editorial::before {
-      background:
-        linear-gradient(90deg, transparent 15%, rgba(154,112,56,0.15) 15% 17%, transparent 17% 83%, rgba(154,112,56,0.15) 83% 85%, transparent 85%),
-        repeating-linear-gradient(0deg, transparent 0 25px, rgba(23,33,43,0.07) 26px 27px);
-    }
-
-    .principle > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .principle .number {
-      margin-bottom: 9px;
-      color: var(--blueprint);
-      font-size: 0.75rem;
-      font-weight: 800;
-      letter-spacing: 0.13em;
-    }
-
-    .principle h3 {
-      margin-bottom: 7px;
-      font-size: 1.05rem;
-    }
-
-    .principle p {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    /* =========================
        CONTACT
     ========================== */
 
@@ -995,9 +787,7 @@
       }
 
       .hero-grid,
-      .book-feature,
-      .path-layout,
-      .aspiration-grid {
+      .book-feature {
         grid-template-columns: 1fr;
       }
 
@@ -1007,10 +797,6 @@
 
       .hero-panel {
         min-height: 360px;
-      }
-
-      .structure-card {
-        min-height: 370px;
       }
     }
 
@@ -1025,8 +811,7 @@
       }
 
       .grid-2,
-      .tools-row,
-      .principles {
+      .tools-row {
         grid-template-columns: 1fr;
       }
 
@@ -1036,6 +821,13 @@
 
       .book-feature {
         padding: 26px;
+      }
+
+      .headshot-wrap {
+        top: 30px;
+        left: 24px;
+        width: 98px;
+        height: 122px;
       }
 
       h1 {
@@ -1053,14 +845,11 @@
       <ul class="nav-links">
         <li><a href="#book">The Book</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#path">Engineering Path</a></li>
-        <li><a href="#aspirations">Aspirations</a></li>
         <li><a href="#connect">Connect</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- HERO -->
   <header class="hero" id="top">
     <div class="wrap hero-grid">
       <div>
@@ -1084,9 +873,12 @@
         </div>
       </div>
 
-      <!-- CSS-only technical / blueprint visual -->
       <aside class="hero-panel">
         <div class="structure-lines"></div>
+
+        <div class="headshot-wrap">
+          <img src="images/H.jpg" alt="Zachery Taylor" />
+        </div>
 
         <div class="hero-panel-content">
           <p class="small-label">ZT / 001</p>
@@ -1100,7 +892,6 @@
     </div>
   </header>
 
-  <!-- BOOK -->
   <section id="book">
     <div class="wrap">
       <p class="section-label">Primary focus</p>
@@ -1149,7 +940,6 @@
           </ul>
         </div>
 
-        <!-- CSS-only book concept. No image file needed. -->
         <div class="book-cover">
           <span class="cover-label">WORK IN PROGRESS</span>
           <strong>Title TBD</strong>
@@ -1159,7 +949,6 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="wrap">
       <p class="section-label">Background</p>
@@ -1243,168 +1032,6 @@
     </div>
   </section>
 
-  <!-- ENGINEERING PATH -->
-  <section id="path">
-    <div class="wrap">
-      <p class="section-label">Secondary focus</p>
-      <h2>The path toward civil PE licensure.</h2>
-
-      <p class="section-intro">
-        The book leads the public story. Engineering remains the professional craft:
-        a commitment to competence, responsibility, sound judgment, and work that lasts.
-      </p>
-
-      <div class="path-layout">
-        <!-- CSS-only structural / truss visual -->
-        <div class="structure-card">
-          <p class="small-label">STRUCTURE / DISCIPLINE / RESPONSIBILITY</p>
-          <h3>Build the foundation before the height.</h3>
-          <p>
-            Every meaningful outcome rests on preparation, precision, experience,
-            and the willingness to keep earning the next level.
-          </p>
-        </div>
-
-        <ul class="aspire-list">
-          <li>
-            <span class="num">✓</span>
-            <div>
-              <strong>B.S. Mathematics</strong>
-              <span>Completed December 2020.</span>
-            </div>
-          </li>
-
-          <li>
-            <span class="num">✓</span>
-            <div>
-              <strong>FE exam passed</strong>
-              <span>Completed December 2025.</span>
-            </div>
-          </li>
-
-          <li>
-            <span class="num">✓</span>
-            <div>
-              <strong>B.S. Mechanical Engineering</strong>
-              <span>Completed May 2026.</span>
-            </div>
-          </li>
-
-          <li>
-            <span class="num">→</span>
-            <div>
-              <strong>Qualifying engineering experience</strong>
-              <span>Build progressive professional experience under appropriate supervision.</span>
-            </div>
-          </li>
-
-          <li>
-            <span class="num">→</span>
-            <div>
-              <strong>Civil PE exam and licensure</strong>
-              <span>A future milestone pursued with patience, depth, and discipline.</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ASPIRATIONS -->
-  <section id="aspirations">
-    <div class="wrap">
-      <p class="section-label">Horizon</p>
-      <h2>Limitless aspirations, grounded work.</h2>
-
-      <p class="section-intro">
-        The objective is not a title alone. It is to build a life that creates useful
-        work, meaningful assets, technical capability, and value for other people.
-      </p>
-
-      <div class="aspiration-grid">
-        <div class="quote-panel">
-          <p>“Build what lasts. Become who can build it.”</p>
-          <small>ZT, LLC · Pensacola, Florida</small>
-        </div>
-
-        <ul class="aspire-list">
-          <li>
-            <span class="num">→</span>
-            <div>
-              <strong>Finish the book and keep writing</strong>
-              <span>Put useful ideas into the world and allow the work to reach people.</span>
-            </div>
-          </li>
-
-          <li>
-            <span class="num">→</span>
-            <div>
-              <strong>Become a licensed PE</strong>
-              <span>Develop civil engineering competence, credibility, and responsibility.</span>
-            </div>
-          </li>
-
-          <li>
-            <span class="num">→</span>
-            <div>
-              <strong>Grow ZT, LLC with intention</strong>
-              <span>Build a platform for publishing, engineering, land, and consulting.</span>
-            </div>
-          </li>
-
-          <li>
-            <span class="num">→</span>
-            <div>
-              <strong>Provide value to people</strong>
-              <span>Keep character, useful work, and ambition aligned.</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- VISUAL LANGUAGE -->
-  <section id="principles">
-    <div class="wrap">
-      <p class="section-label">Design language</p>
-      <h2>Clear thought. Structured work. Lasting value.</h2>
-
-      <p class="section-intro">
-        This page draws from the world of blueprints, technical drawings, drafting,
-        architecture, and engineering—without relying on photographs or generic
-        stock imagery.
-      </p>
-
-      <div class="principles">
-        <article class="principle blueprint">
-          <p class="number">01 / CLARITY</p>
-          <h3>Blueprint thinking</h3>
-          <p>
-            Start with the plan. Define the direction. Make complexity understandable.
-          </p>
-        </article>
-
-        <article class="principle structure">
-          <p class="number">02 / DISCIPLINE</p>
-          <h3>Structural work</h3>
-          <p>
-            Build systems that can carry weight: technical, personal, and professional.
-          </p>
-        </article>
-
-        <article class="principle editorial">
-          <p class="number">03 / VALUE</p>
-          <h3>Thoughtful output</h3>
-          <p>
-            Create work that is clear enough to use and strong enough to last.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONNECT -->
   <section id="connect">
     <div class="wrap">
       <p class="section-label">Connect</p>
@@ -1423,7 +1050,6 @@
             Education, credentials, and professional experience in one PDF.
           </p>
 
-          <!-- Upload resume.pdf beside index.html in GitHub -->
           <a
             class="btn btn-primary"
             href="resume.pdf"
@@ -1441,17 +1067,14 @@
           <p class="line">Writing · Engineering · Land · Consulting</p>
           <p class="line">Pensacola, Florida</p>
 
-          <!-- Replace with your actual email -->
           <p class="line">
-            <a href="mailto:zach811taylor@gmail.com">Email</a>
+            <a href="mailto:zach811taylor@gmail.com">zach811taylor@gmail.com</a>
           </p>
 
-          <!-- Replace with your actual phone -->
           <p class="line">
             <a href="tel:+18502611370">(850) 261-1370</a>
           </p>
 
-          <!-- Replace with your actual LinkedIn profile link -->
           <p class="line">
             <a
               href="https://linkedin.com/in/zacheryalexandertaylor/"
@@ -1474,7 +1097,6 @@
               LinkedIn
             </a>
 
-            <!-- Optional: Create contact.vcf beside index.html later -->
             <a class="btn btn-ghost" href="contact.vcf">Save contact</a>
           </div>
         </article>
