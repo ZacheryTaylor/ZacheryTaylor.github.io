@@ -1,19 +1,537 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZT, LLC</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZT, LLC | Engineering • Land • Ideas</title>
+  <meta name="description" content="ZT, LLC — Civil engineering, land development, consulting, and publishing. Based in Pensacola, Florida." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; line-height: 1.6; }
-    h1 { color: #111; }
-    a { color: #0066cc; }
+    :root {
+      --bg: #0c0f14;
+      --bg-soft: #141a22;
+      --card: #1a222d;
+      --text: #e8edf4;
+      --muted: #9aa8b8;
+      --accent: #3d9cf0;
+      --accent-soft: rgba(61, 156, 240, 0.15);
+      --gold: #c9a227;
+      --border: rgba(255,255,255,0.08);
+      --radius: 16px;
+      --max: 1100px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* subtle grid background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(12, 15, 20, 0.75);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .logo span { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: center;
+    }
+    @media (max-width: 800px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(2.6rem, 6vw, 4rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    h1 em { font-style: italic; color: var(--gold); }
+    .hero p.lead {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 34em;
+      margin-bottom: 32px;
+    }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s, background 0.2s;
+    }
+    .btn:hover { transform: translateY(-1px); text-decoration: none; }
+    .btn-primary {
+      background: var(--accent);
+      color: #061018;
+    }
+    .btn-primary:hover { background: #5aaff5; color: #061018; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--muted); color: var(--text); }
+
+    .hero-card {
+      background: linear-gradient(160deg, var(--card), var(--bg-soft));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    }
+    .hero-card .photo-slot {
+      aspect-ratio: 4/5;
+      border-radius: 16px;
+      background:
+        linear-gradient(135deg, var(--accent-soft), transparent),
+        var(--bg);
+      border: 1px dashed rgba(61,156,240,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 16px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .hero-card .photo-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+    .hero-card h3 { font-size: 1.1rem; margin-bottom: 4px; }
+    .hero-card .role { color: var(--muted); font-size: 0.9rem; margin-bottom: 16px; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 88px 0;
+      border-top: 1px solid var(--border);
+    }
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      font-weight: 400;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .section-intro {
+      color: var(--muted);
+      max-width: 38em;
+      margin-bottom: 40px;
+      font-size: 1.05rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 700px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      border-color: rgba(61,156,240,0.35);
+      transform: translateY(-2px);
+    }
+    .card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+    .card p { color: var(--muted); font-size: 0.98rem; }
+    .card .icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 16px;
+      font-size: 1.1rem;
+    }
+
+    /* Timeline experience */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 6px; top: 8px; bottom: 8px;
+      width: 2px;
+      background: linear-gradient(var(--accent), transparent);
+    }
+    .t-item {
+      position: relative;
+      margin-bottom: 28px;
+      padding-bottom: 4px;
+    }
+    .t-item::before {
+      content: "";
+      position: absolute;
+      left: -26px; top: 8px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-soft);
+    }
+    .t-item .when {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .t-item h3 { font-size: 1.1rem; margin-bottom: 6px; }
+    .t-item p { color: var(--muted); }
+
+    /* Goals highlight */
+    .goal-hero {
+      background: linear-gradient(135deg, var(--card) 0%, #1a2838 100%);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    @media (max-width: 700px) {
+      .goal-hero { grid-template-columns: 1fr; padding: 28px; }
+    }
+    .goal-hero .book-slot {
+      aspect-ratio: 3/4;
+      max-width: 220px;
+      margin: 0 auto;
+      border-radius: 8px 12px 12px 8px;
+      background: linear-gradient(145deg, #2a3544, #151c26);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 8px 12px 40px rgba(0,0,0,0.4);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .goal-hero .book-slot strong {
+      display: block;
+      color: var(--text);
+      font-family: "Instrument Serif", serif;
+      font-size: 1.3rem;
+      margin: 12px 0 8px;
+    }
+
+    /* Gallery placeholders */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 700px) {
+      .gallery { grid-template-columns: 1fr 1fr; }
+    }
+    .gallery-item {
+      aspect-ratio: 4/3;
+      border-radius: 12px;
+      background: var(--card);
+      border: 1px dashed rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      overflow: hidden;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    /* Resume + Card row */
+    .tools-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 700px) {
+      .tools-row { grid-template-columns: 1fr; }
+    }
+    .biz-card {
+      background: linear-gradient(145deg, #1e2a38, #121820);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .biz-card::after {
+      content: "Z";
+      position: absolute;
+      right: -10px; bottom: -30px;
+      font-family: "Instrument Serif", serif;
+      font-size: 10rem;
+      color: rgba(61,156,240,0.06);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .biz-card .name {
+      font-family: "Instrument Serif", serif;
+      font-size: 1.8rem;
+      margin-bottom: 4px;
+    }
+    .biz-card .title { color: var(--gold); font-size: 0.95rem; margin-bottom: 20px; }
+    .biz-card .line {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 6px;
+    }
+    .biz-card .actions {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Aspirations */
+    .aspire-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+    .aspire-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px 20px;
+      background: var(--card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .aspire-list .num {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .aspire-list strong { display: block; margin-bottom: 2px; }
+    .aspire-list span { color: var(--muted); font-size: 0.92rem; }
+
+    /* Footer */
+    footer {
+      padding: 48px 0 64px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    footer .logo { display: inline-block; margin-bottom: 12px; }
   </style>
 </head>
 <body>
-  <h1>ZT, LLC</h1>
-  <p>Engineering • Land • Books</p>
-  <p>Welcome. More coming soon.</p>
-  <p><a href="mailto:your@email.com">Contact</a></p>
-</body>
-</html>
+
+  <nav>
+    <div class="inner">
+      <a class="logo" href="#top">Z<span>T</span>, LLC</a>
+      <ul class="nav-links">
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#goals">Goals</a></li>
+        <li><a href="#aspirations">Aspirations</a></li>
+        <li><a href="#gallery">Work</a></li>
+        <li><a href="#connect">Connect</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Pensacola, Florida</span>
+        <h1>Building land,<br />ideas &amp; <em>what’s next</em>.</h1>
+        <p class="lead">
+          I’m a civil engineer and founder of ZT, LLC — focused on engineering services,
+          land acquisition &amp; development, consulting, and writing a book that shares
+          the mindset behind limitless growth.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#goals">Current goals</a>
+          <a class="btn btn-ghost" href="#connect">Digital card &amp; resume</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <!-- Replace the div below with: <img src="images/headshot.jpg" alt="Your name" /> -->
+        <div class="photo-slot" id="headshot-slot">
+          Add your photo here<br />(images/headshot.jpg)
+        </div>
+        <h3>Your Name</h3>
+        <p class="role">Civil Engineer · Founder, ZT, LLC</p>
+        <div class="tag-row">
+          <span class="tag">Engineering</span>
+          <span class="tag">Land</span>
+          <span class="tag">Consulting</span>
+          <span class="tag">Author</span>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <p class="section-label">Background</p>
+      <h2>Professional experience</h2>
+      <p class="section-intro">
+        A foundation in civil engineering, practical project work, and the drive to
+        own the full stack — from design and land to business and publishing.
+        <!-- Edit this paragraph with your real story -->
+      </p>
+
+      <div class="grid-2">
+        <div class="timeline">
+          <div class="t-item">
+            <p class="when">Present</p>
+            <h3>Founder — ZT, LLC</h3>
+            <p>
+              Building a lean company for engineering services, land acquisition,
+              development, consulting, and publishing. Small team (or solo) by design —
+              high ownership, clear execution.
+            </p>
+          </div>
+          <div class="t-item">
+            <p class="when">Career</p>
+            <h3>Civil Engineer</h3>
+            <p>
+              <!-- Replace with real roles, years, specialties e.g. 
