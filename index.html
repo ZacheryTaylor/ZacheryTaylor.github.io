@@ -750,6 +750,15 @@
       transform: translateY(-4px);
     }
 
+    .project-link {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+.project-link:hover {
+  text-decoration: none;
+}
+    
     .project-card::before {
       content: "";
       position: absolute;
@@ -1245,15 +1254,15 @@
           <span class="project-status">Project archive coming soon</span>
         </article>
 
-        <article class="project-card academic">
+        <a class="project-card academic project-link" href="academic.html">
           <p class="project-number">02 / ACADEMIC</p>
           <h3>Academic</h3>
           <p>
             Coursework, engineering studies, mathematics, examinations, research,
             and technical learning milestones.
           </p>
-          <span class="project-status">Project archive coming soon</span>
-        </article>
+          <span class="project-status">Explore projects</span>
+        </a>
 
         <article class="project-card personal">
           <p class="project-number">03 / PERSONAL</p>
