@@ -78,8 +78,8 @@
       pointer-events: none;
       opacity: 0.42;
       background:
-        radial-gradient(circle at 15% 15%, rgba(255,255,255,0.95), transparent 33%),
-        radial-gradient(circle at 84% 80%, rgba(7,84,165,0.06), transparent 28%);
+        radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.95), transparent 33%),
+        radial-gradient(circle at 84% 80%, rgba(7, 84, 165, 0.06), transparent 28%);
     }
 
     a {
@@ -161,30 +161,12 @@
       padding: 153px 0 78px;
     }
 
-    .breadcrumb {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      margin-bottom: 20px;
-      color: var(--muted);
-      font-size: 0.84rem;
-      font-weight: 700;
-    }
-
-    .breadcrumb a {
-      color: var(--muted);
-    }
-
-    .breadcrumb a:hover {
-      color: var(--blueprint);
-    }
-
     .eyebrow {
       display: inline-block;
       margin-bottom: 18px;
       padding: 6px 12px;
       background: var(--blueprint-soft);
-      border: 1px solid rgba(7,84,165,0.15);
+      border: 1px solid rgba(7, 84, 165, 0.15);
       border-radius: 999px;
       color: var(--blueprint);
       font-size: 0.77rem;
@@ -217,6 +199,20 @@
       max-width: 45em;
       color: var(--muted);
       font-size: 1.08rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 22px;
+      color: var(--blueprint);
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
     }
 
     /* =========================
@@ -257,15 +253,15 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      background: rgba(255,255,255,0.88);
+      background: rgba(255, 255, 255, 0.88);
       border: 1px solid var(--border);
       border-radius: 18px;
-      box-shadow: 0 8px 22px rgba(23,33,43,0.035);
+      box-shadow: 0 8px 22px rgba(23, 33, 43, 0.035);
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
 
     .project-card:hover {
-      border-color: rgba(7,84,165,0.40);
+      border-color: rgba(7, 84, 165, 0.4);
       box-shadow: var(--shadow);
       transform: translateY(-4px);
     }
@@ -280,8 +276,8 @@
     .project-cover img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
       display: block;
+      object-fit: cover;
       transition: transform 0.35s ease;
     }
 
@@ -294,9 +290,9 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(135deg, rgba(7,84,165,0.18), transparent 56%),
-        linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px);
+        linear-gradient(135deg, rgba(7, 84, 165, 0.18), transparent 56%),
+        linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
       background-size: auto, 28px 28px, 28px 28px;
       pointer-events: none;
     }
@@ -305,11 +301,11 @@
       display: grid;
       place-items: center;
       background:
-        linear-gradient(rgba(255,255,255,0.14) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.14) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.14) 1px, transparent 1px),
         linear-gradient(145deg, #0d4f99, #082948);
       background-size: 28px 28px, 28px 28px, auto;
-      color: rgba(255,255,255,0.78);
+      color: rgba(255, 255, 255, 0.78);
       font-size: 0.76rem;
       font-weight: 800;
       letter-spacing: 0.15em;
@@ -322,8 +318,8 @@
       left: 14px;
       z-index: 2;
       padding: 5px 9px;
-      background: rgba(247,245,239,0.90);
-      border: 1px solid rgba(255,255,255,0.55);
+      background: rgba(247, 245, 239, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.55);
       border-radius: 999px;
       color: var(--blueprint);
       font-size: 0.67rem;
@@ -397,7 +393,7 @@
       align-items: center;
       justify-content: center;
       padding: 24px;
-      background: rgba(8, 25, 41, 0.70);
+      background: rgba(8, 25, 41, 0.7);
       backdrop-filter: blur(6px);
     }
 
@@ -411,9 +407,9 @@
       max-height: min(760px, calc(100vh - 48px));
       overflow-y: auto;
       background: var(--paper);
-      border: 1px solid rgba(255,255,255,0.34);
+      border: 1px solid rgba(255, 255, 255, 0.34);
       border-radius: 20px;
-      box-shadow: 0 30px 70px rgba(0,0,0,0.32);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.32);
     }
 
     .modal-close {
@@ -424,7 +420,7 @@
       width: 38px;
       height: 38px;
       margin: 18px 18px 0 0;
-      background: rgba(247,245,239,0.95);
+      background: rgba(247, 245, 239, 0.95);
       border: 1px solid var(--border);
       border-radius: 50%;
       color: var(--ink);
@@ -489,7 +485,7 @@
 
     .detail-card {
       padding: 18px;
-      background: rgba(255,255,255,0.82);
+      background: rgba(255, 255, 255, 0.82);
       border: 1px solid var(--border);
       border-radius: 12px;
     }
@@ -553,7 +549,7 @@
     }
 
     .btn-ghost {
-      background: rgba(255,255,255,0.75);
+      background: rgba(255, 255, 255, 0.75);
       border-color: var(--border);
       color: var(--ink);
     }
@@ -645,23 +641,18 @@
   <main>
     <header class="page-header">
       <div class="wrap">
-        <p class="breadcrumb">
-          <a href="index.html">Home</a>
-          <span>/</span>
-          <a href="index.html#projects">Projects</a>
-          <span>/</span>
-          <span>Academic</span>
-        </p>
-
-        <span class="eyebrow">Project archive / 02</span>
+        <span class="eyebrow">ZT, LLC · Selected Work</span>
 
         <h1>Academic <em>projects.</em></h1>
 
         <p class="lead">
-          Coursework, independent study, engineering analysis, mathematical work,
-          and technical learning. Select a project to view its purpose, approach,
-          results, supporting images, and PDF documentation.
+          Engineering design, technical coursework, and academic work from my
+          studies in mechanical engineering and mathematics.
         </p>
+
+        <a class="back-link" href="index.html#projects">
+          ← Back to all projects
+        </a>
       </div>
     </header>
 
@@ -674,18 +665,22 @@
           <article class="project-card">
             <div class="project-cover">
               <span class="project-type">Engineering</span>
+
               <img
-                src="images/academic/ElectricJetDrivenSurfboard.jpg"
-                alt="Electric Jet-Driven Surfboard project preview"
+                src="images/academic/ElectricJetDrivenSurfboard.png"
+                alt="Electric jet-driven surfboard project preview"
               />
             </div>
 
             <div class="project-body">
               <p class="project-date">Mechanical Engineering · 2026</p>
+
               <h2>Electric Jet-Driven Surfboard</h2>
+
               <p>
                 A mechanical engineering project focused on the development of
-                an electric jet-driven surfboard, including a modular propulsion unit.
+                an electric jet-driven surfboard, including a modular propulsion
+                unit.
               </p>
 
               <button class="card-button" type="button" data-modal="project-01">
@@ -704,6 +699,7 @@
             <div class="project-body">
               <p class="project-date">Mathematics · 2020</p>
               <h2>Project Title Two</h2>
+
               <p>
                 Use this card for a mathematics project, technical report,
                 research assignment, or independent analysis.
@@ -725,6 +721,7 @@
             <div class="project-body">
               <p class="project-date">Engineering · 2025</p>
               <h2>Project Title Three</h2>
+
               <p>
                 Add another assignment, design effort, lab, model, analysis,
                 presentation, or final project here.
@@ -741,38 +738,61 @@
   </main>
 
   <!-- MODAL: PROJECT 01 -->
-  <div class="modal" id="project-01" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="project-01-title">
+  <div
+    class="modal"
+    id="project-01"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="project-01-title"
+  >
     <div class="modal-dialog">
-      <button class="modal-close" type="button" aria-label="Close project details">&times;</button>
+      <button
+        class="modal-close"
+        type="button"
+        aria-label="Close project details"
+      >
+        &times;
+      </button>
 
       <div class="modal-hero">
         <img
-          src="images/academic/project-01-detail.jpg"
-          alt="Detailed project image for Project Title One"
+          src="images/academic/ElectricJetDrivenSurfboard.png"
+          alt="Electric jet-driven surfboard project concept"
         />
       </div>
 
       <div class="modal-content">
         <p class="modal-kicker">Mechanical Engineering · 2026</p>
-        <h2 id="project-01-title">Project Title One</h2>
+
+        <h2 id="project-01-title">Electric Jet-Driven Surfboard</h2>
 
         <p>
-          Replace this paragraph with the full overview: what problem the project
-          addressed, why it mattered, your individual role, and the final outcome.
+          This mechanical engineering project explored the conceptual development
+          of an electric jet-driven surfboard. The design centered on creating a
+          modular propulsion unit while considering power delivery, mechanical
+          integration, hydrodynamics, and practical usability.
         </p>
 
         <div class="detail-grid">
           <div class="detail-card">
             <h3>Focus</h3>
-            <p>Examples: structural analysis, design, thermodynamics, fluid mechanics, manufacturing, or systems modeling.</p>
+
+            <p>
+              Conceptual mechanical design, electric propulsion, jet-drive
+              integration, modularity, and system-level evaluation for a
+              personal watercraft.
+            </p>
           </div>
 
           <div class="detail-card">
-            <h3>Work completed</h3>
+            <h3>Project work</h3>
+
             <ul>
-              <li>Define the project scope and constraints</li>
-              <li>Describe your analysis, design, or research method</li>
-              <li>State a measurable result, deliverable, or lesson learned</li>
+              <li>Developed an electric jet-driven surfboard concept</li>
+              <li>Explored a modular propulsion-unit approach</li>
+              <li>Considered design requirements and system integration</li>
+              <li>Documented the project design and analysis in a report</li>
             </ul>
           </div>
         </div>
@@ -780,7 +800,7 @@
         <div class="modal-actions">
           <a
             class="btn btn-primary"
-            href="pdfs/academic/project-01.pdf"
+            href="pdf/academic/ElectricJetDrivenSurfboard.pdf"
             target="_blank"
             rel="noopener"
           >
@@ -789,7 +809,7 @@
 
           <a
             class="btn btn-ghost"
-            href="pdfs/academic/project-01.pdf"
+            href="pdf/academic/ElectricJetDrivenSurfboard.pdf"
             download
           >
             Download PDF
@@ -800,16 +820,22 @@
   </div>
 
   <!-- MODAL: PROJECT 02 -->
-  <div class="modal" id="project-02" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="project-02-title">
+  <div
+    class="modal"
+    id="project-02"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="project-02-title"
+  >
     <div class="modal-dialog">
-      <button class="modal-close" type="button" aria-label="Close project details">&times;</button>
-
-      <div class="modal-hero">
-        <img
-          src="images/academic/project-02-cover.jpg"
-          alt="Detailed project image for Project Title Two"
-        />
-      </div>
+      <button
+        class="modal-close"
+        type="button"
+        aria-label="Close project details"
+      >
+        &times;
+      </button>
 
       <div class="modal-content">
         <p class="modal-kicker">Mathematics · 2020</p>
@@ -819,56 +845,27 @@
           Replace this with the project overview. Explain the question or concept,
           the methods you used, and why the work is worth including in your archive.
         </p>
-
-        <div class="detail-grid">
-          <div class="detail-card">
-            <h3>Focus</h3>
-            <p>Examples: mathematical modeling, proof, computation, statistical analysis, or applied mathematics.</p>
-          </div>
-
-          <div class="detail-card">
-            <h3>Work completed</h3>
-            <ul>
-              <li>Summarize the approach</li>
-              <li>Name software, methods, or tools used</li>
-              <li>Share the key conclusion or result</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="modal-actions">
-          <a
-            class="btn btn-primary"
-            href="pdfs/academic/project-02.pdf"
-            target="_blank"
-            rel="noopener"
-          >
-            View PDF
-          </a>
-
-          <a
-            class="btn btn-ghost"
-            href="pdfs/academic/project-02.pdf"
-            download
-          >
-            Download PDF
-          </a>
-        </div>
       </div>
     </div>
   </div>
 
   <!-- MODAL: PROJECT 03 -->
-  <div class="modal" id="project-03" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="project-03-title">
+  <div
+    class="modal"
+    id="project-03"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="project-03-title"
+  >
     <div class="modal-dialog">
-      <button class="modal-close" type="button" aria-label="Close project details">&times;</button>
-
-      <div class="modal-hero">
-        <img
-          src="images/academic/project-03-cover.jpg"
-          alt="Detailed project image for Project Title Three"
-        />
-      </div>
+      <button
+        class="modal-close"
+        type="button"
+        aria-label="Close project details"
+      >
+        &times;
+      </button>
 
       <div class="modal-content">
         <p class="modal-kicker">Engineering · 2025</p>
@@ -878,41 +875,6 @@
           Replace this with the full summary of the academic project, including
           your role, process, primary deliverables, and takeaways.
         </p>
-
-        <div class="detail-grid">
-          <div class="detail-card">
-            <h3>Focus</h3>
-            <p>Describe the subject area, project objective, or engineering discipline involved.</p>
-          </div>
-
-          <div class="detail-card">
-            <h3>Work completed</h3>
-            <ul>
-              <li>Describe the first meaningful phase of work</li>
-              <li>Describe analysis, design, testing, or presentation</li>
-              <li>State the final project outcome</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="modal-actions">
-          <a
-            class="btn btn-primary"
-            href="pdfs/academic/project-03.pdf"
-            target="_blank"
-            rel="noopener"
-          >
-            View PDF
-          </a>
-
-          <a
-            class="btn btn-ghost"
-            href="pdfs/academic/project-03.pdf"
-            download
-          >
-            Download PDF
-          </a>
-        </div>
       </div>
     </div>
   </div>
@@ -937,9 +899,11 @@
     modalButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const modal = document.getElementById(button.dataset.modal);
+
         modal.classList.add("is-open");
         modal.setAttribute("aria-hidden", "false");
-        document.body.style.overflow = "hidden";
+        document.body.style.overflow = "";
+
         modal.querySelector(".modal-close").focus();
       });
     });
