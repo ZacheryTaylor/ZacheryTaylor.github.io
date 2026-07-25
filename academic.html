@@ -24,16 +24,11 @@
       --white: #ffffff;
       --ink: #17212b;
       --muted: #63707a;
-
       --blueprint: #0754a5;
       --blueprint-dark: #043d7c;
-      --blueprint-soft: rgba(7, 84, 165, 0.09);
-
       --bronze: #9a7038;
-
       --border: rgba(23, 33, 43, 0.14);
       --shadow: 0 18px 45px rgba(23, 33, 43, 0.09);
-
       --max-width: 1100px;
     }
 
@@ -93,9 +88,7 @@
       margin: 0 auto;
     }
 
-    /* =========================
-       NAVIGATION
-    ========================== */
+    /* Navigation */
 
     nav {
       position: fixed;
@@ -150,9 +143,7 @@
       color: var(--blueprint);
     }
 
-    /* =========================
-       PAGE HEADER
-    ========================== */
+    /* Header */
 
     .page-header {
       padding: 153px 0 78px;
@@ -198,9 +189,7 @@
       text-underline-offset: 4px;
     }
 
-    /* =========================
-       PROJECT GRID
-    ========================== */
+    /* Project Grid */
 
     .projects-section {
       padding: 78px 0 104px;
@@ -272,12 +261,12 @@
       content: "";
       position: absolute;
       inset: 0;
+      pointer-events: none;
       background:
         linear-gradient(135deg, rgba(7, 84, 165, 0.18), transparent 56%),
         linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
       background-size: auto, 28px 28px, 28px 28px;
-      pointer-events: none;
     }
 
     .project-cover.placeholder {
@@ -328,7 +317,6 @@
     }
 
     .project-body h2 {
-      max-width: none;
       margin-bottom: 9px;
       font-family: "Instrument Serif", Georgia, serif;
       font-size: 1.7rem;
@@ -364,9 +352,7 @@
       color: var(--white);
     }
 
-    /* =========================
-       PROJECT MODAL
-    ========================== */
+    /* Project Modals */
 
     .modal {
       position: fixed;
@@ -421,11 +407,12 @@
     }
 
     .modal-hero {
-      height: clamp(185px, 29vw, 255px);
-      display: grid;
-      place-items: center;
+      height: clamp(190px, 30vw, 280px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
-      padding: 10px 58px 10px 10px;
+      padding: 14px 58px 14px 14px;
       background:
         linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
@@ -438,7 +425,7 @@
       height: 100%;
       display: block;
       object-fit: contain;
-      object-position: center;
+      object-position: center center;
     }
 
     .modal-content {
@@ -545,9 +532,7 @@
       color: var(--blueprint);
     }
 
-    /* =========================
-       FOOTER
-    ========================== */
+    /* Footer */
 
     footer {
       padding: 50px 0 65px;
@@ -562,9 +547,7 @@
       margin-bottom: 10px;
     }
 
-    /* =========================
-       MOBILE
-    ========================== */
+    /* Mobile */
 
     @media (max-width: 840px) {
       .nav-links {
