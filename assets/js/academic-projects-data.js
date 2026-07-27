@@ -311,11 +311,11 @@ const projects = [
   
   {
     id: "future-academic-project",
-    type: "Coursework",
+    type: "TYPE",
     date: "Engineering\n2025",
-    title: "Project Title Four",
+    title: "Project Title",
     cardDescription:
-      "Add another assignment, design effort, lab, model, analysis, presentation, or final project here.",
+      "Previous assignment, design effort, lab, model, analysis, presentation, or final project here.",
     placeholder: true,
     description:
       "To be replaced with the full summary of the academic project; including role, process, primary deliverables, and takeaways.",
