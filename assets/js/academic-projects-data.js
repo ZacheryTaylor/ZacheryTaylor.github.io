@@ -171,7 +171,7 @@ const projects = [
 
     {
     id: "precision-horticulture",
-    type: "Automation",
+    type: "Mechatronics",
     date: "Mechanical Engineering\n2025",
     title: "Precision Horticulture Planter",
     cardDescription:
@@ -229,6 +229,56 @@ const projects = [
         src: "images/academic/precisionhorticulture-gallery/ph-04.jpg",
         alt: "Precision horticulture automated planter prototype",
         caption: "Automated planter prototype during system testing."
+      }
+    ]
+  },
+
+
+    {
+    id: "automated-car-elevator",
+    type: "Mechatronics",
+    date: "Mechanical Engineering\n2025",
+    title: "Automated Car and Elevator System",
+    cardDescription:
+      "An Arduino-controlled elevator and autonomous vehicle system designed to lower an RC car and navigate a hallway while avoiding walls.",
+    coverImage: "images/academic/CarAndElevator.jpg",
+    coverAlt:
+      "Arduino-based automated car and elevator system with wall-avoidance sensors",
+    description:
+      "A mechatronics project involving the design and construction of an automated elevator and wall-avoiding vehicle system. An infrared sensor detected when an RC car entered the elevator, triggering a stepper-motor sequence that lowered the platform; after the RC car exited, a limit switch activated an autonomous vehicle that navigated a hallway using ultrasonic wall detection.",
+    summary: [
+      {
+        heading: "System Sequence",
+        text:
+          "Designed a coordinated sequence in which an IR sensor detected the RC car, a stepper-motor elevator lowered it from 10 inches to 1 inch above the ground, and its exit triggered the next stage."
+      },
+      {
+        heading: "Vehicle Design",
+        text:
+          "Built the autonomous vehicle from a lightweight cardboard chassis with two front DC drive motors, a ping-pong-ball rear support, an Arduino controller, an L298N motor driver, battery holders, and sensors."
+      },
+      {
+        heading: "Autonomous Control",
+        text:
+          "Used a rear limit switch to start autonomous driving and two ultrasonic sensors to measure wall distance. The control logic moved the vehicle forward and made corrective turns when an obstacle was within 20 cm."
+      },
+      {
+        heading: "Result",
+        text:
+          "Produced a functional integrated system that met the project constraints for automated elevator movement, vehicle release, and wall-avoiding hallway navigation."
+      }
+    ],
+    pdf: "pdfs/academic/CarAndElevator.pdf",
+    gallery: [
+      {
+        src: "images/academic/CarAndElevator-gallery/CarAndElevator.jpg",
+        alt: "Completed automated car and elevator system",
+        caption: "Completed automated elevator and wall-avoiding vehicle system."
+      },
+      {
+        src: "images/academic/CarAndElevator-gallery/CnE-01.jpg",
+        alt: "Automated car and elevator system during testing",
+        caption: "Automated car and elevator system during testing."
       }
     ]
   },
