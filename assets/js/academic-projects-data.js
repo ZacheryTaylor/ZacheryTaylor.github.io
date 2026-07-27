@@ -2,7 +2,7 @@ const projects = [
   {
     id: "surfboard",
     type: "Materials",
-    date: "Mechanical Engineering<br>2026",
+    date: "Mechanical Engineering\n2025-2026",
     title: "Electric Jet-Driven Surfboard",
     cardDescription:
       "A mechanical engineering concept for an electric jet-driven surfboard with a modular propulsion unit.",
@@ -65,7 +65,7 @@ const projects = [
   {
     id: "baja",
     type: "Finance",
-    date: "Mechanical Engineering · 2025–2026",
+    date: "Mechanical Engineering\n2025–2026",
     title: "UWF Argo Racing SAE Baja",
     cardDescription:
       "Treasurer, driver, and team member supporting fundraising, operations, competition preparation, and Baja SAE competition.",
@@ -172,7 +172,7 @@ const projects = [
   {
     id: "cfd-wind-tunnel",
     type: "CFD",
-    date: "Mechanical Engineering · 2024",
+    date: "Mechanical Engineering\n2024",
     title: "Subsonic Wind Tunnel Optimization",
     cardDescription:
       "ANSYS Fluent CFD modeling to improve wind-tunnel flow quality and reduce recirculation after the test section.",
@@ -239,7 +239,7 @@ const projects = [
   {
     id: "ahmed-car-model",
     type: "CFD",
-    date: "Mechanical Engineering · 2024",
+    date: "Mechanical Engineering\n2024",
     title: "Ahmed Car Aerodynamic CFD Model",
     cardDescription:
       "ANSYS Fluent analysis of airflow around an Ahmed car model, including mesh-independence testing, aerodynamic forces, and flow visualization.",
