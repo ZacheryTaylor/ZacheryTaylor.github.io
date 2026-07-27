@@ -64,7 +64,7 @@ const projects = [
 
   {
     id: "baja",
-    type: "Ledership",
+    type: "Leadership",
     date: "Mechanical Engineering\n2025–2026",
     title: "UWF Argo Racing SAE Baja",
     cardDescription:
