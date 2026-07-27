@@ -2,7 +2,7 @@ const projects = [
   {
     id: "surfboard",
     type: "Materials",
-    date: "Mechanical Engineering\n2025-2026",
+    date: "Mechanical Engineering\n2025–2026",
     title: "Electric Jet-Driven Surfboard",
     cardDescription:
       "A mechanical engineering concept for an electric jet-driven surfboard with a modular propulsion unit.",
@@ -57,14 +57,14 @@ const projects = [
       {
         src: "images/academic/surfboard-gallery/surfboard-07.png",
         alt: "Final surfboard design render",
-        caption: "Final design render."
+        caption: "Final surfboard design render."
       }
     ]
   },
 
   {
     id: "baja",
-    type: "Finance",
+    type: "SAE Baja",
     date: "Mechanical Engineering\n2025–2026",
     title: "UWF Argo Racing SAE Baja",
     cardDescription:
@@ -99,61 +99,61 @@ const projects = [
       {
         src: "images/academic/baja-gallery/baja-03.JPG",
         alt: "UWF Argo Racing team at technical inspection",
-        caption: "Going through technical inspection."
+        caption: "Technical inspection."
       },
       {
         src: "images/academic/baja-gallery/baja-04.JPG",
-        alt: "Driver awaiting inspection",
-        caption: "In driver gear, awaiting inspection."
+        alt: "UWF Argo Racing driver in safety gear awaiting inspection",
+        caption: "In driver gear while awaiting inspection."
       },
       {
         src: "images/academic/baja-gallery/baja-05.jpg",
         alt: "UWF Argo Racing team photo",
-        caption: "Team photo."
+        caption: "UWF Argo Racing team photo."
       },
       {
         src: "images/academic/baja-gallery/baja-06.jpg",
-        alt: "Driver in safety gear",
-        caption: "In driver gear, awaiting inspection."
+        alt: "UWF Argo Racing driver in safety gear",
+        caption: "In driver gear while awaiting inspection."
       },
       {
         src: "images/academic/baja-gallery/baja-07.jpg",
-        alt: "Vehicle maintenance",
-        caption: "Vehicle maintenance, day two."
+        alt: "UWF Argo Racing vehicle maintenance",
+        caption: "Vehicle maintenance on day two."
       },
       {
         src: "images/academic/baja-gallery/baja-08.JPG",
-        alt: "UWF trailer at competition",
+        alt: "UWF Argo Racing trailer at competition",
         caption: "UWF trailer at competition."
       },
       {
         src: "images/academic/baja-gallery/baja-09.jpg",
-        alt: "Vehicle progress",
-        caption: "Vehicle progress, day two."
+        alt: "UWF Argo Racing vehicle progress",
+        caption: "Vehicle progress on day two."
       },
       {
         src: "images/academic/baja-gallery/baja-10.JPEG",
-        alt: "Driver awaiting inspection",
-        caption: "In driver gear, awaiting inspection."
+        alt: "UWF Argo Racing driver in safety gear awaiting inspection",
+        caption: "In driver gear while awaiting inspection."
       },
       {
         src: "images/academic/baja-gallery/baja-11.jpg",
-        alt: "Driver in safety gear",
-        caption: "In driver gear, awaiting inspection."
+        alt: "UWF Argo Racing driver in safety gear",
+        caption: "In driver gear while awaiting inspection."
       },
       {
         src: "images/academic/baja-gallery/baja-12.jpg",
-        alt: "Driver in full safety gear",
+        alt: "UWF Argo Racing driver in full safety gear",
         caption: "Full driver gear."
       },
       {
         src: "images/academic/baja-gallery/baja-13.JPG",
-        alt: "Egress testing",
+        alt: "UWF Argo Racing egress test",
         caption: "Egress testing for technical inspection."
       },
       {
         src: "images/academic/baja-gallery/baja-14.JPG",
-        alt: "Florida teams at SAE Baja",
+        alt: "Florida teams at SAE Baja New York 2026",
         caption: "Florida teams at SAE Baja, New York 2026."
       },
       {
@@ -164,7 +164,7 @@ const projects = [
       {
         src: "images/academic/baja-gallery/bajainterest-02.png",
         alt: "UWF Argo Racing outreach flyer",
-        caption: "UWF Argo Racing outreach material."
+        caption: "Team outreach material."
       }
     ]
   },
@@ -206,36 +206,37 @@ const projects = [
     gallery: [
       {
         src: "images/academic/CFDGroup/CFDGroup-02.png",
-        alt: "ANSYS Fluent computational mesh",
-        caption: "Diffuser 46x46mm Velocity Magnitude Pathlines Plot."
+        alt: "Velocity-magnitude pathlines for 46 by 46 millimeter diffuser outlet",
+        caption: "Velocity-magnitude pathlines: 46 × 46 mm diffuser outlet."
       },
       {
         src: "images/academic/CFDGroup/CFDGroup-01.png",
-        alt: "Subsonic wind tunnel CFD geometry",
-        caption: "Diffuser 40x40mm Velocity Magnitude Pathlines Plot."
+        alt: "Velocity-magnitude pathlines for 40 by 40 millimeter diffuser outlet",
+        caption: "Velocity-magnitude pathlines: 40 × 40 mm diffuser outlet."
       },
       {
         src: "images/academic/CFDGroup/CFDGroup-03.png",
-        alt: "Wind tunnel velocity vector analysis",
-        caption: "Diffuser 36x36mm Velocity Magnitude Pathlines Plot."
+        alt: "Velocity-magnitude pathlines for 36 by 36 millimeter diffuser outlet",
+        caption: "Velocity-magnitude pathlines: 36 × 36 mm diffuser outlet."
       },
       {
         src: "images/academic/CFDGroup/CFDGroup-04.png",
-        alt: "Wind tunnel velocity pathline analysis",
-        caption: "Diffuser 46x46mm Velocity Magnitude Vectors Plot."
+        alt: "Velocity-magnitude vectors for 46 by 46 millimeter diffuser outlet",
+        caption: "Velocity-magnitude vectors: 46 × 46 mm diffuser outlet."
       },
       {
         src: "images/academic/CFDGroup/CFDGroup-05.png",
-        alt: "Wind tunnel diffuser comparison",
-        caption: "Diffuser 40x40mm Velocity Magnitude Vectors Plot."
+        alt: "Velocity-magnitude vectors for 40 by 40 millimeter diffuser outlet",
+        caption: "Velocity-magnitude vectors: 40 × 40 mm diffuser outlet."
       },
       {
         src: "images/academic/CFDGroup/CFDGroup-06.png",
-        alt: "CFD simulation result for wind tunnel",
-        caption: "Diffuser 36x36mm Velocity Magnitude Vectors Plot."
+        alt: "Velocity-magnitude vectors for 36 by 36 millimeter diffuser outlet",
+        caption: "Velocity-magnitude vectors: 36 × 36 mm diffuser outlet."
       }
     ]
   },
+
   {
     id: "ahmed-car-model",
     type: "CFD",
@@ -251,7 +252,7 @@ const projects = [
       {
         heading: "Simulation Setup",
         text:
-          "Modeled external airflow around an Ahmed car geometry using air properties with a 40 m/s inlet velocity, 5% turbulent intensity, and a turbulent k-epsilon flow model."
+          "Modeled external airflow around an Ahmed car geometry using a 40 m/s inlet velocity, 5% turbulence intensity, and a standard k-epsilon turbulence model."
       },
       {
         heading: "Mesh Study",
@@ -266,12 +267,12 @@ const projects = [
       {
         heading: "Results",
         text:
-          "Used velocity-magnitude contours, static-pressure contours, pathlines, vectors, and experimental-data comparisons to assess the wake and aerodynamic flow behavior."
+          "Evaluated velocity-magnitude and static-pressure contours, pathlines, vectors, aerodynamic drag and lift, and experimental-data comparisons to assess wake behavior and flow around the vehicle."
       }
     ],
     pdf: "pdfs/academic/AhmedCarModel.pdf"
   },
-  
+
   {
     id: "laminar-turbulent-pipe-flow",
     type: "CFD",
@@ -288,7 +289,7 @@ const projects = [
       {
         heading: "Simulation Setup",
         text:
-          "Modeled air flow through a smooth cylindrical pipe using a 0.02 m/s laminar inlet case and a 2 m/s turbulent inlet case. The turbulent simulation used a k-epsilon model with 5% turbulence intensity."
+          "Modeled airflow through a smooth cylindrical pipe using a 0.02 m/s laminar inlet case and a 2 m/s turbulent inlet case. The turbulent simulation used a k-epsilon model with 5% turbulence intensity."
       },
       {
         heading: "Mesh Study",
@@ -367,7 +368,7 @@ const projects = [
       },
       {
         src: "images/academic/waterflowelbow-gallery/WaterFlowElbow-05.jpg",
-        alt: "Velocity magnitude result for water flow through elbow",
+        alt: "Velocity-magnitude result for water flow through elbow",
         caption: "Velocity-magnitude result used to examine internal flow behavior."
       },
       {
@@ -382,17 +383,17 @@ const projects = [
       }
     ]
   },
-  
+
   {
     id: "future-academic-project",
-    type: "TYPE",
+    type: "Coursework",
     date: "Engineering\n2025",
     title: "Project Title",
     cardDescription:
-      "Previous assignment, design effort, lab, model, analysis, presentation, or final project here.",
+      "Future academic project, design effort, laboratory study, analysis, or technical presentation.",
     placeholder: true,
     description:
-      "To be replaced with the full summary of the academic project; including role, process, primary deliverables, and takeaways.",
+      "This entry will be replaced with a completed project summary describing the objective, technical process, role, deliverables, and key takeaways.",
     summary: []
   }
 ];
