@@ -205,34 +205,34 @@ const projects = [
     pdf: "pdfs/academic/CFDGroup.pdf",
     gallery: [
       {
-        src: "images/academic/CFDGroup/CFDGroup-01.png",
-        alt: "Subsonic wind tunnel CFD geometry",
-        caption: "Wind tunnel geometry modeled for CFD analysis."
-      },
-      {
         src: "images/academic/CFDGroup/CFDGroup-02.png",
         alt: "ANSYS Fluent computational mesh",
-        caption: "Computational mesh used for wind tunnel simulation."
+        caption: "Diffuser 46x46mm Velocity Magnitude Pathlines Plot."
+      },
+      {
+        src: "images/academic/CFDGroup/CFDGroup-01.png",
+        alt: "Subsonic wind tunnel CFD geometry",
+        caption: "Diffuser 40x40mm Velocity Magnitude Pathlines Plot."
       },
       {
         src: "images/academic/CFDGroup/CFDGroup-03.png",
         alt: "Wind tunnel velocity vector analysis",
-        caption: "Velocity-vector analysis used to identify recirculation behavior."
+        caption: "Diffuser 36x36mm Velocity Magnitude Pathlines Plot."
       },
       {
         src: "images/academic/CFDGroup/CFDGroup-04.png",
         alt: "Wind tunnel velocity pathline analysis",
-        caption: "Flow pathlines showing airflow through the tunnel geometry."
+        caption: "Diffuser 46x46mm Velocity Magnitude Vectors Plot."
       },
       {
         src: "images/academic/CFDGroup/CFDGroup-05.png",
         alt: "Wind tunnel diffuser comparison",
-        caption: "Diffuser-geometry comparison for recirculation reduction."
+        caption: "Diffuser 40x40mm Velocity Magnitude Vectors Plot."
       },
       {
         src: "images/academic/CFDGroup/CFDGroup-06.png",
         alt: "CFD simulation result for wind tunnel",
-        caption: "CFD result supporting the optimized diffuser design."
+        caption: "Diffuser 36x36mm Velocity Magnitude Vectors Plot."
       }
     ]
   },
