@@ -243,7 +243,7 @@ const projects = [
     title: "Ahmed Car Aerodynamic CFD Model",
     cardDescription:
       "ANSYS Fluent analysis of airflow around an Ahmed car model, including mesh-independence testing, aerodynamic forces, and flow visualization.",
-    coverImage: "images/academic/AhmedCar.png",
+    coverImage: "images/academic/AhmedCar.jpg",
     coverAlt: "Ahmed car model computational fluid dynamics analysis",
     description:
       "A Computational Fluid Dynamics study of external airflow around an Ahmed car model using ANSYS Fluent. The project evaluated aerodynamic behavior at a 40 m/s inlet velocity through mesh refinement, solution convergence, velocity-profile comparisons, drag and lift monitoring, and flow-field visualization.",
