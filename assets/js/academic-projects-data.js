@@ -282,6 +282,62 @@ const projects = [
       }
     ]
   },
+
+
+    {
+    id: "automated-parking-gate",
+    type: "Mechatronics",
+    date: "Mechanical Engineering\n2025",
+    title: "Automated Parking Gate System",
+    cardDescription:
+      "An Arduino-based parking-access prototype with occupancy sensing, binary-code entry, and motorized dual-gate control.",
+    coverImage: "images/academic/DoubleGate.jpg",
+    coverAlt:
+      "Arduino-based automated parking gate system with dual motorized gates",
+    description:
+      "A mechatronics project focused on designing and building a simulated automated parking-access system using an Arduino Mega 2560. The prototype combined ultrasonic vehicle detection, infrared parking-stall sensors, six-bit binary-code access control, LED status indicators, and L298N-driven DC motors to manage two sequential entry gates.",
+    summary: [
+      {
+        heading: "System Design",
+        text:
+          "Built a two-gate parking-access prototype using Arduino control, two DC motors, an L298N motor driver, ultrasonic sensors at each gate, infrared sensors at two parking stalls, and three status LEDs."
+      },
+      {
+        heading: "Access Control",
+        text:
+          "Implemented a six-bit binary input system that converts a user-entered code from binary to decimal and opens the first gate only when it matches the programmed access value."
+      },
+      {
+        heading: "Occupancy Logic",
+        text:
+          "Used infrared sensors to monitor two parking spaces and prevent new vehicle entry when both stalls were occupied."
+      },
+      {
+        heading: "Gate Safety",
+        text:
+          "Programmed each gate to remain open while a vehicle was detected, then close before the next gate opened. The system used motor speed and direction control to operate the gate arms."
+      }
+    ],
+    pdf: "pdfs/academic/DoubleGate.pdf",
+    gallery: [
+      {
+        src: "images/academic/doublegate-gallery/DoubleGate.jpg",
+        alt: "Completed automated dual-gate parking access system",
+        caption: "Completed automated dual-gate parking-access prototype."
+      },
+      {
+        src: "images/academic/doublegate-gallery/DG-01.jpg",
+        alt: "Automated parking gate system components and wiring",
+        caption: "Parking-gate components, wiring, and access-control setup."
+      },
+      {
+        src: "images/academic/doublegate-gallery/DG-02.jpg",
+        alt: "Automated dual-gate parking system during testing",
+        caption: "Dual-gate parking-access system during testing."
+      }
+    ]
+  },
+
   
   {
     id: "cfd-wind-tunnel",
