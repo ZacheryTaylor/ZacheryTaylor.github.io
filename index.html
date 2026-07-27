@@ -432,13 +432,73 @@
         linear-gradient(-44deg, transparent 49.5%, rgba(255,255,255,0.28) 50%, transparent 50.5%) 0 0 / 90px 90px;
     }
 
-    .headshot-wrap {
+    .portrait-stack {
       position: absolute;
       top: 42px;
       left: 32px;
       z-index: 3;
+      width: 220px;
+      height: 178px;
+    }
+
+    .portrait-stack::before {
+      content: "ZT / AUTHOR";
+      position: absolute;
+      top: -20px;
+      left: 1px;
+      z-index: 4;
+      color: rgba(255,255,255,0.78);
+      font-size: 0.58rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+    }
+
+    .portrait-secondary {
+      position: absolute;
+      top: 16px;
+      right: 0;
+      width: 104px;
+      height: 132px;
+      overflow: hidden;
+      padding: 4px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.32);
+      border-radius: 9px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.18);
+      transform: rotate(6deg);
+    }
+
+    .portrait-secondary::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(7,84,165,0.10),
+        rgba(255,255,255,0.12)
+      );
+      pointer-events: none;
+    }
+
+    .portrait-secondary img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 5px;
+      filter: grayscale(100%) contrast(1.04);
+    }
+
+    .headshot-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
       width: 126px;
       height: 158px;
+      overflow: hidden;
       padding: 5px;
       background: rgba(255,255,255,0.16);
       border: 1px solid rgba(255,255,255,0.48);
@@ -447,21 +507,10 @@
       transform: rotate(-2deg);
     }
 
-    .headshot-wrap::before {
-      content: "ZT / AUTHOR";
-      position: absolute;
-      top: -20px;
-      left: 1px;
-      color: rgba(255,255,255,0.78);
-      font-size: 0.58rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      white-space: nowrap;
-    }
-
     .headshot-wrap img {
       width: 100%;
       height: 100%;
+      display: block;
       object-fit: cover;
       object-position: center;
       border-radius: 6px;
@@ -755,10 +804,10 @@
       text-decoration: none;
     }
 
-.project-link:hover {
-  text-decoration: none;
-}
-    
+    .project-link:hover {
+      text-decoration: none;
+    }
+
     .project-card::before {
       content: "";
       position: absolute;
@@ -995,11 +1044,22 @@
         padding: 26px;
       }
 
-      .headshot-wrap {
+      .portrait-stack {
         top: 30px;
         left: 24px;
+        width: 174px;
+        height: 142px;
+      }
+
+      .headshot-wrap {
         width: 98px;
         height: 122px;
+      }
+
+      .portrait-secondary {
+        top: 12px;
+        width: 80px;
+        height: 102px;
       }
 
       h1 {
@@ -1049,8 +1109,14 @@
       <aside class="hero-panel">
         <div class="structure-lines"></div>
 
-        <div class="headshot-wrap">
-          <img src="images/H.jpg" alt="Zachery Taylor" />
+        <div class="portrait-stack" aria-label="Portraits of Zachery Taylor">
+          <div class="portrait-secondary">
+            <img src="images/G.jpg" alt="" />
+          </div>
+
+          <div class="headshot-wrap">
+            <img src="images/H.jpg" alt="Zachery Taylor" />
+          </div>
         </div>
 
         <div class="hero-panel-content">
