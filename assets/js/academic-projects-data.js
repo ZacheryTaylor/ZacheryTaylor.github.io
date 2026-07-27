@@ -169,6 +169,70 @@ const projects = [
     ]
   },
 
+    {
+    id: "precision-horticulture",
+    type: "Automation",
+    date: "Mechanical Engineering\n2025",
+    title: "Precision Horticulture Planter",
+    cardDescription:
+      "An Arduino-based automated planter that monitors soil moisture and delivers controlled irrigation to two independent plant zones.",
+    coverImage: "images/academic/PrecisionHorticulture.jpg",
+    coverAlt:
+      "Arduino-based precision horticulture planter with automated irrigation components",
+    description:
+      "A mechatronics project focused on designing and building an affordable automated planter system for precision horticulture. The system uses an Arduino microcontroller, soil-moisture sensors, relay-controlled water pumps, and a sensor-activated manual dispensing station to monitor and regulate irrigation across two plant zones.",
+    summary: [
+      {
+        heading: "System Design",
+        text:
+          "Built an Arduino-controlled planter with two independent growing zones, each using an LM393 soil-moisture sensor, a 5V water pump, and a relay module for targeted irrigation."
+      },
+      {
+        heading: "Control Logic",
+        text:
+          "Programmed real-time analog moisture monitoring and automatic pump activation when readings exceeded the selected dry-soil threshold, helping prevent overwatering and underwatering."
+      },
+      {
+        heading: "Watering Can Refill",
+        text:
+          "Added a proximity-activated water dispenser using an infrared sensor, allowing supplemental manual watering through a side hose when a hand or object is detected."
+      },
+      {
+        heading: "Safety and Expansion",
+        text:
+          "Included individual rocker switches to disable each irrigation zone or the dispensing station during maintenance. Planned future improvements include low-power sleep cycles and expanded environmental monitoring."
+      }
+    ],
+    pdf: "pdfs/academic/PrecisionHorticulture.pdf",
+    gallery: [
+      {
+        src: "images/academic/precisionhorticulture-gallery/PrecisionHorticulture.jpg",
+        alt: "Completed precision horticulture automated planter system",
+        caption: "Completed Arduino-based precision horticulture planter system."
+      },
+      {
+        src: "images/academic/precisionhorticulture-gallery/ph-01.jpg",
+        alt: "Precision horticulture planter components and wiring",
+        caption: "Automated planter components and electrical wiring."
+      },
+      {
+        src: "images/academic/precisionhorticulture-gallery/ph-02.jpg",
+        alt: "Soil moisture sensors and water-pump irrigation setup",
+        caption: "Soil-moisture sensors and dedicated irrigation pumps."
+      },
+      {
+        src: "images/academic/precisionhorticulture-gallery/ph-03.jpg",
+        alt: "Arduino control system for automated planter",
+        caption: "Arduino control system and relay-based pump connections."
+      },
+      {
+        src: "images/academic/precisionhorticulture-gallery/ph-04.jpg",
+        alt: "Precision horticulture automated planter prototype",
+        caption: "Automated planter prototype during system testing."
+      }
+    ]
+  },
+  
   {
     id: "cfd-wind-tunnel",
     type: "CFD",
@@ -380,69 +444,6 @@ const projects = [
         src: "images/academic/waterflowelbow-gallery/WaterFlowElbow-07.jpg",
         alt: "Water-flow pathlines through revised elbow",
         caption: "Velocity-magnitude pathlines showing water flow through the revised elbow."
-      }
-    ]
-  },
-    {
-    id: "precision-horticulture",
-    type: "Automation",
-    date: "Mechanical Engineering\n2025",
-    title: "Precision Horticulture Planter",
-    cardDescription:
-      "An Arduino-based automated planter that monitors soil moisture and delivers controlled irrigation to two independent plant zones.",
-    coverImage: "images/academic/PrecisionHorticulture.jpg",
-    coverAlt:
-      "Arduino-based precision horticulture planter with automated irrigation components",
-    description:
-      "A mechatronics project focused on designing and building an affordable automated planter system for precision horticulture. The system uses an Arduino microcontroller, soil-moisture sensors, relay-controlled water pumps, and a sensor-activated manual dispensing station to monitor and regulate irrigation across two plant zones.",
-    summary: [
-      {
-        heading: "System Design",
-        text:
-          "Built an Arduino-controlled planter with two independent growing zones, each using an LM393 soil-moisture sensor, a 5V water pump, and a relay module for targeted irrigation."
-      },
-      {
-        heading: "Control Logic",
-        text:
-          "Programmed real-time analog moisture monitoring and automatic pump activation when readings exceeded the selected dry-soil threshold, helping prevent overwatering and underwatering."
-      },
-      {
-        heading: "Watering Can Refill",
-        text:
-          "Added a proximity-activated water dispenser using an infrared sensor, allowing supplemental manual watering through a side hose when a hand or object is detected."
-      },
-      {
-        heading: "Safety and Expansion",
-        text:
-          "Included individual rocker switches to disable each irrigation zone or the dispensing station during maintenance. Planned future improvements include low-power sleep cycles and expanded environmental monitoring."
-      }
-    ],
-    pdf: "pdfs/academic/PrecisionHorticulture.pdf",
-    gallery: [
-      {
-        src: "images/academic/precisionhorticulture-gallery/PrecisionHorticulture.jpg",
-        alt: "Completed precision horticulture automated planter system",
-        caption: "Completed Arduino-based precision horticulture planter system."
-      },
-      {
-        src: "images/academic/precisionhorticulture-gallery/ph-01.jpg",
-        alt: "Precision horticulture planter components and wiring",
-        caption: "Automated planter components and electrical wiring."
-      },
-      {
-        src: "images/academic/precisionhorticulture-gallery/ph-02.jpg",
-        alt: "Soil moisture sensors and water-pump irrigation setup",
-        caption: "Soil-moisture sensors and dedicated irrigation pumps."
-      },
-      {
-        src: "images/academic/precisionhorticulture-gallery/ph-03.jpg",
-        alt: "Arduino control system for automated planter",
-        caption: "Arduino control system and relay-based pump connections."
-      },
-      {
-        src: "images/academic/precisionhorticulture-gallery/ph-04.jpg",
-        alt: "Precision horticulture automated planter prototype",
-        caption: "Automated planter prototype during system testing."
       }
     ]
   },
