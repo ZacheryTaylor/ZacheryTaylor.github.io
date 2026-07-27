@@ -1,7 +1,7 @@
 const projects = [
   {
     id: "surfboard",
-    type: "Materials",
+    type: "Product Design",
     date: "Mechanical Engineering\n2025–2026",
     title: "Electric Jet-Driven Surfboard",
     cardDescription:
@@ -72,7 +72,7 @@ const projects = [
     coverImage: "images/academic/UWFBaja.jpg",
     coverAlt: "UWF Argo Racing SAE Baja team and vehicle",
     description:
-      "UWF Argo Racing is a student Baja SAE team that designs, builds, tests, and competes with a single-seat off-road vehicle.",
+      "UWF Argo Racing is a student Baja SAE team that designs, builds, tests, and competes with a single-seat off-road vehicle. My contributions focused on financial leadership, fundraising, sponsor outreach, team operations, and competition preparation.",
     summary: [
       {
         heading: "Leadership",
@@ -180,7 +180,7 @@ const projects = [
     coverAlt:
       "Arduino-based precision horticulture planter with automated irrigation components",
     description:
-      "A mechatronics project focused on designing and building an affordable automated planter system for precision horticulture. The system uses an Arduino microcontroller, soil-moisture sensors, relay-controlled water pumps, and a sensor-activated manual dispensing station to monitor and regulate irrigation across two plant zones.",
+      "A mechatronics project focused on designing and building an affordable automated planter for precision horticulture. An Arduino microcontroller uses soil-moisture sensors, relay-controlled water pumps, and a proximity-activated manual dispensing station to monitor and regulate irrigation across two independent plant zones.",
     summary: [
       {
         heading: "System Design",
@@ -195,7 +195,7 @@ const projects = [
       {
         heading: "Watering Can Refill",
         text:
-          "Added a proximity-activated water dispenser using an infrared sensor, allowing supplemental manual watering through a side hose when a hand or object is detected."
+          "Added a proximity-activated water dispenser that allows supplemental manual watering through a side hose when a hand or object is detected."
       },
       {
         heading: "Safety and Expansion",
@@ -245,7 +245,7 @@ const projects = [
     coverAlt:
       "Arduino-based automated car and elevator system with wall-avoidance sensors",
     description:
-      "A mechatronics project involving the design and construction of an automated elevator and wall-avoiding vehicle system. An infrared sensor detected when an RC car entered the elevator, triggering a stepper-motor sequence that lowered the platform; after the RC car exited, a limit switch activated an autonomous vehicle that navigated a hallway using ultrasonic wall detection.",
+      "A mechatronics project involving the design and construction of an automated elevator and wall-avoidance vehicle system.",
     summary: [
       {
         heading: "System Sequence",
