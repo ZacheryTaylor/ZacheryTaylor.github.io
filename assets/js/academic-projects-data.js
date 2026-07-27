@@ -2,7 +2,7 @@ const projects = [
   {
     id: "surfboard",
     type: "Materials",
-    date: "Mechanical Engineering · 2026",
+    date: "Mechanical Engineering<br>2026",
     title: "Electric Jet-Driven Surfboard",
     cardDescription:
       "A mechanical engineering concept for an electric jet-driven surfboard with a modular propulsion unit.",
