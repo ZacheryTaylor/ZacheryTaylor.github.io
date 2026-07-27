@@ -352,7 +352,7 @@
       color: var(--white);
     }
 
-    /* Project Modals */
+    /* Modals */
 
     .modal {
       position: fixed;
@@ -442,7 +442,7 @@
     }
 
     .modal-content h2 {
-      max-width: 20ch;
+      max-width: 23ch;
       margin-bottom: 12px;
       font-family: "Instrument Serif", Georgia, serif;
       font-size: clamp(2rem, 4vw, 2.6rem);
@@ -538,7 +538,7 @@
       color: var(--blueprint);
     }
 
-    /* Project Gallery */
+    /* Galleries */
 
     .gallery-dialog {
       width: min(860px, 100%);
@@ -583,8 +583,7 @@
       border-radius: 14px;
     }
 
-    .gallery-item img,
-    .gallery-item video {
+    .gallery-item img {
       width: 100%;
       height: min(42vw, 340px);
       display: block;
@@ -640,7 +639,7 @@
       margin-bottom: 10px;
     }
 
-    /* Mobile */
+    /* Responsive */
 
     @media (max-width: 840px) {
       .nav-links {
@@ -700,8 +699,7 @@
         font-size: 2.25rem;
       }
 
-      .gallery-item img,
-      .gallery-item video {
+      .gallery-item img {
         height: 52vw;
         max-height: 260px;
       }
@@ -804,6 +802,33 @@
 
           <!-- PROJECT 03 -->
           <article class="project-card">
+            <div class="project-cover">
+              <span class="project-type">CFD</span>
+
+              <img
+                src="images/academic/CFDGroup/CFDGroup-01.png"
+                alt="CFD model of subsonic wind tunnel geometry"
+              />
+            </div>
+
+            <div class="project-body">
+              <p class="project-date">Mechanical Engineering · 2024</p>
+
+              <h2>Subsonic Wind Tunnel Optimization</h2>
+
+              <p>
+                ANSYS Fluent CFD modeling to improve wind-tunnel flow quality
+                and reduce recirculation after the test section.
+              </p>
+
+              <button class="card-button" type="button" data-modal="project-03">
+                View project
+              </button>
+            </div>
+          </article>
+
+          <!-- PROJECT 04 -->
+          <article class="project-card">
             <div class="project-cover placeholder">
               <span class="project-type">Coursework</span>
               Cover image pending
@@ -812,14 +837,14 @@
             <div class="project-body">
               <p class="project-date">Engineering · 2025</p>
 
-              <h2>Project Title Three</h2>
+              <h2>Project Title Four</h2>
 
               <p>
                 Add another assignment, design effort, lab, model, analysis,
                 presentation, or final project here.
               </p>
 
-              <button class="card-button" type="button" data-modal="project-03">
+              <button class="card-button" type="button" data-modal="project-04">
                 View project
               </button>
             </div>
@@ -839,18 +864,14 @@
     aria-labelledby="project-01-title"
   >
     <div class="modal-dialog">
-      <button
-        class="modal-close"
-        type="button"
-        aria-label="Close project details"
-      >
+      <button class="modal-close" type="button" aria-label="Close project details">
         &times;
       </button>
 
       <div class="modal-hero">
         <img
           src="images/academic/ElectricJetDrivenSurfboard.png"
-          alt="Electric jet-driven surfboard project concept"
+          alt="Electric jet-driven surfboard concept"
         />
       </div>
 
@@ -899,11 +920,7 @@
             Download PDF
           </a>
 
-          <button
-            class="btn btn-ghost"
-            type="button"
-            data-modal="gallery-01"
-          >
+          <button class="btn btn-ghost" type="button" data-modal="gallery-01">
             Photos
           </button>
         </div>
@@ -921,19 +938,13 @@
     aria-labelledby="gallery-01-title"
   >
     <div class="modal-dialog gallery-dialog">
-      <button
-        class="modal-close"
-        type="button"
-        aria-label="Close surfboard photo gallery"
-      >
+      <button class="modal-close" type="button" aria-label="Close surfboard gallery">
         &times;
       </button>
 
       <div class="gallery-content">
         <p class="modal-kicker">Electric Jet-Driven Surfboard</p>
-
         <h2 id="gallery-01-title">Photos</h2>
-
         <p>Project images and additional media.</p>
 
         <div
@@ -943,19 +954,8 @@
         >
           <figure class="gallery-item">
             <img
-              src="images/academic/surfboard-gallery/SurfboardPresent.jpg"
-              alt="Electric jet-driven surfboard presentation"
-              loading="lazy"
-            />
-            <figcaption class="gallery-caption">
-              Electric Jet-Driven Surfboard with Modular Propulsion Unit.
-            </figcaption>
-          </figure>
-          
-          <figure class="gallery-item">
-            <img
               src="images/academic/surfboard-gallery/surfboard-01.png"
-              alt="Electric jet-driven surfboard design render one"
+              alt="Electric jet-driven surfboard concept render"
               loading="lazy"
             />
             <figcaption class="gallery-caption">
@@ -966,7 +966,7 @@
           <figure class="gallery-item">
             <img
               src="images/academic/surfboard-gallery/surfboard-02.png"
-              alt="Electric jet-driven surfboard design render two"
+              alt="Surfboard structure and internal system layout"
               loading="lazy"
             />
             <figcaption class="gallery-caption">
@@ -977,7 +977,7 @@
           <figure class="gallery-item">
             <img
               src="images/academic/surfboard-gallery/surfboard-03.png"
-              alt="Electric jet-driven surfboard design render three"
+              alt="Modular propulsion-unit development"
               loading="lazy"
             />
             <figcaption class="gallery-caption">
@@ -988,7 +988,7 @@
           <figure class="gallery-item">
             <img
               src="images/academic/surfboard-gallery/surfboard-04.png"
-              alt="Electric jet-driven surfboard design render four"
+              alt="Mechanical design detail"
               loading="lazy"
             />
             <figcaption class="gallery-caption">
@@ -999,7 +999,7 @@
           <figure class="gallery-item">
             <img
               src="images/academic/surfboard-gallery/surfboard-05.png"
-              alt="Electric jet-driven surfboard design render five"
+              alt="Concept visualization and component integration"
               loading="lazy"
             />
             <figcaption class="gallery-caption">
@@ -1010,7 +1010,7 @@
           <figure class="gallery-item">
             <img
               src="images/academic/surfboard-gallery/surfboard-06.png"
-              alt="Electric jet-driven surfboard design render six"
+              alt="Surfboard design iteration"
               loading="lazy"
             />
             <figcaption class="gallery-caption">
@@ -1021,7 +1021,7 @@
           <figure class="gallery-item">
             <img
               src="images/academic/surfboard-gallery/surfboard-07.png"
-              alt="Electric jet-driven surfboard design render seven"
+              alt="Final surfboard design render"
               loading="lazy"
             />
             <figcaption class="gallery-caption">
@@ -1061,11 +1061,7 @@
     aria-labelledby="project-02-title"
   >
     <div class="modal-dialog">
-      <button
-        class="modal-close"
-        type="button"
-        aria-label="Close project details"
-      >
+      <button class="modal-close" type="button" aria-label="Close project details">
         &times;
       </button>
 
@@ -1107,8 +1103,7 @@
             <h3>Fundraising</h3>
             <p>
               Secured more than $27,000 in sponsorships from local and national
-              companies to bring UWF to the competition stage alongside major
-              Division I universities.
+              companies to bring UWF to the competition stage.
             </p>
           </div>
 
@@ -1122,11 +1117,7 @@
         </div>
 
         <div class="modal-actions">
-          <button
-            class="btn btn-primary"
-            type="button"
-            data-modal="gallery-02"
-          >
+          <button class="btn btn-primary" type="button" data-modal="gallery-02">
             Photos
           </button>
         </div>
@@ -1144,178 +1135,88 @@
     aria-labelledby="gallery-02-title"
   >
     <div class="modal-dialog gallery-dialog">
-      <button
-        class="modal-close"
-        type="button"
-        aria-label="Close Baja photo gallery"
-      >
+      <button class="modal-close" type="button" aria-label="Close Baja gallery">
         &times;
       </button>
 
       <div class="gallery-content">
         <p class="modal-kicker">UWF Argo Racing SAE Baja</p>
-
         <h2 id="gallery-02-title">Photos</h2>
-
         <p>Project images and additional media.</p>
 
         <div
           class="gallery-track"
           id="gallery-track-02"
-          aria-label="UWF Argo Racing Baja photo gallery"
+          aria-label="UWF Argo Racing Baja image gallery"
         >
           <figure class="gallery-item">
-            <img
-              src="images/academic/baja-gallery/baja-03.JPG"
-              alt="UWF Argo Racing team at technical inspection"
-              loading="lazy"
-            />
-            <figcaption class="gallery-caption">
-              Going through technical inspection.
-            </figcaption>
+            <img src="images/academic/baja-gallery/baja-03.JPG" alt="Technical inspection" loading="lazy" />
+            <figcaption class="gallery-caption">Going through technical inspection.</figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img
-              src="images/academic/baja-gallery/baja-04.JPG"
-              alt="UWF Argo Racing driver in safety gear awaiting inspection"
-              loading="lazy"
-            />
-            <figcaption class="gallery-caption">
-              In driver gear, awaiting inspection.
-            </figcaption>
+            <img src="images/academic/baja-gallery/baja-04.JPG" alt="Driver awaiting inspection" loading="lazy" />
+            <figcaption class="gallery-caption">In driver gear, awaiting inspection.</figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img
-              src="images/academic/baja-gallery/baja-05.jpg"
-              alt="UWF Argo Racing team photo"
-              loading="lazy"
-            />
-            <figcaption class="gallery-caption">
-              Team photo.
-            </figcaption>
+            <img src="images/academic/baja-gallery/baja-05.jpg" alt="UWF Argo Racing team photo" loading="lazy" />
+            <figcaption class="gallery-caption">Team photo.</figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img
-              src="images/academic/baja-gallery/baja-06.jpg"
-              alt="UWF Argo Racing driver in safety gear"
-              loading="lazy"
-            />
-            <figcaption class="gallery-caption">
-              In driver gear, awaiting inspection.
-            </figcaption>
+            <img src="images/academic/baja-gallery/baja-06.jpg" alt="Driver in safety gear" loading="lazy" />
+            <figcaption class="gallery-caption">In driver gear, awaiting inspection.</figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img
-              src="images/academic/baja-gallery/baja-07.jpg"
-              alt="UWF Argo Racing vehicle maintenance"
-              loading="lazy"
-            />
-            <figcaption class="gallery-caption">
-              Vehicle maintenance, day two.
-            </figcaption>
+            <img src="images/academic/baja-gallery/baja-07.jpg" alt="Vehicle maintenance" loading="lazy" />
+            <figcaption class="gallery-caption">Vehicle maintenance, day two.</figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img
-              src="images/academic/baja-gallery/baja-08.JPG"
-              alt="UWF Argo Racing trailer at competition"
-              loading="lazy"
-            />
-            <figcaption class="gallery-caption">
-              UWF trailer at competition.
-            </figcaption>
+            <img src="images/academic/baja-gallery/baja-08.JPG" alt="UWF trailer at competition" loading="lazy" />
+            <figcaption class="gallery-caption">UWF trailer at competition.</figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img
-              src="images/academic/baja-gallery/baja-09.jpg"
-              alt="UWF Argo Racing vehicle progress"
-              loading="lazy"
-            />
-            <figcaption class="gallery-caption">
-              Vehicle progress, day two.
-            </figcaption>
+            <img src="images/academic/baja-gallery/baja-09.jpg" alt="Vehicle progress" loading="lazy" />
+            <figcaption class="gallery-caption">Vehicle progress, day two.</figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img
-              src="images/academic/baja-gallery/baja-10.JPEG"
-              alt="UWF Argo Racing driver in safety gear awaiting inspection"
-              loading="lazy"
-            />
-            <figcaption class="gallery-caption">
-              In driver gear, awaiting inspection.
-            </figcaption>
+            <img src="images/academic/baja-gallery/baja-10.JPEG" alt="Driver awaiting inspection" loading="lazy" />
+            <figcaption class="gallery-caption">In driver gear, awaiting inspection.</figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img
-              src="images/academic/baja-gallery/baja-11.jpg"
-              alt="UWF Argo Racing driver in safety gear"
-              loading="lazy"
-            />
-            <figcaption class="gallery-caption">
-              In driver gear, awaiting inspection.
-            </figcaption>
+            <img src="images/academic/baja-gallery/baja-11.jpg" alt="Driver in safety gear" loading="lazy" />
+            <figcaption class="gallery-caption">In driver gear, awaiting inspection.</figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img
-              src="images/academic/baja-gallery/baja-12.jpg"
-              alt="UWF Argo Racing driver in full safety gear"
-              loading="lazy"
-            />
-            <figcaption class="gallery-caption">
-              Full driver gear.
-            </figcaption>
+            <img src="images/academic/baja-gallery/baja-12.jpg" alt="Driver in full safety gear" loading="lazy" />
+            <figcaption class="gallery-caption">Full driver gear.</figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img
-              src="images/academic/baja-gallery/baja-13.JPG"
-              alt="UWF Argo Racing egress test"
-              loading="lazy"
-            />
-            <figcaption class="gallery-caption">
-              Egress testing for technical inspection.
-            </figcaption>
+            <img src="images/academic/baja-gallery/baja-13.JPG" alt="Egress test" loading="lazy" />
+            <figcaption class="gallery-caption">Egress testing for technical inspection.</figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img
-              src="images/academic/baja-gallery/baja-14.JPG"
-              alt="Florida teams at SAE Baja New York 2026"
-              loading="lazy"
-            />
-            <figcaption class="gallery-caption">
-              Florida teams at SAE Baja, New York 2026.
-            </figcaption>
+            <img src="images/academic/baja-gallery/baja-14.JPG" alt="Florida teams at SAE Baja" loading="lazy" />
+            <figcaption class="gallery-caption">Florida teams at SAE Baja, New York 2026.</figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img
-              src="images/academic/baja-gallery/bajainterest-01.png"
-              alt="UWF Argo Racing interest flyer"
-              loading="lazy"
-            />
-            <figcaption class="gallery-caption">
-              Team recruitment and interest material.
-            </figcaption>
+            <img src="images/academic/baja-gallery/bajainterest-01.png" alt="UWF Argo Racing interest flyer" loading="lazy" />
+            <figcaption class="gallery-caption">Team recruitment and interest material.</figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img
-              src="images/academic/baja-gallery/bajainterest-02.png"
-              alt="UWF Argo Racing outreach flyer"
-              loading="lazy"
-            />
-            <figcaption class="gallery-caption">
-              UWF Argo Racing outreach material.
-            </figcaption>
+            <img src="images/academic/baja-gallery/bajainterest-02.png" alt="UWF Argo Racing outreach flyer" loading="lazy" />
+            <figcaption class="gallery-caption">UWF Argo Racing outreach material.</figcaption>
           </figure>
         </div>
 
@@ -1350,18 +1251,226 @@
     aria-labelledby="project-03-title"
   >
     <div class="modal-dialog">
-      <button
-        class="modal-close"
-        type="button"
-        aria-label="Close project details"
-      >
+      <button class="modal-close" type="button" aria-label="Close project details">
+        &times;
+      </button>
+
+      <div class="modal-hero">
+        <img
+          src="images/academic/CFDGroup/CFDGroup-01.png"
+          alt="CFD model of subsonic wind tunnel geometry"
+        />
+      </div>
+
+      <div class="modal-content">
+        <p class="modal-kicker">Computational Fluid Dynamics · 2024</p>
+
+        <h2 id="project-03-title">
+          Subsonic Wind Tunnel Optimization
+        </h2>
+
+        <p>
+          A Computational Fluid Dynamics project focused on improving a homemade,
+          open-system subsonic wind tunnel for small-scale aerodynamic testing.
+          I led the ANSYS Fluent modeling and diffuser-optimization work,
+          evaluating geometry changes that could reduce recirculation and improve
+          test-section flow quality.
+        </p>
+
+        <div class="project-summary">
+          <div class="summary-item">
+            <h3>My Role</h3>
+            <p>
+              Led diffuser analysis in ANSYS Fluent, created the base and
+              modified geometries, completed mesh-independence verification,
+              and produced velocity-vector and pathline visualizations.
+            </p>
+          </div>
+
+          <div class="summary-item">
+            <h3>Method</h3>
+            <p>
+              Compared 46 × 46 mm, 40 × 40 mm, and 36 × 36 mm diffuser outlets
+              using turbulent-flow simulations, mesh analysis, residual
+              monitoring, and velocity-based flow visualization.
+            </p>
+          </div>
+
+          <div class="summary-item">
+            <h3>Key Result</h3>
+            <p>
+              Reducing the diffuser angle from 12.95 degrees to 10.20 degrees
+              substantially reduced the recirculation zone downstream of the
+              test section.
+            </p>
+          </div>
+
+          <div class="summary-item">
+            <h3>Deliverable</h3>
+            <p>
+              A formal CFD report documenting geometry development, simulation
+              settings, mesh verification, flow results, and recommended design
+              improvements.
+            </p>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <a
+            class="btn btn-primary"
+            href="pdfs/academic/CFDGroup.pdf"
+            target="_blank"
+            rel="noopener"
+          >
+            View PDF
+          </a>
+
+          <a
+            class="btn btn-ghost"
+            href="pdfs/academic/CFDGroup.pdf"
+            download
+          >
+            Download PDF
+          </a>
+
+          <button class="btn btn-ghost" type="button" data-modal="gallery-03">
+            Photos
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY: PROJECT 03 -->
+  <div
+    class="modal"
+    id="gallery-03"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="gallery-03-title"
+  >
+    <div class="modal-dialog gallery-dialog">
+      <button class="modal-close" type="button" aria-label="Close CFD gallery">
+        &times;
+      </button>
+
+      <div class="gallery-content">
+        <p class="modal-kicker">Subsonic Wind Tunnel Optimization</p>
+        <h2 id="gallery-03-title">Photos</h2>
+        <p>Project images and additional media.</p>
+
+        <div
+          class="gallery-track"
+          id="gallery-track-03"
+          aria-label="Subsonic wind tunnel optimization image gallery"
+        >
+          <figure class="gallery-item">
+            <img
+              src="images/academic/CFDGroup/CFDGroup-01.png"
+              alt="Subsonic wind tunnel CFD geometry"
+              loading="lazy"
+            />
+            <figcaption class="gallery-caption">
+              Wind tunnel geometry modeled for CFD analysis.
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="images/academic/CFDGroup/CFDGroup-02.png"
+              alt="ANSYS Fluent computational mesh"
+              loading="lazy"
+            />
+            <figcaption class="gallery-caption">
+              Computational mesh used for wind tunnel simulation.
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="images/academic/CFDGroup/CFDGroup-03.png"
+              alt="Wind tunnel velocity vector analysis"
+              loading="lazy"
+            />
+            <figcaption class="gallery-caption">
+              Velocity-vector analysis used to identify recirculation behavior.
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="images/academic/CFDGroup/CFDGroup-04.png"
+              alt="Wind tunnel velocity pathline analysis"
+              loading="lazy"
+            />
+            <figcaption class="gallery-caption">
+              Flow pathlines showing airflow through the tunnel geometry.
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="images/academic/CFDGroup/CFDGroup-05.png"
+              alt="Wind tunnel diffuser comparison"
+              loading="lazy"
+            />
+            <figcaption class="gallery-caption">
+              Diffuser-geometry comparison for recirculation reduction.
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="images/academic/CFDGroup/CFDGroup-06.png"
+              alt="CFD simulation result for wind tunnel"
+              loading="lazy"
+            />
+            <figcaption class="gallery-caption">
+              CFD result supporting the optimized diffuser design.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="gallery-controls" aria-label="Gallery navigation">
+          <button
+            class="gallery-control"
+            type="button"
+            data-gallery-prev="gallery-track-03"
+          >
+            ← Previous
+          </button>
+
+          <button
+            class="gallery-control"
+            type="button"
+            data-gallery-next="gallery-track-03"
+          >
+            Next →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: PROJECT 04 -->
+  <div
+    class="modal"
+    id="project-04"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="project-04-title"
+  >
+    <div class="modal-dialog">
+      <button class="modal-close" type="button" aria-label="Close project details">
         &times;
       </button>
 
       <div class="modal-content">
         <p class="modal-kicker">Engineering · 2025</p>
 
-        <h2 id="project-03-title">Project Title Three</h2>
+        <h2 id="project-04-title">Project Title Four</h2>
 
         <p>
           Replace this with the full summary of the academic project, including
@@ -1374,7 +1483,9 @@
   <footer>
     <div class="wrap">
       <a class="logo" href="index.html">Z<span>T</span>, LLC</a>
-      <p>© <span id="year"></span> ZT, LLC · Zachery Taylor · Pensacola, Florida</p>
+      <p>
+        © <span id="year"></span> ZT, LLC · Zachery Taylor · Pensacola, Florida
+      </p>
     </div>
   </footer>
 
@@ -1386,10 +1497,6 @@
       modal.classList.remove("is-open");
       modal.setAttribute("aria-hidden", "true");
 
-      modal.querySelectorAll("video").forEach((video) => {
-        video.pause();
-      });
-
       if (!document.querySelector(".modal.is-open")) {
         document.body.style.overflow = "";
       }
@@ -1398,6 +1505,8 @@
     modalButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const modal = document.getElementById(button.dataset.modal);
+
+        if (!modal) return;
 
         modal.classList.add("is-open");
         modal.setAttribute("aria-hidden", "false");
