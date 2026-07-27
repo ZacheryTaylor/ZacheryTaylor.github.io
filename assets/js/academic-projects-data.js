@@ -236,7 +236,42 @@ const projects = [
       }
     ]
   },
-
+  {
+    id: "ahmed-car-model",
+    type: "CFD",
+    date: "Mechanical Engineering · 2024",
+    title: "Ahmed Car Aerodynamic CFD Model",
+    cardDescription:
+      "ANSYS Fluent analysis of airflow around an Ahmed car model, including mesh-independence testing, aerodynamic forces, and flow visualization.",
+    coverImage: "images/academic/AhmedCar.png",
+    coverAlt: "Ahmed car model computational fluid dynamics analysis",
+    description:
+      "A Computational Fluid Dynamics study of external airflow around an Ahmed car model using ANSYS Fluent. The project evaluated aerodynamic behavior at a 40 m/s inlet velocity through mesh refinement, solution convergence, velocity-profile comparisons, drag and lift monitoring, and flow-field visualization.",
+    summary: [
+      {
+        heading: "Simulation Setup",
+        text:
+          "Modeled external airflow around an Ahmed car geometry using air properties with a 40 m/s inlet velocity, 5% turbulent intensity, and a turbulent k-epsilon flow model."
+      },
+      {
+        heading: "Mesh Study",
+        text:
+          "Compared 0.016 m and 0.008 m mesh sizes containing approximately 202,907 and 436,355 cells, respectively, to evaluate mesh independence."
+      },
+      {
+        heading: "Analysis",
+        text:
+          "Monitored convergence residuals, drag and lift forces, and X-velocity profiles at multiple locations around and downstream of the vehicle."
+      },
+      {
+        heading: "Results",
+        text:
+          "Used velocity-magnitude contours, static-pressure contours, pathlines, vectors, and experimental-data comparisons to assess the wake and aerodynamic flow behavior."
+      }
+    ],
+    pdf: "pdfs/academic/AhmedCarModel.pdf"
+  },
+  
   {
     id: "future-academic-project",
     type: "Coursework",
