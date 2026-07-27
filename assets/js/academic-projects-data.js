@@ -308,6 +308,80 @@ const projects = [
     ],
     pdf: "pdfs/academic/LaminarAndTurbulent.pdf"
   },
+
+  {
+    id: "water-flow-elbow",
+    type: "CFD",
+    date: "Mechanical Engineering\n2024",
+    title: "Water Flow Through an Elbow",
+    cardDescription:
+      "ANSYS Fluent CFD comparison of water flow, temperature, pressure, and velocity through two multi-inlet elbow geometries.",
+    coverImage: "images/academic/WaterFlowElbow.jpg",
+    coverAlt:
+      "ANSYS Fluent CFD model of water flow through a multi-inlet elbow",
+    description:
+      "A Computational Fluid Dynamics project comparing water flow through two elbow geometries with two velocity inlets and one pressure outlet. Using ANSYS Fluent, the study evaluated how increasing the smaller inlet diameter affected internal velocity, pressure, temperature distribution, and flow pathlines.",
+    summary: [
+      {
+        heading: "Geometry Comparison",
+        text:
+          "Compared two multi-inlet elbow models with a 100 mm primary inlet and 100 mm outlet. The smaller inlet diameter increased from 25 mm in the original elbow to 38 mm in the revised geometry."
+      },
+      {
+        heading: "Flow Conditions",
+        text:
+          "Modeled liquid water entering the 100 mm inlet at 0.4 m/s and 293.15 K, with a secondary inlet velocity of 1.2 m/s and a temperature of 313.15 K; both models used a pressure outlet."
+      },
+      {
+        heading: "CFD Method",
+        text:
+          "Used the k-omega SST turbulence model with second-order discretization methods. The elbow and revised-elbow meshes contained approximately 119,161 and 117,156 cells, respectively."
+      },
+      {
+        heading: "Analysis",
+        text:
+          "Evaluated solution residuals, outlet temperature profiles, velocity-magnitude contours, pressure fields, and pathlines to visualize mixing and flow behavior through both configurations."
+      }
+    ],
+    pdf: "pdfs/academic/WaterFlowElbow.pdf",
+    gallery: [
+      {
+        src: "images/academic/waterflowelbow-gallery/WaterFlowElbow-01.jpg",
+        alt: "Original elbow geometry used for water-flow CFD analysis",
+        caption: "Original elbow geometry with 100 mm primary inlet, 25 mm secondary inlet, and 100 mm outlet."
+      },
+      {
+        src: "images/academic/waterflowelbow-gallery/WaterFlowElbow-02.jpg",
+        alt: "Revised elbow geometry used for water-flow CFD analysis",
+        caption: "Revised elbow geometry with the secondary inlet increased to 38 mm."
+      },
+      {
+        src: "images/academic/waterflowelbow-gallery/WaterFlowElbow-03.jpg",
+        alt: "ANSYS Fluent mesh for original water-flow elbow",
+        caption: "Computational mesh for the original elbow configuration."
+      },
+      {
+        src: "images/academic/waterflowelbow-gallery/WaterFlowElbow-04.jpg",
+        alt: "ANSYS Fluent mesh for revised water-flow elbow",
+        caption: "Computational mesh for the revised elbow configuration."
+      },
+      {
+        src: "images/academic/waterflowelbow-gallery/WaterFlowElbow-05.jpg",
+        alt: "Velocity magnitude result for water flow through elbow",
+        caption: "Velocity-magnitude result used to examine internal flow behavior."
+      },
+      {
+        src: "images/academic/waterflowelbow-gallery/WaterFlowElbow-06.jpg",
+        alt: "Pressure result for water flow through elbow",
+        caption: "Pressure-field result for the elbow flow analysis."
+      },
+      {
+        src: "images/academic/waterflowelbow-gallery/WaterFlowElbow-07.jpg",
+        alt: "Water-flow pathlines through revised elbow",
+        caption: "Velocity-magnitude pathlines showing water flow through the revised elbow."
+      }
+    ]
+  },
   
   {
     id: "future-academic-project",
