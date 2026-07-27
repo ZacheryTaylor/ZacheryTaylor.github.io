@@ -1,7 +1,7 @@
 const projects = [
   {
     id: "surfboard",
-    type: "Engineering",
+    type: "Materials",
     date: "Mechanical Engineering · 2026",
     title: "Electric Jet-Driven Surfboard",
     cardDescription:
@@ -64,7 +64,7 @@ const projects = [
 
   {
     id: "baja",
-    type: "Engineering",
+    type: "Finance",
     date: "Mechanical Engineering · 2025–2026",
     title: "UWF Argo Racing SAE Baja",
     cardDescription:
