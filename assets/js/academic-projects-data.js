@@ -273,6 +273,43 @@ const projects = [
   },
   
   {
+    id: "laminar-turbulent-pipe-flow",
+    type: "CFD",
+    date: "Mechanical Engineering\n2024",
+    title: "Laminar and Turbulent Pipe Flow",
+    cardDescription:
+      "ANSYS Fluent CFD analysis comparing fully developed laminar and turbulent airflow through a smooth circular pipe.",
+    coverImage: "images/academic/LaminarAndTurbulent.jpg",
+    coverAlt:
+      "ANSYS Fluent laminar and turbulent airflow analysis in a smooth pipe",
+    description:
+      "A Computational Fluid Dynamics study of air flowing through a 2 m-long, 0.04 m-diameter smooth pipe. The project compared laminar and turbulent flow behavior in ANSYS Fluent, evaluated solution convergence and mesh independence, and examined how the velocity profile developed along the pipe.",
+    summary: [
+      {
+        heading: "Simulation Setup",
+        text:
+          "Modeled air flow through a smooth cylindrical pipe using a 0.02 m/s laminar inlet case and a 2 m/s turbulent inlet case. The turbulent simulation used a k-epsilon model with 5% turbulence intensity."
+      },
+      {
+        heading: "Mesh Study",
+        text:
+          "Compared 0.003 m and 0.005 m body-sizing meshes containing approximately 469,484 and 114,929 cells to evaluate outlet velocity-profile sensitivity to mesh density."
+      },
+      {
+        heading: "Convergence",
+        text:
+          "Tracked residuals and compared velocity profiles at intermediate and later iterations, showing that additional iterations produced no significant change after the solutions stabilized."
+      },
+      {
+        heading: "Key Results",
+        text:
+          "The laminar centerline velocity became essentially fully developed after approximately 0.2 m, while the turbulent case stabilized after approximately 1 m. Laminar results closely matched the provided analytical velocity profile; the turbulent results provided a reasonable approximation."
+      }
+    ],
+    pdf: "pdfs/academic/LaminarAndTurbulent.pdf"
+  },
+  
+  {
     id: "future-academic-project",
     type: "Coursework",
     date: "Engineering\n2025",
