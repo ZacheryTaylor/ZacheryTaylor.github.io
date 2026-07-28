@@ -592,8 +592,8 @@ const projects = [
 
   {
   id: "home-price-factors",
-  type: "Mathematics",
-  date: "Mathematics Proseminar\n2020",
+  type: "Statistics",
+  date: "Mathematics\n2020",
   title: "Regression Analysis of Home Price Factors",
   cardDescription:
     "A multiple-regression study of housing characteristics associated with home prices in King County, Washington.",
