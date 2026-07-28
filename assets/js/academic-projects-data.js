@@ -589,6 +589,43 @@ const projects = [
       }
     ]
   },
+
+  {
+  id: "home-price-factors",
+  type: "Mathematics",
+  date: "Mathematics Proseminar\n2020",
+  title: "Regression Analysis of Home Price Factors",
+  cardDescription:
+    "A multiple-regression study of housing characteristics associated with home prices in King County, Washington.",
+  coverImage: "images/academic/HomePriceFactors.jpg",
+  coverAlt:
+    "Regression analysis of factors affecting home prices",
+  description:
+    "My mathematics proseminar examined whether home values could be predicted from property characteristics using multiple regression. The study analyzed King County, Washington housing data in SAS and evaluated the assumptions, variable selection, and limitations of a home-price model.",
+  summary: [
+    {
+      heading: "Research Question",
+      text:
+        "Investigated whether a multiple-regression model could estimate home value from property features such as living area, lot size, bedrooms, bathrooms, condition, grade, year built, waterfront access, view quality, and location."
+    },
+    {
+      heading: "Data and Method",
+      text:
+        "Analyzed 21,614 King County home-sale records using SAS. The study examined regression assumptions, cleaned potential outliers, reviewed residual behavior, and used variance inflation factors to address multicollinearity."
+    },
+    {
+      heading: "Model Selection",
+      text:
+        "Compared full, reduced, forward-selection, and backward-selection models using adjusted R-squared, Mallows Cp, mean square error, and the principle of selecting a simpler model when performance was similar."
+    },
+    {
+      heading: "Key Findings",
+      text:
+        "Living square footage, waterfront proximity, view quality, home grade, and year built were the strongest contributors to estimated sale price. Bedrooms, bathrooms, floors, lot area, and zip code had less influence in the selected model."
+    }
+  ],
+  pdf: "pdfs/academic/HomePriceFactors.pdf"
+},
   
   {
     id: "future-academic-project",
