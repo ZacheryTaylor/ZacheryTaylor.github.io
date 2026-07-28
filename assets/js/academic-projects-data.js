@@ -181,27 +181,27 @@ const projects = [
   description:
     "A Machine Design fatigue analysis of the fiberglass-epoxy shell for an electric jet-driven surfboard.",
   summary: [
-    {
-      heading: "Model",
-      text:
-        "Combined beam loading and propulsion-shaft torque to evaluate the shell."
-    },
-    {
-      heading: "Material",
-      text:
-        "Used measured fiberglass-epoxy tensile and four-point-bending test data."
-    },
-    {
-      heading: "Method",
-      text:
-        "Applied conservative Marin factors, stress concentrations, and fatigue criteria."
-    },
-    {
-      heading: "Result",
-      text:
-        "Calculated factors of safety of 22.21 (Gerber) and 21.82 (Goodman)."
-    }
-  ],
+  {
+    heading: "Structural Model",
+    text:
+      "Modeled the 2.413 m surfboard as a simply supported beam with rider, board, and propulsion-unit loads. Beam superposition produced a governing bending moment of 477 N·m and negligible deflection."
+  },
+  {
+    heading: "Material Testing",
+    text:
+      "Used four-point bending and tensile testing of the fiberglass-epoxy layup to establish a measured ultimate tensile strength of 91.93 MPa for the fatigue model."
+  },
+  {
+    heading: "Conservative Method",
+    text:
+      "Applied conservative Marin endurance factors, full notch sensitivity, and stress concentrations for the propulsion cutout because composite fatigue and notch data were limited."
+  },
+  {
+    heading: "Fatigue Result",
+    text:
+      "The shell achieved factors of safety of 22.21 using DE-Gerber and 21.82 using DE-Goodman, showing substantial fatigue margin under the defined bending and torsional loads."
+  }
+],
   pdf: "pdfs/academic/FactorSafety.pdf",
   presentationPdf: "pdfs/academic/FactorSafetyPresentation.pdf"
 },
