@@ -98,10 +98,37 @@ function createActionButtons(project) {
     `);
   }
 
+  if (project.presentationPdf) {
+    buttons.push(`
+      <a
+        class="btn btn-ghost"
+        href="${escapeHtml(project.presentationPdf)}"
+        target="_blank"
+        rel="noopener"
+      >
+        View Presentation
+      </a>
+    `);
+
+    buttons.push(`
+      <a
+        class="btn btn-ghost"
+        href="${escapeHtml(project.presentationPdf)}"
+        download
+      >
+        Download Presentation
+      </a>
+    `);
+  }
+
   if (project.gallery && project.gallery.length) {
     buttons.push(`
       <button
-        class="btn ${project.pdf ? "btn-ghost" : "btn-primary"}"
+        class="btn ${
+          project.pdf || project.presentationPdf
+            ? "btn-ghost"
+            : "btn-primary"
+        }"
         type="button"
         data-modal="gallery-${escapeHtml(project.id)}"
       >
