@@ -168,51 +168,43 @@ const projects = [
       }
     ]
   },
-
-  {
-    id: "surfboard-factor-of-safety",
-    type: "Materials",
-    date: "Mechanical Engineering\n2026",
-    title: "Electric Surfboard Factor of Safety",
-    cardDescription:
-      "A fatigue-based structural analysis of a fiberglass-epoxy electric surfboard shell under combined bending and torsional loading.",
-    coverImage: "images/academic/FactorSafety.jpg",
-    coverAlt:
-      "Factor of safety analysis for a fiberglass-epoxy electric jet-driven surfboard shell",
-    description:
-      "A Machine Design project evaluating the fatigue safety margin of the fiberglass-epoxy shell for an electric jet-driven surfboard. The analysis combined simply supported beam modeling, propulsion-shaft torque calculations, material testing, Marin endurance modifications, stress concentrations, and two distortion-energy fatigue criteria.",
-    summary: [
-      {
-        heading: "Structural Model",
-        text:
-          "Modeled the 2.413 m board as a simply supported beam with rider-and-board weight and propulsion-unit weight applied as concentrated loads. Beam superposition produced a governing bending moment of 477 N·m and a maximum deflection of 0.0737 mm."
-      },
-      {
-        heading: "Material Basis",
-        text:
-          "Used four-point bending and tensile testing of the fiberglass-epoxy layup to establish a measured ultimate tensile strength of 91.93 MPa for the fatigue analysis."
-      },
-      {
-        heading: "Conservative Method",
-        text:
-          "Applied conservative endurance and stress-concentration assumptions to account for limited composite fatigue data, including an endurance limit of 0.3 times ultimate tensile strength, full notch sensitivity, a capped machined-surface factor, and 90% reliability."
-      },
-      {
-        heading: "Fatigue Result",
-        text:
-          "Calculated factors of safety of 22.21 using the distortion-energy Gerber criterion and 21.82 using the distortion-energy Modified Goodman criterion, indicating substantial fatigue margin under the defined operating loads."
-      },
-      {
-        heading: "Future Work",
-        text:
-          "Recommended fatigue S-N testing, layup and fiber-orientation studies, impact and shear testing, and composite-specific notch-sensitivity characterization to support lighter and more optimized future shells."
-      }
-    ],
-    pdf: "pdfs/academic/FactorSafety.pdf",
-    presentationPdf: "pdfs/FactorSafetyPresentation.pdf"
-  },
-
-  
+{
+  id: "surfboard-factor-of-safety",
+  type: "Materials",
+  date: "Mechanical Engineering\n2026",
+  title: "Electric Surfboard Factor of Safety",
+  cardDescription:
+    "Fatigue analysis of a fiberglass-epoxy electric surfboard shell under bending and torsional loads.",
+  coverImage: "images/academic/FactorSafety.jpg",
+  coverAlt:
+    "Factor of safety analysis for a fiberglass-epoxy electric jet-driven surfboard shell",
+  description:
+    "A Machine Design fatigue analysis of the fiberglass-epoxy shell for an electric jet-driven surfboard.",
+  summary: [
+    {
+      heading: "Model",
+      text:
+        "Combined beam loading and propulsion-shaft torque to evaluate the shell."
+    },
+    {
+      heading: "Material",
+      text:
+        "Used measured fiberglass-epoxy tensile and four-point-bending test data."
+    },
+    {
+      heading: "Method",
+      text:
+        "Applied conservative Marin factors, stress concentrations, and fatigue criteria."
+    },
+    {
+      heading: "Result",
+      text:
+        "Calculated factors of safety of 22.21 (Gerber) and 21.82 (Goodman)."
+    }
+  ],
+  pdf: "pdfs/academic/FactorSafety.pdf",
+  presentationPdf: "pdfs/FactorSafetyPresentation.pdf"
+},
     {
     id: "precision-horticulture",
     type: "Mechatronics",
