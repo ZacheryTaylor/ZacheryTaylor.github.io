@@ -203,7 +203,7 @@ const projects = [
     }
   ],
   pdf: "pdfs/academic/FactorSafety.pdf",
-  presentationPdf: "pdfs/FactorSafetyPresentation.pdf"
+  presentationPdf: "pdfs/academic/FactorSafetyPresentation.pdf"
 },
     {
     id: "precision-horticulture",
