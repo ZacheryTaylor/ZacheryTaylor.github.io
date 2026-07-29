@@ -1,7 +1,7 @@
 const projects = [
   {
     id: "surfboard",
-    type: "Product Design",
+    type: "Design",
     date: "Mechanical Engineering\n2025–2026",
     title: "Electric Jet-Driven Surfboard",
     cardDescription:
@@ -592,7 +592,7 @@ const projects = [
 
 {
   id: "cable-clip-redesign",
-  type: "Mechanical Design",
+  type: "Design",
   date: "Mechanical Engineering\n2023",
   title: "CableCuff PRO Redesign",
   cardDescription:
@@ -601,7 +601,7 @@ const projects = [
   coverAlt:
     "CableCuff PRO cable-management tool redesign",
   description:
-    "An EML 3022 design project that documented, measured, and redesigned the CableCuff PRO, a reusable tool for organizing cords, cables, ropes, and hoses. The updated design reduced material in the base, strengthened the holding hook, and evaluated the component's likely failure region.",
+    "A reverse-engineering redesign of the CableCuff PRO, a reusable tool for organizing cords, cables, ropes, and hoses. The project documented and measured the existing product, reduced material in the base, improved the holding hook, and evaluated the component’s likely failure region.",
   summary: [
     {
       heading: "Product Study",
@@ -626,58 +626,53 @@ const projects = [
   ],
   pdf: "pdfs/academic/CableClip.pdf",
   gallery: [
-    {
-      src: "images/academic/cableclip-gallery/CableClip-01.jpg",
-      alt: "CableCuff PRO cable-management tool",
-      caption: "Original CableCuff PRO used as the basis for the redesign."
-    },
-    {
-      src: "images/academic/cableclip-gallery/CableClip-02.jpg",
-      alt: "CableCuff PRO product reference",
-      caption: "Product reference and functional features."
-    },
-    {
-      src: "images/academic/cableclip-gallery/CableClip-03.jpg",
-      alt: "CableCuff PRO redesign model",
-      caption: "Redesigned component geometry."
-    },
-    {
-      src: "images/academic/cableclip-gallery/CableClip-04.jpg",
-      alt: "CableCuff PRO CAD detail",
-      caption: "CAD detail supporting the revised design."
-    },
-    {
-      src: "images/academic/cableclip-gallery/CableClip-05.jpg",
-      alt: "CableCuff PRO dimensional drawing",
-      caption: "Measured dimensions and feature layout."
-    },
-    {
-      src: "images/academic/cableclip-gallery/CableClip-06.jpg",
-      alt: "CableCuff PRO component drawing",
-      caption: "Detailed part geometry for the redesign."
-    },
-    {
-      src: "images/academic/cableclip-gallery/CableClip-07.jpg",
-      alt: "CableCuff PRO stress analysis",
-      caption: "Stress analysis at the upper tooth and curved region."
-    },
-    {
-      src: "images/academic/cableclip-gallery/CableClip-08.jpg",
-      alt: "CableCuff PRO old and new analysis",
-      caption: "Comparison of the original and updated designs."
-    },
-    {
-      src: "images/academic/cableclip-gallery/CableClip-09.jpg",
-      alt: "CableCuff PRO engineering drawing",
-      caption: "Engineering drawing for the latching-teeth component."
-    },
-    {
-      src: "images/academic/cableclip-gallery/CableClip-10.jpg",
-      alt: "CableCuff PRO mass properties",
-      caption: "Measured and theoretical mass-property comparison."
-    }
-  ]
-},
+gallery: [
+  {
+    src: "images/academic/cableclip-gallery/CableClip-01.jpg",
+    alt: "Original CableCuff PRO cable-management tool before redesign",
+    caption: "Original CableCuff PRO used as the basis for the redesign."
+  },
+  {
+    src: "images/academic/cableclip-gallery/CableClip-02.jpg",
+    alt: "CAD model of the redesigned CableCuff PRO showing the complete geometry",
+    caption: "Redesigned complete geometry."
+  },
+  {
+    src: "images/academic/cableclip-gallery/CableClip-03.jpg",
+    alt: "Complete CableCuff PRO assembly showing the current product configuration",
+    caption: "Current complete product."
+  },
+  {
+    src: "images/academic/cableclip-gallery/CableClip-04.jpg",
+    alt: "First redesigned CableCuff PRO component shown in CAD",
+    caption: "Redesigned Part 1."
+  },
+  {
+    src: "images/academic/cableclip-gallery/CableClip-05.jpg",
+    alt: "Second redesigned CableCuff PRO component shown in CAD",
+    caption: "Redesigned Part 2."
+  },
+  {
+    src: "images/academic/cableclip-gallery/CableClip-06.jpg",
+    alt: "Detailed view of the second redesigned CableCuff PRO component",
+    caption: "Redesigned Part 2."
+  },
+  {
+    src: "images/academic/cableclip-gallery/CableClip-08.jpg",
+    alt: "Third redesigned CableCuff PRO component shown in CAD",
+    caption: "Redesigned Part 3."
+  },
+  {
+    src: "images/academic/cableclip-gallery/CableClip-09.jpg",
+    alt: "Isometric CAD view of the CableCuff PRO latching-teeth component",
+    caption: "Isometric view for the latching-teeth component."
+  },
+  {
+    src: "images/academic/cableclip-gallery/CableClip-10.jpg",
+    alt: "Initial concept sketch of the CableCuff PRO cable-management tool and latching mechanism",
+    caption: "Initial concept sketch showing the CableCuff PRO latching mechanism and overall form."
+  }
+]
   
 
   
