@@ -19,10 +19,10 @@
     rel="stylesheet"
   >
 
-  <!-- Shared website layout, navigation, buttons, and colors -->
+  <!-- Shared site layout, navigation, typography, colors, and footer -->
   <link rel="stylesheet" href="assets/css/projects.css">
 
-  <!-- BestBall timeline-only styling -->
+  <!-- BestBall timeline styles -->
   <link rel="stylesheet" href="assets/css/bestball.css">
 </head>
 
@@ -58,40 +58,20 @@
       </div>
     </header>
 
-    <section class="bestball-overview">
-      <div class="wrap">
-        <div class="bestball-intro">
-          <div>
-            <p class="section-label">Archive overview</p>
-
-            <h2>Entries, theory, and outcomes over time.</h2>
-          </div>
-
-          <p>
-            Each season can be expanded to show its contest formats, advancement
-            results, strategic focus, and the lessons carried into the next year.
-          </p>
-        </div>
-
-        <!-- Filled automatically by bestball.js -->
-        <div id="bestball-summary" class="bestball-summary"></div>
-      </div>
-    </section>
-
     <section class="bestball-timeline-section">
       <div class="wrap">
-        <div class="timeline-heading">
-          <div>
-            <p class="section-label">Season timeline</p>
-            <h2>BestBall history</h2>
-          </div>
+        <div class="bestball-heading">
+          <p class="section-label">History</p>
 
-          <p class="timeline-note">
-            Select a season to view the full record.
+          <h2>Entries, theory, and the long game.</h2>
+
+          <p>
+            Each season tracks contest participation, advancement results,
+            strategy development, and the lessons carried forward.
           </p>
         </div>
 
-        <!-- Filled automatically by bestball.js -->
+        <!-- bestball.js renders each season here -->
         <div id="bestball-timeline" class="bestball-timeline"></div>
       </div>
     </section>
@@ -107,7 +87,7 @@
     </div>
   </footer>
 
-  <!-- The data file must load before the timeline renderer -->
+  <!-- Data must load before the timeline renderer -->
   <script src="assets/js/bestball-data.js"></script>
   <script src="assets/js/bestball.js"></script>
 </body>
