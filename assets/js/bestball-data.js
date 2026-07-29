@@ -1,34 +1,51 @@
-const bestBallSeasons = [
+const bestballSeasons = [
   {
     year: "2026",
     status: "current",
     label: "Current Season",
-    title: "2026 Best Ball Season",
-    summary:
-      "An active season focused on recording entries, contest participation, draft decisions, strategy notes, and post-season lessons.",
 
-    highlights: [
-      "Season tracking in progress",
-      "Contest and entry records to be added throughout the year",
-      "Theory, research, and decision notes documented as the season develops"
+    title: "2026 BestBall Season",
+
+    summary:
+      "An active season for documenting entries, contest selection, draft decisions, research, and post-season lessons.",
+
+    stats: [
+      {
+        label: "Status",
+        value: "In progress"
+      },
+      {
+        label: "Focus",
+        value: "Season tracking"
+      },
+      {
+        label: "Archive",
+        value: "2021–Present"
+      }
     ],
 
     details: [
       {
-        heading: "Focus",
+        heading: "Season record",
         text:
-          "Track contest selection, drafting phases, roster construction, and the decisions that shape the season."
+          "Add contest entries, draft phases, advancement results, and notable decision points as the season develops."
       },
       {
-        heading: "Research",
+        heading: "Research focus",
         text:
-          "Continue developing player-relationship research, ADP evaluation, and draft-position analysis."
+          "Continue documenting draft-position analysis, player relationships, ADP value, roster construction, and contest-specific theory."
       },
       {
-        heading: "Review",
+        heading: "Post-season review",
         text:
-          "Complete a post-season review covering advancement, contest outcomes, and lessons for the next season."
+          "Complete a season review covering entries, advancement, contest outcomes, successful decisions, and changes for the following year."
       }
+    ],
+
+    takeaways: [
+      "Update the page as meaningful entries or results occur",
+      "Keep active strategy notes high-level until the season is complete",
+      "Add final advancement and contest outcomes after they are confirmed"
     ]
   },
 
@@ -36,39 +53,68 @@ const bestBallSeasons = [
     year: "2025",
     status: "result",
     label: "Strategy Expansion",
-    title: "A More Structured Tournament Approach",
-    summary:
-      "Increased the volume and strategic rigor of Best Ball participation by organizing draft plans, studying rookie pricing, and shaping exposure across the drafting calendar.",
 
-    highlights: [
-      "91 Underdog tournament teams drafted",
-      "21 teams advanced to Week 15",
-      "Five teams advanced to Week 16",
-      "One team reached a Week 17 final",
-      "Three Best Ball Mania VI teams advanced to Week 15"
+    title: "Structured Tournament Approach",
+
+    summary:
+      "Expanded BestBall volume and developed a more deliberate drafting process built around rookie pricing, seasonal exposure, draft timing, and tournament upside.",
+
+    stats: [
+      {
+        label: "Underdog teams",
+        value: "91"
+      },
+      {
+        label: "Week 15",
+        value: "21"
+      },
+      {
+        label: "Week 16",
+        value: "5"
+      },
+      {
+        label: "Week 17 finals",
+        value: "1"
+      }
     ],
 
     details: [
       {
-        heading: "Theory",
+        heading: "Approach",
         text:
-          "Used a phased, barbell-style exposure approach based on changing information through the offseason and drafting period."
+          "Developed many draft plans and strategy interactions, with an emphasis on making more intentional decisions rather than treating entries as isolated drafts."
       },
       {
-        heading: "Early-Season Edge",
+        heading: "Early information",
         text:
-          "Focused on acting before rookie prices fully adjusted, using early information to shape draft exposure."
+          "Used early knowledge of rookie situations before their prices increased, then adjusted exposure as information changed throughout the offseason."
       },
       {
-        heading: "Key Observation",
+        heading: "Exposure method",
         text:
-          "Four of five Week 16 teams were drafted in May or earlier, supporting further review of early-draft timing and market efficiency."
+          "Used a barbell-style approach to shape exposure across different drafting periods and information environments."
       },
       {
-        heading: "Additional Result",
+        heading: "Tournament focus",
         text:
-          "One DRAFTERS tournament team finished within the top 3,000 of 118,764 entrants and paid $55."
+          "Made a late-season allocation toward Best Ball Mania VI because of the tournament's high-end payout structure."
+      },
+      {
+        heading: "Results",
+        text:
+          "Drafted 91 Underdog tournament teams; 21 advanced to Week 15, five advanced to Week 16, and one reached a Week 17 final. Three Best Ball Mania VI teams advanced to Week 15."
+      },
+      {
+        heading: "Additional result",
+        text:
+          "On DRAFTERS, one of two tournament teams finished within the top 3,000 of 118,764 entrants and paid $55."
       }
+    ],
+
+    takeaways: [
+      "Four of five Week 16 teams were drafted in May or earlier",
+      "Early drafting and evolving market information deserve continued review",
+      "Final Week 17 outcome and overall season total should be updated after confirmation"
     ]
   },
 
@@ -76,35 +122,58 @@ const bestBallSeasons = [
     year: "2024",
     status: "result",
     label: "First Finals",
-    title: "Week 17 Finals Breakthrough",
-    summary:
-      "Expanded tournament participation and reached two Week 17 finals after drafting 16 teams.",
 
-    highlights: [
-      "16 teams drafted",
-      "Six teams advanced to Week 15",
-      "Three teams advanced to Week 16",
-      "Two teams advanced to Week 17 finals",
-      "Mini Schnauzer 7 finished 16th",
-      "Little Board finished 29th"
+    title: "Week 17 Finals Breakthrough",
+
+    summary:
+      "Reached two Week 17 finals after drafting 16 teams, marking the first major finals-stage result in the archive.",
+
+    stats: [
+      {
+        label: "Teams drafted",
+        value: "16"
+      },
+      {
+        label: "Week 15",
+        value: "6"
+      },
+      {
+        label: "Week 16",
+        value: "3"
+      },
+      {
+        label: "Week 17 finals",
+        value: "2"
+      }
     ],
 
     details: [
       {
         heading: "Milestone",
         text:
-          "Reached two Week 17 finals, creating the first major finals-stage result in the archive."
+          "Six teams advanced to Week 15, three advanced to Week 16, and two reached Week 17 finals."
       },
       {
-        heading: "Contest Results",
+        heading: "Mini Schnauzer 7",
         text:
-          "The Mini Schnauzer 7 final finished 16th and paid $500; the Little Board final finished 29th and paid $200."
+          "Finished 16th in a 310-seat final and paid $500."
       },
       {
-        heading: "Season Result",
+        heading: "Little Board",
+        text:
+          "Finished 29th in a 467-seat final and paid $200."
+      },
+      {
+        heading: "Season result",
         text:
           "The season concluded with a $715 withdrawal."
       }
+    ],
+
+    takeaways: [
+      "Reached two Week 17 finals for the first time",
+      "Created a stronger baseline for future tournament evaluation",
+      "Final-stage contest construction became a more important area of study"
     ]
   },
 
@@ -112,33 +181,58 @@ const bestBallSeasons = [
     year: "2023",
     status: "research",
     label: "Format Testing",
-    title: "Standalone and Tournament Experimentation",
-    summary:
-      "Continued testing multiple Best Ball formats while increasing tournament exposure and tracking advancement outcomes.",
 
-    highlights: [
-      "18 standalone 12-team drafts",
-      "One Weekly Winners entry",
-      "13 tournament teams across pre- and post-draft periods",
-      "Four teams advanced to Week 15"
+    title: "Standalone and Tournament Experimentation",
+
+    summary:
+      "Continued testing standalone leagues and tournament formats while increasing the variety of contest structures used.",
+
+    stats: [
+      {
+        label: "Standalone teams",
+        value: "18"
+      },
+      {
+        label: "Tournament teams",
+        value: "13"
+      },
+      {
+        label: "Week 15",
+        value: "4"
+      },
+      {
+        label: "Withdrawal",
+        value: "$39"
+      }
     ],
 
     details: [
       {
-        heading: "Approach",
+        heading: "Standalone formats",
         text:
-          "Used a mix of standalone leagues, weekly contests, and tournament formats to build experience across different contest structures."
+          "Played 18 standalone 12-team formats, totaling $54 in entry fees, and withdrew $21 from those contests."
       },
       {
-        heading: "Outcome",
+        heading: "Tournament formats",
         text:
-          "Four teams reached Week 15, but none advanced beyond that stage."
+          "Drafted five tournament teams before the NFL Draft, one Superflex team before the NFL Draft, and seven tournament teams after the NFL Draft."
       },
       {
-        heading: "Season Result",
+        heading: "Weekly Winners",
         text:
-          "The season concluded with a $39 withdrawal."
+          "Entered one Weekly Winners contest that did not produce a payout."
+      },
+      {
+        heading: "Advancement",
+        text:
+          "Four tournament teams reached Week 15, but none advanced beyond that round."
       }
+    ],
+
+    takeaways: [
+      "Continued learning across contest formats",
+      "Early versus post-NFL-Draft timing became a useful comparison point",
+      "Week 15 advancement did not yet translate into deeper tournament runs"
     ]
   },
 
@@ -146,33 +240,58 @@ const bestBallSeasons = [
     year: "2022",
     status: "research",
     label: "Tournament Expansion",
-    title: "Broader Contest Participation",
-    summary:
-      "Reinvested the prior season's withdrawal into additional standalone and tournament entries across multiple formats.",
 
-    highlights: [
-      "19 standalone 12-team teams drafted",
-      "11 tournament teams drafted",
-      "Three teams advanced to Week 15",
-      "One team advanced to Week 16"
+    title: "Broader Contest Participation",
+
+    summary:
+      "Reinvested prior results into more standalone teams and a wider selection of tournament formats.",
+
+    stats: [
+      {
+        label: "Standalone teams",
+        value: "19"
+      },
+      {
+        label: "Tournament teams",
+        value: "11"
+      },
+      {
+        label: "Week 15",
+        value: "3"
+      },
+      {
+        label: "Week 16",
+        value: "1"
+      }
     ],
 
     details: [
       {
-        heading: "Formats",
+        heading: "Standalone formats",
         text:
-          "Participated in Puppy, Pomeranian, Superflex Puppy, and Superflex Pomeranian tournament formats alongside standalone leagues."
+          "Drafted 19 teams in 12-team standalone formats, with $59 in entry fees and a $107 withdrawal from those contests."
       },
       {
-        heading: "Outcome",
+        heading: "Tournament formats",
         text:
-          "One tournament team reached Week 16, though no team reached the final round."
+          "Drafted 11 tournament teams across Puppy, Pomeranian 3, Pomeranian 4, Superflex Puppy, and Superflex Pomeranian contests."
       },
       {
-        heading: "Season Result",
+        heading: "Advancement",
+        text:
+          "Three teams advanced to Week 15 and one team advanced to Week 16, though no team reached the final round."
+      },
+      {
+        heading: "Season result",
         text:
           "The season concluded with a $133 withdrawal."
       }
+    ],
+
+    takeaways: [
+      "Expanded beyond smaller standalone formats",
+      "First recorded Week 16 advancement",
+      "Tournament variety created a wider base of contest experience"
     ]
   },
 
@@ -180,28 +299,53 @@ const bestBallSeasons = [
     year: "2021",
     status: "start",
     label: "Beginning",
-    title: "First Best Ball Entries",
-    summary:
-      "Started with a $40 deposit and used small-stakes entries to learn Best Ball contest formats and draft dynamics.",
 
-    highlights: [
-      "Started with $40",
-      "One Puppy entry",
-      "Six 10-person draft entries",
-      "Won three 10-person drafts"
+    title: "First BestBall Entries",
+
+    summary:
+      "Started with a small deposit and used early entries to learn draft formats, contest structure, and BestBall fundamentals.",
+
+    stats: [
+      {
+        label: "Starting deposit",
+        value: "$40"
+      },
+      {
+        label: "Puppy entries",
+        value: "1"
+      },
+      {
+        label: "10-person drafts",
+        value: "6"
+      },
+      {
+        label: "Draft wins",
+        value: "3"
+      }
     ],
 
     details: [
       {
-        heading: "Beginning",
+        heading: "Starting point",
         text:
-          "The archive began with small entry volume and a focus on learning contest structure through direct participation."
+          "Started with a $40 deposit, one entry in a $5 Puppy contest, and six entries in 10-person drafts."
       },
       {
-        heading: "Season Result",
+        heading: "Early result",
         text:
-          "Won three 10-person drafts and withdrew $90."
+          "Won three of the 10-person drafts and withdrew $90."
+      },
+      {
+        heading: "Foundation",
+        text:
+          "This season established the initial experience with BestBall contest formats and led to reinvesting results into future entries."
       }
+    ],
+
+    takeaways: [
+      "Began with small-stakes learning and controlled entry volume",
+      "Early standalone success supported continued participation",
+      "Created the starting point for the long-term archive"
     ]
   }
 ];
