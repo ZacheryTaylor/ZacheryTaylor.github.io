@@ -626,7 +626,7 @@ const projects = [
   ],
   pdf: "pdfs/academic/CableClip.pdf",
   gallery: [
-gallery: [
+
   {
     src: "images/academic/cableclip-gallery/CableClip-01.jpg",
     alt: "Original CableCuff PRO cable-management tool before redesign",
@@ -673,7 +673,7 @@ gallery: [
     caption: "Initial concept sketch showing the CableCuff PRO latching mechanism and overall form."
   }
 ]
-  
+},  
 
   
   {
