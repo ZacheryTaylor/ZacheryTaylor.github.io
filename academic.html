@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Academic Projects | Zachery Taylor · ZT, LLC</title>
 
   <meta
     name="description"
     content="Academic engineering projects, technical coursework, and computational studies by Zachery Taylor."
-  />
+  >
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap"
     rel="stylesheet"
-  />
+  >
 
-  <link rel="stylesheet" href="assets/css/projects.css" />
+  <link rel="stylesheet" href="assets/css/projects.css">
 </head>
 
 <body>
@@ -55,13 +56,13 @@
       <div class="wrap">
         <p class="section-label">Project index</p>
 
-        <!-- Project cards are created automatically from academic-projects-data.js -->
-        <div class="project-grid" id="project-grid"></div>
+        <!-- Rendered from assets/js/academic-projects-data.js -->
+        <div id="project-grid" class="project-grid"></div>
       </div>
     </section>
   </main>
 
-  <!-- Project detail pop-ups and photo galleries are created automatically -->
+  <!-- Project detail modals and gallery modals are rendered by projects.js -->
   <div id="modal-root"></div>
 
   <footer>
@@ -74,6 +75,7 @@
     </div>
   </footer>
 
+  <!-- Data must load before the shared renderer -->
   <script src="assets/js/academic-projects-data.js"></script>
   <script src="assets/js/projects.js"></script>
 </body>
