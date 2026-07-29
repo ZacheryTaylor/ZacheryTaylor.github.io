@@ -3,7 +3,6 @@ const bestballSeasons = [
     year: "2026",
     status: "current",
     label: "Current Season",
-
     title: "2026 BestBall Season",
 
     summary:
@@ -43,9 +42,9 @@ const bestballSeasons = [
     ],
 
     takeaways: [
-      "Update the page as meaningful entries or results occur",
+      "Update the timeline as meaningful entries and results occur",
       "Keep active strategy notes high-level until the season is complete",
-      "Add final advancement and contest outcomes after they are confirmed"
+      "Add final advancement and contest outcomes after confirmation"
     ]
   },
 
@@ -53,11 +52,10 @@ const bestballSeasons = [
     year: "2025",
     status: "result",
     label: "Strategy Expansion",
-
     title: "Structured Tournament Approach",
 
     summary:
-      "Expanded BestBall volume and developed a more deliberate drafting process built around rookie pricing, seasonal exposure, draft timing, and tournament upside.",
+      "Expanded BestBall volume and used a more deliberate drafting process built around rookie pricing, seasonal exposure, draft timing, and tournament upside.",
 
     stats: [
       {
@@ -82,12 +80,12 @@ const bestballSeasons = [
       {
         heading: "Approach",
         text:
-          "Developed many draft plans and strategy interactions, with an emphasis on making more intentional decisions rather than treating entries as isolated drafts."
+          "Developed more intentional draft plans and strategy interactions instead of treating entries as isolated drafts."
       },
       {
         heading: "Early information",
         text:
-          "Used early knowledge of rookie situations before their prices increased, then adjusted exposure as information changed throughout the offseason."
+          "Used early knowledge of rookie situations before their prices increased, then adjusted exposure as information changed across the offseason."
       },
       {
         heading: "Exposure method",
@@ -97,7 +95,7 @@ const bestballSeasons = [
       {
         heading: "Tournament focus",
         text:
-          "Made a late-season allocation toward Best Ball Mania VI because of the tournament's high-end payout structure."
+          "Made a late-season allocation toward Best Ball Mania VI because of its high-end payout structure."
       },
       {
         heading: "Results",
@@ -105,16 +103,16 @@ const bestballSeasons = [
           "Drafted 91 Underdog tournament teams; 21 advanced to Week 15, five advanced to Week 16, and one reached a Week 17 final. Three Best Ball Mania VI teams advanced to Week 15."
       },
       {
-        heading: "Additional result",
+        heading: "DRAFTERS result",
         text:
-          "On DRAFTERS, one of two tournament teams finished within the top 3,000 of 118,764 entrants and paid $55."
+          "One of two tournament teams finished within the top 3,000 of 118,764 entrants and paid $55."
       }
     ],
 
     takeaways: [
       "Four of five Week 16 teams were drafted in May or earlier",
-      "Early drafting and evolving market information deserve continued review",
-      "Final Week 17 outcome and overall season total should be updated after confirmation"
+      "Early drafting and changing market information deserve continued review",
+      "Update the final Week 17 result and season total when confirmed"
     ]
   },
 
@@ -122,7 +120,6 @@ const bestballSeasons = [
     year: "2024",
     status: "result",
     label: "First Finals",
-
     title: "Week 17 Finals Breakthrough",
 
     summary:
@@ -172,7 +169,7 @@ const bestballSeasons = [
 
     takeaways: [
       "Reached two Week 17 finals for the first time",
-      "Created a stronger baseline for future tournament evaluation",
+      "Created a stronger baseline for tournament evaluation",
       "Final-stage contest construction became a more important area of study"
     ]
   },
@@ -181,7 +178,6 @@ const bestballSeasons = [
     year: "2023",
     status: "research",
     label: "Format Testing",
-
     title: "Standalone and Tournament Experimentation",
 
     summary:
@@ -231,7 +227,7 @@ const bestballSeasons = [
 
     takeaways: [
       "Continued learning across contest formats",
-      "Early versus post-NFL-Draft timing became a useful comparison point",
+      "Early versus post-NFL Draft timing became a useful comparison point",
       "Week 15 advancement did not yet translate into deeper tournament runs"
     ]
   },
@@ -240,7 +236,6 @@ const bestballSeasons = [
     year: "2022",
     status: "research",
     label: "Tournament Expansion",
-
     title: "Broader Contest Participation",
 
     summary:
@@ -299,7 +294,6 @@ const bestballSeasons = [
     year: "2021",
     status: "start",
     label: "Beginning",
-
     title: "First BestBall Entries",
 
     summary:
@@ -338,7 +332,7 @@ const bestballSeasons = [
       {
         heading: "Foundation",
         text:
-          "This season established the initial experience with BestBall contest formats and led to reinvesting results into future entries."
+          "This season created the initial experience with BestBall contest formats and led to reinvesting results into future entries."
       }
     ],
 
