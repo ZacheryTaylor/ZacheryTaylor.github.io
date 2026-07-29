@@ -406,7 +406,7 @@ function renderProjects() {
     return;
   }
 
-  if (!Array.isArray(window.projects)) {
+    if (typeof projects === "undefined" || !Array.isArray(projects)) {
     console.error(
       "Projects could not render. Confirm that the page data file loads before projects.js and defines `const projects = [...]`."
     );
