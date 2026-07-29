@@ -4,42 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Personal Projects | Zachery Taylor</title>
+  <title>Personal Projects | Zachery Taylor · ZT, LLC</title>
+
+  <meta
+    name="description"
+    content="Personal research, independent work, creative projects, and BestBall analysis by Zachery Taylor."
+  >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap"
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="assets/css/personal.css">
+  <link rel="stylesheet" href="assets/css/projects.css">
 </head>
 
 <body>
   <nav>
-    <div class="nav-inner">
+    <div class="inner">
       <a class="logo" href="index.html">Z<span>T</span>, LLC</a>
 
-      <div class="nav-links">
-        <a href="index.html#book">The Book</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#projects">Projects</a>
-        <a href="index.html#connect">Connect</a>
-      </div>
+      <ul class="nav-links">
+        <li><a href="index.html#book">The Book</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a class="active" href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#connect">Connect</a></li>
+      </ul>
     </div>
   </nav>
 
   <main>
     <header class="page-header">
       <div class="wrap">
-        <p class="eyebrow">Personal projects</p>
-
-        <h1>Independent work, <em>research, and ideas.</em></h1>
+        <h1>Personal <em>projects.</em></h1>
 
         <p class="lead">
-          A collection of personal research, creative work, and long-term projects
-          outside of formal engineering and academic coursework.
+          Independent research, creative work, and long-term projects outside
+          of formal engineering and academic coursework.
         </p>
 
         <a class="back-link" href="index.html#projects">
@@ -50,63 +54,29 @@
 
     <section class="projects-section">
       <div class="wrap">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Project index</p>
-            <h2>Personal projects</h2>
-          </div>
+        <p class="section-label">Project index</p>
 
-          <p id="project-count" class="project-count"></p>
-        </div>
-
-        <!-- JavaScript inserts all project cards here -->
-        <div id="personal-project-grid" class="project-grid"></div>
+        <!-- Rendered from assets/js/personal-projects-data.js -->
+        <div id="project-grid" class="project-grid"></div>
       </div>
     </section>
   </main>
 
+  <!-- Project detail modals and gallery modals are rendered by projects.js -->
+  <div id="modal-root"></div>
+
   <footer>
     <div class="wrap">
       <a class="logo" href="index.html">Z<span>T</span>, LLC</a>
-      <p><span id="year"></span> ZT, LLC · Zachery Taylor · Pensacola, Florida</p>
+
+      <p>
+        © <span id="year"></span> ZT, LLC · Zachery Taylor · Pensacola, Florida
+      </p>
     </div>
   </footer>
 
-  <!-- JavaScript creates and fills this modal -->
-  <div
-    id="project-modal"
-    class="modal"
-    aria-hidden="true"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="modal-title"
-  >
-    <div class="modal-dialog">
-      <button
-        id="modal-close"
-        class="modal-close"
-        type="button"
-        aria-label="Close project details"
-      >
-        ×
-      </button>
-
-      <div id="modal-image-wrap" class="modal-image-wrap"></div>
-
-      <div class="modal-content">
-        <p id="modal-kicker" class="modal-kicker"></p>
-        <h2 id="modal-title"></h2>
-        <p id="modal-description"></p>
-
-        <div id="modal-summary" class="project-summary"></div>
-
-        <div id="modal-actions" class="modal-actions"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Data file MUST load before the page behavior file -->
+  <!-- Data must load before the shared renderer -->
   <script src="assets/js/personal-projects-data.js"></script>
-  <script src="assets/js/personal.js"></script>
+  <script src="assets/js/projects.js"></script>
 </body>
 </html>
