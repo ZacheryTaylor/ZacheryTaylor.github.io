@@ -1,14 +1,16 @@
-const personalProjects = [
+const projects = [
   {
     id: "fantasy-cooccurrence-matrix",
     type: "Data Analysis",
     date: "Personal Project\n2026",
     title: "Fantasy Football Co-Occurrence Matrix",
+
     cardDescription:
       "A data-analysis tool that identifies player pairings, roster overlap, and recurring co-occurrence patterns across fantasy-football datasets.",
 
     coverImage:
       "images/personal/fantasy-cooccurrence/fantasy-cooccurrence-cover.png",
+
     coverAlt:
       "Heat map showing player co-occurrence patterns in a fantasy football dataset",
 
@@ -35,14 +37,16 @@ const personalProjects = [
 
     gallery: [
       {
-        src: "images/personal/fantasy-cooccurrence/matrix-heatmap.png",
+        src:
+          "images/personal/fantasy-cooccurrence/matrix-heatmap.png",
         alt:
           "Heat map visualizing player co-occurrence values in the fantasy football dataset",
         caption:
           "Co-occurrence heat map for the selected player dataset."
       },
       {
-        src: "images/personal/fantasy-cooccurrence/workbook-preview.png",
+        src:
+          "images/personal/fantasy-cooccurrence/workbook-preview.png",
         alt:
           "Spreadsheet view of the fantasy football co-occurrence matrix",
         caption:
