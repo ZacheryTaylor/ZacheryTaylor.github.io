@@ -1,71 +1,89 @@
-const projects = [
+const personalProjects = [
   {
-    id: "fantasy-cooccurrence-matrix",
-    type: "Data Analysis",
-    date: "Personal Project\n2026",
-    title: "Fantasy Football Co-Occurrence Matrix",
+    id: "bestball-archive",
+    type: "Fantasy Football",
+    date: "2021–Present",
+    title: "BestBall Archive",
 
     cardDescription:
-      "A data-analysis tool that identifies player pairings, roster overlap, and recurring co-occurrence patterns across fantasy-football datasets.",
-
-    coverImage:
-      "images/personal/fantasy-cooccurrence/fantasy-cooccurrence-cover.png",
-
-    coverAlt:
-      "Heat map showing player co-occurrence patterns in a fantasy football dataset",
+      "A season-by-season archive of BestBall entries, contest advancement, strategy development, research, and results.",
 
     description:
-      "An independent data-analysis project that organizes fantasy-football records into a co-occurrence matrix to explore player relationships, recurring combinations, and draft or roster patterns.",
+      "A long-term BestBall research archive documenting contest participation, drafting theory, decision-making, tournament advancement, and post-season lessons. The project began with small-stakes entries in 2021 and has developed into a structured record of strategy and performance.",
+
+    image: "",
+    imageAlt: "BestBall Archive project cover",
 
     summary: [
       {
-        heading: "Objective",
+        heading: "History",
         text:
-          "Identify meaningful player pairings and repeated associations within the selected fantasy-football data."
+          "Track annual entries, tournament formats, advancement results, and meaningful milestones from 2021 onward."
       },
       {
-        heading: "Method",
+        heading: "Theory",
         text:
-          "Cleaned source data, constructed a player-by-player co-occurrence matrix, and evaluated the results with tables and visualizations."
+          "Document ideas involving roster construction, player correlation, draft timing, ADP, contest selection, and exposure."
       },
       {
-        heading: "Deliverables",
+        heading: "Research",
         text:
-          "An Excel workbook, supporting data files, visualizations, and a short explanation of the analysis."
+          "Connect BestBall performance review with supporting tools such as player co-occurrence and draft-value analysis."
+      },
+      {
+        heading: "Current focus",
+        text:
+          "Maintain a clean 2026 record while preserving prior seasons as an expandable historical timeline."
       }
     ],
 
-    gallery: [
+    actions: [
       {
-        src:
-          "images/personal/fantasy-cooccurrence/matrix-heatmap.png",
-        alt:
-          "Heat map visualizing player co-occurrence values in the fantasy football dataset",
-        caption:
-          "Co-occurrence heat map for the selected player dataset."
+        label: "Open BestBall Timeline",
+        href: "bestball.html",
+        style: "primary"
+      }
+    ]
+  },
+
+  {
+    id: "fantasy-cooccurrence",
+    type: "Fantasy Research",
+    date: "Ongoing",
+    title: "Fantasy Co-Occurrence Matrix",
+
+    cardDescription:
+      "A spreadsheet-based research tool for examining repeated player relationships and correlations across fantasy-football datasets.",
+
+    description:
+      "A personal fantasy-football research project that organizes player relationships into a co-occurrence matrix. The tool is intended to help identify repeated pairings, team environments, stacking patterns, and relationships worth evaluating in BestBall drafts.",
+
+    image: "",
+    imageAlt: "Fantasy football co-occurrence matrix project cover",
+
+    summary: [
+      {
+        heading: "Purpose",
+        text:
+          "Explore which player combinations and team relationships appear together across selected fantasy-football data."
       },
       {
-        src:
-          "images/personal/fantasy-cooccurrence/workbook-preview.png",
-        alt:
-          "Spreadsheet view of the fantasy football co-occurrence matrix",
-        caption:
-          "Workbook output containing the player co-occurrence matrix."
+        heading: "Format",
+        text:
+          "A spreadsheet-based matrix that can be updated, filtered, and expanded as new seasons or research ideas are added."
+      },
+      {
+        heading: "Use case",
+        text:
+          "Support BestBall research by creating a structured way to review correlation, stacking, and player-pairing ideas."
       }
     ],
 
-    downloads: [
+    actions: [
       {
-        label: "Download Excel Workbook",
-        href:
-          "files/personal/fantasy-cooccurrence/fantasy-cooccurrence-matrix.xlsx",
-        download: true
-      },
-      {
-        label: "Download CSV Data",
-        href:
-          "files/personal/fantasy-cooccurrence/fantasy-cooccurrence-matrix.csv",
-        download: true
+        label: "Project File Coming Soon",
+        href: "#",
+        style: "ghost"
       }
     ]
   }
