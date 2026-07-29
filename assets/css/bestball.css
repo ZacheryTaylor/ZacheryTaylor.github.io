@@ -1,1 +1,281 @@
+/* BestBall page additions
+   projects.css must load before this stylesheet. */
 
+.bestball-header {
+  padding-bottom: 66px;
+}
+
+/* Timeline section */
+
+.bestball-timeline-section {
+  padding: 72px 0 110px;
+  border-top: 1px solid var(--border);
+}
+
+.bestball-heading {
+  max-width: 760px;
+  margin-bottom: 42px;
+}
+
+.bestball-heading h2 {
+  max-width: 16ch;
+  margin-bottom: 16px;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 0.98;
+}
+
+.bestball-heading > p:not(.section-label) {
+  max-width: 62ch;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* Vertical rail */
+
+.bestball-timeline {
+  position: relative;
+  max-width: 860px;
+  padding-left: 34px;
+}
+
+.bestball-timeline::before {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 9px;
+  width: 2px;
+  background: rgba(23, 33, 43, 0.46);
+  content: "";
+}
+
+.bestball-item {
+  position: relative;
+  padding-bottom: 44px;
+}
+
+.bestball-item:last-child {
+  padding-bottom: 0;
+}
+
+.bestball-marker {
+  position: absolute;
+  top: 7px;
+  left: -34px;
+  width: 16px;
+  height: 16px;
+  border: 3px solid var(--paper);
+  border-radius: 50%;
+  background: var(--blueprint);
+  box-shadow: 0 0 0 1px rgba(7, 84, 165, 0.24);
+}
+
+/* Marker colors match each season status */
+
+.status-current .bestball-marker {
+  background: var(--blueprint);
+  box-shadow: 0 0 0 1px rgba(7, 84, 165, 0.24);
+}
+
+.status-result .bestball-marker {
+  background: var(--bronze);
+  box-shadow: 0 0 0 1px rgba(154, 112, 56, 0.28);
+}
+
+.status-research .bestball-marker {
+  background: #647787;
+  box-shadow: 0 0 0 1px rgba(100, 119, 135, 0.28);
+}
+
+.status-start .bestball-marker {
+  background: #7a8d68;
+  box-shadow: 0 0 0 1px rgba(122, 141, 104, 0.28);
+}
+
+/* Timeline text */
+
+.bestball-date {
+  margin-bottom: 4px;
+  color: var(--bronze);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.bestball-item h3 {
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: clamp(1.08rem, 2.2vw, 1.28rem);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.bestball-description {
+  max-width: 68ch;
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
+/* Season statistics */
+
+.bestball-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.bestball-stat {
+  min-width: 104px;
+  padding: 9px 11px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.bestball-stat span {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--muted);
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bestball-stat strong {
+  color: var(--blueprint);
+  font-size: 0.98rem;
+}
+
+/* Expand/collapse button */
+
+.bestball-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 16px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--blueprint);
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.bestball-toggle:hover {
+  color: var(--blueprint-dark);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.bestball-toggle span {
+  display: inline-grid;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+/* Expanded season record */
+
+.bestball-details {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.bestball-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.bestball-detail h4,
+.bestball-takeaways h4 {
+  margin-bottom: 5px;
+  color: var(--blueprint);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.bestball-detail p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.bestball-takeaways {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.bestball-takeaways ul {
+  display: grid;
+  gap: 7px;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.bestball-empty {
+  padding: 24px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+}
+
+/* Responsive */
+
+@media (max-width: 620px) {
+  .bestball-header {
+    padding-bottom: 52px;
+  }
+
+  .bestball-timeline-section {
+    padding: 58px 0 80px;
+  }
+
+  .bestball-heading {
+    margin-bottom: 32px;
+  }
+
+  .bestball-timeline {
+    padding-left: 28px;
+  }
+
+  .bestball-timeline::before {
+    left: 7px;
+  }
+
+  .bestball-marker {
+    left: -28px;
+    width: 14px;
+    height: 14px;
+  }
+
+  .bestball-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .bestball-details {
+    padding: 17px;
+  }
+
+  .bestball-stat {
+    flex: 1 1 110px;
+  }
+}
