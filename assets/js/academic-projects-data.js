@@ -590,6 +590,97 @@ const projects = [
     ]
   },
 
+{
+  id: "cable-clip-redesign",
+  type: "Mechanical Design",
+  date: "Mechanical Engineering\n2023",
+  title: "CableCuff PRO Redesign",
+  cardDescription:
+    "A reverse-engineering and redesign study of a reusable cable-management tool focused on weight, strength, and usability.",
+  coverImage: "images/academic/CableClip.jpg",
+  coverAlt:
+    "CableCuff PRO cable-management tool redesign",
+  description:
+    "An EML 3022 design project that documented, measured, and redesigned the CableCuff PRO, a reusable tool for organizing cords, cables, ropes, and hoses. The updated design reduced material in the base, strengthened the holding hook, and evaluated the component's likely failure region.",
+  summary: [
+    {
+      heading: "Product Study",
+      text:
+        "Analyzed the CableCuff PRO, a reusable cable-management device with adjustable latching teeth, a hanging loop, an ergonomic holding hook, and a flexible release feature."
+    },
+    {
+      heading: "Redesign",
+      text:
+        "Modified the black base with a shorter solid section to reduce material and potential cost. The holding hook was also revised to improve pulling strength and comfort during use."
+    },
+    {
+      heading: "Analysis",
+      text:
+        "Applied loading at the top of the curved tooth region, where prior use suggested the part was most prone to cracking or snapping. The updated material selection produced a modest factor-of-safety improvement."
+    },
+    {
+      heading: "Validation",
+      text:
+        "Compared measured and modeled mass properties using water displacement and scale measurements. The theoretical volume was 1.28 cubic inches versus an observed 1.30 cubic inches, a 1.54% difference."
+    }
+  ],
+  pdf: "pdfs/academic/CableClip.pdf",
+  gallery: [
+    {
+      src: "images/academic/cableclip-gallery/CableClip-01.jpg",
+      alt: "CableCuff PRO cable-management tool",
+      caption: "Original CableCuff PRO used as the basis for the redesign."
+    },
+    {
+      src: "images/academic/cableclip-gallery/CableClip-02.jpg",
+      alt: "CableCuff PRO product reference",
+      caption: "Product reference and functional features."
+    },
+    {
+      src: "images/academic/cableclip-gallery/CableClip-03.jpg",
+      alt: "CableCuff PRO redesign model",
+      caption: "Redesigned component geometry."
+    },
+    {
+      src: "images/academic/cableclip-gallery/CableClip-04.jpg",
+      alt: "CableCuff PRO CAD detail",
+      caption: "CAD detail supporting the revised design."
+    },
+    {
+      src: "images/academic/cableclip-gallery/CableClip-05.jpg",
+      alt: "CableCuff PRO dimensional drawing",
+      caption: "Measured dimensions and feature layout."
+    },
+    {
+      src: "images/academic/cableclip-gallery/CableClip-06.jpg",
+      alt: "CableCuff PRO component drawing",
+      caption: "Detailed part geometry for the redesign."
+    },
+    {
+      src: "images/academic/cableclip-gallery/CableClip-07.jpg",
+      alt: "CableCuff PRO stress analysis",
+      caption: "Stress analysis at the upper tooth and curved region."
+    },
+    {
+      src: "images/academic/cableclip-gallery/CableClip-08.jpg",
+      alt: "CableCuff PRO old and new analysis",
+      caption: "Comparison of the original and updated designs."
+    },
+    {
+      src: "images/academic/cableclip-gallery/CableClip-09.jpg",
+      alt: "CableCuff PRO engineering drawing",
+      caption: "Engineering drawing for the latching-teeth component."
+    },
+    {
+      src: "images/academic/cableclip-gallery/CableClip-10.jpg",
+      alt: "CableCuff PRO mass properties",
+      caption: "Measured and theoretical mass-property comparison."
+    }
+  ]
+},
+  
+
+  
   {
   id: "home-price-factors",
   type: "Statistics",
