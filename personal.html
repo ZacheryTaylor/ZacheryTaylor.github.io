@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Personal Projects | Zachery Taylor · ZT, LLC</title>
+
+  <meta
+    name="description"
+    content="Independent data analysis, creative work, media, software tools, and personal projects by Zachery Taylor."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="assets/css/projects.css" />
+</head>
+
+<body>
+  <nav>
+    <div class="inner">
+      <a class="logo" href="index.html">Z<span>T</span>, LLC</a>
+
+      <ul class="nav-links">
+        <li><a href="index.html#book">The Book</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a class="active" href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#connect">Connect</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <div class="wrap">
+        <h1>Personal <em>projects.</em></h1>
+
+        <p class="lead">
+          Independent research, data analysis, creative work, media, tools,
+          and projects developed outside the classroom.
+        </p>
+
+        <a class="back-link" href="index.html#projects">
+          ← Back to all projects
+        </a>
+      </div>
+    </header>
+
+    <section class="projects-section">
+      <div class="wrap">
+        <p class="section-label">Project index</p>
+
+        <!-- Project cards are created automatically from personal-projects-data.js -->
+        <div class="project-grid" id="project-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Project detail pop-ups and photo galleries are created automatically -->
+  <div id="modal-root"></div>
+
+  <footer>
+    <div class="wrap">
+      <a class="logo" href="index.html">Z<span>T</span>, LLC</a>
+
+      <p>
+        © <span id="year"></span> ZT, LLC · Zachery Taylor · Pensacola, Florida
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/personal-projects-data.js"></script>
+  <script src="assets/js/personal-projects.js"></script>
+</body>
+</html>
