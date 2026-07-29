@@ -1,4 +1,3 @@
-const bestballSummary = document.getElementById("bestball-summary");
 const bestballTimeline = document.getElementById("bestball-timeline");
 const yearElement = document.getElementById("year");
 
@@ -11,95 +10,109 @@ function escapeHtml(value = "") {
     .replaceAll("'", "&#039;");
 }
 
-function createSummaryCard(label, value) {
+function createStats(stats = []) {
+  if (!stats.length) {
+    return "";
+  }
+
   return `
-    <article class="bestball-summary-card">
-      <p>${escapeHtml(label)}</p>
-      <strong>${escapeHtml(value)}</strong>
-    </article>
+    <div class="bestball-stats">
+      ${stats
+        .map(
+          (stat) => `
+            <div class="bestball-stat">
+              <span>${escapeHtml(stat.label)}</span>
+              <strong>${escapeHtml(stat.value)}</strong>
+            </div>
+          `
+        )
+        .join("")}
+    </div>
   `;
 }
 
-function createSeasonCard(season, index) {
-  const stats = season.stats
-    .map(
-      (stat) => `
-        <div class="season-stat">
-          <span>${escapeHtml(stat.label)}</span>
-          <strong>${escapeHtml(stat.value)}</strong>
-        </div>
-      `
-    )
-    .join("");
-
-  const details = season.details
-    .map(
-      (item) => `
-        <div class="season-detail">
-          <h4>${escapeHtml(item.heading)}</h4>
-          <p>${escapeHtml(item.text)}</p>
-        </div>
-      `
-    )
-    .join("");
-
-  const takeaways = season.takeaways
-    .map((item) => `<li>${escapeHtml(item)}</li>`)
-    .join("");
+function createDetails(details = []) {
+  if (!details.length) {
+    return "";
+  }
 
   return `
-    <article class="season-card status-${escapeHtml(season.status)}">
-      <div class="season-rail">
-        <span class="season-dot" aria-hidden="true"></span>
-      </div>
+    <div class="bestball-detail-grid">
+      ${details
+        .map(
+          (item) => `
+            <article class="bestball-detail">
+              <h4>${escapeHtml(item.heading)}</h4>
+              <p>${escapeHtml(item.text)}</p>
+            </article>
+          `
+        )
+        .join("")}
+    </div>
+  `;
+}
 
-      <div class="season-main">
-        <div class="season-topline">
-          <p class="season-year">${escapeHtml(season.year)}</p>
-          <p class="season-label">${escapeHtml(season.label)}</p>
-        </div>
+function createTakeaways(takeaways = []) {
+  if (!takeaways.length) {
+    return "";
+  }
+
+  return `
+    <div class="bestball-takeaways">
+      <h4>Season takeaways</h4>
+
+      <ul>
+        ${takeaways
+          .map((item) => `<li>${escapeHtml(item)}</li>`)
+          .join("")}
+      </ul>
+    </div>
+  `;
+}
+
+function createTimelineItem(season, index) {
+  return `
+    <article class="bestball-item status-${escapeHtml(season.status)}">
+      <span class="bestball-marker" aria-hidden="true"></span>
+
+      <div class="bestball-item-content">
+        <p class="bestball-date">
+          ${escapeHtml(season.year)} · ${escapeHtml(season.label)}
+        </p>
 
         <h3>${escapeHtml(season.title)}</h3>
 
-        <p class="season-summary">${escapeHtml(season.summary)}</p>
+        <p class="bestball-description">
+          ${escapeHtml(season.summary)}
+        </p>
 
-        <div class="season-stats">
-          ${stats}
-        </div>
+        ${createStats(season.stats)}
 
         <button
-          class="season-toggle"
+          class="bestball-toggle"
           type="button"
           aria-expanded="false"
-          aria-controls="season-details-${index}"
+          aria-controls="bestball-details-${index}"
         >
-          View season <span aria-hidden="true">+</span>
+          View full season
+          <span aria-hidden="true">+</span>
         </button>
 
         <div
-          class="season-details"
-          id="season-details-${index}"
+          class="bestball-details"
+          id="bestball-details-${index}"
           hidden
         >
-          <div class="season-detail-grid">
-            ${details}
-          </div>
-
-          <div class="season-takeaways">
-            <h4>Season takeaways</h4>
-
-            <ul>
-              ${takeaways}
-            </ul>
-          </div>
+          ${createDetails(season.details)}
+          ${createTakeaways(season.takeaways)}
         </div>
       </div>
     </article>
   `;
 }
 
-function renderBestballArchive() {
-  if (!bestballSummary || !bestballTimeline) {
+function renderBestballTimeline() {
+  if (!bestballTimeline) {
     return;
   }
 
@@ -109,30 +122,28 @@ function renderBestballArchive() {
   ) {
     bestballTimeline.innerHTML = `
       <p class="bestball-empty">
-        Timeline data could not load.
+        Timeline data could not load. Check bestball-data.js.
       </p>
     `;
     return;
   }
 
-  const completedSeasons = bestballSeasons.filter(
-    (season) => season.status !== "current"
-  ).length;
-
-  bestballSummary.innerHTML = [
-    createSummaryCard("Archive begins", "2021"),
-    createSummaryCard("Seasons tracked", String(bestballSeasons.length)),
-    createSummaryCard("Completed seasons", String(completedSeasons)),
-    createSummaryCard("Current focus", "2026 tracking")
-  ].join("");
+  if (!bestballSeasons.length) {
+    bestballTimeline.innerHTML = `
+      <p class="bestball-empty">
+        No BestBall seasons have been added yet.
+      </p>
+    `;
+    return;
+  }
 
   bestballTimeline.innerHTML = bestballSeasons
-    .map(createSeasonCard)
+    .map(createTimelineItem)
     .join("");
 }
 
 document.addEventListener("click", (event) => {
-  const toggle = event.target.closest(".season-toggle");
+  const toggle = event.target.closest(".bestball-toggle");
 
   if (!toggle) {
     return;
@@ -149,14 +160,14 @@ document.addEventListener("click", (event) => {
   const isOpen = toggle.getAttribute("aria-expanded") === "true";
 
   toggle.setAttribute("aria-expanded", String(!isOpen));
-  toggle.innerHTML = isOpen
-    ? 'View season <span aria-hidden="true">+</span>'
-    : 'Hide season <span aria-hidden="true">−</span>';
-
   details.hidden = isOpen;
+
+  toggle.innerHTML = isOpen
+    ? 'View full season <span aria-hidden="true">+</span>'
+    : 'Hide full season <span aria-hidden="true">−</span>';
 });
 
-renderBestballArchive();
+renderBestballTimeline();
 
 if (yearElement) {
   yearElement.textContent = new Date().getFullYear();
