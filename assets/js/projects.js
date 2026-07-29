@@ -1,5 +1,6 @@
 const projectGrid = document.getElementById("project-grid");
 const modalRoot = document.getElementById("modal-root");
+const yearElement = document.getElementById("year");
 
 function escapeHtml(value = "") {
   return String(value)
@@ -10,21 +11,32 @@ function escapeHtml(value = "") {
     .replaceAll("'", "&#039;");
 }
 
+function hasItems(value) {
+  return Array.isArray(value) && value.length > 0;
+}
+
 function createProjectCard(project) {
-  const cover = project.placeholder
+  const hasCoverImage =
+    !project.placeholder &&
+    project.coverImage &&
+    project.coverImage.trim() !== "";
+
+  const cover = hasCoverImage
     ? `
-      <div class="project-cover placeholder">
+      <div class="project-cover">
         <span class="project-type">${escapeHtml(project.type)}</span>
-        Cover image pending
+
+        <img
+          src="${escapeHtml(project.coverImage)}"
+          alt="${escapeHtml(project.coverAlt || project.title)}"
+          loading="lazy"
+        />
       </div>
     `
     : `
-      <div class="project-cover">
+      <div class="project-cover placeholder">
         <span class="project-type">${escapeHtml(project.type)}</span>
-        <img
-          src="${escapeHtml(project.coverImage)}"
-          alt="${escapeHtml(project.coverAlt)}"
-        />
+        <span>Cover image pending</span>
       </div>
     `;
 
@@ -43,6 +55,7 @@ function createProjectCard(project) {
           class="card-button"
           type="button"
           data-modal="project-${escapeHtml(project.id)}"
+          aria-label="View ${escapeHtml(project.title)} project details"
         >
           View project
         </button>
@@ -52,7 +65,7 @@ function createProjectCard(project) {
 }
 
 function createSummaryItems(summary = []) {
-  if (!summary.length) {
+  if (!hasItems(summary)) {
     return "";
   }
 
@@ -69,6 +82,21 @@ function createSummaryItems(summary = []) {
         )
         .join("")}
     </div>
+  `;
+}
+
+function createLinkButton(link, defaultPrimary = false) {
+  const isPrimary = link.primary ?? defaultPrimary;
+  const opensNewTab = link.newTab === true;
+
+  return `
+    <a
+      class="btn ${isPrimary ? "btn-primary" : "btn-ghost"}"
+      href="${escapeHtml(link.href)}"
+      ${opensNewTab ? 'target="_blank" rel="noopener"' : ""}
+    >
+      ${escapeHtml(link.label)}
+    </a>
   `;
 }
 
@@ -121,14 +149,16 @@ function createActionButtons(project) {
     `);
   }
 
-  if (project.gallery && project.gallery.length) {
+  if (hasItems(project.gallery)) {
+    const hasExistingPrimaryAction =
+      Boolean(project.pdf) ||
+      Boolean(project.presentationPdf) ||
+      hasItems(project.links) ||
+      hasItems(project.actions);
+
     buttons.push(`
       <button
-        class="btn ${
-          project.pdf || project.presentationPdf
-            ? "btn-ghost"
-            : "btn-primary"
-        }"
+        class="btn ${hasExistingPrimaryAction ? "btn-ghost" : "btn-primary"}"
         type="button"
         data-modal="gallery-${escapeHtml(project.id)}"
       >
@@ -137,22 +167,63 @@ function createActionButtons(project) {
     `);
   }
 
+  /*
+    Use `links` for simple custom navigation.
+
+    Example:
+    links: [
+      {
+        label: "Open BestBall Timeline",
+        href: "bestball.html",
+        primary: true
+      }
+    ]
+  */
+  if (hasItems(project.links)) {
+    project.links.forEach((link) => {
+      if (!link.label || !link.href) {
+        return;
+      }
+
+      buttons.push(createLinkButton(link));
+    });
+  }
+
+  /*
+    `actions` is supported too, if you prefer that name
+    in a project's data file.
+  */
+  if (hasItems(project.actions)) {
+    project.actions.forEach((action) => {
+      if (!action.label || !action.href) {
+        return;
+      }
+
+      buttons.push(createLinkButton(action));
+    });
+  }
+
   return buttons.length
     ? `<div class="modal-actions">${buttons.join("")}</div>`
     : "";
 }
 
 function createProjectModal(project) {
-  const hero = project.placeholder
-    ? ""
-    : `
+  const hasCoverImage =
+    !project.placeholder &&
+    project.coverImage &&
+    project.coverImage.trim() !== "";
+
+  const hero = hasCoverImage
+    ? `
       <div class="modal-hero">
         <img
           src="${escapeHtml(project.coverImage)}"
-          alt="${escapeHtml(project.coverAlt)}"
+          alt="${escapeHtml(project.coverAlt || project.title)}"
         />
       </div>
-    `;
+    `
+    : "";
 
   return `
     <div
@@ -167,7 +238,7 @@ function createProjectModal(project) {
         <button
           class="modal-close"
           type="button"
-          aria-label="Close project details"
+          aria-label="Close ${escapeHtml(project.title)} details"
         >
           &times;
         </button>
@@ -175,13 +246,15 @@ function createProjectModal(project) {
         ${hero}
 
         <div class="modal-content">
-          <p class="modal-kicker">${escapeHtml(project.date)}</p>
+          <p class="modal-kicker">
+            ${escapeHtml(project.type)} · ${escapeHtml(project.date)}
+          </p>
 
           <h2 id="project-${escapeHtml(project.id)}-title">
             ${escapeHtml(project.title)}
           </h2>
 
-          <p>${escapeHtml(project.description)}</p>
+          <p>${escapeHtml(project.description || project.cardDescription)}</p>
 
           ${createSummaryItems(project.summary)}
 
@@ -192,26 +265,44 @@ function createProjectModal(project) {
   `;
 }
 
+function createGalleryItem(item) {
+  const source = escapeHtml(item.src);
+  const alt = escapeHtml(item.alt || "");
+  const caption = item.caption
+    ? `<figcaption class="gallery-caption">${escapeHtml(item.caption)}</figcaption>`
+    : "";
+
+  if (item.type === "video") {
+    return `
+      <figure class="gallery-item">
+        <video controls preload="metadata">
+          <source src="${source}">
+          Your browser does not support this video.
+        </video>
+        ${caption}
+      </figure>
+    `;
+  }
+
+  return `
+    <figure class="gallery-item">
+      <img
+        src="${source}"
+        alt="${alt}"
+        loading="lazy"
+      >
+      ${caption}
+    </figure>
+  `;
+}
+
 function createGalleryModal(project) {
-  if (!project.gallery || !project.gallery.length) {
+  if (!hasItems(project.gallery)) {
     return "";
   }
 
   const galleryItems = project.gallery
-    .map(
-      (image) => `
-        <figure class="gallery-item">
-          <img
-            src="${escapeHtml(image.src)}"
-            alt="${escapeHtml(image.alt)}"
-            loading="lazy"
-          />
-          <figcaption class="gallery-caption">
-            ${escapeHtml(image.caption)}
-          </figcaption>
-        </figure>
-      `
-    )
+    .map(createGalleryItem)
     .join("");
 
   return `
@@ -227,7 +318,7 @@ function createGalleryModal(project) {
         <button
           class="modal-close"
           type="button"
-          aria-label="Close ${escapeHtml(project.title)} photo gallery"
+          aria-label="Close ${escapeHtml(project.title)} gallery"
         >
           &times;
         </button>
@@ -270,6 +361,12 @@ function createGalleryModal(project) {
   `;
 }
 
+function pauseVideos(modal) {
+  modal.querySelectorAll("video").forEach((video) => {
+    video.pause();
+  });
+}
+
 function openModal(modal) {
   if (!modal) {
     return;
@@ -291,6 +388,8 @@ function closeModal(modal) {
     return;
   }
 
+  pauseVideos(modal);
+
   modal.classList.remove("is-open");
   modal.setAttribute("aria-hidden", "true");
 
@@ -300,7 +399,34 @@ function closeModal(modal) {
 }
 
 function renderProjects() {
-  projectGrid.innerHTML = projects.map(createProjectCard).join("");
+  if (!projectGrid || !modalRoot) {
+    console.error(
+      "Projects could not render. Confirm that this page includes #project-grid and #modal-root."
+    );
+    return;
+  }
+
+  if (!Array.isArray(window.projects)) {
+    console.error(
+      "Projects could not render. Confirm that the page data file loads before projects.js and defines `const projects = [...]`."
+    );
+    return;
+  }
+
+  if (!projects.length) {
+    projectGrid.innerHTML = `
+      <p class="empty-message">
+        No projects have been added yet.
+      </p>
+    `;
+
+    modalRoot.innerHTML = "";
+    return;
+  }
+
+  projectGrid.innerHTML = projects
+    .map(createProjectCard)
+    .join("");
 
   modalRoot.innerHTML = projects
     .map(
@@ -361,11 +487,13 @@ function setEventListeners() {
     }
   });
 
-  modalRoot.addEventListener("click", (event) => {
-    if (event.target.classList.contains("modal")) {
-      closeModal(event.target);
-    }
-  });
+  if (modalRoot) {
+    modalRoot.addEventListener("click", (event) => {
+      if (event.target.classList.contains("modal")) {
+        closeModal(event.target);
+      }
+    });
+  }
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
@@ -377,4 +505,6 @@ function setEventListeners() {
 renderProjects();
 setEventListeners();
 
-document.getElementById("year").textContent = new Date().getFullYear();
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}
