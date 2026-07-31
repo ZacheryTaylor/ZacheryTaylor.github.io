@@ -398,12 +398,30 @@ h1 em {
 
 /* Equal-size content regions for the Personal-project index. */
 
+/* Personal project-card uniform sizing and academic-style labels */
+
 #personal-project-grid .project-body {
   min-height: 246px;
 }
 
+#personal-project-grid .project-date,
 #personal-project-grid .project-body h2 {
-  min-height: 3.4rem;
+  color: var(--bronze);
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+#personal-project-grid .project-date {
+  margin-bottom: 4px;
+}
+
+#personal-project-grid .project-body h2 {
+  min-height: 0;
+  margin-bottom: 12px;
 }
 
 #personal-project-grid .project-body p:not(.project-date) {
@@ -832,11 +850,13 @@ footer .logo {
   /* Personal cards grow naturally on narrow screens. */
 
   #personal-project-grid .project-body {
-    min-height: 0;
+    min-height: 246px;
   }
 
-  #personal-project-grid .project-body h2,
+  #personal-project-grid .project-body h2 {
+    min-height: 3.4rem;
+  }
   #personal-project-grid .project-body p:not(.project-date) {
-    min-height: 0;
+    min-height: 4.6rem;
   }
 }
