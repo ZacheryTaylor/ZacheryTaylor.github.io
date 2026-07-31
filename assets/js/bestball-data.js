@@ -157,8 +157,8 @@ const bestballSeasons = [
         value: "2"
       },
       {
-        label: "Season withdrawal",
-        value: "$715"
+        label: "Best Finsih",
+        value: "16th"
       }
     ],
 
@@ -171,12 +171,14 @@ const bestballSeasons = [
       {
         heading: "Mini Schnauzer 7",
         text:
+          "37,200 Total Entrants.",
           "Reached a 310-entry Week 17 final, finished 16th, and paid $500."
       },
       {
         heading: "Little Board",
         text:
-          "Reached a 467-entry Week 17 final, finished 29th, and paid $200."
+          "56,040 Total Entrants.",
+          "Reached a 467 Seat Week 17 final, finished 29th, and paid $200."
       },
       {
         heading: "Season result",
@@ -254,7 +256,8 @@ const bestballSeasons = [
 
     takeaways: [
       "Pre- and post-NFL Draft timing became a useful comparison point",
-      "Week 15 advancement did not yet translate into deeper tournament runs"
+      "Week 15 advancement did not yet translate into deeper tournament runs",
+      "Referral code used by three people, netting an additional $15 for next season"
     ]
   },
 
