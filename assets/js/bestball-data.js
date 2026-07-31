@@ -171,14 +171,12 @@ const bestballSeasons = [
       {
         heading: "Mini Schnauzer 7",
         text:
-          "37,200 Total Entrants.",
-          "Reached a 310-entry Week 17 final, finished 16th, and paid $500."
+          "37,200 Total Entrants. Reached a 310-entry Week 17 final, finished 16th, and paid $500."
       },
       {
         heading: "Little Board",
         text:
-          "56,040 Total Entrants.",
-          "Reached a 467 Seat Week 17 final, finished 29th, and paid $200."
+          "56,040 Total Entrants. Reached a 467 Seat Week 17 final, finished 29th, and paid $200."
       },
       {
         heading: "Season result",
