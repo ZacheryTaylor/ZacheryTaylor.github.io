@@ -228,7 +228,7 @@ const bestballSeasons = [
       {
         heading: "Sit & Go entries",
         text:
-          "Drafted 18 entries in 12-team Sit & Go contests, totaling $54 in entry fees and producing a $21 withdrawal from those contests."
+          "Drafted 18 entries in 12-team Sit & Go contests, totaling $54 in entry fees and producing a $21 return from those contests."
       },
       {
         heading: "Tournament entries",
@@ -253,7 +253,6 @@ const bestballSeasons = [
     ],
 
     takeaways: [
-      "Separated non-tournament, Weekly Winners, and tournament entries in the archive",
       "Pre- and post-NFL Draft timing became a useful comparison point",
       "Week 15 advancement did not yet translate into deeper tournament runs"
     ]
@@ -295,7 +294,7 @@ const bestballSeasons = [
       {
         heading: "Sit & Go entries",
         text:
-          "Drafted 19 entries in 12-team Sit & Go contests, with $59 in entry fees and a $107 withdrawal from those contests."
+          "Drafted 19 entries in 12-team Sit & Go contests, with $59 in entry fees and a $107 return from those contests."
       },
       {
         heading: "Tournament entries",
@@ -310,7 +309,7 @@ const bestballSeasons = [
       {
         heading: "Season result",
         text:
-          "The season concluded with a $133 withdrawal after reinvesting the previous year’s results into a broader set of contests."
+          "The season concluded with a $133 return after reinvesting the previous year’s results into a broader set of contests."
       }
     ],
 
@@ -348,8 +347,8 @@ const bestballSeasons = [
         value: "3"
       },
       {
-        label: "Return",
-        value: "$90"
+        label: "Week 15 advances",
+        value: "0"
       }
     ],
 
@@ -362,7 +361,7 @@ const bestballSeasons = [
       {
         heading: "Sit & Go result",
         text:
-          "Won three of the six 10-person Sit & Go entries, resulting in a $90 withdrawal."
+          "Won three of the six 10-person Sit & Go entries, resulting in a $90 return."
       },
       {
         heading: "Foundation",
