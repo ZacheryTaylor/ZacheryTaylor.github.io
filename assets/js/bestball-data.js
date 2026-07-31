@@ -13,26 +13,18 @@ const bestballSeasons = [
         label: "Status",
         value: "In progress"
       },
-      {
-        label: "Entry tracking",
-        value: "Active"
-      },
-      {
-        label: "Results",
-        value: "Pending"
-      }
     ],
 
     details: [
       {
         heading: "Season record",
         text:
-          "Track Sit & Go entries, tournament entries, contest selection, draft timing, and season-long results as the year develops."
+          "Track entries, contest selection, draft timing, and season-long results as the year develops."
       },
       {
         heading: "Research focus",
         text:
-          "Continue documenting draft-position analysis, player relationships, ADP value, roster construction, and contest-specific tournament theory."
+          "Continue documenting draft-position analysis, player relationships, ADP value, roster construction, uniqueness, and contest-specific tournament theory."
       },
       {
         heading: "Post-season review",
@@ -42,9 +34,7 @@ const bestballSeasons = [
     ],
 
     takeaways: [
-      "Keep active-season notes focused on process rather than incomplete results",
-      "Track Sit & Go, Weekly Winners, and tournament entries separately",
-      "Add final advancement and payout outcomes after the season is complete"
+      "Currently Drafting..."
     ]
   },
 
@@ -58,10 +48,6 @@ const bestballSeasons = [
       "Expanded Best Ball volume and used a more deliberate drafting process built around rookie pricing, seasonal exposure, draft timing, and tournament upside.",
 
     stats: [
-      {
-        label: "Total entries",
-        value: "96"
-      },
       {
         label: "Tournament entries",
         value: "93"
@@ -77,6 +63,10 @@ const bestballSeasons = [
       {
         label: "Week 17 finalists",
         value: "1"
+      }
+      {
+        label: "Best Finsih",
+        value: "52nd"
       }
     ],
 
@@ -107,14 +97,14 @@ const bestballSeasons = [
           "Made a late-season allocation toward Best Ball Mania VI because of its high-end payout structure, including a $2 million first-place prize."
       },
       {
-        heading: "Underdog advancement",
-        text:
-          "Of 91 Underdog tournament entries, 21 advanced to Week 15, five advanced to Week 16, and one reached a Week 17 final. Three Best Ball Mania VI entries advanced to Week 15."
-      },
-      {
         heading: "Drafters Main Event",
         text:
-          "Of two Drafters Main Event tournament entries, one finished within the top 3,000 of 118,764 entrants and paid $55."
+          "Of two FREE Drafters Main Event tournament entries, one finished within the top 3,000 of 118,764 entrants and paid $55."
+      },
+      {
+        heading: "Pug",
+        text:
+          "18,600 Total Entrants. Reached a 124 Seat Week 17 final, finished 52nd, and paid $250."
       },
       {
         heading: "Draft timing",
@@ -124,7 +114,7 @@ const bestballSeasons = [
     ],
 
     takeaways: [
-      "The archive now shifted toward a portfolio-level tournament process",
+      "Shifted toward a portfolio-level tournament process",
       "Four of five Week 16 advances came from entries drafted in May or earlier",
       "Separate Sit & Go, tournament, and platform-specific results in future records"
     ]
