@@ -265,10 +265,16 @@ h1 em {
   transform: translateY(-4px);
 }
 
+/* Locked cover window: all desktop project cards match exactly. */
+
 .project-cover {
   position: relative;
-  aspect-ratio: 16 / 10;
+  height: 244px;
+  min-height: 244px;
+  max-height: 244px;
   overflow: hidden;
+  flex: 0 0 244px;
+  aspect-ratio: auto;
   background: linear-gradient(135deg, #0d4f99, #082948);
 }
 
@@ -390,7 +396,7 @@ h1 em {
   color: var(--white);
 }
 
-/* Personal project-card uniform sizing */
+/* Equal-size content regions for the Personal-project index. */
 
 #personal-project-grid .project-body {
   min-height: 246px;
@@ -734,6 +740,16 @@ footer .logo {
   #personal-project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  /* Locked tablet cover window: all cards remain the same height. */
+
+  .project-card .project-cover {
+    height: 230px;
+    min-height: 230px;
+    max-height: 230px;
+    flex: 0 0 230px;
+    aspect-ratio: auto;
+  }
 }
 
 @media (max-width: 620px) {
@@ -761,6 +777,16 @@ footer .logo {
   #personal-project-grid,
   .project-summary {
     grid-template-columns: 1fr;
+  }
+
+  /* Responsive phone cover window. */
+
+  .project-card .project-cover {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    flex: 0 0 auto;
+    aspect-ratio: 16 / 10;
   }
 
   .modal {
