@@ -240,11 +240,13 @@ h1 em {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
+  align-items: stretch;
 }
 
 .project-card {
   display: flex;
   min-width: 0;
+  height: 100%;
   overflow: hidden;
   flex-direction: column;
   border: 1px solid var(--border);
@@ -386,6 +388,20 @@ h1 em {
   border-color: var(--blueprint);
   background: var(--blueprint);
   color: var(--white);
+}
+
+/* Personal project-card uniform sizing */
+
+#personal-project-grid .project-body {
+  min-height: 246px;
+}
+
+#personal-project-grid .project-body h2 {
+  min-height: 3.4rem;
+}
+
+#personal-project-grid .project-body p:not(.project-date) {
+  min-height: 4.6rem;
 }
 
 .empty-message {
@@ -785,5 +801,16 @@ footer .logo {
 
   .gallery-controls {
     display: none;
+  }
+
+  /* Personal cards grow naturally on narrow screens. */
+
+  #personal-project-grid .project-body {
+    min-height: 0;
+  }
+
+  #personal-project-grid .project-body h2,
+  #personal-project-grid .project-body p:not(.project-date) {
+    min-height: 0;
   }
 }
