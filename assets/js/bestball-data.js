@@ -327,7 +327,7 @@ const bestballSeasons = [
       {
         heading: "Early result",
         text:
-          "Won three of the 10-person drafts and withdrew $90."
+          "Won three of the 10-person drafts for $90."
       },
       {
         heading: "Foundation",
