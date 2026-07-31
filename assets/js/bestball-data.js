@@ -63,7 +63,7 @@ const bestballSeasons = [
       {
         label: "Week 17 finalists",
         value: "1"
-      }
+      },
       {
         label: "Best Finsih",
         value: "52nd"
@@ -147,7 +147,7 @@ const bestballSeasons = [
         value: "2"
       },
       {
-        label: "Best Finsih",
+        label: "Best Finish",
         value: "16th"
       }
     ],
