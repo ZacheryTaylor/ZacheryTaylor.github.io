@@ -65,7 +65,7 @@ const bestballSeasons = [
         value: "1"
       },
       {
-        label: "Best Finsih",
+        label: "Best Finish",
         value: "52nd"
       }
     ],
