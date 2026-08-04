@@ -51,7 +51,7 @@ const projects = [
     {
     id: "dynasty-dimwits-podcast",
     type: "Host",
-    date: "Podcast\nActive",
+    date: "Podcast\n2022-Present",
     title: "Dynasty Dimwits Podcast",
 
     cardDescription:
