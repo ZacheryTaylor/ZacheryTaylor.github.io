@@ -156,8 +156,8 @@ const projects = [
 
       {
     id: "break-starter-podcast",
-    type: "Podcast",
-    date: "Podcast\n2020–2023(165 Episodes)",
+    type: "Co-Host",
+    date: "Podcast\n2020–2023 (165 Episodes)",
     title: "Break Starter Podcast",
 
     cardDescription:
