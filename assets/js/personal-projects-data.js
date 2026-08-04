@@ -1,7 +1,7 @@
 const projects = [
   {
     id: "bestball-archive",
-    type: "Progression",
+    type: "Journey",
     date: "Fantasy Football\n2021–Present",
     title: "Best Ball Archive",
 
@@ -51,7 +51,7 @@ const projects = [
   {
     id: "fantasy-cooccurrence",
     type: "Data Analysis",
-    date: "Fantasy Football\nOngoing",
+    date: "Fantasy Football\n2025",
     title: "Best Ball Co-Occurrence Matrix",
 
     cardDescription:
@@ -102,7 +102,7 @@ const projects = [
   {
     id: "bestball-draft-valuation",
     type: "Data Analysis",
-    date: "Fantasy Football\nOngoing",
+    date: "Fantasy Football\n2025",
     title: "Best Ball Draft Valuation & Stack Analysis",
 
     cardDescription:
@@ -197,6 +197,53 @@ const projects = [
       {
         label: "Listen on Spotify",
         href: "https://open.spotify.com/show/1nuAoiG4IdKHW1okwsYqX7",
+        primary: true,
+        newTab: true
+      }
+    ]
+  },
+
+    {
+    id: "dynasty-dimwits-podcast",
+    type: "Host",
+    date: "Podcast\nActive",
+    title: "Dynasty Dimwits Podcast",
+
+    placeholder: true,
+
+    cardDescription:
+      "An ongoing interview-led podcast that keeps a dynasty fantasy-football league connected, active, and engaged throughout the year.",
+
+    description:
+      "Dynasty Dimwits Podcast is an ongoing show built for the Dynasty Dimwits Fantasy Football League. Hosted by Zach Taylor, each episode brings a different league member into a guided conversation about dynasty football, league activity, current events, and the personalities that make the league competitive and connected.",
+
+    summary: [
+      {
+        heading: "Purpose",
+        text:
+          "Create a recurring space for league members to stay connected, share perspectives, and remain engaged beyond the weekly fantasy-football matchup."
+      },
+      {
+        heading: "Host format",
+        text:
+          "Host and guide each episode as a different league member joins the show, giving the guest room to explain opinions, decisions, league experiences, and their approach to dynasty football."
+      },
+      {
+        heading: "League engagement",
+        text:
+          "Use conversations to keep members involved throughout the year, maintain relationships across the league, and generate new discussion around trades, roster decisions, and league storylines."
+      },
+      {
+        heading: "Ongoing archive",
+        text:
+          "The podcast continues to grow as new members join the conversation and new league developments create fresh topics to explore."
+      }
+    ],
+
+    links: [
+      {
+        label: "Listen on Spotify",
+        href: "https://open.spotify.com/show/52Uebn7h8aZh7mfiX1vBZt",
         primary: true,
         newTab: true
       }
