@@ -160,11 +160,13 @@ const projects = [
     date: "Podcast\n2020–2023(165 Episodes)",
     title: "Break Starter Podcast",
 
-    placeholder: true,
-
     cardDescription:
       "A weekly NBA basketball podcast blending current events, theory crafting, creative analysis, and long-form discussion.",
 
+    coverImage: "images/personal/BreakStarter.png",
+    coverAlt:
+      "Break Starter Podcast Logo",
+        
     description:
       "Break Starter Podcast is a weekly NBA basketball show co-hosted by Sean Philson and Zach Taylor. The show combines coverage of current league developments with theory crafting, creative discussion, and a broader analytical perspective shaped by more than 24 years of combined basketball knowledge.",
 
