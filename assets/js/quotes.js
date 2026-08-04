@@ -1,61 +1,24 @@
 /*
   QUOTE ENGINE
   ------------
-  Shared logic for the home page flashcard and the Personal Projects
-  quote log. Depends on quoteBank from quotes-data.js being loaded first.
+  Favorites are determined solely by the `favorite` flag set in
+  quotes-data.js. The toggle filters which pool gets shuffled; it does
+  not modify the underlying data.
 */
 
 const QuoteEngine = (function () {
-  const STORAGE_KEY = "quoteFavorites";
-
-  function loadFavoriteOverrides() {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      return raw ? JSON.parse(raw) : {};
-    } catch (err) {
-      return {};
-    }
-  }
-
-  function saveFavoriteOverrides(overrides) {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(overrides));
-    } catch (err) {
-      /* localStorage unavailable, favorites will not persist */
-    }
-  }
-
-  let favoriteOverrides = loadFavoriteOverrides();
-
-  function isFavorite(entry) {
-    if (Object.prototype.hasOwnProperty.call(favoriteOverrides, entry.id)) {
-      return favoriteOverrides[entry.id];
-    }
-    return !!entry.favorite;
-  }
-
-  function toggleFavorite(id) {
-    const entry = quoteBank.find(function (q) {
-      return q.id === id;
-    });
-    if (!entry) return false;
-    const newValue = !isFavorite(entry);
-    favoriteOverrides[id] = newValue;
-    saveFavoriteOverrides(favoriteOverrides);
-    return newValue;
-  }
-
   function getAll() {
     return quoteBank.slice();
   }
 
   function getFavorites() {
-    return quoteBank.filter(isFavorite);
+    return quoteBank.filter(function (q) {
+      return !!q.favorite;
+    });
   }
 
   function getPool(favoritesOnly) {
-    const pool = favoritesOnly ? getFavorites() : getAll();
-    return pool;
+    return favoritesOnly ? getFavorites() : getAll();
   }
 
   function getRandom(favoritesOnly, excludeId) {
@@ -88,9 +51,7 @@ const QuoteEngine = (function () {
     getAll: getAll,
     getFavorites: getFavorites,
     getRandom: getRandom,
-    search: search,
-    isFavorite: isFavorite,
-    toggleFavorite: toggleFavorite
+    search: search
   };
 })();
 
@@ -103,15 +64,16 @@ function initQuoteFlashcard() {
   const quoteText = document.getElementById("quote-flashcard-text");
   const quoteOrigin = document.getElementById("quote-flashcard-origin");
   const shuffleBtn = document.getElementById("quote-flashcard-shuffle");
-  const favBtn = document.getElementById("quote-flashcard-fav");
-  const favToggle = document.getElementById("quote-flashcard-fav-toggle");
+  const favToggleInput = document.getElementById("quote-flashcard-fav-toggle");
   const emptyState = document.getElementById("quote-flashcard-empty");
 
   let current = null;
-  let favoritesOnly = false;
 
-  function render() {
-    current = QuoteEngine.getRandom(favoritesOnly, current ? current.id : null);
+  function applyContent() {
+    current = QuoteEngine.getRandom(
+      favToggleInput ? favToggleInput.checked : false,
+      current ? current.id : null
+    );
 
     if (!current) {
       card.style.display = "none";
@@ -119,47 +81,31 @@ function initQuoteFlashcard() {
       return;
     }
 
-    card.style.display = "flex";
+    card.style.display = "block";
     if (emptyState) emptyState.style.display = "none";
 
     quoteText.textContent = "\u201C" + current.quote + "\u201D";
     quoteOrigin.textContent = "\u2014 " + current.origin;
-    updateFavButton();
   }
 
-  function updateFavButton() {
-    if (!favBtn || !current) return;
-    const active = QuoteEngine.isFavorite(current);
-    favBtn.classList.toggle("is-active", active);
-    favBtn.setAttribute("aria-pressed", active ? "true" : "false");
-    favBtn.textContent = active ? "\u2605 Favorited" : "\u2606 Favorite";
+  function flipToNext() {
+    card.classList.add("is-flipping");
+
+    setTimeout(function () {
+      applyContent();
+      card.classList.remove("is-flipping");
+    }, 200);
   }
 
   if (shuffleBtn) {
-    shuffleBtn.addEventListener("click", render);
+    shuffleBtn.addEventListener("click", flipToNext);
   }
 
-  if (favBtn) {
-    favBtn.addEventListener("click", function () {
-      if (!current) return;
-      QuoteEngine.toggleFavorite(current.id);
-      updateFavButton();
-    });
+  if (favToggleInput) {
+    favToggleInput.addEventListener("change", flipToNext);
   }
 
-  if (favToggle) {
-    favToggle.addEventListener("click", function () {
-      favoritesOnly = !favoritesOnly;
-      favToggle.classList.toggle("is-active", favoritesOnly);
-      favToggle.setAttribute("aria-pressed", favoritesOnly ? "true" : "false");
-      favToggle.textContent = favoritesOnly
-        ? "Showing favorites only"
-        : "Show favorites only";
-      render();
-    });
-  }
-
-  render();
+  applyContent();
 }
 
 /* ---------- Personal Projects quote log ---------- */
@@ -169,14 +115,13 @@ function initQuoteLog() {
   if (!list) return;
 
   const searchInput = document.getElementById("quote-log-search");
-  const favToggle = document.getElementById("quote-log-fav-toggle");
+  const favToggleInput = document.getElementById("quote-log-fav-toggle");
   const countLabel = document.getElementById("quote-log-count");
   const emptyState = document.getElementById("quote-log-empty");
 
-  let favoritesOnly = false;
-
   function renderList() {
     const term = searchInput ? searchInput.value : "";
+    const favoritesOnly = favToggleInput ? favToggleInput.checked : false;
     const results = QuoteEngine.search(term, favoritesOnly).slice().sort(function (a, b) {
       return new Date(b.date) - new Date(a.date);
     });
@@ -212,22 +157,15 @@ function initQuoteLog() {
       date.className = "quote-log-date";
       date.textContent = entry.date;
 
-      const starBtn = document.createElement("button");
-      starBtn.type = "button";
-      starBtn.className = "quote-log-star";
-      const active = QuoteEngine.isFavorite(entry);
-      starBtn.classList.toggle("is-active", active);
-      starBtn.setAttribute("aria-pressed", active ? "true" : "false");
-      starBtn.textContent = active ? "\u2605" : "\u2606";
-      starBtn.setAttribute("aria-label", "Toggle favorite");
-      starBtn.addEventListener("click", function () {
-        QuoteEngine.toggleFavorite(entry.id);
-        renderList();
-      });
+      const star = document.createElement("span");
+      star.className = "quote-log-star";
+      if (entry.favorite) star.classList.add("is-active");
+      star.textContent = entry.favorite ? "\u2605" : "\u2606";
+      star.setAttribute("aria-label", entry.favorite ? "Favorited" : "Not favorited");
 
       meta.appendChild(origin);
       meta.appendChild(date);
-      meta.appendChild(starBtn);
+      meta.appendChild(star);
 
       item.appendChild(text);
       item.appendChild(meta);
@@ -239,16 +177,8 @@ function initQuoteLog() {
     searchInput.addEventListener("input", renderList);
   }
 
-  if (favToggle) {
-    favToggle.addEventListener("click", function () {
-      favoritesOnly = !favoritesOnly;
-      favToggle.classList.toggle("is-active", favoritesOnly);
-      favToggle.setAttribute("aria-pressed", favoritesOnly ? "true" : "false");
-      favToggle.textContent = favoritesOnly
-        ? "Showing favorites only"
-        : "Show favorites only";
-      renderList();
-    });
+  if (favToggleInput) {
+    favToggleInput.addEventListener("change", renderList);
   }
 
   renderList();
