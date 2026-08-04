@@ -2,7 +2,7 @@ const projects = [
   {
     id: "bestball-archive",
     type: "Fantasy Football",
-    date: "2021–Present",
+    date: "Fantasy Football\n2021–Present",
     title: "Best Ball Archive",
 
     placeholder: true,
@@ -48,15 +48,16 @@ const projects = [
   {
     id: "fantasy-cooccurrence",
     type: "Fantasy Research",
-    date: "Ongoing",
+    date: "Fantasy Research\nOngoing",
     title: "Best Ball Co-Occurrence Matrix",
-
-    image: "images/personal/fantasy/bestball/BBallCooccurrence.png",
-    imageAlt:
-      "Abstract data visualization representing a Best Ball player co-occurrence matrix",
 
     cardDescription:
       "A Google Sheets–based Best Ball portfolio tool that maps how often players appear together across completed drafts.",
+
+    coverImage:
+      "images/personal/fantasy/bestball/BBallCooccurrence.png",
+    coverAlt:
+      "Data visualization representing a Best Ball player co-occurrence matrix",
 
     description:
       "A personal Best Ball research tool that converts completed roster data into a player-by-player co-occurrence matrix. Rather than only showing individual player exposure, it counts how often every pair of players appears together on the same roster. This provides a structured way to review intentional stacks, repeated player pairings, correlated exposure, and potential concentration risk across a draft portfolio.",
@@ -93,36 +94,20 @@ const projects = [
           "Audit stacking patterns, identify repeated correlations, evaluate exposure concentration, and distinguish intentional roster construction from unintended portfolio overlap."
       }
     ]
-
-    /*
-      Add a `links` array here later only when the spreadsheet,
-      PDF, or a public project page is ready.
-
-      Example:
-
-      links: [
-        {
-          label: "Open Research Tool",
-          href: "files/personal/fantasy-cooccurrence.xlsx",
-          primary: true,
-          newTab: true
-        }
-      ]
-    */
   },
 
   {
     id: "bestball-draft-valuation",
     type: "Fantasy Research",
-    date: "Ongoing",
+    date: "Fantasy Research\nOngoing",
     title: "Best Ball Draft Valuation & Stack Analysis",
-
-    image: "images/personal/fantasy/bestball/BBallValue.png",
-    imageAlt:
-      "Abstract mathematical data visualization representing Best Ball draft valuation and stack analysis",
 
     cardDescription:
       "A spreadsheet-based draft review tool that combines ADP-based draft value with a weighted measure of Week 17 game-stack strength.",
+
+    coverImage: "images/personal/fantasy/bestball/BBallValue.png",
+    coverAlt:
+      "Mathematical data visualization representing Best Ball draft valuation and stack analysis",
 
     description:
       "A Best Ball draft-analysis tool designed to review two distinct parts of roster construction: the value captured at each draft pick relative to player ADP, and the quality of Week 17 game correlations within the final roster. Together, the calculations provide a repeatable framework for comparing completed drafts, reviewing draft process, and identifying strengths or tradeoffs in portfolio construction.",
