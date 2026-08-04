@@ -10,6 +10,11 @@ const projects = [
     cardDescription:
       "A season-by-season archive of Best Ball entries, contest advancement, strategy development, research, and results.",
 
+    coverImage:
+      "images/personal/fantasy/bestball/BBallArchive.png",
+    coverAlt:
+      "Timeline of Best Ball Participation",
+    
     description:
       "A long-term Best Ball research archive documenting contest participation, drafting theory, decision-making, tournament advancement, and post-season lessons. The archive began with small-stakes entries in 2021 and has developed into a structured record of strategy, research, and performance.",
 
