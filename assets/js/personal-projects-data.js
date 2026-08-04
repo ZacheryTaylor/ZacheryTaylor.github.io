@@ -5,8 +5,6 @@ const projects = [
     date: "Fantasy Football\n2021–Present",
     title: "Best Ball Archive",
 
-    placeholder: true,
-
     cardDescription:
       "A season-by-season archive of Best Ball entries, contest advancement, strategy development, research, and results.",
 
