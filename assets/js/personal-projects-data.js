@@ -152,5 +152,53 @@ const projects = [
           "The tool is used as a review framework, not a standalone ranking system. A strong draft can sacrifice some ADP value for roster uniqueness, structural requirements, player conviction, or a higher-quality Week 17 correlation profile."
       }
     ]
+  },
+
+      {
+    id: "break-starter-podcast",
+    type: "Podcast",
+    date: "Podcast\n2020–2023(165 Episodes)",
+    title: "Break Starter Podcast",
+
+    placeholder: true,
+
+    cardDescription:
+      "A weekly NBA basketball podcast blending current events, theory crafting, creative analysis, and long-form discussion.",
+
+    description:
+      "Break Starter Podcast is a weekly NBA basketball show co-hosted by Sean Philson and Zach Taylor. The show combines coverage of current league developments with theory crafting, creative discussion, and a broader analytical perspective shaped by more than 24 years of combined basketball knowledge.",
+
+    summary: [
+      {
+        heading: "Concept",
+        text:
+          "A weekly NBA-focused podcast built to go beyond headline recaps by pairing current basketball conversation with original ideas, hypothetical scenarios, and creative theory crafting."
+      },
+      {
+        heading: "Co-hosting",
+        text:
+          "Co-hosted the show alongside Sean Philson, sharing responsibility for episode discussion, topic development, league analysis, and the overall direction of the podcast."
+      },
+      {
+        heading: "Format",
+        text:
+          "Episodes examine the NBA’s weekly events while leaving room for broader player, team-building, league-history, and basketball-theory conversations."
+      },
+      {
+        heading: "Archive",
+        text:
+          "Published 165 episodes, creating a substantial body of long-form basketball discussion and collaborative media work."
+      }
+    ],
+
+    links: [
+      {
+        label: "Listen on Spotify",
+        href: "https://open.spotify.com/show/1nuAoiG4IdKHW1okwsYqX7",
+        primary: true,
+        newTab: true
+      }
+    ]
   }
+  
 ];
