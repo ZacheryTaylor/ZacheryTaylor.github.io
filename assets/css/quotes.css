@@ -1,0 +1,315 @@
+/*
+  QUOTE FLASHCARD
+  ---------------
+  Standalone note-card styled to match .card / .book-cover aesthetic.
+  Includes iPhone-style toggle switch and a card-flip shuffle animation.
+*/
+
+.quote-flashcard-wrap {
+  perspective: 1600px;
+  max-width: 620px;
+  margin: 0 auto 56px;
+}
+
+.quote-flashcard {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 200px;
+  padding: 34px 36px 28px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 8px 22px rgba(23, 33, 43, 0.06);
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.45, 0, 0.2, 1), box-shadow 0.3s ease;
+  backface-visibility: hidden;
+}
+
+.quote-flashcard.is-flipping {
+  transform: rotateY(90deg);
+  box-shadow: 0 4px 12px rgba(23, 33, 43, 0.04);
+}
+
+.quote-flashcard::before {
+  position: absolute;
+  top: 18px;
+  left: 24px;
+  color: rgba(7, 84, 165, 0.14);
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 3.4rem;
+  line-height: 1;
+  content: "\201C";
+}
+
+.quote-flashcard-text {
+  position: relative;
+  z-index: 1;
+  margin-top: 20px;
+  margin-bottom: 18px;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(1.3rem, 2.3vw, 1.7rem);
+  font-weight: 400;
+  line-height: 1.32;
+  color: var(--ink);
+}
+
+.quote-flashcard-origin {
+  color: var(--bronze);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.quote-flashcard-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.quote-shuffle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--blueprint);
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.quote-shuffle-btn:hover {
+  background: var(--blueprint-dark);
+  transform: translateY(-2px);
+}
+
+.quote-shuffle-btn svg {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.4s ease;
+}
+
+.quote-shuffle-btn.is-spinning svg {
+  transform: rotate(180deg);
+}
+
+.quote-favorite-toggle-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quote-favorite-label {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.quote-ios-toggle {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 26px;
+  flex: 0 0 auto;
+}
+
+.quote-ios-toggle input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.quote-ios-toggle-track {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: rgba(23, 33, 43, 0.16);
+  cursor: pointer;
+  transition: background 0.28s ease;
+}
+
+.quote-ios-toggle-track::before {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: 0 2px 5px rgba(23, 33, 43, 0.25);
+  content: "";
+  transition: transform 0.28s cubic-bezier(0.45, 0, 0.2, 1);
+}
+
+.quote-ios-toggle input:checked + .quote-ios-toggle-track {
+  background: var(--bronze);
+}
+
+.quote-ios-toggle input:checked + .quote-ios-toggle-track::before {
+  transform: translateX(18px);
+}
+
+.quote-ios-toggle input:focus-visible + .quote-ios-toggle-track {
+  outline: 2px solid var(--blueprint);
+  outline-offset: 2px;
+}
+
+.quote-flashcard-empty {
+  display: none;
+  padding: 28px;
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 620px) {
+  .quote-flashcard {
+    padding: 28px 24px 22px;
+  }
+
+  .quote-flashcard-footer {
+    flex-wrap: wrap;
+  }
+}
+
+/* ---------- Personal Projects quote log ---------- */
+
+.quote-log-section {
+  padding: 78px 0 104px;
+  border-top: 1px solid var(--border);
+}
+
+.quote-log-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.quote-log-search {
+  flex: 1 1 240px;
+  min-width: 0;
+  padding: 11px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--ink);
+  font-size: 0.92rem;
+}
+
+.quote-log-search:focus {
+  outline: none;
+  border-color: var(--blueprint);
+}
+
+.quote-log-count {
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.quote-log-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  list-style: none;
+}
+
+.quote-log-item {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 8px 22px rgba(23, 33, 43, 0.035);
+}
+
+.quote-log-text {
+  margin-bottom: 14px;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 1.18rem;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.quote-log-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quote-log-origin {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--bronze);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.quote-log-date {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.quote-log-star {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+}
+
+.quote-log-star:hover {
+  border-color: var(--bronze);
+  color: var(--bronze);
+}
+
+.quote-log-star.is-active {
+  border-color: var(--bronze);
+  background: var(--bronze);
+  color: var(--white);
+}
+
+.quote-log-empty {
+  display: none;
+  grid-column: 1 / -1;
+  padding: 28px;
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 620px) {
+  .quote-log-list {
+    grid-template-columns: 1fr;
+  }
+}
