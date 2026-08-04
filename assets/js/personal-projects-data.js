@@ -3,15 +3,15 @@ const projects = [
     id: "bestball-archive",
     type: "Fantasy Football",
     date: "2021–Present",
-    title: "BestBall Archive",
+    title: "Best Ball Archive",
 
     placeholder: true,
 
     cardDescription:
-      "A season-by-season archive of BestBall entries, contest advancement, strategy development, research, and results.",
+      "A season-by-season archive of Best Ball entries, contest advancement, strategy development, research, and results.",
 
     description:
-      "A long-term BestBall research archive documenting contest participation, drafting theory, decision-making, tournament advancement, and post-season lessons. The archive began with small-stakes entries in 2021 and has developed into a structured record of strategy, research, and performance.",
+      "A long-term Best Ball research archive documenting contest participation, drafting theory, decision-making, tournament advancement, and post-season lessons. The archive began with small-stakes entries in 2021 and has developed into a structured record of strategy, research, and performance.",
 
     summary: [
       {
@@ -49,7 +49,7 @@ const projects = [
     id: "fantasy-cooccurrence",
     type: "Fantasy Research",
     date: "Ongoing",
-    title: "Fantasy Co-Occurrence Matrix",
+    title: "Best Ball Co-Occurrence Matrix",
 
     placeholder: true,
 
@@ -92,6 +92,7 @@ const projects = [
       }
     ]
 
+    
     /*
       Add a `links` array here later only when the spreadsheet,
       PDF, or a public project page is ready.
@@ -107,5 +108,58 @@ const projects = [
         }
       ]
     */
+  },
+
+    {
+    id: "bestball-draft-valuation",
+    type: "Fantasy Research",
+    date: "Ongoing",
+    title: "Best Ball Draft Valuation & Stack Analysis",
+
+    placeholder: true,
+
+    cardDescription:
+      "A spreadsheet-based draft review tool that combines ADP-based draft value with a weighted measure of Week 17 game-stack strength.",
+
+    description:
+      "A Best Ball draft-analysis tool designed to review two distinct parts of roster construction: the value captured at each draft pick relative to player ADP, and the quality of Week 17 game correlations within the final roster. Together, the calculations provide a repeatable framework for comparing completed drafts, reviewing draft process, and identifying strengths or tradeoffs in portfolio construction.",
+
+    summary: [
+      {
+        heading: "Draft Value Score",
+        text:
+          "Calculates the cumulative value gained or lost across a completed roster by comparing each player’s ADP with the pick used to select that player. The score uses a logarithmic transformation so draft value is measured proportionally rather than treating every pick difference as equal."
+      },
+      {
+        heading: "Formula",
+        text:
+          "For each drafted player, the calculation compares log(ADP + 10) against log(Pick + 10), then sums the results and multiplies by 100 for readability. Drafting a player after their ADP contributes positive value; drafting before ADP reduces the score."
+      },
+      {
+        heading: "Why the offset matters",
+        text:
+          "Adding 10 inside each logarithm prevents an undefined log(0) calculation and stabilizes the score for early-round selections, where small pick differences should not overwhelm the full-draft evaluation."
+      },
+      {
+        heading: "Week 17 Stack Value",
+        text:
+          "Measures game-correlation strength by assigning position weights to players included in Week 17 game stacks. Higher scores indicate more or stronger stack combinations designed to increase access to the ceiling outcomes that matter in Best Ball playoff weeks."
+      },
+      {
+        heading: "Position weights",
+        text:
+          "The stack calculation currently applies weights of 2.0 for quarterbacks, 1.5 for wide receivers, 1.2 for running backs, and 1.3 for tight ends. These weights reflect the differing roles each position can play in creating a correlated game environment."
+      },
+      {
+        heading: "Score guide",
+        text:
+          "A score of 0 indicates no game stacks; 1–3.5 represents a weak or low-impact stack; 4–6 indicates one solid stack; 6.5–9 reflects strong stacking; and 9.5 or higher represents multiple strong stacks."
+      },
+      {
+        heading: "Draft review",
+        text:
+          "The tool is used as a review framework, not a standalone ranking system. A strong draft can sacrifice some ADP value for roster uniqueness, structural requirements, player conviction, or a higher-quality Week 17 correlation profile."
+      }
+    ]
   }
 ];
