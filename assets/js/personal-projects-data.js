@@ -203,6 +203,56 @@ const projects = [
     ]
   },
 
+    {
+    id: "bestball-drafting-plan",
+    type: "Portfolio Management",
+    date: "Fantasy Football\n2025",
+    title: "Best Ball Drafting Plan",
+
+    cardDescription:
+      "A phase-based drafting tracker that sets entry-volume and spending targets across the Best Ball offseason.",
+      
+    coverImage: "images/personal/fantasy/bestball/BBallTracker.png",
+    coverAlt:
+      "Offseason tracker for teams drafted based on quatity and price evaluation",
+      
+    description:
+      "A spreadsheet-based planning tool used to set a deliberate Best Ball drafting schedule before and throughout the offseason. The tracker separates the calendar into defined draft windows, assigns target entries and budget by contest, and monitors progress against the plan. Its purpose is to keep portfolio construction intentional rather than allowing short-term excitement, changing ADP, or the slow pace of the offseason to dictate entry volume.",
+
+    summary: [
+      {
+        heading: "Draft windows",
+        text:
+          "Organizes the offseason into defined phases, from the pre-NFL Draft period through schedule release, late summer, and the final pre-season drafting window."
+      },
+      {
+        heading: "Entry targets",
+        text:
+          "Sets a rough target number of entries for each contest within each phase, creating an actionable draft-volume plan instead of deciding every entry in the moment."
+      },
+      {
+        heading: "Budget control",
+        text:
+          "Tracks entry fees, total planned spend, completed drafts, remaining drafts, and completion percentages to keep spending and volume aligned with the intended portfolio."
+      },
+      {
+        heading: "Phase allocation",
+        text:
+          "Summarizes draft count and dollar exposure by phase, making it easier to compare early, post-draft, and late-offseason allocation."
+      },
+      {
+        heading: "Decision discipline",
+        text:
+          "Creates structure against two opposing risks: drafting too aggressively during high-interest periods and falling behind the intended pace when the offseason feels slow or uncertain."
+      },
+      {
+        heading: "Flexible framework",
+        text:
+          "Acts as a guide rather than a rigid rulebook, leaving room to adjust when contest availability, ADP movement, player news, or a clear strategic edge changes the original plan."
+      }
+    ]
+  },
+
       {
     id: "break-starter-podcast",
     type: "Co-Host",
