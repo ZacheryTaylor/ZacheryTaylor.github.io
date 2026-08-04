@@ -81,7 +81,7 @@ function initQuoteFlashcard() {
       return;
     }
 
-    card.style.display = "block";
+    card.style.display = "flex";
     if (emptyState) emptyState.style.display = "none";
 
     quoteText.textContent = "\u201C" + current.quote + "\u201D";
