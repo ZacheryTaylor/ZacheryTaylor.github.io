@@ -15,7 +15,8 @@
   z-index: 1;
   width: 100%;
   box-sizing: border-box;
-  min-height: 190px;
+  /* FIXED HEIGHT INSTEAD OF MIN-HEIGHT */
+  height: 230px;
   padding: 38px 40px 28px;
   display: flex;
   flex-direction: column;
@@ -42,6 +43,8 @@
   font-weight: 400;
   line-height: 1.36;
   color: var(--ink);
+  /* OPTIONAL: prevent giant quotes from stretching the layout */
+  overflow: hidden;
 }
 
 .quote-flashcard-origin {
