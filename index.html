@@ -1170,19 +1170,37 @@
   </header>
 
 
-    <div class="wrap">
-    <div class="quote-flashcard" id="quote-flashcard">
-      <p class="quote-flashcard-text" id="quote-flashcard-text"></p>
-      <p class="quote-flashcard-origin" id="quote-flashcard-origin"></p>
-      <div class="quote-flashcard-actions">
-        <button type="button" class="quote-btn quote-btn-primary" id="quote-flashcard-shuffle">Shuffle</button>
-        <button type="button" class="quote-btn" id="quote-flashcard-fav">☆ Favorite</button>
-        <button type="button" class="quote-btn" id="quote-flashcard-fav-toggle">Show favorites only</button>
-      </div>
-    </div>
+  <div class="wrap">
+    <div class="quote-flashcard-wrap">
+      <div class="quote-flashcard" id="quote-flashcard">
+        <p class="quote-flashcard-text" id="quote-flashcard-text"></p>
+        <p class="quote-flashcard-origin" id="quote-flashcard-origin"></p>
 
-    <div class="quote-flashcard-empty" id="quote-flashcard-empty">
-      No favorited quotes yet. Star a few to see them here.
+        <div class="quote-flashcard-footer">
+          <button type="button" class="quote-shuffle-btn" id="quote-flashcard-shuffle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 3 21 3 21 8"></polyline>
+              e x1="4" y1="20" x2="21" y2="3"></line>
+              <polyline points="21 16 21 21 16 21"></polyline>
+              e x1="15" y1="15" x2="21" y2="21"></line>
+              e x1="4" y1="4" x2="9" y2="9"></line>
+            </svg>
+            Shuffle
+          </button>
+
+          <div class="quote-favorite-toggle-group">
+            <span class="quote-favorite-label">Favorites</span>
+            abel class="quote-ios-toggle">
+              <input type="checkbox" id="quote-flashcard-fav-toggle" />
+              <span class="quote-ios-toggle-track"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-flashcard-empty" id="quote-flashcard-empty">
+        No favorited quotes yet. Mark some as favorite = true in quotes-data.js.
+      </div>
     </div>
   </div>
 
