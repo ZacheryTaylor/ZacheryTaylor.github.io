@@ -17,12 +17,12 @@ const projects = [
       {
         heading: "History",
         text:
-          "Track annual entries, tournament formats, advancement results, and milestones from 2021 onward."
+          "Track annual entries, tournament formats, advancement results, payouts, and milestones from 2021 onward."
       },
       {
         heading: "Theory",
         text:
-          "Document roster construction, player correlation, draft timing, ADP, contest selection, and exposure ideas."
+          "Document roster construction, player correlation, draft timing, ADP, contest selection, uniqueness, and exposure ideas."
       },
       {
         heading: "Research",
@@ -54,26 +54,41 @@ const projects = [
     placeholder: true,
 
     cardDescription:
-      "A spreadsheet-based research tool for examining repeated player relationships and correlations across fantasy-football datasets.",
+      "A Google Sheets–based Best Ball portfolio tool that maps how often players appear together across completed drafts.",
 
     description:
-      "A personal fantasy-football research project that organizes player relationships into a co-occurrence matrix. It supports analysis of repeated player pairings, team environments, stacking patterns, and relationships worth evaluating in BestBall drafts.",
+      "A personal Best Ball research tool that converts completed roster data into a player-by-player co-occurrence matrix. Rather than only showing individual player exposure, it counts how often every pair of players appears together on the same roster. This provides a structured way to review intentional stacks, repeated player pairings, correlated exposure, and potential concentration risk across a draft portfolio.",
 
     summary: [
       {
         heading: "Purpose",
         text:
-          "Explore which player combinations and team relationships occur together across selected fantasy-football data."
+          "Evaluate portfolio relationships that are not visible in a standard exposure table, including which players repeatedly appear together across completed Best Ball rosters."
       },
       {
-        heading: "Format",
+        heading: "Matrix method",
         text:
-          "A spreadsheet-based matrix that can be updated, filtered, and expanded as new seasons or research ideas are added."
+          "Each row and column represents a player. The value where two players intersect equals the number of completed teams containing both players; diagonal cells represent each player’s own roster count."
+      },
+      {
+        heading: "Exposure context",
+        text:
+          "Player exposure percentages appear along both matrix axes so pair frequency can be evaluated alongside each player’s overall portfolio exposure."
+      },
+      {
+        heading: "Visual analysis",
+        text:
+          "Conditional color scales highlight low, medium, and high co-occurrence values, while zero values are visually minimized to make meaningful player relationships easier to scan."
+      },
+      {
+        heading: "Interactive review",
+        text:
+          "Spreadsheet controls support player lookup, metadata filtering, conditional highlighting, and column hiding to isolate specific player groups and pairing patterns."
       },
       {
         heading: "Use case",
         text:
-          "Support BestBall research with a structured way to review correlation, stacking, and player-pairing ideas."
+          "Audit stacking patterns, identify repeated correlations, evaluate exposure concentration, and distinguish intentional roster construction from unintended portfolio overlap."
       }
     ]
 
