@@ -38,7 +38,7 @@ const projects = [
 
     links: [
       {
-        label: "Open BestBall Timeline",
+        label: "Open Best Ball Timeline",
         href: "bestball.html",
         primary: true
       }
@@ -51,7 +51,9 @@ const projects = [
     date: "Ongoing",
     title: "Best Ball Co-Occurrence Matrix",
 
-    placeholder: true,
+    image: "images/personal/fantasy/bestball/BBallCooccurrence.png",
+    imageAlt:
+      "Abstract data visualization representing a Best Ball player co-occurrence matrix",
 
     cardDescription:
       "A Google Sheets–based Best Ball portfolio tool that maps how often players appear together across completed drafts.",
@@ -92,7 +94,6 @@ const projects = [
       }
     ]
 
-    
     /*
       Add a `links` array here later only when the spreadsheet,
       PDF, or a public project page is ready.
@@ -110,13 +111,15 @@ const projects = [
     */
   },
 
-    {
+  {
     id: "bestball-draft-valuation",
     type: "Fantasy Research",
     date: "Ongoing",
     title: "Best Ball Draft Valuation & Stack Analysis",
 
-    placeholder: true,
+    image: "images/personal/fantasy/bestball/BBallValue.png",
+    imageAlt:
+      "Abstract mathematical data visualization representing Best Ball draft valuation and stack analysis",
 
     cardDescription:
       "A spreadsheet-based draft review tool that combines ADP-based draft value with a weighted measure of Week 17 game-stack strength.",
