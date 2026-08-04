@@ -2,12 +2,11 @@
   QUOTE FLASHCARD
   ---------------
   Standalone note-card styled to match .card / .book-cover aesthetic.
-  Includes iPhone-style toggle switch and a card-flip shuffle animation.
+  Includes iPhone-style toggle switch and a fade-based shuffle animation.
 */
 
 .quote-flashcard-wrap {
-  perspective: 1600px;
-  max-width: 620px;
+  max-width: 640px;
   margin: 0 auto 56px;
 }
 
@@ -15,50 +14,37 @@
   position: relative;
   width: 100%;
   box-sizing: border-box;
-  min-height: 200px;
-  padding: 34px 36px 28px;
-  background: rgba(255, 255, 255, 0.9);
+  min-height: 190px;
+  padding: 36px 38px 26px;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 18px;
-  box-shadow: 0 8px 22px rgba(23, 33, 43, 0.06);
-  transform-style: preserve-3d;
-  transition: transform 0.5s cubic-bezier(0.45, 0, 0.2, 1), box-shadow 0.3s ease;
-  backface-visibility: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 22px rgba(23, 33, 43, 0.055);
+  transition: opacity 0.22s ease, transform 0.22s ease;
 }
 
 .quote-flashcard.is-flipping {
-  transform: rotateY(90deg);
-  box-shadow: 0 4px 12px rgba(23, 33, 43, 0.04);
-}
-
-.quote-flashcard::before {
-  position: absolute;
-  top: 18px;
-  left: 24px;
-  color: rgba(7, 84, 165, 0.14);
-  font-family: "Instrument Serif", Georgia, serif;
-  font-size: 3.4rem;
-  line-height: 1;
-  content: "\201C";
+  opacity: 0;
+  transform: scale(0.98);
 }
 
 .quote-flashcard-text {
-  position: relative;
-  z-index: 1;
-  margin-top: 20px;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   font-family: "Instrument Serif", Georgia, serif;
-  font-size: clamp(1.3rem, 2.3vw, 1.7rem);
+  font-size: clamp(1.3rem, 2.3vw, 1.65rem);
   font-weight: 400;
-  line-height: 1.32;
+  line-height: 1.34;
   color: var(--ink);
 }
 
 .quote-flashcard-origin {
+  margin-bottom: 22px;
   color: var(--bronze);
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   font-weight: 800;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -67,7 +53,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-top: 24px;
+  margin-top: auto;
   padding-top: 18px;
   border-top: 1px solid var(--border);
 }
@@ -75,8 +61,8 @@
 .quote-shuffle-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
+  justify-content: center;
+  padding: 10px 20px;
   border: 1px solid transparent;
   border-radius: 999px;
   background: var(--blueprint);
@@ -90,16 +76,6 @@
 .quote-shuffle-btn:hover {
   background: var(--blueprint-dark);
   transform: translateY(-2px);
-}
-
-.quote-shuffle-btn svg {
-  width: 15px;
-  height: 15px;
-  transition: transform 0.4s ease;
-}
-
-.quote-shuffle-btn.is-spinning svg {
-  transform: rotate(180deg);
 }
 
 .quote-favorite-toggle-group {
@@ -118,8 +94,8 @@
 .quote-ios-toggle {
   position: relative;
   display: inline-block;
-  width: 44px;
-  height: 26px;
+  width: 42px;
+  height: 24px;
   flex: 0 0 auto;
 }
 
@@ -143,8 +119,8 @@
   position: absolute;
   top: 2px;
   left: 2px;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background: var(--white);
   box-shadow: 0 2px 5px rgba(23, 33, 43, 0.25);
@@ -169,7 +145,7 @@
   display: none;
   padding: 28px;
   border: 1px dashed var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius);
   color: var(--muted);
   text-align: center;
   font-size: 0.92rem;
