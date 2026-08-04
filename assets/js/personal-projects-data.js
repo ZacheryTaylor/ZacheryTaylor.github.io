@@ -1,7 +1,7 @@
 const projects = [
   {
     id: "bestball-archive",
-    type: "Fantasy Football",
+    type: "Progression",
     date: "Fantasy Football\n2021–Present",
     title: "Best Ball Archive",
 
@@ -47,8 +47,8 @@ const projects = [
 
   {
     id: "fantasy-cooccurrence",
-    type: "Fantasy Research",
-    date: "Fantasy Research\nOngoing",
+    type: "Data Analysis",
+    date: "Fantasy Football\nOngoing",
     title: "Best Ball Co-Occurrence Matrix",
 
     cardDescription:
@@ -98,8 +98,8 @@ const projects = [
 
   {
     id: "bestball-draft-valuation",
-    type: "Fantasy Research",
-    date: "Fantasy Research\nOngoing",
+    type: "Data Analysis",
+    date: "Fantasy Football\nOngoing",
     title: "Best Ball Draft Valuation & Stack Analysis",
 
     cardDescription:
