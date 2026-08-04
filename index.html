@@ -13,6 +13,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/css/quotes.css">
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap"
     rel="stylesheet"
@@ -1168,6 +1169,23 @@
     </div>
   </header>
 
+
+    <div class="wrap">
+    <div class="quote-flashcard" id="quote-flashcard">
+      <p class="quote-flashcard-text" id="quote-flashcard-text"></p>
+      <p class="quote-flashcard-origin" id="quote-flashcard-origin"></p>
+      <div class="quote-flashcard-actions">
+        <button type="button" class="quote-btn quote-btn-primary" id="quote-flashcard-shuffle">Shuffle</button>
+        <button type="button" class="quote-btn" id="quote-flashcard-fav">☆ Favorite</button>
+        <button type="button" class="quote-btn" id="quote-flashcard-fav-toggle">Show favorites only</button>
+      </div>
+    </div>
+
+    <div class="quote-flashcard-empty" id="quote-flashcard-empty">
+      No favorited quotes yet. Star a few to see them here.
+    </div>
+  </div>
+
   <section id="book">
     <div class="wrap">
       <p class="section-label">Primary focus</p>
@@ -1479,5 +1497,8 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
+  <script src="assets/js/quotes-data.js"></script>
+  <script src="assets/js/quotes.js"></script>
 </body>
 </html>
