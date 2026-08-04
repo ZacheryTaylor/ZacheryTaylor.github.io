@@ -12,17 +12,22 @@
 
 .quote-flashcard {
   position: relative;
+  z-index: 1;
   width: 100%;
   box-sizing: border-box;
   min-height: 190px;
-  padding: 36px 38px 26px;
+  padding: 38px 40px 28px;
   display: flex;
   flex-direction: column;
-  background: var(--white);
+  background: linear-gradient(150deg, #ffffff, #f7fafd);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  box-shadow: 0 8px 22px rgba(23, 33, 43, 0.055);
-  transition: opacity 0.22s ease, transform 0.22s ease;
+  box-shadow: 0 10px 26px rgba(23, 33, 43, 0.07);
+  transition: opacity 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.quote-flashcard:hover {
+  box-shadow: 0 14px 32px rgba(23, 33, 43, 0.09);
 }
 
 .quote-flashcard.is-flipping {
@@ -31,54 +36,66 @@
 }
 
 .quote-flashcard-text {
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   font-family: "Instrument Serif", Georgia, serif;
-  font-size: clamp(1.3rem, 2.3vw, 1.65rem);
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
   font-weight: 400;
-  line-height: 1.34;
+  line-height: 1.36;
   color: var(--ink);
 }
 
 .quote-flashcard-origin {
-  margin-bottom: 22px;
+  margin-bottom: 24px;
   color: var(--bronze);
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
 .quote-flashcard-footer {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   margin-top: auto;
-  padding-top: 18px;
+  padding-top: 20px;
   border-top: 1px solid var(--border);
 }
 
 .quote-shuffle-btn {
+  position: relative;
+  z-index: 3;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 20px;
+  padding: 11px 22px;
   border: 1px solid transparent;
   border-radius: 999px;
   background: var(--blueprint);
   color: var(--white);
   font-size: 0.85rem;
   font-weight: 700;
+  line-height: 1;
   cursor: pointer;
-  transition: transform 0.18s ease, background 0.18s ease;
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
 }
 
 .quote-shuffle-btn:hover {
   background: var(--blueprint-dark);
+  box-shadow: 0 6px 14px rgba(7, 84, 165, 0.28);
   transform: translateY(-2px);
 }
 
+.quote-shuffle-btn:active {
+  transform: translateY(0);
+}
+
 .quote-favorite-toggle-group {
+  position: relative;
+  z-index: 3;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -97,21 +114,25 @@
   width: 42px;
   height: 24px;
   flex: 0 0 auto;
+  cursor: pointer;
 }
 
 .quote-ios-toggle input {
   position: absolute;
-  width: 0;
-  height: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
   opacity: 0;
+  cursor: pointer;
 }
 
 .quote-ios-toggle-track {
   position: absolute;
   inset: 0;
+  pointer-events: none;
   border-radius: 999px;
-  background: rgba(23, 33, 43, 0.16);
-  cursor: pointer;
+  background: rgba(23, 33, 43, 0.18);
   transition: background 0.28s ease;
 }
 
@@ -123,7 +144,7 @@
   height: 20px;
   border-radius: 50%;
   background: var(--white);
-  box-shadow: 0 2px 5px rgba(23, 33, 43, 0.25);
+  box-shadow: 0 2px 5px rgba(23, 33, 43, 0.28);
   content: "";
   transition: transform 0.28s cubic-bezier(0.45, 0, 0.2, 1);
 }
@@ -153,7 +174,7 @@
 
 @media (max-width: 620px) {
   .quote-flashcard {
-    padding: 28px 24px 22px;
+    padding: 30px 26px 24px;
   }
 
   .quote-flashcard-footer {
