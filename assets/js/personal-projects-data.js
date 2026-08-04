@@ -11,7 +11,7 @@ const projects = [
     coverImage:
       "images/personal/fantasy/bestball/BBallArchive.png",
     coverAlt:
-      "Timeline of Best Ball Participation",
+      "Timeline of Best Ball participation",
     
     description:
       "A long-term Best Ball research archive documenting contest participation, drafting theory, decision-making, tournament advancement, and post-season lessons. The archive began with small-stakes entries in 2021 and has developed into a structured record of strategy, research, and performance.",
@@ -206,7 +206,7 @@ const projects = [
       {
     id: "break-starter-podcast",
     type: "Co-Host",
-    date: "Podcast\n2020–2023 (165 Episodes)",
+    date: "Podcast\n2020–2023",
     title: "Break Starter Podcast",
 
     cardDescription:
