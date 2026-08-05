@@ -403,7 +403,7 @@ const quoteBank = [
   },
   {
     id: "q049",
-    quote: "Don't wants:\nto be a slave to my job.\nto miss out on the world.\nto miss out on my kids lives.\nto work for money.",
+    quote: "Don't wants:  to be a slave to my job.\nto miss out on the world.\nto miss out on my kids lives.\nto work for money.",
     origin: "Robert T. Kiyosaki, Rich Dad Poor Dad",
     date: "2020",
     tags: ["assets"],
