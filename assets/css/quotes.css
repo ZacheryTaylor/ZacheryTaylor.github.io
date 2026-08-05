@@ -43,7 +43,9 @@
   font-weight: 400;
   line-height: 1.36;
   color: var(--ink);
+  white-space: pre-wrap;
 }
+
 
 .quote-flashcard-origin {
   margin-bottom: 24px;
@@ -246,6 +248,7 @@
   font-size: 1.18rem;
   line-height: 1.4;
   color: var(--ink);
+  white-space: pre-wrap;
 }
 
 .quote-log-meta {
