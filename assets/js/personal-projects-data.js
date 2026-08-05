@@ -16,24 +16,24 @@ const projects = [
   
     summary: [
       {
-        heading: "Live data source",
+        heading: "Purpose",
         text:
-          "Reads directly from the quoteBank array in assets/js/quotes-data.js so every export reflects the most up-to-date quotes, origins, dates, tags, and favorite flags."
+          "Maintain a structured record of mindset, investing, and career lessons by logging key quotations into a single, long-term quote bank."
       },
       {
-        heading: "Structured layout",
+        heading: "Source",
         text:
-          "Formats each quote with origin, date, tags, and favorite status in a readable, multi-page PDF designed for long-form review rather than on-screen flashcards."
+          "Aggregate highlights from books, podcasts, and personal notes into the quoteBank array in assets/js/quotes-data.js, keeping the archive editable and version-controlled."
       },
       {
-        heading: "One-click export",
+        heading: "Tooling",
         text:
-          "Provides a dedicated button in the Personal Projects section that generates and downloads the PDF using client-side JavaScript, without needing a server."
+          "Use the quote engine, flashcard interface, and one-click PDF export to review entries, filter favorites, and generate printable reports from the live dataset."
       },
       {
-        heading: "Review and archive",
+        heading: "Current focus",
         text:
-          "Lets you preserve snapshots of the quote bank at different points in time, making it easier to track mindset shifts, recurring ideas, and key takeaways."
+          "Continue adding new material while preserving the existing catalog as a growing reference for decision-making, financial education, and personal philosophy."
       }
     ],
   
