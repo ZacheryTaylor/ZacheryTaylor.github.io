@@ -123,7 +123,7 @@ const quoteBank = [
   },
   {
     id: "q014",
-    quote: "Schools are designed to crete good employees, instead of employers.",
+    quote: "Schools are designed to create good employees, instead of employers.",
     origin: "Robert T. Kiyosaki, Rich Dad Poor Dad",
     date: "2020",
     tags: ["business","school"],
@@ -403,7 +403,7 @@ const quoteBank = [
   },
   {
     id: "q049",
-    quote: "Don't wants:  to be a slave to my job.\nto miss out on the world.\nto miss out on my kids lives.\nto work for money.",
+    quote: "Don't wants: to be a slave to my job.\nto miss out on the world.\nto miss out on my kids lives.\nto work for money.",
     origin: "Robert T. Kiyosaki, Rich Dad Poor Dad",
     date: "2020",
     tags: ["assets"],
@@ -643,7 +643,7 @@ const quoteBank = [
   },
   {
     id: "q079",
-    quote: "Does the compnay have products or services with sufficient market potential to make possible a sizeable increase in sales for at least several years?",
+    quote: "Does the company have products or services with sufficient market potential to make possible a sizeable increase in sales for at least several years?",
     origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
     date: "2020",
     tags: ["credit"],
@@ -675,7 +675,7 @@ const quoteBank = [
   },
   {
     id: "q083",
-    quote: "Does the company have a worthwile profit margin?",
+    quote: "Does the company have a worthwhile profit margin?",
     origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
     date: "2020",
     tags: ["assets"],
@@ -691,7 +691,7 @@ const quoteBank = [
   },
   {
     id: "q085",
-    quote: "does the company have outstanding laber and personnel relations?",
+    quote: "does the company have outstanding labor and personnel relations?",
     origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
     date: "2020",
     tags: ["assets"],
@@ -723,7 +723,7 @@ const quoteBank = [
   },
   {
     id: "q089",
-    quote: "Are the other aspects of the business somewhat pecuilar to the industry involved, which will give the investor important clues as to how outstanding the company may be in relation to its competition?",
+    quote: "Are the other aspects of the business somewhat peculiar to the industry involved, which will give the investor important clues as to how outstanding the company may be in relation to its competition?",
     origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
     date: "2020",
     tags: ["assets"],
@@ -747,7 +747,7 @@ const quoteBank = [
   },
   {
     id: "q092",
-    quote: "Does the management talk freely to inveestors about its affairs when things are going well but clam up when troubles and disappointments occur?",
+    quote: "Does the management talk freely to investors about its affairs when things are going well but clam up when troubles and disappointments occur?",
     origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
     date: "2020",
     tags: ["assets"],
@@ -835,7 +835,7 @@ const quoteBank = [
   },
   {
     id: "q103",
-    quote: "Misconceptions of who benefits from dividends:\nMangement teams get put into a situation where they have to continue the dividend, even if they find a better opportunity to spend earnings, for fear of losing long term shareholders who rely on that dividend.",
+    quote: "Misconceptions of who benefits from dividends:\nManagement teams get put into a situation where they have to continue the dividend, even if they find a better opportunity to spend earnings, for fear of losing long term shareholders who rely on that dividend.",
     origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
     date: "2020",
     tags: ["assets"],
