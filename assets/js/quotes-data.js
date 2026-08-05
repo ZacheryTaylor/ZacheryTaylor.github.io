@@ -865,4 +865,84 @@ const quoteBank = [
     tags: ["assets"],
     favorite: false
   },
+  {
+    id: "q107",
+    quote: "Don't buy into promotional companies.",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q108",
+    quote: "Don't ignore a good stock just because it is traded 'over the counter.'",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q109",
+    quote: "Don't buy just because you like the 'tone' of the annual report.",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q110",
+    quote: "Don't assume that the high price at which a stock may be selling in relation to earnings is necessarily an indication that further growth in those earnings has largely been already priced in.",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q111",
+    quote: "Don't quibble over fractions and pennies.",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q112",
+    quote: "Don't overstress diversification.",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q113",
+    quote: "Don't be afraid to buy on a war scare.",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q114",
+    quote: "Don't forget history doesn't predict the future, that's illogical.",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q115",
+    quote: "Don't forget to consider time as well as price in buying a true growth stock.",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q116",
+    quote: "Don't follow the crowd.",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
 ];
