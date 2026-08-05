@@ -8,7 +8,7 @@ const projects = [
     cardDescription:
       "A personal quote archive tool that exports the latest Rich Dad Poor Dad quote bank to a structured PDF report.",
   
-    coverImage: "images/personal/quotes/Quotes.png",
+    coverImage: "images/personal/Quotes.png",
     coverAlt: "Quote bank flashcard and log interface",
   
     description:
