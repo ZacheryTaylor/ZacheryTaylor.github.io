@@ -16,7 +16,7 @@
   width: 100%;
   box-sizing: border-box;
   /* FIXED HEIGHT INSTEAD OF MIN-HEIGHT */
-  height: 300px;
+  height: 340px;
   padding: 38px 40px 28px;
   display: flex;
   flex-direction: column;
