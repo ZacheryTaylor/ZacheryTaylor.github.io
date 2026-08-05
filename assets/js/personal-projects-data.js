@@ -1,41 +1,41 @@
 const projects = [
+{
+  id: "quote-bank-export",
+  type: "Learning",
+  date: "Personal Knowledge\n2020–Present",
+  title: "Quote Bank Export",
+
+  cardDescription:
+    "A curated archive of handwritten quotes that shaped my thinking, preserved for future writing, review, and inclusion in my own book.",
+
+  coverImage: "images/personal/Quotes.png",
+  coverAlt: "Quote bank flashcard and log interface",
+
+  description:
+    "Quote Bank Export is the home for the lines that were worth stopping to write down by hand. Pulled from more than a hundred books, these quotes mark ideas that changed how I see money, work, engineering, and life. The project keeps those highlights together in one place so they can influence my writing style, show up in future chapters of my own book, and stay available for focused review instead of getting lost in old notebooks.",
+
+  summary: [
     {
-      id: "quote-bank-export",
-      type: "Learning",
-      date: "Personal Knowledge\n2020–Present",
-      title: "Quote Bank Export",
-    
-      cardDescription:
-        "A long-term quote archive that turns years of notes and highlights into a clean, printable reference for mindset, money, and career lessons.",
-    
-      coverImage: "images/personal/Quotes.png",
-      coverAlt: "Quote bank flashcard and log interface",
-    
-      description:
-        "Quote Bank Export is a personal reading and reflection project built to keep important ideas from disappearing into scattered notebooks and half-remembered margins. Each export gathers the current set of quotes into a structured document, making it easy to revisit themes, trace how your thinking has evolved, and carry a curated set of pages into study sessions, travel, or quiet review away from a screen.",
-    
-      summary: [
-        {
-          heading: "Purpose",
-          text:
-            "Capture the lessons that matter—on mindset, investing, work, and life—in one evolving archive that can be revisited and built on over time."
-        },
-        {
-          heading: "Curation",
-          text:
-            "Select and organize quotations from books, podcasts, conversations, and personal notes so recurring ideas and pivotal insights are easy to find again."
-        },
-        {
-          heading: "Practice",
-          text:
-            "Use the quote bank as a study companion: flip through flashcards, star favorites, and export focused collections of pages for deeper reading and annotation."
-        },
-        {
-          heading: "Current focus",
-          text:
-            "Continue expanding the archive with new material while preserving earlier entries as a record of how your perspective on money, work, and growth has changed."
-        }
-      ],
+      heading: "Handwritten highlights",
+      text:
+        "Collect the passages I cared enough to copy by hand—moments that felt important, clarifying, or worth carrying forward beyond the first read."
+    },
+    {
+      heading: "Reading distilled",
+      text:
+        "Filter more than a hundred books down to the quotes that actually stuck, turning scattered margins and notebooks into a single, coherent record of what mattered."
+    },
+    {
+      heading: "Writing influence",
+      text:
+        "Use the quote bank as a reference for tone, structure, and ideas that inform my own style, helping future essays and book chapters stay rooted in the lessons that impacted me most."
+    },
+    {
+      heading: "Future review",
+      text:
+        "Return to these pages when planning, drafting, or reassessing direction, treating the archive as a personal library of reminders, principles, and questions to revisit over time."
+    }
+  ],
   
     links: [
       {
