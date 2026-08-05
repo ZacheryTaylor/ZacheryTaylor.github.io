@@ -40,8 +40,9 @@ const projects = [
     links: [
       {
         label: "Export quote bank to PDF",
-        href: "#quote-bank-export",   // used as an anchor/target for the button
-        primary: true
+        href: "#quote-bank-export",
+        primary: true,
+        id: "quote-export-pdf"
       }
     ]
   },
