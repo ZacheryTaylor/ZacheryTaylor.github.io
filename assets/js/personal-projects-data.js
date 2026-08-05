@@ -1,4 +1,50 @@
 const projects = [
+    {
+    id: "quote-bank-export",
+    type: "Utility",
+    date: "Personal Knowledge\n2020–Present",
+    title: "Quote Bank Export",
+  
+    cardDescription:
+      "A personal quote archive tool that exports the latest Rich Dad Poor Dad quote bank to a structured PDF report.",
+  
+    coverImage: "images/personal/quotes/QuoteBank.png", // adjust path or image name
+    coverAlt: "Quote bank flashcard and log interface",
+  
+    description:
+      "Quote Bank Export is a utility project that turns the live quoteBank stored in assets/js/quotes-data.js into a printable PDF report. Each export uses the current version of the data file, capturing any new additions or edits in a single, organized document that can be reviewed offline or shared.",
+  
+    summary: [
+      {
+        heading: "Live data source",
+        text:
+          "Reads directly from the quoteBank array in assets/js/quotes-data.js so every export reflects the most up-to-date quotes, origins, dates, tags, and favorite flags."
+      },
+      {
+        heading: "Structured layout",
+        text:
+          "Formats each quote with origin, date, tags, and favorite status in a readable, multi-page PDF designed for long-form review rather than on-screen flashcards."
+      },
+      {
+        heading: "One-click export",
+        text:
+          "Provides a dedicated button in the Personal Projects section that generates and downloads the PDF using client-side JavaScript, without needing a server."
+      },
+      {
+        heading: "Review and archive",
+        text:
+          "Lets you preserve snapshots of the quote bank at different points in time, making it easier to track mindset shifts, recurring ideas, and key takeaways."
+      }
+    ],
+  
+    links: [
+      {
+        label: "Export quote bank to PDF",
+        href: "#quote-bank-export",   // used as an anchor/target for the button
+        primary: true
+      }
+    ]
+  },
   {
     id: "bestball-archive",
     type: "Journey",
