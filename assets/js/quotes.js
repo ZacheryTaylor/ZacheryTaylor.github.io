@@ -122,9 +122,11 @@ function initQuoteLog() {
   function renderList() {
     const term = searchInput ? searchInput.value : "";
     const favoritesOnly = favToggleInput ? favToggleInput.checked : false;
-    const results = QuoteEngine.search(term, favoritesOnly).slice().sort(function (a, b) {
-      return new Date(b.date) - new Date(a.date);
-    });
+    const results = QuoteEngine.search(term, favoritesOnly)
+      .slice()
+      .sort(function (a, b) {
+        return new Date(b.date) - new Date(a.date);
+      });
 
     list.innerHTML = "";
 
@@ -135,7 +137,8 @@ function initQuoteLog() {
     }
 
     if (countLabel) {
-      countLabel.textContent = results.length + (results.length === 1 ? " entry" : " entries");
+      countLabel.textContent =
+        results.length + (results.length === 1 ? " entry" : " entries");
     }
 
     results.forEach(function (entry) {
@@ -161,7 +164,10 @@ function initQuoteLog() {
       star.className = "quote-log-star";
       if (entry.favorite) star.classList.add("is-active");
       star.textContent = entry.favorite ? "\u2605" : "\u2606";
-      star.setAttribute("aria-label", entry.favorite ? "Favorited" : "Not favorited");
+      star.setAttribute(
+        "aria-label",
+        entry.favorite ? "Favorited" : "Not favorited"
+      );
 
       meta.appendChild(origin);
       meta.appendChild(date);
@@ -184,7 +190,93 @@ function initQuoteLog() {
   renderList();
 }
 
+/* ---------- Quote Bank PDF export ---------- */
+
+function initQuoteExportPdf() {
+  // Prefer an explicit button id; fall back to a project link href.
+  const exportBtn =
+    document.getElementById("quote-export-pdf") ||
+    document.querySelector('[href="#quote-bank-export"]');
+
+  // Require jsPDF and quoteBank to be present
+  if (
+    !exportBtn ||
+    !window.jspdf ||
+    !window.jspdf.jsPDF ||
+    typeof quoteBank === "undefined"
+  ) {
+    return;
+  }
+
+  exportBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: "pt", format: "letter" });
+
+    const leftMargin = 48;
+    const topMargin = 56;
+    const lineHeight = 16;
+    const pageHeight = doc.internal.pageSize.getHeight();
+    const pageWidth = doc.internal.pageSize.getWidth();
+
+    let y = topMargin;
+
+    doc.setFont("Times", "Normal");
+    doc.setFontSize(14);
+    doc.text("Quote Bank Export", leftMargin, y);
+    y += 2 * lineHeight;
+
+    doc.setFontSize(11);
+
+    quoteBank.forEach(function (entry, idx) {
+      if (idx > 0) {
+        y += lineHeight;
+      }
+
+      if (y > pageHeight - topMargin) {
+        doc.addPage();
+        y = topMargin;
+      }
+
+      const quoteText = "\u201C" + entry.quote + "\u201D";
+      const originText = "\u2014 " + entry.origin;
+      const dateText = entry.date || "";
+      const tagsText =
+        entry.tags && entry.tags.length
+          ? "Tags: " + entry.tags.join(", ")
+          : "";
+      const favText = entry.favorite ? "★ Favorite" : "";
+
+      const maxWidth = pageWidth - 2 * leftMargin;
+      const wrappedQuote = doc.splitTextToSize(quoteText, maxWidth);
+
+      wrappedQuote.forEach(function (line) {
+        if (y > pageHeight - topMargin) {
+          doc.addPage();
+          y = topMargin;
+        }
+        doc.text(line, leftMargin, y);
+        y += lineHeight;
+      });
+
+      [originText, dateText, tagsText, favText].forEach(function (line) {
+        if (!line) return;
+        if (y > pageHeight - topMargin) {
+          doc.addPage();
+          y = topMargin;
+        }
+        doc.text(line, leftMargin, y);
+        y += lineHeight;
+      });
+    });
+
+    doc.save("quote-bank.pdf");
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   initQuoteFlashcard();
   initQuoteLog();
+  initQuoteExportPdf();
 });
