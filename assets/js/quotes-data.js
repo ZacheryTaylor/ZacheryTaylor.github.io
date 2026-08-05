@@ -408,5 +408,21 @@ const quoteBank = [
     date: "2020",
     tags: ["assets"],
     favorite: true
-  }
+  },
+  {
+    id: "q050",
+    quote: "Buy the pie, and cut it in pieces. Most people look for what they can afford, so they look too small.",
+    origin: "Robert T. Kiyosaki, Rich Dad Poor Dad",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q051",
+    quote: "Small people remain small because they think small; act alone or don't act at all.",
+    origin: "Robert T. Kiyosaki, Rich Dad Poor Dad",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
 ];
