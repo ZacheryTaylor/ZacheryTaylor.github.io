@@ -1,7 +1,7 @@
 const projects = [
     {
     id: "quote-bank-export",
-    type: "Utility",
+    type: "Learning",
     date: "Personal Knowledge\n2020–Present",
     title: "Quote Bank Export",
   
