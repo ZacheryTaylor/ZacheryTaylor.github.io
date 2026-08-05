@@ -425,4 +425,444 @@ const quoteBank = [
     tags: ["assets"],
     favorite: false
   },
+  {
+    id: "q052",
+    quote: "The basic ideas of investing are to look at stocks as businesses, use market fluctuations to your advantage, and seek a Margin of Safety.",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q053",
+    quote: "You have to invest just to tread water. Saving loses you 3% every year.",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q054",
+    quote: "Conscious learning becomes unconscious knowledge.",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q055",
+    quote: "Your NUMBER is the amount of money you need saved before you can quit your job, if you want to.",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q056",
+    quote: "As a consumer, you vote every single day with your dollars. If you bought organic, it encouraged more organic.",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q057",
+    quote: "Vote for companies that have a mission to change the world for the better, not just the short-term bottom dollar.",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q058",
+    quote: "Efficient Market Hypothesis - The market constantly prices in information, therefore it is always 'accurate' to value.",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q059",
+    quote: "An Event - An unexpected, yet temporary and rectifiable, disaster that creates short-to-medium term uncertainty about the cash flow of a company.",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["assets","business"],
+    favorite: false
+  },
+  {
+    id: "q060",
+    quote: "Circle of Competence:\nWhat do I vote for with my money?\nWhat am I passionate about?\nWhere do I make my money?",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["assets","business"],
+    favorite: true
+  },
+  {
+    id: "q061",
+    quote: "Moat - A competitive advantage that cannot be seperated from their business and is difficult and/or expensive to overcome as a competitor or consumer.",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q062",
+    quote: "Moat #1: Brand\nSometimes created by being the first mover. The industry identified with them.",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q063",
+    quote: "Moat #2: Switching\nDifficult/expensive/painful to switch away. Apple iPhone, Laptop, iPad = you aren't buying a Samsung desktop.",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q064",
+    quote: "Moat #2.5: Network Effects\nIf your friend group or market is all using the same thing you won't change to leave them.",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q065",
+    quote: "Moat #3: Toll Bridge\nThe only product in a big niche. Typically via government regulation.",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q066",
+    quote: "Moat #4: Secrets\nPatents, trade secrets, or intellectual property. Similarly, something that isn't patented so that people can't reverse engineer it.",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q067",
+    quote: "Moat #5: Price\nA company is the low-cost provider because it can make something the cheapest. Costco can undercut almost all retailers because of how it buys/markets/sells products.",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q068",
+    quote: "Invest in a business an idiot could run, one day an idiot will.",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q069",
+    quote: "Margin of Safety - A price below the company's value that will protect us from most mistakes.",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q070",
+    quote: "Avoid regret, but ruthlessly assess why you made that mistake.",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["mindset","business"],
+    favorite: true
+  },
+  {
+    id: "q071",
+    quote: "Be ready to run outside with a washtub when it's raining gold.",
+    origin: "Warren Buffet",
+    date: "2020",
+    tags: ["business"],
+    favorite: true
+  },
+  {
+    id: "q072",
+    quote: "Only sell when the STORY changes. Buy as if you will hold the company forever.",
+    origin: "Danielle Town, Invested",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q073",
+    quote: "Every credit card you own should have automatic payments setup for the full amount.",
+    origin: "Ramit Sethi, I Will Teach You To Be Rich",
+    date: "2020",
+    tags: ["credit"],
+    favorite: false
+  },
+  {
+    id: "q074",
+    quote: "Credit Score Breakdown:\nPayment History - 35%, Amounts Owed - 30%, Length of History - 15%, New Credit - 10%, Types of Credit - 10%.",
+    origin: "Ramit Sethi, I Will Teach You To Be Rich",
+    date: "2020",
+    tags: ["credit"],
+    favorite: false
+  },
+  {
+    id: "q075",
+    quote: "Be a deadbeat to the credit card companies.",
+    origin: "Ramit Sethi, I Will Teach You To Be Rich",
+    date: "2020",
+    tags: ["credit"],
+    favorite: false
+  },
+  {
+    id: "q076",
+    quote: "Financial 'experts' hid bad performance by removing them from the dataset.",
+    origin: "Ramit Sethi, I Will Teach You To Be Rich",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q077",
+    quote: "80% of Millionaires are 1st time family Millionaires.",
+    origin: "ZT",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q078",
+    quote: "There isn't a single hand-picked 20-year period where the S&P500 has lost money.",
+    origin: "ZT",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q079",
+    quote: "Does the compnay have products or services with sufficient market potential to make possible a sizeable increase in sales for at least several years?",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["credit"],
+    favorite: false
+  },
+  {
+    id: "q080",
+    quote: "Does the management have a determination to continue to develop products or processes that will further increase total sales when attractive product lines have largely been exploited?",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q081",
+    quote: "How effective are the company's research and development efforts in relation to its size?",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q082",
+    quote: "Does the company have and above-average sales organization?",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q083",
+    quote: "Does the company have a worthwile profit margin?",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q084",
+    quote: "What is the company doing to maintain or improve profit margins?",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q085",
+    quote: "does the company have outstanding laber and personnel relations?",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q086",
+    quote: "Does the compnay have outstanding executive relations?",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q087",
+    quote: "Does the company have depth to its management?",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q088",
+    quote: "How good are the company's cost analysis and accounting controls?",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q089",
+    quote: "Are the other aspects of the business somewhat pecuilar to the industry involved, which will give the investor important clues as to how outstanding the company may be in relation to its competition?",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q090",
+    quote: "Does the company have a short-range and long-range outlook in regard to profits?",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q091",
+    quote: "In the forseeable future will the growth of the company require sufficient equity financing so that the larger number of shares then outstanding will largely cancel the existing stockholders' benefit from this anticipated growth?",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q092",
+    quote: "Does the management talk freely to inveestors about its affairs when things are going well but clam up when troubles and disappointments occur?",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q093",
+    quote: "Does the company have a management of unquestionable integrity?",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q094",
+    quote: "It is important to view knowledge as sort of the semantic tree - make sure you understand the fundamental principles, i.e. the trunk and big branches, before you get into the leaves/details on there is nothing for them to hang on to.",
+    origin: "Elon Musk",
+    date: "2020",
+    tags: ["mindset","career"],
+    favorite: true
+  },
+  {
+    id: "q095",
+    quote: "Companies that are the most desireable:\nWorking on the frontiers of technology.\nVarious new products and processes.",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q096",
+    quote: "Postponing an attractive purchase because of fear of what the general market might do will, over the years, prove very costly.",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q097",
+    quote: "Reasons to Sell:\n1. A mistake has been made in purchasing.\n2. A deteriorating business or losing its 15 values.\n3. Opportunities for attractive investments are hard to find.",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q098",
+    quote: "The stock ran up, it can't go up anymore... Is it still the right company?",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q099",
+    quote: "Managements with inefficient and sub-standard operations do NOT meet the 15 Points.",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q100",
+    quote: "Good management teams DON'T just pile up cash.",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q101",
+    quote: "Misconceptions of who benefits from dividends:\nIf its the right company and you are just doing a DRIP method then the dividend is losing you upwards of 20% in taxes.",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q102",
+    quote: "Misconceptions of who benefits from dividends:\nA fast growing company with great management will out-pace even a high yield with ease.",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q103",
+    quote: "Misconceptions of who benefits from dividends:\nMangement teams get put into a situation where they have to continue the dividend, even if they find a better opportunity to spend earnings, for fear of losing long term shareholders who rely on that dividend.",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q104",
+    quote: "Misconceptions of who benefits from dividends:\nLike a farmer who rushes his magnificent livestock to market the minute he can sell them rather than raising them to the point where he can get the maximum price above his costs.",
+    origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q105",
+    quote: "Money is just an information system for the allocation of labor.",
+    origin: "Elon Musk",
+    date: "2020",
+    tags: ["business","mindset"],
+    favorite: true
+  },
+  {
+    id: "q106",
+    quote: "Don't let a bad company mask its lack of creativity and vision with a consistent paying dividend. If the management is bad, no matter how long the dividend has been paid.",
+    origin: "ZT",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
 ];
