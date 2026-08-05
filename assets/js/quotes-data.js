@@ -267,7 +267,7 @@ const quoteBank = [
   },
   {
     id: "q032",
-    quote: "Learn how to put the pieces together./n1. Find an opportunity that everyone else missed./n2. Raise money./n3. Organize smart people.",
+    quote: "Learn how to put the pieces together.\n1. Find an opportunity that everyone else missed.\n2. Raise money.\n3. Organize smart people.",
     origin: "Robert T. Kiyosaki, Rich Dad Poor Dad",
     date: "2020",
     tags: ["business"],
@@ -403,7 +403,7 @@ const quoteBank = [
   },
   {
     id: "q049",
-    quote: "Don't wants:/nto be a slave to my job./nto misss out on the world./nto miss out on my kids lives/nto work for money.",
+    quote: "Don't wants:\nto be a slave to my job.\nto miss out on the world.\nto miss out on my kids lives.\nto work for money.",
     origin: "Robert T. Kiyosaki, Rich Dad Poor Dad",
     date: "2020",
     tags: ["assets"],
