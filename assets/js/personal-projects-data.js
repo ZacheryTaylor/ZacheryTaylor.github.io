@@ -1,41 +1,41 @@
 const projects = [
     {
-    id: "quote-bank-export",
-    type: "Learning",
-    date: "Personal Knowledge\n2020–Present",
-    title: "Quote Bank Export",
-  
-    cardDescription:
-      "A personal quote archive tool that exports the latest quote bank to a structured PDF report.",
-  
-    coverImage: "images/personal/Quotes.png",
-    coverAlt: "Quote bank flashcard and log interface",
-  
-    description:
-      "Quote Bank Export is a utility project that turns the live quoteBank stored in assets/js/quotes-data.js into a printable PDF report. Each export uses the current version of the data file, capturing any new additions or edits in a single, organized document that can be reviewed offline or shared.",
-  
-    summary: [
-      {
-        heading: "Purpose",
-        text:
-          "Maintain a structured record of mindset, investing, and career lessons by logging key quotations into a single, long-term quote bank."
-      },
-      {
-        heading: "Source",
-        text:
-          "Aggregate highlights from books, podcasts, and personal notes into the quoteBank array in assets/js/quotes-data.js, keeping the archive editable and version-controlled."
-      },
-      {
-        heading: "Tooling",
-        text:
-          "Use the quote engine, flashcard interface, and one-click PDF export to review entries, filter favorites, and generate printable reports from the live dataset."
-      },
-      {
-        heading: "Current focus",
-        text:
-          "Continue adding new material while preserving the existing catalog as a growing reference for decision-making, financial education, and personal philosophy."
-      }
-    ],
+      id: "quote-bank-export",
+      type: "Learning",
+      date: "Personal Knowledge\n2020–Present",
+      title: "Quote Bank Export",
+    
+      cardDescription:
+        "A long-term quote archive that turns years of notes and highlights into a clean, printable reference for mindset, money, and career lessons.",
+    
+      coverImage: "images/personal/Quotes.png",
+      coverAlt: "Quote bank flashcard and log interface",
+    
+      description:
+        "Quote Bank Export is a personal reading and reflection project built to keep important ideas from disappearing into scattered notebooks and half-remembered margins. Each export gathers the current set of quotes into a structured document, making it easy to revisit themes, trace how your thinking has evolved, and carry a curated set of pages into study sessions, travel, or quiet review away from a screen.",
+    
+      summary: [
+        {
+          heading: "Purpose",
+          text:
+            "Capture the lessons that matter—on mindset, investing, work, and life—in one evolving archive that can be revisited and built on over time."
+        },
+        {
+          heading: "Curation",
+          text:
+            "Select and organize quotations from books, podcasts, conversations, and personal notes so recurring ideas and pivotal insights are easy to find again."
+        },
+        {
+          heading: "Practice",
+          text:
+            "Use the quote bank as a study companion: flip through flashcards, star favorites, and export focused collections of pages for deeper reading and annotation."
+        },
+        {
+          heading: "Current focus",
+          text:
+            "Continue expanding the archive with new material while preserving earlier entries as a record of how your perspective on money, work, and growth has changed."
+        }
+      ],
   
     links: [
       {
