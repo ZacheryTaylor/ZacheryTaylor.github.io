@@ -945,4 +945,292 @@ const quoteBank = [
     tags: ["assets"],
     favorite: false
   },
+  {
+    id: "q117",
+    quote: "The company must recognize that the world in which it is operating is changing at an ever-increasing rate.",
+    origin: "Philip A. Fisher, Conservative Investors Sleep Well",
+    date: "2020",
+    tags: ["assets","business"],
+    favorite: false
+  },
+  {
+    id: "q118",
+    quote: "There must be a conscious and co5ntinuous effort to make sure their company is a good place to work, at all levels.",
+    origin: "Philip A. Fisher, Conservative Investors Sleep Well",
+    date: "2020",
+    tags: ["assets","business"],
+    favorite: false
+  },
+  {
+    id: "q119",
+    quote: "Management must submit to the stigma of a strong bottom-line when TRUE growth opportunities are available.",
+    origin: "Philip A. Fisher, Conservative Investors Sleep Well",
+    date: "2020",
+    tags: ["assets","business"],
+    favorite: false
+  },
+  {
+    id: "q119",
+    quote: "Treat customers like you would if you were a small startup business.",
+    origin: "Philip A. Fisher, Conservative Investors Sleep Well",
+    date: "2020",
+    tags: ["assets","business"],
+    favorite: false
+  },
+  {
+    id: "q120",
+    quote: "Ask yourself, 'What can this particular company do that others would not be able to do quite as well?'",
+    origin: "Philip A. Fisher, Conservative Investors Sleep Well",
+    date: "2020",
+    tags: ["assets","business"],
+    favorite: false
+  },
+  {
+    id: "q121",
+    quote: "If the fundamentals are genuinely strong, these companies will in time increase earnings not only enough to justify present prices but to justify considerably higher prices.",
+    origin: "Philip A. Fisher, Conservative Investors Sleep Well",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q122",
+    quote: "All the correct reasoning in the world is of no benefit in stock investment unless it is turned into specific action.",
+    origin: "Philip A. Fisher, Developing an Investment Philosophy",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q123",
+    quote: "To a CEO: What do you consider to be the most important long-range problem facing your company?",
+    origin: "Philip A. Fisher, Developing an Investment Philosophy",
+    date: "2020",
+    tags: ["assets","business"],
+    favorite: false
+  },
+  {
+    id: "q124",
+    quote: "Never promote someone who hasn't made some bad mistakes. If you do, you are promoting someone who has NEVER done anything.",
+    origin: "Dr. Herber Dow",
+    date: "2020",
+    tags: ["assets","business","mindset"],
+    favorite: true
+  },
+  {
+    id: "q125",
+    quote: "If you can't do something better than others are doing it, don't do it at all.",
+    origin: "Dr. Herber Dow",
+    date: "2020",
+    tags: ["assets","business","mindset"],
+    favorite: false
+  },
+  {
+    id: "q126",
+    quote: "Don't grow complacent on past gains. Continue to build upon your skills and tend to the sheep at hand.",
+    origin: "Philip A. Fisher, Developing an Investment Philosophy",
+    date: "2020",
+    tags: ["assets"],
+    favorite: false
+  },
+  {
+    id: "q127",
+    quote: "A profit should never be taken just for the satisfaction of taking it.",
+    origin: "Philip A. Fisher, Developing an Investment Philosophy",
+    date: "2020",
+    tags: ["assets","business"],
+    favorite: false
+  },
+  {
+    id: "q128",
+    quote: "When faced with defeat the easiest and most logical thing to do is to quit. That is exactly what the majority of people do.",
+    origin: "Napoleon Hill, Think and Grow Rich",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q129",
+    quote: "Failure comes to those who indifferently allow themselves to become failure conscious.",
+    origin: "Napoleon Hill, Think and Grow Rich",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: true
+  },
+  {
+    id: "q130",
+    quote: "I will burn all bridges behind me, and stake my entire future on my ability to get what I want.\nHe left himself no possible way to retreat. He had to win or perish.",
+    origin: "Napoleon Hill, Think and Grow Rich",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q131",
+    quote: "Put yourself out there and make a point to get what you want. Be willing to give up EVERYTHING to get it.",
+    origin: "Napoleon Hill, Think and Grow Rich",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q132",
+    quote: "Teaching Financial Literacy: 1) Reduce FRICTION. 2) Load as much FUEL as possible.\nFriction: Don't give people a 'no-action' option; where is there friction that is slowing down the act we want?\nFuel: What is their biggest source of motivation? Make these invisible systems visible.",
+    origin: "Dan Ariely, Chief Behavioral Officer for Lemonade",
+    date: "2020",
+    tags: ["learning","mindset"],
+    favorite: false
+  },
+  {
+    id: "q133",
+    quote: "Knowledge will not attract money unless it is organized and intelligently directed through practical plans of action to the definite end of accumulation of money.",
+    origin: "Napoleon Hill, Think and Grow Rich",
+    date: "2020",
+    tags: ["learning","mindset"],
+    favorite: false
+  },
+  {
+    id: "q134",
+    quote: "Knowledge =/= Power. It equates to potential power. It becomes power when it is organized into a definite plan.",
+    origin: "Napoleon Hill, Think and Grow Rich",
+    date: "2020",
+    tags: ["learning","mindset"],
+    favorite: false
+  },
+  {
+    id: "q135",
+    quote: "Reasoning by analogy or comparison is just wrong. Down to a first principles level it just doesn't hold up, just like the past doesn't project the future. Don't miss out on an opportunity that could change the world because you are too busy trying to find what it is similar to.",
+    origin: "UNKNOWN",
+    date: "2020",
+    tags: ["learning","mindset","business"],
+    favorite: true
+  },
+  {
+    id: "q136",
+    quote: "Roadways we drive on are based on a 'passive optical' experience; being able to read road signs and curves at various distances. So the way to solve autonomous driving isn't by INPUTTING all road speeds, signs, etc. It is  by solving the problem of AI learning on passive optical vision as a human would.",
+    origin: "UNKNOWN",
+    date: "2020",
+    tags: ["learning","mindset","business"],
+    favorite: true
+  },
+  {
+    id: "q137",
+    quote: "The six basic fears:\nPoverty, Criticism, Ill Health, Loss of Love of Someone, Old Age, Death",
+    origin: "UNKNOWN",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q138",
+    quote: "Fears are nothing more than states of mind.\nYour state of mind is subject to control and direction of the body and mind.",
+    origin: "Napoleon Hill, Think and Grow Rich",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q139",
+    quote: "Criticism is given out too lightly; it is evil, desctructive, hurtful, and unnecessary in most instances. It will plant fear and resentment in the human hurt but iti will not build love or affection.",
+    origin: "Napoleon Hill, Think and Grow Rich",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q140",
+    quote: "An unsettled mind is helpless. Indecision makes an unsettled mind.",
+    origin: "Napoleon Hill, Think and Grow Rich",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q141",
+    quote: "Self-analysis Test Questions:\nI am too sarcastic in my conversations, this is from the urge of seeking attention and is unacceptable. This criticism is hurtful whether it be sarcastic or not.",
+    origin: "Napoleon Hill, Think and Grow Rich",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q142",
+    quote: "Self-analysis Test Questions:\nI am gaining self-confidence as I grow older and look to continue this growth as I age. I have come a long way but there is still much more to be gained.",
+    origin: "Napoleon Hill, Think and Grow Rich",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q143",
+    quote: "Self-analysis Test Questions:\nI learn from all my mistakes, they happened for a reason.",
+    origin: "Napoleon Hill, Think and Grow Rich",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q144",
+    quote: "Self-analysis Test Questions:\nI value the privilege of controlling my own thoughts more than material possessions.",
+    origin: "Napoleon Hill, Think and Grow Rich",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q145",
+    quote: "Self-analysis Test Questions:\nBeing interrupted is the one habit that people do that annoys me the most. It is because I won't be heard in my full entirity, not just some of what I have to say.",
+    origin: "Napoleon Hill, Think and Grow Rich",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q146",
+    quote: "Most of the ugliness I saw in others was but a reflection of my own nature.",
+    origin: "Napoleon Hill, Think and Grow Rich",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q147",
+    quote: "Of course it's easier to copy a model than to make something new. Doing what we already know how to do takes the world from 1 to n, adding more of something familiar. But every time we create something new, we go from 0 to 1! The act of creation is singular, as is the moment of creation, and the result is something fresh and strange.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["mindset","learning","business"],
+    favorite: false
+  },
+  {
+    id: "q148",
+    quote: "The division of our world into 'developed' and 'developing' nations implies the 'developed' world has already achieved the achievable, and poorer nations just need to catch up.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["mindset","learning","business"],
+    favorite: false
+  },
+  {
+    id: "q149",
+    quote: "In a world of scarce resources, globalization without new technology is unsustainable!",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["mindset","business"],
+    favorite: false
+  },
+  {
+    id: "q150",
+    quote: "Bureaucratic hierarchies move slowly, and entrenched interests shy away from risk.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q151",
+    quote: "The first step to thinking clearly is to question what we think we know about the past.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
 ];
