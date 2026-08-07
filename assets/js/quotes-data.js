@@ -691,7 +691,7 @@ const quoteBank = [
   },
   {
     id: "q085",
-    quote: "does the company have outstanding labor and personnel relations?",
+    quote: "Does the company have outstanding labor and personnel relations?",
     origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
     date: "2020",
     tags: ["assets"],
