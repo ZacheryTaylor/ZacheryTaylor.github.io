@@ -20,6 +20,7 @@
   padding: 38px 40px 28px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   background: linear-gradient(150deg, #ffffff, #f7fafd);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -38,14 +39,34 @@
 
 .quote-flashcard-text {
   margin-bottom: 16px;
+  min-height: 0;        /* critical for scrolling inside a flex layout */
+  overflow-y: auto;     /* scrollbar appears only when needed */
+  padding-right: 8px;   /* room between text and scrollbar */
+  white-space: pre-wrap;
+  
   font-family: "Instrument Serif", Georgia, serif;
   font-size: clamp(1.35rem, 2.4vw, 1.75rem);
   font-weight: 400;
   line-height: 1.36;
   color: var(--ink);
-  white-space: pre-wrap;
 }
 
+.quote-flashcard-text::-webkit-scrollbar {
+  width: 6px;
+}
+
+.quote-flashcard-text::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.quote-flashcard-text::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(23, 33, 43, 0.22);
+}
+
+.quote-flashcard-text::-webkit-scrollbar-thumb:hover {
+  background: rgba(23, 33, 43, 0.38);
+}
 
 .quote-flashcard-origin {
   margin-bottom: 24px;
