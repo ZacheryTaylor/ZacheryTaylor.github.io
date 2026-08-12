@@ -711,18 +711,5 @@ const projects = [
     }
   ],
   pdf: "pdfs/academic/HomePriceFactors.pdf"
-},
-  
-  {
-    id: "future-academic-project",
-    type: "Coursework",
-    date: "Engineering\n2025",
-    title: "Project Title",
-    cardDescription:
-      "Future academic project, design effort, laboratory study, analysis, or technical presentation.",
-    placeholder: true,
-    description:
-      "This entry will be replaced with a completed project summary describing the objective, technical process, role, deliverables, and key takeaways.",
-    summary: []
-  }
+}
 ];
