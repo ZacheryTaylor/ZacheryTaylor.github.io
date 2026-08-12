@@ -270,32 +270,34 @@ function createProjectModal(project) {
   `;
 }
 
-function createGalleryItem(item) {
+function createGalleryItem(item, index) {
   const source = escapeHtml(item.src);
   const alt = escapeHtml(item.alt || "");
   const caption = item.caption
     ? `<figcaption class="gallery-caption">${escapeHtml(item.caption)}</figcaption>`
-    : "";
+    : `<figcaption class="gallery-caption gallery-caption-empty" aria-hidden="true"></figcaption>`;
 
-  if (item.type === "video") {
-    return `
-      <figure class="gallery-item">
-        <video controls preload="metadata">
+  const media =
+    item.type === "video"
+      ? `
+        <video controls preload="metadata" playsinline>
           <source src="${source}">
           Your browser does not support this video.
         </video>
-        ${caption}
-      </figure>
-    `;
-  }
+      `
+      : `
+        <img
+          src="${source}"
+          alt="${alt}"
+          loading="${index === 0 ? "eager" : "lazy"}"
+        >
+      `;
 
   return `
-    <figure class="gallery-item">
-      <img
-        src="${source}"
-        alt="${alt}"
-        loading="lazy"
-      >
+    <figure class="gallery-item" data-gallery-index="${index}">
+      <div class="gallery-stage">
+        ${media}
+      </div>
       ${caption}
     </figure>
   `;
@@ -306,13 +308,15 @@ function createGalleryModal(project) {
     return "";
   }
 
+  const total = project.gallery.length;
+  const trackId = `gallery-track-${escapeHtml(project.id)}`;
   const galleryItems = project.gallery
-    .map(createGalleryItem)
+    .map((item, index) => createGalleryItem(item, index))
     .join("");
 
   return `
     <div
-      class="modal"
+      class="modal gallery-modal"
       id="gallery-${escapeHtml(project.id)}"
       aria-hidden="true"
       role="dialog"
@@ -329,41 +333,85 @@ function createGalleryModal(project) {
         </button>
 
         <div class="gallery-content">
-          <p class="modal-kicker">${escapeHtml(project.title)}</p>
-
-          <h2 id="gallery-${escapeHtml(project.id)}-title">Photos</h2>
-
-          <p>Project images and additional media.</p>
+          <header class="gallery-header">
+            <div class="gallery-header-text">
+              <p class="modal-kicker">${escapeHtml(project.title)}</p>
+              <h2 id="gallery-${escapeHtml(project.id)}-title">Gallery</h2>
+            </div>
+            <p class="gallery-counter" data-gallery-counter="${trackId}">
+              <span class="gallery-counter-current">1</span>
+              <span class="gallery-counter-sep">/</span>
+              <span class="gallery-counter-total">${total}</span>
+            </p>
+          </header>
 
           <div
             class="gallery-track"
-            id="gallery-track-${escapeHtml(project.id)}"
+            id="${trackId}"
             aria-label="${escapeHtml(project.title)} image gallery"
+            tabindex="0"
           >
             ${galleryItems}
           </div>
 
           <div class="gallery-controls" aria-label="Gallery navigation">
             <button
-              class="gallery-control"
+              class="gallery-control gallery-control-prev"
               type="button"
-              data-gallery-prev="gallery-track-${escapeHtml(project.id)}"
+              data-gallery-prev="${trackId}"
+              aria-label="Previous image"
             >
-              ← Previous
+              <span aria-hidden="true">←</span>
+              <span>Previous</span>
             </button>
 
+            <div class="gallery-dots" data-gallery-dots="${trackId}" aria-hidden="true">
+              ${project.gallery
+                .map(
+                  (_, i) =>
+                    `<span class="gallery-dot${
+                      i === 0 ? " is-active" : ""
+                    }" data-index="${i}"></span>`
+                )
+                .join("")}
+            </div>
+
             <button
-              class="gallery-control"
+              class="gallery-control gallery-control-next"
               type="button"
-              data-gallery-next="gallery-track-${escapeHtml(project.id)}"
+              data-gallery-next="${trackId}"
+              aria-label="Next image"
             >
-              Next →
+              <span>Next</span>
+              <span aria-hidden="true">→</span>
             </button>
           </div>
         </div>
       </div>
     </div>
   `;
+}
+
+function updateGalleryChrome(track) {
+  if (!track) return;
+
+  const width = Math.max(track.clientWidth, 1);
+  const index = Math.round(track.scrollLeft / width);
+  const total = track.querySelectorAll(".gallery-item").length;
+  const safeIndex = Math.max(0, Math.min(index, total - 1));
+
+  const counter = document.querySelector(
+    `[data-gallery-counter="${track.id}"] .gallery-counter-current`
+  );
+  if (counter) {
+    counter.textContent = String(safeIndex + 1);
+  }
+
+  document
+    .querySelectorAll(`[data-gallery-dots="${track.id}"] .gallery-dot`)
+    .forEach((dot, i) => {
+      dot.classList.toggle("is-active", i === safeIndex);
+    });
 }
 
 function pauseVideos(modal) {
@@ -380,6 +428,13 @@ function openModal(modal) {
   modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
+
+  // Reset gallery to first slide when opening
+  const track = modal.querySelector(".gallery-track");
+  if (track) {
+    track.scrollLeft = 0;
+    updateGalleryChrome(track);
+  }
 
   const closeButton = modal.querySelector(".modal-close");
 
@@ -471,6 +526,7 @@ function setEventListeners() {
           left: -track.clientWidth,
           behavior: "smooth"
         });
+        window.setTimeout(() => updateGalleryChrome(track), 350);
       }
 
       return;
@@ -488,6 +544,27 @@ function setEventListeners() {
           left: track.clientWidth,
           behavior: "smooth"
         });
+        window.setTimeout(() => updateGalleryChrome(track), 350);
+      }
+
+      return;
+    }
+
+    const dot = event.target.closest(".gallery-dot");
+
+    if (dot) {
+      const dotsWrap = dot.closest("[data-gallery-dots]");
+      const track = dotsWrap
+        ? document.getElementById(dotsWrap.dataset.galleryDots)
+        : null;
+      const index = Number(dot.dataset.index || 0);
+
+      if (track) {
+        track.scrollTo({
+          left: track.clientWidth * index,
+          behavior: "smooth"
+        });
+        window.setTimeout(() => updateGalleryChrome(track), 350);
       }
     }
   });
@@ -498,11 +575,40 @@ function setEventListeners() {
         closeModal(event.target);
       }
     });
+
+    modalRoot.addEventListener(
+      "scroll",
+      (event) => {
+        if (event.target.classList.contains("gallery-track")) {
+          updateGalleryChrome(event.target);
+        }
+      },
+      true
+    );
   }
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       document.querySelectorAll(".modal.is-open").forEach(closeModal);
+      return;
+    }
+
+    const openGallery = document.querySelector(".gallery-modal.is-open");
+    if (!openGallery) return;
+
+    const track = openGallery.querySelector(".gallery-track");
+    if (!track) return;
+
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      track.scrollBy({ left: track.clientWidth, behavior: "smooth" });
+      window.setTimeout(() => updateGalleryChrome(track), 350);
+    }
+
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      track.scrollBy({ left: -track.clientWidth, behavior: "smooth" });
+      window.setTimeout(() => updateGalleryChrome(track), 350);
     }
   });
 }
