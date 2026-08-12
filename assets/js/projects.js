@@ -69,9 +69,12 @@ function createSummaryItems(summary = []) {
     return "";
   }
 
+  // Cap at 4 for visual balance in the premium layout
+  const items = summary.slice(0, 4);
+
   return `
     <div class="project-summary">
-      ${summary
+      ${items
         .map(
           (item) => `
             <div class="summary-item">
@@ -246,9 +249,11 @@ function createProjectModal(project) {
         ${hero}
 
         <div class="modal-content">
-          <p class="modal-kicker">
-            ${escapeHtml(project.type)} · ${escapeHtml(project.date)}
-          </p>
+          <p class="modal-kicker">${escapeHtml(project.type)}${
+            project.date
+              ? ` · ${escapeHtml(String(project.date).replace(/\n/g, " · "))}`
+              : ""
+          }</p>
 
           <h2 id="project-${escapeHtml(project.id)}-title">
             ${escapeHtml(project.title)}
