@@ -1233,4 +1233,29 @@ const quoteBank = [
     tags: ["business"],
     favorite: false
   },
+  {
+    id: "q152",
+    quote: "Perfect Competition:\nEvery firm in a competitive market is undifferentiated and sells the same homogeneous products.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q153",
+    quote: "Monopoly:\nOne company is so good at what it does that no other firm can offer a close substitute.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q154",
+    quote: "If you want to create and capture lasting value, don't build an undifferentiated commodity business.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+
 ];
