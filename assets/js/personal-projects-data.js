@@ -156,10 +156,10 @@ const projects = [
     coverImage:
       "images/personal/fantasy/bestball/BBallValueSurplus.png",
     coverAlt:
-      "Google Sheets Best Ball draft value surplus tracker with ADP data and pick-value analysis",
+      "Best Ball draft value surplus tracker with ADP data and pick-value analysis",
   
     description:
-      "A Google Sheets–based Best Ball draft analysis tool built to evaluate the value captured by a roster relative to its exact snake-draft position. Instead of treating every ADP difference equally, the tracker converts ADP into a nonlinear value curve that assigns greater importance to early-round selections. It maps the pick sequence for a selected draft slot, pulls the ADP of each drafted player from a live Big Board, and compares the roster’s cumulative actual value with the value expected from drafting exactly at ADP.",
+      "A personal Best Ball draft analysis tool built to evaluate the value captured by a roster relative to its exact snake-draft position. Instead of treating every ADP difference equally, the tracker converts ADP into a nonlinear value curve that assigns greater importance to early-round selections. It maps the pick sequence for a selected draft slot, pulls the ADP of each drafted player from a live Big Board, and compares the roster’s cumulative actual value with the value expected from drafting exactly at ADP.",
   
     summary: [
       {
