@@ -143,6 +143,62 @@ const projects = [
       }
     ]
   },
+
+  {
+    id: "bestball-value-surplus",
+    type: "Data Analysis",
+    date: "Fantasy Football\n2026",
+    title: "Best Ball Value Surplus Tracker",
+  
+    cardDescription:
+      "A slot-adjusted Best Ball draft tool that measures ADP value gained or lost against a snake-draft baseline.",
+  
+    coverImage:
+      "images/personal/fantasy/bestball/BBallValueSurplus.png",
+    coverAlt:
+      "Google Sheets Best Ball draft value surplus tracker with ADP data and pick-value analysis",
+  
+    description:
+      "A Google Sheets–based Best Ball draft analysis tool built to evaluate the value captured by a roster relative to its exact snake-draft position. Instead of treating every ADP difference equally, the tracker converts ADP into a nonlinear value curve that assigns greater importance to early-round selections. It maps the pick sequence for a selected draft slot, pulls the ADP of each drafted player from a live Big Board, and compares the roster’s cumulative actual value with the value expected from drafting exactly at ADP.",
+  
+    summary: [
+      {
+        heading: "Slot-adjusted baseline",
+        text:
+          "Calculates the full snake-draft pick sequence for a selected 12-team draft slot, creating an expected baseline based on the overall picks available to that roster in every round."
+      },
+      {
+        heading: "Nonlinear ADP value",
+        text:
+          "Uses an exponential decay curve to translate ADP into pick value, recognizing that value differences near the top of a Best Ball draft matter more than the same ADP difference in later rounds."
+      },
+      {
+        heading: "Automated ADP lookup",
+        text:
+          "Connects the draft tracker to a Big Board where drafted players are marked by overall pick number, allowing the sheet to retrieve each selected player’s ADP automatically during or after a draft."
+      },
+      {
+        heading: "Cumulative scoring",
+        text:
+          "Builds running baseline and actual-value totals after every selection, making it possible to see when a roster gained or lost value as the draft developed."
+      },
+      {
+        heading: "Value Surplus Percentage",
+        text:
+          "Compares actual cumulative value against the slot-specific baseline and expresses the difference as a normalized percentage, allowing teams drafted from different starting positions to be evaluated on the same scale."
+      },
+      {
+        heading: "Model calibration",
+        text:
+          "Uses an adjustable decay constant to control how heavily the model weights early-round value. Testing across completed teams showed that a value near 0.08 creates meaningful separation without allowing one early reach or value pick to overwhelm the full-draft result."
+      },
+      {
+        heading: "Draft review",
+        text:
+          "Supports a more disciplined post-draft review by separating ADP value from other strategic decisions, including correlation, uniqueness, positional structure, and player conviction."
+      }
+    ]
+  },
   
   {
     id: "fantasy-cooccurrence",
