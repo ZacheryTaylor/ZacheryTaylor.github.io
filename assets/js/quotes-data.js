@@ -1393,4 +1393,140 @@ const quoteBank = [
     tags: ["business"],
     favorite: false
   },
+  {
+    id: "q172",
+    quote: "The Engineering Question:\nBreakthrough technology instead of incremental improvement?",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q173",
+    quote: "The Timing Question:\nIs now the right time to start?",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q174",
+    quote: "The Monopoly Question:\nAre you starting with a big share of a small market?",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q175",
+    quote: "The People Question:\nDo you have the right team?",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q176",
+    quote: "The Distribution Question:\nDo you have a way to not just create but deliver your product?",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q177",
+    quote: "The Durability Question:\nWill your market position be defensible 10 and 20 years into the future?",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q178",
+    quote: "The Secret Question:\nHave you identified a unique opportunity that others don't see?",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q179",
+    quote: "The question is, is the company using/supporting sustaining technologies or disruptive technologies?",
+    origin: "Clayton M. Christensen, The Innovator's Dilemma",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q180",
+    quote: "Sustaining Technology Changes\nSustained or reinforced established trajectories of product performance improvement.",
+    origin: "Clayton M. Christensen, The Innovator's Dilemma",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q181",
+    quote: "The downfall of a great company:\nClearly, they were technologically capable of producing _________. Their falure resulted from delay in making the strategic commitment to enter the emerging market...",
+    origin: "Clayton M. Christensen, The Innovator's Dilemma",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q182",
+    quote: "Sustaining technologies fail, and the businesses that use them, because the ~new~ or ~niche~ disruptive technologies don't benefit their CURRENT value network.",
+    origin: "Clayton M. Christensen, The Innovator's Dilemma",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q183",
+    quote: "Sound managerial decisions are at the very root of their impending fall from industry leadership.",
+    origin: "Clayton M. Christensen, The Innovator's Dilemma",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q184",
+    quote: "Buying Hierarchy:\n1) Functionality - only product in the market\n2) Reliability - two or more products, so the best\n3) Convinience - most convinient to deal with\n4) Price - last phase before the next performance oversupply",
+    origin: "Clayton M. Christensen, The Innovator's Dilemma",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q185",
+    quote: "Questions to ask when faced with a disruptive technological change:\nHow can we know if a technology is disruptive?\nGraph the trajectories of performance improvement demanded in the market vs. performance improvement supplied.",
+    origin: "Clayton M. Christensen, The Innovator's Dilemma",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q186",
+    quote: "Questions to ask when faced with a disruptive technological change:\nWhere is the market for _____?\nAcknowledge it can't be used in mainstream right now/immediately. Its not in an established market.",
+    origin: "Clayton M. Christensen, The Innovator's Dilemma",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q187",
+    quote: "Questions to ask when faced with a disruptive technological change:\nWhat should be our product, technology, and disruption strategies?\nLooking to produce a performance oversupply.",
+    origin: "Clayton M. Christensen, The Innovator's Dilemma",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q188",
+    quote: "Questions to ask when faced with a disruptive technological change:\nWhat organization best serves disruptive innovations?\nCreate a subdivision that is independently focused on that product/value network.",
+    origin: "Clayton M. Christensen, The Innovator's Dilemma",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
 ];
