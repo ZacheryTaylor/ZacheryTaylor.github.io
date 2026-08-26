@@ -1257,5 +1257,140 @@ const quoteBank = [
     tags: ["business"],
     favorite: false
   },
-
+  {
+    id: "q155",
+    quote: "More times than not the monopoly will treat its workers better due to the control in pricing of their goods, not having cut every corner to make ends meet. In the competitive market the companies must be ruthless. Monopolies can afford to think about things other than money.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q156",
+    quote: "Monopolies deserve their bad reputation - but only in a world where nothing changes.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q157",
+    quote: "If the government would have let the oil and gas industries stay as monopolies would we have had more advancements to remove the NEED of those fossil fuels.",
+    origin: "ZT",
+    date: "2020",
+    tags: ["business","theory"],
+    favorite: TRUE
+  },
+  {
+    id: "q158",
+    quote: "Competition = allegedy necessary, supposedly valiant, but ultimately destructive.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q159",
+    quote: "An imitator is a loser. Sooner or later they will lose.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q160",
+    quote: "Winning is better than losing, but everybody loses when the war isn't one worth fighting.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business","mindset"],
+    favorite: false
+  },
+  {
+    id: "q161",
+    quote: "The value of a business today is the sum of all the money it will make in the future.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business","investing"],
+    favorite: false
+  },
+  {
+    id: "q162",
+    quote: "Characteristics of a Monopoly\n1) Proprietary Technology: Must be 10 times better than its closest substitute, an order of magnitude.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q163",
+    quote: "Characteristics of a Monopoly\n2) Network Effects: Make a product more useful as people use it.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q164",
+    quote: "Characteristics of a Monopoly\n3) Economics of Scale: Fixed cost of creating but spread out over sales. Don't be limited by your service or number of workers.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: TRUE
+  },
+  {
+    id: "q165",
+    quote: "Characteristics of a Monopoly\n4) Branding: Monopoly built soley on its own brand.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q166",
+    quote: "Where can you create or capture ALPHA from the market.",
+    origin: "UNKNOWN",
+    date: "2020",
+    tags: ["business","mindset"],
+    favorite: false
+  },
+  {
+    id: "q167",
+    quote: "First dominate a specific niche, and then scale to adjacent markets.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q168",
+    quote: "A business with a good definite plan will always be underrated in a world where people see the future as random.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q169",
+    quote: "ALL OF CHAPTER 7.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q170",
+    quote: "A company must try to disrupt itself, otherwise another company will come along and do it.",
+    origin: "ZT",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q171",
+    quote: "Great companies have secrets: specific reasons for success that other people don't see.",
+    origin: "Peter Thiel, Zero to One",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
 ];
