@@ -963,14 +963,6 @@ const quoteBank = [
   },
   {
     id: "q119",
-    quote: "Management must submit to the stigma of a strong bottom-line when TRUE growth opportunities are available.",
-    origin: "Philip A. Fisher, Conservative Investors Sleep Well",
-    date: "2020",
-    tags: ["assets","business"],
-    favorite: false
-  },
-  {
-    id: "q119",
     quote: "Treat customers like you would if you were a small startup business.",
     origin: "Philip A. Fisher, Conservative Investors Sleep Well",
     date: "2020",
@@ -1279,7 +1271,7 @@ const quoteBank = [
     origin: "ZT",
     date: "2020",
     tags: ["business","theory"],
-    favorite: TRUE
+    favorite: true
   },
   {
     id: "q158",
@@ -1335,7 +1327,7 @@ const quoteBank = [
     origin: "Peter Thiel, Zero to One",
     date: "2020",
     tags: ["business"],
-    favorite: TRUE
+    favorite: true
   },
   {
     id: "q165",
@@ -1527,6 +1519,14 @@ const quoteBank = [
     origin: "Clayton M. Christensen, The Innovator's Dilemma",
     date: "2020",
     tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q189",
+    quote: "Management must submit to the stigma of a strong bottom-line when TRUE growth opportunities are available.",
+    origin: "Philip A. Fisher, Conservative Investors Sleep Well",
+    date: "2020",
+    tags: ["assets","business"],
     favorite: false
   },
 ];
