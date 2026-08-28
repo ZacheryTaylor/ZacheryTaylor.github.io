@@ -1529,4 +1529,252 @@ const quoteBank = [
     tags: ["assets","business"],
     favorite: false
   },
+  {
+    id: "q190",
+    quote: "Disruptive technology should be framed as a marketing challenge, not a technological one.",
+    origin: "Clayton M. Christensen, The Innovator's Dilemma",
+    date: "2020",
+    tags: ["business","mindset"],
+    favorite: false
+  },
+  {
+    id: "q191",
+    quote: "Characteristics of a Disruptive Technology:\nThey are simpler and cheaper and lower performing.\nThey generally promise lower margins, not higher profits.\Most profitable subset of customers for a leading firm generally can't use and don't want them.\nThey are first commercialized in emerging or insignificant markets.",
+    origin: "Clayton M. Christensen, The Innovator's Dilemma",
+    date: "2020",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q192",
+    quote: "I am not what has happened to me, I am what I choose to become.",
+    origin: "Jerry Colonna, Reboot",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: true
+  },
+  {
+    id: "q193",
+    quote: "We forge our TRUST IDENTITY by putting our heads into the mouths of the scariest demons, the realities of our lives. Only by facing these can we transform the energy that is the source of our aggression/confusion/struggle.",
+    origin: "Jerry Colonna, Reboot",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q194",
+    quote: "What are you not saying that needs to be said?",
+    origin: "Jerry Colonna, Reboot",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q195",
+    quote: "Have courage to be still in the face of uncertainty.",
+    origin: "Jerry Colonna, Reboot",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q196",
+    quote: "Remembering Who YOU Are\nChapter 4",
+    origin: "Jerry Colonna, Reboot",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q197",
+    quote: "If there's an outsized reaction - negative or positive - chances are you're operating from your shadow.",
+    origin: "Jerry Colonna, Reboot",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q198",
+    quote: "We might maintain structures not in our best interest because they serve this sort of larger wish for love, safety, and belonging.",
+    origin: "Jerry Colonna, Reboot",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q199",
+    quote: "Retrieve the Treasure:\nWhat am I not saying that needs to be said?\nWhat am I saying that is not being heard?\nWhat is being said that I am not hearing?",
+    origin: "Jerry Colonna, Reboot",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q200",
+    quote: "The greatest gifts of leadership are its challenge to remember who we are and the opportunity to become the grown-ups we were meant to be.",
+    origin: "Jerry Colonna, Reboot",
+    date: "2020",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q201",
+    quote: "Most people don't know what they want unless they see it in context. Everything is relative, and that's the point.",
+    origin: "Dan Ariely, Predictably Irrational",
+    date: "2021",
+    tags: ["psychology"],
+    favorite: false
+  },
+  {
+    id: "q202",
+    quote: "Sometimes we want our decisions to have a rational veneer when, in fact, they stem from a gut feeling - what we crave deep down.",
+    origin: "Dan Ariely, Predictably Irrational",
+    date: "2021",
+    tags: ["psychology"],
+    favorite: false
+  },
+  {
+    id: "q203",
+    quote: "Most transactions have an upside and a downside, but when something is 'FREE!' we forget the downside... Humans are intrinsically afraid of loss, and the real allure of 'FREE!' is tied to this fear.",
+    origin: "Dan Ariely, Predictably Irrational",
+    date: "2021",
+    tags: ["psychology"],
+    favorite: false
+  },
+  {
+    id: "q204",
+    quote: "When money was mentioned, people used market norms and found the offer lacking, relative to their market salary. When no money was mentioned they used social norms and were willing to volunteer their time. A gift, even if equal to the value of the dollar amount you would give, will work vastly better.",
+    origin: "Dan Ariely, Predictably Irrational",
+    date: "2021",
+    tags: ["psychology"],
+    favorite: false
+  },
+  {
+    id: "q205",
+    quote: "Global. Geogphaic. Network Flywheel.",
+    origin: "ZT",
+    date: "2021",
+    tags: ["psychology","money"],
+    favorite: false
+  },
+  {
+    id: "q206",
+    quote: "Three Quirks of Human Nature (Ownership)\nWe fall in love with what we already have.\nWe focus on what we may lose, rather than what we may gain.\nWe assume other people will see the transaction from our perspective.",
+    origin: "Dan Ariely, Predictably Irrational",
+    date: "2021",
+    tags: ["psychology"],
+    favorite: false
+  },
+  {
+    id: "q207",
+    quote: "Try to view all transactions as if you were a non-owner,putting some distance between myself and the item of interest.",
+    origin: "Dan Ariely, Predictably Irrational",
+    date: "2021",
+    tags: ["psychology"],
+    favorite: false
+  },
+  {
+    id: "q208",
+    quote: "Take into account the consequences of not deciding.",
+    origin: "Dan Ariely, Predictably Irrational",
+    date: "2021",
+    tags: ["psychology"],
+    favorite: false
+  },
+  {
+    id: "q209",
+    quote: "The happiest people in the world are the people most comfortable with uncertainty.",
+    origin: "ZT",
+    date: "2021",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q210",
+    quote: "When the medium of exchange is nonmonetary, our ability to rationalize cheating and/or stealing increases by leaps and bounds. These nonmonetary circumstances let us bypass our conscience and freely explore the benefits of dishonesty.",
+    origin: "Dan Ariely, Predictably Irrational",
+    date: "2021",
+    tags: ["psychology"],
+    favorite: false
+  },
+  {
+    id: "q211",
+    quote: "Think how hard physics would be if particles could think.",
+    origin: "Dan Ariely, Predictably Irrational",
+    date: "2021",
+    tags: ["psychology"],
+    favorite: false
+  },
+  {
+    id: "q212",
+    quote: "I think I want to do behavioral economics for the rest of my life. Combining my analytical thinking with my curiosity for why people do the things they do.",
+    origin: "ZT",
+    date: "2021",
+    tags: ["psychology","career"],
+    favorite: true
+  },
+  {
+    id: "q213",
+    quote: "I found the road to wealth when I decided that a part of all I earned was mine to keep.",
+    origin: "George S. Clason, The Richest Man in Babylon",
+    date: "2021",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q214",
+    quote: "To attract good luck, it is necessary to take advantage of opportunities.",
+    origin: "George S. Clason, The Richest Man in Babylon",
+    date: "2021",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q215",
+    quote: "A super intelligent AI will be the last and greatest invention of the human race. Making machines extremely good at one task is one thing, but once they can be programmed to do the things a human does 'without thinking' is much harder.\n-Common Sense\n-Natural Language Understanding",
+    origin: "ZT",
+    date: "2021",
+    tags: ["psychology"],
+    favorite: false
+  },
+  {
+    id: "q216",
+    quote: "Human-level Machine Intelligence (HLMI): one that can carry out most human professions at least as well as a typical human\nMy Predictions:\n10% Chance : 2025\n50% Chance : 2038\n90% Chance : 2075",
+    origin: "ZT",
+    date: "2021",
+    tags: ["technology"],
+    favorite: false
+  },
+  {
+    id: "q217",
+    quote: "Superintelligence - any intellect that greatly exceeds the cognitive performance of humans in virtually all domains of interest.",
+    origin: "Nick Bostrom, Superintelligence",
+    date: "2021",
+    tags: ["technology"],
+    favorite: false
+  },
+  {
+    id: "q218",
+    quote: "Three Forms of Superintelligence:\n1) SPEED - A system that can do all that a human intellect can do, but much faster. 'much' = orders of magnitude faster.",
+    origin: "Nick Bostrom, Superintelligence",
+    date: "2021",
+    tags: ["technology"],
+    favorite: false
+  },
+  {
+    id: "q219",
+    quote: "Three Forms of Superintelligence:\n2) cOLLECTIVE - A system composed of a large number of smaller intellects such that the system's overall perfomance across many very general domains vastly outstrips that of any current cognitive system.",
+    origin: "Nick Bostrom, Superintelligence",
+    date: "2021",
+    tags: ["technology"],
+    favorite: false
+  },
+  {
+    id: "q220",
+    quote: "Three Forms of Superintelligence:\n1) QUALITY - A system that is at least as fast as a human mind and vastly qualitatively smarter.",
+    origin: "Nick Bostrom, Superintelligence",
+    date: "2021",
+    tags: ["technology"],
+    favorite: false
+  }
 ];
