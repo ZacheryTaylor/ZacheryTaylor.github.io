@@ -1776,5 +1776,253 @@ const quoteBank = [
     date: "2021",
     tags: ["technology"],
     favorite: false
-  }
+  },
+  {
+    id: "q221",
+    quote: "Rate of change in intelligence =\nOptimization Power/Recalcitrance.",
+    origin: "Nick Bostrom, Superintelligence",
+    date: "2021",
+    tags: ["technology"],
+    favorite: false
+  },
+  {
+    id: "q222",
+    quote: "Wireheading - artificial stimulation of the brain to experience pleasure, through direct stimulation of an idividual's brain reward or pleasure center. Also, any kind of method that produces 'counterfeit utility' by producing a good feeling, but that fails to realize what we value.",
+    origin: "Nick Bostrom, Superintelligence",
+    date: "2021",
+    tags: ["technology"],
+    favorite: false
+  },
+  {
+    id: "q223",
+    quote: "Wireheading could be caused from using reward systems in parenting... causing kids to value the wrong things just to achieve the 'pleasure' response.",
+    origin: "ZT",
+    date: "2021",
+    tags: ["technology","parenting"],
+    favorite: false
+  },
+  {
+    id: "q224",
+    quote: "If we know how to solve the value-loading problem, how do we decide what values should be loaded? What would we want a superintelligence to want?",
+    origin: "Nick Bostrom, Superintelligence",
+    date: "2021",
+    tags: ["technology"],
+    favorite: false
+  },
+  {
+    id: "q225",
+    quote: "We want to focus on problems that are not only important but urgent in the sense that their solutions are needed prior to the intelligence explosion.",
+    origin: "Nick Bostrom, Superintelligence",
+    date: "2021",
+    tags: ["technology"],
+    favorite: false
+  },
+  {
+    id: "q226",
+    quote: "Strategic Analysis - 'crucial consideration'\nLook for ideas/argument with the potential to change our views.",
+    origin: "Nick Bostrom, Superintelligence",
+    date: "2021",
+    tags: ["technology"],
+    favorite: false
+  },
+  {
+    id: "q227",
+    quote: "Capacity Building - 'building a strong base that can be added upon rapidly from multiple sources'\nFind people who are willing to completely restart when a new, more effective/safer method is discovered.",
+    origin: "Nick Bostrom, Superintelligence",
+    date: "2021",
+    tags: ["technology","mindset"],
+    favorite: false
+  },
+  {
+    id: "q228",
+    quote: "'That won't work in the real world.'\nWell the real world sounds awful, it's filled with pessimistic people who assume society isn't ready for a capable change.",
+    origin: "Jason Fried & David Hansson, Rework",
+    date: "2021",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q229",
+    quote: "A workaholic is not a hero, a hero is already home because they figured out a faster way to get things done.",
+    origin: "Jason Fried & David Hansson, Rework",
+    date: "2021",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q230",
+    quote: "Build half a product, not a half-assed product.",
+    origin: "Jason Fried & David Hansson, Rework",
+    date: "2021",
+    tags: ["mindset","business"],
+    favorite: false
+  },
+  {
+    id: "q231",
+    quote: "Focus on what won't change.",
+    origin: "Jason Fried & David Hansson, Rework",
+    date: "2021",
+    tags: ["mindset"],
+    favorite: true
+  },
+  {
+    id: "q232",
+    quote: "Reasons to Quit:\nWhy are you doing this?\nWhat problem are you solving?\nIs this actually useful?\nAre you adding value?\nWill this change behavior?\nIs there an eaiser way?\nWhat could you be doing instead?\nIs it really worth it?",
+    origin: "Jason Fried & David Hansson, Rework",
+    date: "2021",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q233",
+    quote: "If there's a request that you keep forgetting, that's a sign that it isn't very important. The really important stuff doesn't go away.",
+    origin: "Jason Fried & David Hansson, Rework",
+    date: "2021",
+    tags: ["mindset","business"],
+    favorite: false
+  },
+  {
+    id: "q234",
+    quote: "Don't be afraid to give a little away for free. Be confident in what you're offering, and know people will come back for more.",
+    origin: "Jason Fried & David Hansson, Rework",
+    date: "2021",
+    tags: ["mindset","business"],
+    favorite: false
+  },
+  {
+    id: "q235",
+    quote: "Failing to trust employees can be awfully expensive.",
+    origin: "Jason Fried & David Hansson, Rework",
+    date: "2021",
+    tags: ["business"],
+    favorite: false
+  },
+  {
+    id: "q236",
+    quote: "Sound like You:\nThink about one person and write for them. Writing for a mob leads to generalizations and missing the mark.",
+    origin: "Jason Fried & David Hansson, Rework",
+    date: "2021",
+    tags: ["writing"],
+    favorite: false
+  },
+  {
+    id: "q237",
+    quote: "Inspiration is a magical thing, a productivity multiplier, a motivator. Inspiration is a now thing. If it grabs you, grab it right back and put it to work.",
+    origin: "UNKNOWN",
+    date: "2021",
+    tags: ["mindset","business"],
+    favorite: true
+  },
+  {
+    id: "q238",
+    quote: "Before we build a better mousetrap, we need to find ouit if there are any mice out there.",
+    origin: "Mac Anderson & Tom Feltenstein, Change is Good... You Go First",
+    date: "2021",
+    tags: ["mindset","business],
+    favorite: false
+  },
+  {
+    id: "q239",
+    quote: "Focus on the critical few, not the significant many.",
+    origin: "Mac Anderson & Tom Feltenstein, Change is Good... You Go First",
+    date: "2021",
+    tags: ["mindset","business"],
+    favorite: false
+  },
+  {
+    id: "q240",
+    quote: "I always wondered why somebody didn't do something about that. Then I realized I was somebody.",
+    origin: "Darrel Royal, Luck Follows Speed",
+    date: "2021",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q241",
+    quote: "Trouble follows when we treat life decisions as if they were chess decisions. Life is like poker. Poker is a game of incomplete information.",
+    origin: "Annie Duke, Thinking in Bets",
+    date: "2021",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q242",
+    quote: "Thoroughly conscious ignorance is the prelude to every real advancement in science.",
+    origin: "Annie Duke, Thinking in Bets",
+    date: "2021",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q243",
+    quote: "All decisions are bets.",
+    origin: "Annie Duke, Thinking in Bets",
+    date: "2021",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q244",
+    quote: "Declaring our uncertainty in our beliefs to others makes us more credible communicators and invites people to be our collaborators.",
+    origin: "Annie Duke, Thinking in Bets",
+    date: "2021",
+    tags: ["mindset","business"],
+    favorite: false
+  },
+  {
+    id: "q245",
+    quote: "The systematic errors in the way we field the outcomes of our peers comes at a real cost. We lose compassion for others.",
+    origin: "Annie Duke, Thinking in Bets",
+    date: "2021",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q246",
+    quote: "Thinking in bets is a smart way to start building habits that achieve our long-term goals. It triggers a more open-minded exploration of alternative hypotheses, of reasons supporting conclusions 'opposite' to the routine of self-serving bias.",
+    origin: "Annie Duke, Thinking in Bets",
+    date: "2021",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q247",
+    quote: "There are some situations where people aren't seeking the truth.",
+    origin: "Annie Duke, Thinking in Bets",
+    date: "2021",
+    tags: ["mindset"],
+    favorite: true
+  },
+  {
+    id: "q248",
+    quote: "Perfect Group Construction:\nA focus on accuracy, onjectivity, and truthseeking\nAccountability\nOpenness to a diversity of ideas",
+    origin: "Annie Duke, Thinking in Bets",
+    date: "2021",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q249",
+    quote: "We are more likely to make choices consistent with our long-term goals when we can get out of the moment and engage our past- and future-selves.",
+    origin: "Annie Duke, Thinking in Bets",
+    date: "2021",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q242",
+    quote: "Imagining a successful future and backcasting from there is a useful exercise.",
+    origin: "Annie Duke, Thinking in Bets",
+    date: "2021",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q251",
+    quote: "Life, like poker, is one long game, and there are going to be a lot of losses, even after making the best bets.",
+    origin: "Annie Duke, Thinking in Bets",
+    date: "2021",
+    tags: ["mindset"],
+    favorite: false
+  },
 ];
