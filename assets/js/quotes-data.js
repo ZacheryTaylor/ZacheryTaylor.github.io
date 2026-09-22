@@ -2010,7 +2010,7 @@ const quoteBank = [
     favorite: false
   },
   {
-    id: "q242",
+    id: "q250",
     quote: "Imagining a successful future and backcasting from there is a useful exercise.",
     origin: "Annie Duke, Thinking in Bets",
     date: "2021",
@@ -2023,6 +2023,102 @@ const quoteBank = [
     origin: "Annie Duke, Thinking in Bets",
     date: "2021",
     tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q252",
+    quote: "The 'Common Enemy' Tool: Members work together when they face an opponent, although they otherwise have little in common.",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["teamwork"],
+    favorite: false
+  },
+  {
+    id: "q253",
+    quote: "Negotiation is the process of meeting your goals when dealing with another person:\n1. Forcing people to do what you will them to do.\n2. Getting people to think what you want them to think.\nGetting people to perceive what you want them to perceive.\n4. Getting people to feel what you want them to feel.",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["negotiation"],
+    favorite: false
+  },
+  {
+    id: "q254",
+    quote: "Goals:\nYou negotiate to mee goals. Are my actions meeting your goals?",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["negotiation"],
+    favorite: false
+  },
+  {
+    id: "q255",
+    quote: "You:\nYour attitude, credibility, transparency\nBe a problem-solving negotiator\nBe in a good mood\nBe 'straight'\nAsk for criticism",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["negotiation"],
+    favorite: false
+  },
+  {
+    id: "q256",
+    quote: "Small Steps:\nDon't be greedy\nIf you can increase your success rate by even a few percent in your negotiations with others, you will fabulously more successful.",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["negotiation"],
+    favorite: false
+  },
+  {
+    id: "q257",
+    quote: "Everything is Situational:\n1. What are my goals?\n2. Who are 'they'?\n3. What will it take to persuade them?",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["negotiation"],
+    favorite: false
+  },
+  {
+    id: "q258",
+    quote: "The negotiation process is 55% People, 37% Process, 8% Substance",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["negotiation"],
+    favorite: false
+  },
+  {
+    id: "q259",
+    quote: "Making a personal connection means you have to focus on other people, not just yourself, bringing them into a conversation with you.",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["negotiation"],
+    favorite: false
+  },
+  {
+    id: "q260",
+    quote: "Trust is a feeling of security that the other person will protect you. With some trust, another person will help you until it's too risky for them or a better opportunity comes along. With a lot of trust, the other party will sometimes help you even if it harms them.",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["negotiation"],
+    favorite: true
+  },
+  {
+    id: "q261",
+    quote: "He's not even listening to you until you start where he is.",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["negotiation","parenting"],
+    favorite: false
+  },
+  {
+    id: "262",
+    quote: "Fundamental Attribution Error:\nAssuming that everyone else reacts to things the way that you do.",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["business"],
+    favorite: true
+  },
+  {
+    id: "q263",
+    quote: "Almost everything you say in a negotiation should be a question. Try turning your statements into questions. Questions also give the other party a better chance to participate in the conversation.",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["negotiation"],
     favorite: false
   },
 ];
