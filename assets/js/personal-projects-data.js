@@ -151,9 +151,9 @@ const projects = [
     cardDescription:
       "A GitHub Pages sports-bet dashboard that stores player props, team-win totals, and parlays in JSON, then fills progress bars from ESPN season stats.",
   
-    coverImage: "images/personal/bet-tracker/BetTracker.png",
+    coverImage: "images/personal/betting/bets.jpg",
     coverAlt:
-      "Bet Tracker dashboard showing NFL player props, team win totals, and parlay legs with color progress bars",
+      "Bet Tracker dashboard showing filters, ESPN refresh controls, player props, award bets, and completion progress bars",
   
     description:
       "Bet Tracker is a static web application built to watch a personal slate of season-long sports bets from any computer. Bets live in a versioned JSON file in the GitHub repo rather than a private database, so the public site always reads the same source of truth. The interface groups singles, team records, awards, and parlays; each ticket shows stake-to-payout notes and a solid red-to-green bar for percent complete. Parlays are treated as one joint contingent bet with a separate bar for every leg. A Refresh control pulls unofficial ESPN standings and player statistics so yards, touchdowns, and win totals update without rewriting the ticket by hand. A scheduled GitHub Action can run the same ESPN job and commit new current values back to the data file.",
@@ -208,32 +208,18 @@ const projects = [
   
     gallery: [
       {
-        src: "images/personal/bet-tracker/prop-cards.png",
+        src: "images/personal/betting/parlay.jpg",
         alt:
-          "Bet Tracker cards for player passing and rushing yard props with red-to-green completion bars",
+          "Bet Tracker parlay card showing three NFL player-prop legs for Jacory Croskey-Merritt, Kenneth Walker III, and Javonte Williams, each with its own completion bar and current versus target rushing-yard total.",
         caption:
-          "Season-long player props show the market, target, stake-to-payout, and a color bar driven by ESPN current totals."
+          "A joint three-leg NFL parlay shown as one ticket. The parent card summarizes overall completion, while ESPN-fed progress bars show the separate rushing-yard status of each leg."
       },
       {
-        src: "images/personal/bet-tracker/team-records.png",
+        src: "images/personal/betting/bets.jpg",
         alt:
-          "Bet Tracker team-win tickets for the Buffalo Bills and Detroit Lions",
+          "Bet Tracker dashboard showing ESPN refresh controls, sport and status filters, and NFL bet cards for Caleb Williams MVP, Darian Mensah first overall pick, and Caleb Williams passing yards.",
         caption:
-          "Team-record tickets pull NFL standings so win totals fill automatically against the season target."
-      },
-      {
-        src: "images/personal/bet-tracker/parlay-legs.png",
-        alt:
-          "A parlay card with multiple legs, each with its own progress bar and current versus target stats",
-        caption:
-          "Parlays display as one joint ticket. Each leg keeps its own ESPN-fed bar so the contingent path is visible."
-      },
-      {
-        src: "images/personal/bet-tracker/json-data.png",
-        alt:
-          "data/bets.json in the GitHub repository showing player-prop and parlay objects",
-        caption:
-          "The published slate is a committed JSON array. Targets stay fixed; refresh jobs only update current progress."
+          "The main tracker dashboard combines filters, ESPN refresh status, stake-to-payout details, ticket-type labels, and solid color progress bars for season-long bets."
       }
     ]
   },
