@@ -202,7 +202,7 @@ const projects = [
   
     gallery: [
       {
-        src: "images/personal/betting/parlay-2.jpg",
+        src: "images/personal/betting/parlay.jpg",
         alt:
           "Bet Tracker parlay card showing three NFL player-prop legs for Jacory Croskey-Merritt, Kenneth Walker III, and Javonte Williams, each with its own completion bar and current versus target rushing-yard total.",
         caption:
