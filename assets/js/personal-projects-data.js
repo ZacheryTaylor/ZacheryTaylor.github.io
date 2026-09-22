@@ -49,7 +49,7 @@ const projects = [
   {
     id: "draft-the-stars",
     type: "Web Application",
-    date: "Fantasy Competition\n2026",
+    date: "DWTS Fantasy League\n2026",
     title: "Draft the Stars",
   
     cardDescription:
@@ -101,6 +101,44 @@ const projects = [
         href: "https://zacherytaylor.github.io/dwts-draft/",
         primary: true,
         newTab: true
+      }
+    ],
+  
+    gallery: [
+      {
+        src: "images/personal/DWTS/draft-board.png",
+        alt:
+          "Draft the Stars board showing eight team columns and completed dancer selections",
+        caption:
+          "The completed eight-team snake-draft board, with every celebrity and professional dancer selection preserved in draft order."
+      },
+      {
+        src: "images/personal/DWTS/league-setup.png",
+        alt:
+          "Draft the Stars league setup page showing team names and first-round order controls",
+        caption:
+          "League setup tools for naming teams, arranging the first-round order, and preparing the snake draft."
+      },
+      {
+        src: "images/personal/DWTS/rankings.png",
+        alt:
+          "Draft the Stars rankings page showing team standings, points, alive dancers, maximum possible points, and rosters",
+        caption:
+          "Live fantasy standings that calculate team points, active dancers, maximum possible points, and drafted rosters."
+      },
+      {
+        src: "images/personal/DWTS/scoring.png",
+        alt:
+          "Draft the Stars scoring rules panel explaining weekly judge-score calculations",
+        caption:
+          "The built-in scoring guide explains how couple scores, weekly round values, eliminations, and maximum possible points are calculated."
+      },
+      {
+        src: "images/personal/DWTS/weekly-scores.png",
+        alt:
+          "Draft the Stars weekly scores page showing Dancing with the Stars couple results and elimination status",
+        caption:
+          "Weekly DWTS score tracking records confirmed judges' totals, episode results, fantasy points, and eliminated couples."
       }
     ]
   },
