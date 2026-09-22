@@ -151,7 +151,7 @@ const projects = [
     cardDescription:
       "A GitHub Pages sports-bet dashboard that stores player props, team-win totals, and parlays in JSON, then fills progress bars from ESPN season stats.",
   
-    coverImage: "images/personal/betting/bets.jpg",
+    coverImage: "images/personal/betting/bets.png",
     coverAlt:
       "Bet Tracker dashboard showing filters, ESPN refresh controls, player props, award bets, and completion progress bars",
   
@@ -208,14 +208,14 @@ const projects = [
   
     gallery: [
       {
-        src: "images/personal/betting/parlay.jpg",
+        src: "images/personal/betting/parlay.png",
         alt:
           "Bet Tracker parlay card showing three NFL player-prop legs for Jacory Croskey-Merritt, Kenneth Walker III, and Javonte Williams, each with its own completion bar and current versus target rushing-yard total.",
         caption:
           "A joint three-leg NFL parlay shown as one ticket. The parent card summarizes overall completion, while ESPN-fed progress bars show the separate rushing-yard status of each leg."
       },
       {
-        src: "images/personal/betting/bets.jpg",
+        src: "images/personal/betting/bets.png",
         alt:
           "Bet Tracker dashboard showing ESPN refresh controls, sport and status filters, and NFL bet cards for Caleb Williams MVP, Darian Mensah first overall pick, and Caleb Williams passing yards.",
         caption:
