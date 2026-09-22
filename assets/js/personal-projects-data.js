@@ -142,6 +142,101 @@ const projects = [
       }
     ]
   },
+   {
+    id: "bet-tracker",
+    type: "Web Application",
+    date: "Personal Tool\n2026",
+    title: "Bet Tracker",
+  
+    cardDescription:
+      "A GitHub Pages sports-bet dashboard that stores player props, team-win totals, and parlays in JSON, then fills progress bars from ESPN season stats.",
+  
+    coverImage: "images/personal/bet-tracker/BetTracker.png",
+    coverAlt:
+      "Bet Tracker dashboard showing NFL player props, team win totals, and parlay legs with color progress bars",
+  
+    description:
+      "Bet Tracker is a static web application built to watch a personal slate of season-long sports bets from any computer. Bets live in a versioned JSON file in the GitHub repo rather than a private database, so the public site always reads the same source of truth. The interface groups singles, team records, awards, and parlays; each ticket shows stake-to-payout notes and a solid red-to-green bar for percent complete. Parlays are treated as one joint contingent bet with a separate bar for every leg. A Refresh control pulls unofficial ESPN standings and player statistics so yards, touchdowns, and win totals update without rewriting the ticket by hand. A scheduled GitHub Action can run the same ESPN job and commit new current values back to the data file.",
+  
+    summary: [
+      {
+        heading: "JSON as the league record",
+        text:
+          "Each bet is a structured object in data/bets.json: kind (player-prop, record, award, or parlay), player or team name, ESPN-style stat key, season target, optional stake and payout, and status. Adding a ticket means editing that array and committing. The live site loads the file from the repo so every browser sees the same slate."
+      },
+      {
+        heading: "Player props and team totals",
+        text:
+          "Player props map markets such as passingYards, rushingYards, receivingYards, and touchdowns to a numeric target. Team tickets use kind record with a win target (for example Bills 11 wins). Award tickets such as MVP stay manual because ESPN does not publish a live progress stat."
+      },
+      {
+        heading: "Parlays as contingent tickets",
+        text:
+          "A parlay is one card with nested legs. The ticket is jointly contingent: every leg must hit. The parent bar reflects combined progress, while each leg has its own red-to-green bar, current/target line, and independent ESPN refresh so a stalled leg is obvious."
+      },
+      {
+        heading: "ESPN progress refresh",
+        text:
+          "Refresh ESPN resolves NFL player IDs from ESPN search, then reads season totals from core statistics, splits, and gamelog sums. Team wins come from ESPN standings. Matching is scoped so passing, rushing, and receiving yards are not mixed. Awards are skipped. Misses are listed in the status line."
+      },
+      {
+        heading: "Progress visualization",
+        text:
+          "Percent complete is current divided by target, capped at 100%. The bar fill is a single color that shifts from red through yellow to green as the ticket approaches the number. Filters slice the board by sport, type, timeline, and open/hit/miss status."
+      },
+      {
+        heading: "Shared static hosting",
+        text:
+          "The app is vanilla HTML, CSS, and JavaScript on GitHub Pages. Weekly or hourly GitHub Actions can rewrite current values in data/bets.json without changing targets or parlay structure, so the public dashboard updates from git rather than a login-backed database."
+      }
+    ],
+  
+    links: [
+      {
+        label: "Open Bet Tracker",
+        href: "https://zacherytaylor.github.io/bet-tracker/",
+        primary: true,
+        newTab: true
+      },
+      {
+        label: "View repository",
+        href: "https://github.com/ZacheryTaylor/bet-tracker",
+        primary: false,
+        newTab: true
+      }
+    ],
+  
+    gallery: [
+      {
+        src: "images/personal/bet-tracker/prop-cards.png",
+        alt:
+          "Bet Tracker cards for player passing and rushing yard props with red-to-green completion bars",
+        caption:
+          "Season-long player props show the market, target, stake-to-payout, and a color bar driven by ESPN current totals."
+      },
+      {
+        src: "images/personal/bet-tracker/team-records.png",
+        alt:
+          "Bet Tracker team-win tickets for the Buffalo Bills and Detroit Lions",
+        caption:
+          "Team-record tickets pull NFL standings so win totals fill automatically against the season target."
+      },
+      {
+        src: "images/personal/bet-tracker/parlay-legs.png",
+        alt:
+          "A parlay card with multiple legs, each with its own progress bar and current versus target stats",
+        caption:
+          "Parlays display as one joint ticket. Each leg keeps its own ESPN-fed bar so the contingent path is visible."
+      },
+      {
+        src: "images/personal/bet-tracker/json-data.png",
+        alt:
+          "data/bets.json in the GitHub repository showing player-prop and parlay objects",
+        caption:
+          "The published slate is a committed JSON array. Targets stay fixed; refresh jobs only update current progress."
+      }
+    ]
+  },
   {
     id: "bestball-archive",
     type: "Journey",
