@@ -197,12 +197,6 @@ const projects = [
         href: "https://zacherytaylor.github.io/bet-tracker/",
         primary: true,
         newTab: true
-      },
-      {
-        label: "View repository",
-        href: "https://github.com/ZacheryTaylor/bet-tracker",
-        primary: false,
-        newTab: true
       }
     ],
   
