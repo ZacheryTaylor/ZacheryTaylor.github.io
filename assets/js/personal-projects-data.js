@@ -55,7 +55,7 @@ const projects = [
     cardDescription:
       "A custom Dancing with the Stars fantasy-draft application with a visual snake-draft board, locked team rosters, weekly scoring, elimination tracking, and live rankings.",
   
-    coverImage: "images/personal/draftthestars/DraftTheStars.png",
+    coverImage: "images/personal/DWTS/draft-board.png",
     coverAlt:
       "Draft the Stars fantasy draft board showing team columns, drafted dancers, and rankings",
   
