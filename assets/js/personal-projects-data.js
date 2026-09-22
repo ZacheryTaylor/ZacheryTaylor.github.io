@@ -16,17 +16,17 @@ const projects = [
 
   summary: [
     {
-      heading: "Handwritten highlights",
+      heading: "Handwritten",
       text:
-        "Collect the passages I cared enough to copy by hand—moments that felt important, clarifying, or worth carrying forward beyond the first read."
+        "Collect the passages I cared enough to copy by hand; moments that felt important, clarifying, or worth carrying forward beyond the first read."
     },
     {
-      heading: "Reading distilled",
+      heading: "Reading",
       text:
         "Filter more than a hundred books down to the quotes that actually stuck, turning scattered margins and notebooks into a single, coherent record of what mattered."
     },
     {
-      heading: "Writing influence",
+      heading: "Writing",
       text:
         "Use the quote bank as a reference for tone, structure, and ideas that inform my own style, helping future essays and book chapters stay rooted in the lessons that impacted me most."
     },
@@ -43,6 +43,64 @@ const projects = [
         href: "#quote-bank-export",
         primary: true,
         id: "quote-export-pdf"
+      }
+    ]
+  },
+  {
+    id: "draft-the-stars",
+    type: "Web Application",
+    date: "Fantasy Competition\n2026",
+    title: "Draft the Stars",
+  
+    cardDescription:
+      "A custom Dancing with the Stars fantasy-draft application with a visual snake-draft board, locked team rosters, weekly scoring, elimination tracking, and live rankings.",
+  
+    coverImage: "images/personal/draftthestars/DraftTheStars.png",
+    coverAlt:
+      "Draft the Stars fantasy draft board showing team columns, drafted dancers, and rankings",
+  
+    description:
+      "Draft the Stars is a custom web application built to run a Dancing with the Stars fantasy league from draft night through the season finale. The project combines a visual eight-team snake draft, a custom board that records every selection in real time, locked final rosters, weekly judge-score tracking, elimination status, and automatically calculated fantasy rankings. The application is designed as a shared league hub where participants can review their teams, follow scores, see who remains alive in the competition, and track maximum possible points as the season develops.",
+  
+    summary: [
+      {
+        heading: "League setup",
+        text:
+          "Configure a league name, create up to eight teams, and set the first-round order with editable move-up and move-down controls. The draft order automatically reverses each round to create a complete snake-draft format."
+      },
+      {
+        heading: "Visual draft board",
+        text:
+          "Built a custom image-based draft board that places live selections directly into aligned board slots. Team names appear above their columns, allowing every participant to follow the order, view each roster, and see the full eight-round draft history at a glance."
+      },
+      {
+        heading: "Roster locking",
+        text:
+          "Finalized the completed draft into a locked shared league record so team names, draft order, and player selections remain fixed throughout the season. Commissioner controls support a code-protected lock and unlock workflow while protecting the published roster from accidental edits."
+      },
+      {
+        heading: "Weekly scoring",
+        text:
+          "Created a JSON-based weekly scoring workflow that converts confirmed DWTS judges’ totals into fantasy points. Each drafted dancer earns a share of the episode’s round value based on the couple’s score relative to that episode’s maximum possible judge score."
+      },
+      {
+        heading: "Rankings and elimination tracking",
+        text:
+          "Automatically calculates cumulative team points, active dancers, maximum possible points, and sortable league standings. Eliminated couples remain visible on rosters with role-specific grey styling: pros become dark gray with white text, while celebrities/amateurs become light gray with dark text."
+      },
+      {
+        heading: "Shared season data",
+        text:
+          "Separated the application into reusable data files for finalized league rosters, season pairings, round values, and weekly results. The public league record stays locked while weekly score updates flow through a dedicated results file, allowing rankings to refresh without changing the completed draft."
+      }
+    ],
+  
+    links: [
+      {
+        label: "Open Draft the Stars",
+        href: "https://zacherytaylor.github.io/dwts-draft/",
+        primary: true,
+        newTab: true
       }
     ]
   },
@@ -90,7 +148,8 @@ const projects = [
       {
         label: "Open Best Ball Timeline",
         href: "bestball.html",
-        primary: true
+        primary: true,
+        newTab: true
       }
     ]
   },
