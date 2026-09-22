@@ -1918,7 +1918,7 @@ const quoteBank = [
     quote: "Before we build a better mousetrap, we need to find ouit if there are any mice out there.",
     origin: "Mac Anderson & Tom Feltenstein, Change is Good... You Go First",
     date: "2021",
-    tags: ["mindset","business],
+    tags: ["mindset","business"],
     favorite: false
   },
   {
