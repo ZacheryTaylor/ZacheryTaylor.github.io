@@ -2121,4 +2121,220 @@ const quoteBank = [
     tags: ["negotiation"],
     favorite: false
   },
+  {
+    id: "q264",
+    quote: "If you don't know the standards of the other side, you should ask.",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["negotiation"],
+    favorite: false
+  },
+  {
+    id: "q265",
+    quote: "Naming bad behavior without making yourself the issue is powerful because it turns other the other party's entire being against them - all the focus is on them.",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["negotiation"],
+    favorite: false
+  },
+  {
+    id: "q266",
+    quote: "The information you collect from others gives you the ability to better meet your goals and fulfill your needs. Remember, it is not about gaining power at the expense of others. You having more does not mean less for the other person. The pie is expanded.",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["negotiation"],
+    favorite: true
+  },
+  {
+    id: "q267",
+    quote: "Understand who the other person is, understand his concerns and perceptions, his needs and intangibles. Trade items of unequal value.",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["negotiation"],
+    favorite: false
+  },
+  {
+    id: "q268",
+    quote: "Bargaining Range:\nThe range between the most the buyer will pay and least the seller will accept.",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["negotiation"],
+    favorite: false
+  },
+  {
+    id: "q269",
+    quote: "How is my value to the company being calculated?",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["negotiation","business"],
+    favorite: true
+  },
+  {
+    id: "q270",
+    quote: "Every relationship in your life except in your family began as a transaction. Start conversations with people.",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["negotiation","business"],
+    favorite: false
+  },
+  {
+    id: "q271",
+    quote: "Understand the picture in their head.",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["negotiation","mindset"],
+    favorite: true
+  },
+  {
+    id: "q272",
+    quote: "What are my goals, Who are they, What will it take to persuade them.",
+    origin: "Stuart Diamond, Getting More",
+    date: "2021",
+    tags: ["negotiation"],
+    favorite: false
+  },
+  {
+    id: "q273",
+    quote: "System 1: automatic, quickly, no effort\nSystem 2: complex computations, choice, concentration",
+    origin: "Daniel Kahneman, Thinking, Fast and Slow",
+    date: "2021",
+    tags: ["thinking"],
+    favorite: false
+  },
+  {
+    id: "q274",
+    quote: "In the economy of ACTION,\nEFFORT is the cost.",
+    origin: "Daniel Kahneman, Thinking, Fast and Slow",
+    date: "2021",
+    tags: ["thinking","business"],
+    favorite: false
+  },
+  {
+    id: "q275",
+    quote: "Cognitive Ease = Familiarity is not easily distinguished from truth",
+    origin: "Daniel Kahneman, Thinking, Fast and Slow",
+    date: "2021",
+    tags: ["thinking"],
+    favorite: false
+  },
+  {
+    id: "q276",
+    quote: "All headlines do is satisfy our need for coherence with current events or outcomes.",
+    origin: "Daniel Kahneman, Thinking, Fast and Slow",
+    date: "2021",
+    tags: ["thinking"],
+    favorite: false
+  },
+  {
+    id: "q277",
+    quote: "Intensity Matching:\nAllows your brain to compare things that seem they should not be comparible.",
+    origin: "Daniel Kahneman, Thinking, Fast and Slow",
+    date: "2021",
+    tags: ["thinking"],
+    favorite: false
+  },
+  {
+    id: "q278",
+    quote: "A dramatic or traumatic event temporarily increases the availability of its category!",
+    origin: "Daniel Kahneman, Thinking, Fast and Slow",
+    date: "2021",
+    tags: ["thinking"],
+    favorite: false
+  },
+  {
+    id: "q279",
+    quote: "The world in our heads is not a precise replica of reality.",
+    origin: "Daniel Kahneman, Thinking, Fast and Slow",
+    date: "2021",
+    tags: ["thinking"],
+    favorite: true
+  },
+  {
+    id: "q280",
+    quote: "Anchoring by Adjustment:\nWhen was George Washington President?\n-> You know it had to be after 1776... then adjust.",
+    origin: "Daniel Kahneman, Thinking, Fast and Slow",
+    date: "2021",
+    tags: ["thinking"],
+    favorite: false
+  },
+  {
+    id: "q281",
+    quote: "Anchoring as Priming Effect:\nDid Gandhi die before or after the age of 30?\n-> 30 is a young age but why would the number be too far off the actual number... he died at 61.",
+    origin: "Daniel Kahneman, Thinking, Fast and Slow",
+    date: "2021",
+    tags: ["thinking"],
+    favorite: false
+  },
+  {
+    id: "q282",
+    quote: "Representativeness will always overpower logic in all aspects of reasoning.",
+    origin: "Daniel Kahneman, Thinking, Fast and Slow",
+    date: "2021",
+    tags: ["thinking"],
+    favorite: false
+  },
+  {
+    id: "q283",
+    quote: "Representativeness = associating someone's attributes with a predetermined stereotype.",
+    origin: "Daniel Kahneman, Thinking, Fast and Slow",
+    date: "2021",
+    tags: ["thinking"],
+    favorite: false
+  },
+  {
+    id: "q284",
+    quote: "When given context on a person or occurance we believe it is more likely than an event or outcome that is less detailed.",
+    origin: "Daniel Kahneman, Thinking, Fast and Slow",
+    date: "2021",
+    tags: ["thinking"],
+    favorite: false
+  },
+  {
+    id: "q285",
+    quote: "We constantly overestimate the role of skill and underestimate the role of luck.",
+    origin: "Daniel Kahneman, Thinking, Fast and Slow",
+    date: "2021",
+    tags: ["thinking","business"],
+    favorite: true
+  },
+  {
+    id: "q286",
+    quote: "Planning Fallacy:\nTendency to underestimate the amount of time/money it will take to complete a task - even if it contradicts our experiences.",
+    origin: "Daniel Kahneman, Thinking, Fast and Slow",
+    date: "2021",
+    tags: ["thinking"],
+    favorite: false
+  },
+  {
+    id: "q287",
+    quote: "People dislike risk. Even if the expected return is lower, if it has less risk they will take it.\nMost choices are not based on dollar value, but the psychological values of emotion on outcomes. Their 'utility' is based on the history/reference point of wealth, not the possible outcomes.",
+    origin: "Daniel Kahneman, Thinking, Fast and Slow",
+    date: "2021",
+    tags: ["thinking"],
+    favorite: false
+  },
+  {
+    id: "q288",
+    quote: "Prospect Theory:\nHighly unlikely events are either ignored or over-weighted.",
+    origin: "Daniel Kahneman, Thinking, Fast and Slow",
+    date: "2021",
+    tags: ["thinking"],
+    favorite: false
+  },
+  {
+    id: "q289",
+    quote: "Duration Neglect:\nCounting all positive and negative memories as equal even though the length of positive far out weighs the length of the negative times.",
+    origin: "Daniel Kahneman, Thinking, Fast and Slow",
+    date: "2021",
+    tags: ["thinking","marriage"],
+    favorite: true
+  },
+  {
+    id: "q290",
+    quote: "Focusing Illusion:\nNothing in life is as important in life, as you think it is, when you are thinking about it.",
+    origin: "Daniel Kahneman, Thinking, Fast and Slow",
+    date: "2021",
+    tags: ["thinking","business","life"],
+    favorite: true
+  },
 ];
