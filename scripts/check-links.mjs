@@ -60,7 +60,13 @@ while (queue.length) {
     abs.hash = "";
     const s = abs.toString();
     if (abs.origin !== origin) { if (/^https?:$/.test(abs.protocol) && !s.startsWith(self + "/") && !external.has(s)) external.set(s, u); continue; }
-    if (!s.startsWith(base)) { problems.push(`outside prefix: ${s} (on ${u})`); continue; }
+    if (!s.startsWith(base)) {
+      // Locally, anything outside the prefix is a missing-prefix bug. Against the
+      // live host it's a sibling Pages project (e.g. /bet-tracker/): external.
+      if (/^(localhost|127\.0\.0\.1)$/.test(abs.hostname)) problems.push(`outside prefix: ${s} (on ${u})`);
+      else if (!external.has(s)) external.set(s, u);
+      continue;
+    }
     const pageLike = /\.html$|\/$/.test(abs.pathname);
     if (hash && pageLike) frags.push([s.split("?")[0], hash, u]);
     if (queued.has(s)) continue;
