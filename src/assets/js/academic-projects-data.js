@@ -87,7 +87,7 @@ const projects = [
       {
         heading: "Fundraising",
         text:
-          "Secured more than $27,000 in sponsorships from local and national companies to bring UWF to the competition stage."
+          "Secured $28,000 in sponsorships from local and national companies to bring UWF to the competition stage."
       },
       {
         heading: "Team Operations",
