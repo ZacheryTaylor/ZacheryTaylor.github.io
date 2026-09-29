@@ -159,6 +159,7 @@ export default function (eleventyConfig) {
     const date = m ? new Date(Date.UTC(+m[1], +m[2] - 1, +m[3])) : new Date(d);
     return date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
   });
+  eleventyConfig.addFilter("fixed", (n, d = 2) => Number(n).toFixed(d));
   eleventyConfig.addFilter("isoDate", (d) => new Date(d).toISOString());
   eleventyConfig.addFilter("rfc822", (d) => new Date(d).toUTCString());
   eleventyConfig.addFilter("truncate", (s, n = 155) => {

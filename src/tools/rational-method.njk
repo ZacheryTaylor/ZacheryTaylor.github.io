@@ -1,0 +1,123 @@
+---
+layout: base.njk
+permalink: /tools/rational-method.html
+title: "Rational Method calculator (Q = CiA) — educational"
+description: "An educational Rational Method calculator: estimate peak runoff Q = CiA from area, rainfall intensity, and a composite runoff coefficient, with the math shown. Not engineering advice."
+navKey: civil
+sheet: C-150
+sheetTitle: "Rational Method — educational calculator"
+scripts: ["/assets/js/rational.js"]
+---
+{%- import "macros.njk" as ui with context -%}
+<header class="page-header">
+  <div class="wrap">
+    <ol class="breadcrumb" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/civil.html">Civil Work</a></li><li aria-current="page">Rational Method</li></ol>
+    {{ ui.sectionLabel("C-150", "Learning tool") }}
+    <h1>Peak runoff, <em>Q = CiA.</em></h1>
+    <p class="lead">The Rational Method is one of the first formulas a drainage designer learns: peak flow equals a runoff coefficient times rainfall intensity times drainage area. Try it here. The math is shown step by step.</p>
+    <div class="edu-note" role="note">
+      <strong>Educational only. This is not engineering advice.</strong>
+      This page is for learning how the formula behaves. Don’t use it for design, permitting, or construction. Jurisdictions set their own methods, rainfall data, and coefficients, and drainage design must be done by or under a licensed Professional Engineer. No engineering services are offered here.
+    </div>
+  </div>
+</header>
+
+<section class="band" aria-labelledby="calc-title">
+  <div class="wrap calc-grid">
+    <form class="calc card" id="rational" novalidate aria-labelledby="calc-title">
+      <h2 id="calc-title">Calculator</h2>
+
+      <fieldset class="calc-block">
+        <legend>1 · Runoff coefficient, C</legend>
+        <div class="seg" role="radiogroup" aria-label="How to set C">
+          <label><input type="radio" name="cmode" value="composite" checked> Composite from surfaces</label>
+          <label><input type="radio" name="cmode" value="direct"> Enter C directly</label>
+        </div>
+        <div data-mode="composite">
+          <table class="subareas">
+            <caption class="visually-hidden">Sub-areas and their surfaces</caption>
+            <thead><tr><th scope="col">Surface</th><th scope="col">Area</th><th scope="col">C</th><th scope="col"><span class="visually-hidden">Remove</span></th></tr></thead>
+            <tbody id="subarea-rows"></tbody>
+          </table>
+          <button class="btn btn-small" type="button" id="add-row">+ Add a surface</button>
+          <p class="calc-hint">Each surface starts at the midpoint of its typical range; you can change C within it. Area units follow the setting in step 2.</p>
+        </div>
+        <div data-mode="direct" hidden>
+          <div class="field"><label for="c-direct">C (0–1)</label><input id="c-direct" type="number" inputmode="decimal" min="0" max="1" step="0.01" value="0.60"></div>
+        </div>
+      </fieldset>
+
+      <fieldset class="calc-block">
+        <legend>2 · Drainage area, A</legend>
+        <div class="form-row">
+          <div class="field"><label for="a-total">Total area</label><input id="a-total" type="number" inputmode="decimal" min="0" step="0.01" value="2.5"></div>
+          <div class="field"><label for="a-unit">Units</label>
+            <select id="a-unit"><option value="ac" selected>acres</option><option value="sf">square feet</option><option value="ha">hectares</option></select></div>
+        </div>
+        <p class="calc-hint" data-composite-hint>In composite mode the total is the sum of the surfaces above.</p>
+      </fieldset>
+
+      <fieldset class="calc-block">
+        <legend>3 · Rainfall intensity, i</legend>
+        <div class="form-row">
+          <div class="field"><label for="i-val">Intensity</label><input id="i-val" type="number" inputmode="decimal" min="0" step="0.1" value="6.0"></div>
+          <div class="field"><label for="i-unit">Units</label>
+            <select id="i-unit"><option value="inhr" selected>in/hr</option><option value="mmhr">mm/hr</option></select></div>
+        </div>
+        <p class="calc-hint">In practice, i comes from the local intensity-duration-frequency (IDF) curve for the design storm. The duration is set equal to the time of concentration. The default here is only a placeholder.</p>
+        <div class="field"><label for="cf">Storm frequency adjustment, C<sub>f</sub> (optional)</label>
+          <select id="cf"><option value="1" selected>None (2–10 yr, C<sub>f</sub> = 1.0)</option><option value="1.1">25-yr (1.10)</option><option value="1.2">50-yr (1.20)</option><option value="1.25">100-yr (1.25)</option></select></div>
+      </fieldset>
+    </form>
+
+    <aside class="calc-out" aria-labelledby="result-title">
+      <div class="result-sheet" aria-live="polite">
+        <p class="k" id="result-title">Peak flow, Q</p>
+        <p class="q"><output id="q-cfs" for="rational">—</output> <span>cfs</span></p>
+        <ul class="q-alt">
+          <li><output id="q-gpm">—</output> gpm</li>
+          <li><output id="q-cms">—</output> m³/s</li>
+          <li><output id="q-ls">—</output> L/s</li>
+        </ul>
+        <div class="work" id="work">
+          <p class="k">Work shown</p>
+          <p id="work-lines" class="mono">Enter values to see the calculation.</p>
+        </div>
+        <div class="tb-mini" aria-hidden="true"><span>Sheet C-150</span><span>Educational</span><span>Not for design</span></div>
+      </div>
+      <noscript><p class="calc-hint">The calculator needs JavaScript. The formula and coefficient table below still work on paper.</p></noscript>
+    </aside>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="how-title">
+  <div class="wrap two-col">
+    <div>
+      {{ ui.sectionLabel("C-151", "How it works") }}
+      <h2 id="how-title">What the formula <em>assumes.</em></h2>
+      <p class="formula" aria-label="Q equals C times i times A">Q = C · i · A</p>
+      <ul class="plain-list">
+        <li><strong>Q</strong> is peak runoff in cubic feet per second (cfs).</li>
+        <li><strong>C</strong> is the dimensionless runoff coefficient: the share of rainfall that runs off. For mixed surfaces it’s an area-weighted average, C = Σ(C<sub>j</sub>·A<sub>j</sub>) / ΣA.</li>
+        <li><strong>i</strong> is the rainfall intensity in inches per hour, for a storm lasting the time of concentration.</li>
+        <li><strong>A</strong> is the drainage area in acres.</li>
+      </ul>
+      <p>With those units, Q = CiA comes out in cfs to within under 1%. The exact conversion factor is 1.008 and is usually dropped. In SI units, Q (m³/s) = C·i·A / 360, with i in mm/hr and A in hectares.</p>
+      <p>The method assumes rainfall is uniform in space and time, and that peak flow happens once the whole area contributes, at the time of concentration. That’s why it’s usually limited to small drainage areas. Many agencies cap it at around 200 acres, and each sets its own limits. For less frequent storms, some agencies multiply C by a frequency factor C<sub>f</sub>, capping C·C<sub>f</sub> at 1.0.</p>
+    </div>
+    <div>
+      <h3 class="table-title">Typical runoff coefficients</h3>
+      <p class="calc-hint">Classic textbook ranges (ASCE, as reproduced in FHWA HEC-22, Table 3-1). Local criteria govern.</p>
+      <table class="c-table">
+        <thead><tr><th scope="col">Surface / land use</th><th scope="col">C</th></tr></thead>
+        {%- for g in rational %}
+        <tbody>
+          <tr class="grp"><th scope="rowgroup" colspan="2">{{ g.group }}</th></tr>
+          {%- for c in g.items %}<tr><td>{{ c.label }}</td><td>{{ c.min | fixed(2) }}–{{ c.max | fixed(2) }}</td></tr>{% endfor %}
+        </tbody>
+        {%- endfor %}
+      </table>
+    </div>
+  </div>
+</section>
+<script type="application/json" id="rational-data">{{ rational | json | safe }}</script>
