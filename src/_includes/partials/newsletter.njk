@@ -8,10 +8,10 @@
   {%- set nlAction = "https://buttondown.com/api/emails/embed-subscribe/" + nl.id -%}
   {%- set nlEmailName = "email" -%}
 {%- else -%}
-  {%- set nlAction = "mailto:" + site.author.email + "?subject=Book%20updates" -%}
+  {%- set nlAction = "" -%}
   {%- set nlEmailName = "email" -%}
 {%- endif %}
-<form class="form newsletter" method="post" action="{{ nlAction }}"
+<form class="form newsletter" method="post"{% if nlAction %} action="{{ nlAction }}"{% endif %}
       {%- if nlConfigured and nl.provider != "kit" %} target="_blank"{% endif %}
       data-fallback-email="{{ site.author.email }}" data-subject="Book updates — please add me"
       data-configured="{{ 'true' if nlConfigured else 'false' }}" data-success="You're on the list — thank you.">

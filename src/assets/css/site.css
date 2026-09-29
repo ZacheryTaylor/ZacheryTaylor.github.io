@@ -544,6 +544,7 @@ dialog.gallery-modal .modal-close:hover { background: var(--bronze-light); }
 .inline-form { display: flex; gap: 10px; }
 .inline-form input { flex: 1; min-width: 0; }
 .form-note { color: var(--grey-text); font-size: 0.8rem; }
+.form-note a { color: var(--blueprint); text-decoration: underline; text-underline-offset: 2px; }
 .form-status { min-height: 1.3em; font-size: 0.88rem; font-weight: 600; color: var(--blueprint); }
 .pending-badge { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border: 1px dashed var(--bronze); border-radius: 999px; color: var(--bronze-text); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; }
 
@@ -608,7 +609,8 @@ dialog.gallery-modal .modal-close:hover { background: var(--bronze-light); }
     .scroll-progress { animation: progress linear both; animation-timeline: scroll(root); }
   }
 }
-@keyframes reveal { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+/* Movement only (no opacity) so text never renders below contrast minimums mid-animation. */
+@keyframes reveal { from { transform: translateY(28px) scale(0.985); } to { transform: none; } }
 @keyframes progress { to { transform: scaleX(1); } }
 @media (prefers-reduced-motion: no-preference) {
   .hero-copy { animation: fade-up 0.9s var(--ease-out) 0.05s both; }
