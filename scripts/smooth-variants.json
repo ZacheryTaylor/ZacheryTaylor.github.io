@@ -2,31 +2,31 @@
   {
     "k": "l1",
     "name": "Shared stroke",
-    "line": "H's smooth heavy line as a ZT ligature: one rounded stroke is both the Z's top and the T's crossbar, cut from a rounded blue parcel."
+    "line": "One smooth top stroke is both the Z's top and the T's crossbar; equal-width letters, optically centred, splitting the rounded parcel into two near-equal lots."
   },
   {
     "k": "l2",
     "name": "Touching",
-    "line": "The Z and T are separate smooth strokes whose round ends just meet, so the pinch between them marks the lot corner."
+    "line": "Two identical-width smooth letters whose round ends meet on the lot line, optically centred so neither side of the parcel feels heavier."
   },
   {
     "k": "l3",
-    "name": "Small gap, lighter",
-    "line": "A lighter stroke with a small gap between the letters: the most open and legible pair, like two lots with a setback."
+    "name": "Centre line (symmetric)",
+    "line": "The strictly symmetric version: equal margins on all four sides, equal-width letters, and the gap exactly on the vertical axis, so the two lots are exactly equal."
   },
   {
     "k": "l4",
     "name": "Sharp parcel, heavy",
-    "line": "The shared-stroke ligature at its heaviest, on a square-cornered parcel: a crisp survey-lot outline around soft letters."
+    "line": "The heaviest stroke on a square-cornered survey parcel: two equal letters with a small gap for the lot line, optically centred."
   },
   {
     "k": "l5",
     "name": "Outlined parcel",
-    "line": "Plat-map version: a heavy rounded boundary line on paper with the smooth blue ZT standing inside the lot."
+    "line": "Plat-map version: a heavy rounded boundary line on paper, with the smooth blue ZT (equal letters, small gap) optically centred inside it."
   },
   {
     "k": "l6",
     "name": "Soft curves",
-    "line": "The Z's diagonal eases through a gentle S-curve, like a road winding between the two lots, with the shared top stroke to the T."
+    "line": "The Z's diagonal eases through a gentle S-curve, like a road winding between the two lots; equal letters with a gap, optically centred."
   }
 ]
