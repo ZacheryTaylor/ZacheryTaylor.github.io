@@ -1,0 +1,73 @@
+---
+layout: base.njk
+permalink: /book.html
+title: "The Book — a work in progress"
+description: "Zachery Taylor is writing a nonfiction book about the underpriced 'scarce asset' — vision, curiosity, and relationships — versus credentials, comfort, and certainty. Section I is complete; self-publishing is planned for early 2027."
+navKey: book
+sheet: W-401
+sheetTitle: "The book — work in progress"
+---
+{%- import "macros.njk" as ui with context -%}
+<header class="page-header">
+  <div class="wrap">
+    <ol class="breadcrumb" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">The Book</li></ol>
+    {{ ui.sectionLabel("W-401", "Work in progress") }}
+    <h1>The <em>book.</em></h1>
+    <p class="lead">A nonfiction book I’m writing and will publish through ZT, LLC. The title is still being decided; the idea isn’t.</p>
+  </div>
+</header>
+
+<section class="band" aria-labelledby="premise-title">
+  <div class="wrap">
+    <div class="book-feature">
+      <div>
+        <h2 class="visually-hidden" id="premise-title">Working premise</h2>
+        <p class="section-label">Working premise</p>
+        <p class="premise">Most of us optimize for credentials, comfort, and certainty. The truly scarce asset — and the most underpriced — is <em>vision, curiosity, and relationships.</em></p>
+        <ul class="book-status" aria-label="Book status">
+          <li class="done">Section I complete · July 2026</li>
+          <li>Self-publishing · early 2027</li>
+          <li>Amazon KDP + this site</li>
+        </ul>
+        {% set formId = "book" %}{% include "partials/newsletter.njk" %}
+      </div>
+      <div class="book-cover" aria-hidden="true">
+        <span class="cover-label">WORK IN PROGRESS</span>
+        <strong>Vision, curiosity &amp; relationships</strong>
+        <small>By Zachery Taylor · ZT, LLC</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="thesis-title">
+  <div class="wrap">
+    {{ ui.sectionLabel("W-402", "The argument") }}
+    <h2 id="thesis-title">What we chase <em>vs. what’s scarce.</em></h2>
+    <div class="thesis-grid reveal">
+      <div>
+        <h3>What most of us optimize for</h3>
+        <ul><li>Credentials</li><li>Comfort</li><li>Certainty</li></ul>
+      </div>
+      <div>
+        <h3>The underpriced scarce asset</h3>
+        <ul><li>Vision</li><li>Curiosity</li><li>Relationships</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="why-title">
+  <div class="wrap split">
+    <div>
+      {{ ui.sectionLabel("W-403", "Why I’m writing") }}
+      <h2 id="why-title">Be a good human being, <em>provide value to people.</em></h2>
+      <p class="section-intro">The central standard is simple: be a good human being and provide value to people. The book explores that idea through discipline, ambition, ownership, character, and the decision not to live beneath your potential. The goal is to create something honest, clear, and useful for people who want more from themselves and their lives.</p>
+    </div>
+    <ul class="aspire-list">
+      <li><span class="num">1</span><div><strong>Write with clarity</strong><span>Create a manuscript rooted in honest ideas and useful perspective.</span></div></li>
+      <li><span class="num">2</span><div><strong>Publish through ZT, LLC</strong><span>Release the book through Amazon KDP and this website.</span></div></li>
+      <li><span class="num">3</span><div><strong>Reach the right readers</strong><span>Offer value to people who want growth without empty hype.</span></div></li>
+    </ul>
+  </div>
+</section>

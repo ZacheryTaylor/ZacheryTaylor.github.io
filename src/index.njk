@@ -1,0 +1,210 @@
+---
+layout: base.njk
+permalink: /index.html
+title: "Zachery Taylor, EI — Civil Designer in Pensacola, FL · Builder · Writer"
+titleIsFull: true
+description: "Zachery Taylor is a civil engineering designer and Engineer Intern (EI) in Pensacola, Florida — land development, grading, stormwater and utility design — plus mechanical engineering projects, a book in progress, and the story behind it all."
+navKey: home
+sheet: G-001
+sheetTitle: "Cover sheet — the story so far"
+scripts: ["/assets/js/quotes.js"]
+---
+{%- import "macros.njk" as ui with context -%}
+{%- set featuredIds = ["surfboard", "baja", "cfd-wind-tunnel"] -%}
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="hero-eyebrow"><span class="dot" aria-hidden="true"></span>Pensacola, Florida · Engineer Intern (EI)</p>
+      <h1 id="hero-title">Zachery <span class="name-last">Taylor</span></h1>
+      <p class="positioning">Civil designer and Engineer Intern in Pensacola — I design <strong>site grading, stormwater, and utility plans</strong> for land development. I also build things, and I’m writing my first book.</p>
+      <p class="motto">“Be a good human being, provide value to people.”</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/civil.html">See my civil work</a>
+        <a class="btn" href="/book.html">About the book</a>
+        <a class="btn" href="/resume.pdf">Résumé (PDF)</a>
+      </div>
+    </div>
+    <aside class="hero-panel" aria-label="About Zachery">
+      {% include "partials/siteplan.njk" %}
+      <div class="portrait-stack">
+        <span class="tag" aria-hidden="true">ZT / DESIGNER · WRITER</span>
+        <div class="portrait secondary">{% picture "images/G.jpg", "", "portrait", { loading: "eager", sizes: "104px" } %}</div>
+        <div class="portrait primary">{% picture "images/H.jpg", "Portrait of Zachery Taylor", "portrait", { loading: "eager", fetchpriority: "high", sizes: "126px" } %}</div>
+      </div>
+      <div class="hero-panel-content">
+        <p class="small-label">ZT / 001 · SITE PLAN</p>
+        <h2>Ideas become structure.</h2>
+        <p>Writing, engineering, and long-term work built from the same foundation: clarity, discipline, and useful contribution.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="wrap">
+    <ul class="proof-strip" aria-label="Credentials at a glance">
+      <li><span class="k">Engineer Intern</span><span class="v">FE passed · <em>Dec 2025</em></span></li>
+      <li><span class="k">Civil site design</span><span class="v">5+ years</span></li>
+      <li><span class="k">UWF · 2026</span><span class="v">B.S. Mechanical Eng.</span></li>
+      <li><span class="k">UWF · 2020</span><span class="v">B.S. Mathematics</span></li>
+      <li><span class="k">Next milestone</span><span class="v">Civil PE exam · <em>Jan 2027</em></span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="quote-band" aria-labelledby="quote-title">
+  <div class="wrap">
+    <h2 class="visually-hidden" id="quote-title">From my quote bank</h2>
+    <div class="quote-flashcard-wrap">
+      <figure class="quote-flashcard" id="quote-flashcard" data-quote-id="{{ quotes.featured.id }}">
+        <p class="kicker">From the quote bank · {{ quotes.count }} lines copied by hand</p>
+        <blockquote class="quote-flashcard-text" id="quote-flashcard-text">“{{ quotes.featured.quote }}”</blockquote>
+        <figcaption class="quote-flashcard-origin" id="quote-flashcard-origin">— {{ quotes.featured.origin }}</figcaption>
+        <div class="quote-flashcard-footer">
+          <button type="button" class="btn btn-primary btn-small" id="quote-flashcard-shuffle">Shuffle</button>
+          <label class="switch"><input type="checkbox" id="quote-flashcard-fav-toggle"><span class="track" aria-hidden="true"></span>Favorites only</label>
+          <a class="text-link" href="/personal.html#quotes">Browse all</a>
+        </div>
+      </figure>
+      <p class="quote-empty" id="quote-flashcard-empty" role="status">No favorites to show yet — switch off “Favorites only” to see every quote.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="civil" aria-labelledby="civil-title">
+  <div class="wrap">
+    {{ ui.sectionLabel("C-101", "Civil work") }}
+    <h2 id="civil-title">Land development, <em>drawn carefully.</em></h2>
+    <p class="section-intro">{{ civil.summary }}</p>
+    <ul class="sheet-grid">
+      {%- for s in civil.scope %}
+      <li class="sheet reveal">
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.text }}</p>
+        <div class="tb" aria-hidden="true"><span>Scope</span><span>{{ s.code }}</span></div>
+      </li>
+      {%- endfor %}
+    </ul>
+    <div class="btn-row" style="margin-top:28px">
+      <a class="btn btn-primary" href="/civil.html">Work history &amp; tools</a>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="projects" aria-labelledby="projects-title">
+  <div class="wrap">
+    {{ ui.sectionLabel("M-201", "Engineering projects") }}
+    <h2 id="projects-title">Projects in progress <em>and practice.</em></h2>
+    <p class="section-intro">Design, CFD, mechatronics, and statistics from my mechanical engineering and mathematics degrees — each with its own page, reports, and photos.</p>
+    <ul class="project-grid">
+      {%- for id in featuredIds %}{% for p in projects.academic %}{% if p.id == id %}
+      {{ ui.projectCard(p, 3, false) }}
+      {%- endif %}{% endfor %}{% endfor %}
+    </ul>
+    <div class="btn-row" style="margin-top:28px">
+      <a class="btn btn-primary" href="/academic.html">All {{ projects.academic.length }} projects</a>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="book" aria-labelledby="book-title">
+  <div class="wrap">
+    {{ ui.sectionLabel("W-401", "The book") }}
+    <h2 id="book-title">The book.</h2>
+    <div class="book-feature reveal">
+      <div>
+        <p class="premise">Most of us optimize for credentials, comfort, and certainty. The truly scarce asset — and the most underpriced — is <em>vision, curiosity, and relationships.</em></p>
+        <ul class="book-status" aria-label="Book status">
+          <li class="done">Section I complete · July 2026</li>
+          <li>Self-publishing · early 2027</li>
+          <li>Title to be announced</li>
+        </ul>
+        {% set formId = "home" %}{% include "partials/newsletter.njk" %}
+        <p style="margin-top:14px"><a class="text-link" href="/book.html">Why I’m writing it</a></p>
+      </div>
+      <div class="book-cover" aria-hidden="true">
+        <span class="cover-label">WORK IN PROGRESS</span>
+        <strong>Vision, curiosity &amp; relationships</strong>
+        <small>By Zachery Taylor · ZT, LLC</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="story" aria-labelledby="story-title">
+  <div class="wrap">
+    {{ ui.sectionLabel("G-002", "The story so far") }}
+    <h2 id="story-title">Ideas, rigor, <em>and the long game.</em></h2>
+    <p class="section-intro">Mathematics, then mechanical engineering, a passed FE exam, five years at civil design firms, a first home, a marriage, and a book — in the order they happened.</p>
+    <div class="story-grid">
+      <div>
+        <div class="thread-filter" data-thread-filter hidden role="group" aria-label="Filter the timeline">
+          <button type="button" data-thread="all" aria-pressed="true">Everything</button>
+          <button type="button" data-thread="work" aria-pressed="false">Work</button>
+          <button type="button" data-thread="life" aria-pressed="false">Life</button>
+          <button type="button" data-thread="writing" aria-pressed="false">Writing</button>
+          <button type="button" data-thread="education" aria-pressed="false">Education</button>
+          <button type="button" data-thread="license" aria-pressed="false">Licensure</button>
+        </div>
+        <ol class="timeline">
+          {%- for t in timeline %}
+          <li class="t-item {{ t.state }}" id="t-{{ t.date }}" data-thread="{{ t.thread }}">
+            <p class="when">{{ t.when }} <span class="thread">{{ t.thread }}</span></p>
+            <h3>{{ t.title }}</h3>
+            <p>{{ t.text }}</p>
+          </li>
+          {%- endfor %}
+        </ol>
+      </div>
+      <div class="story-cards">
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">01</div>
+          <h3>Writing</h3>
+          <p>The book is the long project: turning thought, experience, and ambition into something that can positively affect someone else.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">02</div>
+          <h3>Engineering path</h3>
+          <p>The FE exam is passed and engineering school is complete. Now I’m gaining qualifying experience as an Engineer Intern and preparing for the Civil PE exam in January 2027.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">03</div>
+          <h3>ZT, LLC</h3>
+          <p>A Pensacola-based single-member company that publishes the book and holds long-term projects and ventures.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="life" aria-labelledby="life-title">
+  <div class="wrap">
+    {{ ui.sectionLabel("L-301", "Life & interests") }}
+    <h2 id="life-title">The rest <em>of the story.</em></h2>
+    <p class="section-intro">Work is only part of it. There are the podcasts I’ve hosted with friends, a Best Ball archive going back to 2021, apps I built for my leagues, and a bank of quotes copied by hand from more than a hundred books.</p>
+    {% include "partials/chapters.njk" %}
+  </div>
+</section>
+
+<section class="band" id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    {{ ui.sectionLabel("G-003", "Contact") }}
+    <h2 id="contact-title">Let’s talk.</h2>
+    <p class="section-intro">Download the résumé, save my contact card, or send a note — I read everything.</p>
+    <div class="contact-grid">
+      {% include "partials/contact-form.njk" %}
+      <div class="contact-side">
+        <article class="biz-card">
+          <p class="name">Zachery Taylor, EI</p>
+          <p class="title">Civil Engineering Designer · Writer · ZT, LLC</p>
+          <p class="line">Pensacola, Florida</p>
+          <p class="line"><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></p>
+          <p class="line"><a href="tel:{{ site.author.phone }}">{{ site.author.phoneDisplay }}</a></p>
+          <div class="actions">
+            <a class="btn btn-primary" href="/resume.pdf">Résumé (PDF)</a>
+            <a class="btn" href="{{ site.author.linkedin }}" rel="noopener">LinkedIn</a>
+            <a class="btn" href="/contact.vcf" download>Save contact</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,68 @@
+---
+layout: base.njk
+permalink: /bestball.html
+title: "Best Ball Archive"
+description: "A season-by-season Best Ball archive from 2021 to today — entries, contest advancement, strategy development, research, and the lessons carried forward."
+navKey: life
+sheet: L-302
+sheetTitle: "Best Ball archive"
+extraCss: ["assets/css/bestball.css"]
+scripts: ["/assets/js/bestball.js"]
+ogImagePath: "/img/og/bestball-archive.jpg"
+---
+{%- import "macros.njk" as ui with context -%}
+<header class="page-header bestball-header">
+  <div class="wrap">
+    <ol class="breadcrumb" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/personal.html">Life &amp; Interests</a></li><li aria-current="page">Best Ball Archive</li></ol>
+    {{ ui.sectionLabel("L-302", "Personal archive") }}
+    <h1>Best Ball <em>archive.</em></h1>
+    <p class="lead">A season-by-season record of Best Ball entries, contest advancement, strategy development, research, and post-season lessons.</p>
+  </div>
+</header>
+<section class="bestball-timeline-section" aria-labelledby="bb-title">
+  <div class="wrap">
+    <div class="bestball-heading">
+      <p class="section-label">History</p>
+      <h2 id="bb-title">Entries, theory, and the long game.</h2>
+      <p>Each season tracks contest participation, advancement results, strategy development, and the lessons carried forward.</p>
+    </div>
+    <div class="bestball-timeline">
+      {%- for season in bestball %}
+      <article class="bestball-item status-{{ season.status }}">
+        <span class="bestball-marker" aria-hidden="true"></span>
+        <div class="bestball-item-content">
+          <p class="bestball-date">{{ season.year }} · {{ season.label }}</p>
+          <h3>{{ season.title }}</h3>
+          <p class="bestball-description">{{ season.summary }}</p>
+          {%- if season.stats and season.stats.length %}
+          <div class="bestball-stats">
+            {%- for stat in season.stats %}
+            <div class="bestball-stat"><span>{{ stat.label }}</span><strong>{{ stat.value }}</strong></div>
+            {%- endfor %}
+          </div>
+          {%- endif %}
+          {%- if (season.details and season.details.length) or (season.takeaways and season.takeaways.length) %}
+          <button class="bestball-toggle" type="button" aria-expanded="false" aria-controls="bestball-details-{{ loop.index0 }}">View full season <span aria-hidden="true">+</span></button>
+          <div class="bestball-details" id="bestball-details-{{ loop.index0 }}" hidden>
+            {%- if season.details and season.details.length %}
+            <div class="bestball-detail-grid">
+              {%- for item in season.details %}
+              <article class="bestball-detail"><h4>{{ item.heading }}</h4><p>{{ item.text }}</p></article>
+              {%- endfor %}
+            </div>
+            {%- endif %}
+            {%- if season.takeaways and season.takeaways.length %}
+            <div class="bestball-takeaways">
+              <h4>Season takeaways</h4>
+              <ul>{% for t in season.takeaways %}<li>{{ t }}</li>{% endfor %}</ul>
+            </div>
+            {%- endif %}
+          </div>
+          {%- endif %}
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+    <p style="margin-top:48px"><a class="back-link text-link" href="/personal.html#fantasy">Back to Life &amp; Interests</a></p>
+  </div>
+</section>

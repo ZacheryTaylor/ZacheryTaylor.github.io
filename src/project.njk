@@ -1,0 +1,85 @@
+---
+layout: base.njk
+pagination:
+  data: projects.all
+  size: 1
+  alias: project
+permalink: "{{ project.url }}index.html"
+schema: project
+ogType: article
+eleventyComputed:
+  title: "{{ project.title }}"
+  description: "{{ project.cardDescription }}"
+  ogImagePath: "{{ project.ogImage }}"
+  ogImageAlt: "{{ project.coverAlt or project.title }}"
+  navKey: "{{ 'projects' if project.section == 'academic' else 'life' }}"
+  parentTitle: "{{ 'Projects' if project.section == 'academic' else 'Life & Interests' }}"
+  parentUrl: "{{ '/academic.html' if project.section == 'academic' else '/personal.html' }}"
+  sheet: "{{ project.sheet }}"
+  sheetTitle: "{{ project.title }}"
+---
+{%- import "macros.njk" as ui with context -%}
+{%- set list = projects.academic if project.section == "academic" else projects.life -%}
+{%- set idx = 0 -%}
+{%- for p in list %}{% if p.id == project.id %}{% set idx = loop.index0 %}{% endif %}{% endfor -%}
+{%- set prev = list[idx - 1] if idx > 0 else null -%}
+{%- set next = list[idx + 1] if idx < list.length - 1 else null -%}
+
+<article>
+  <header class="case-hero">
+    <div class="wrap">
+      <ol class="breadcrumb" aria-label="Breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="{{ parentUrl }}">{{ parentTitle }}</a></li>
+        <li aria-current="page">{{ project.title }}</li>
+      </ol>
+      {{ ui.sectionLabel(sheet, project.type) }}
+      <h1>{{ project.title }}</h1>
+      <p class="case-meta"><span>{{ project.dateLine }}</span>{% if project.pdf %}<span>Report available</span>{% endif %}{% if project.gallery.length %}<span>{{ project.gallery.length }} images</span>{% endif %}</p>
+      {%- if project.coverImage %}
+      <div class="case-cover{{ '' if project.coverWide else ' contain' }}">{% picture project.coverImage, (project.coverAlt or project.title), "hero", { loading: "eager", fetchpriority: "high", sizes: "(max-width: 1188px) calc(100vw - 48px), 1140px" } %}</div>
+      {%- endif %}
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="case-body">
+      <div class="prose">
+        <p>{{ project.description or project.cardDescription }}</p>
+        {{ ui.summary(project.summary) }}
+      </div>
+      <aside class="case-aside" aria-label="Project details">
+        <dl class="titleblock-card">
+          <div><dt>Project</dt><dd>{{ project.title }}</dd></div>
+          <div><dt>Type</dt><dd>{{ project.type }}</dd></div>
+          <div><dt>When</dt><dd>{{ project.dateLine }}</dd></div>
+          <div><dt>By</dt><dd>Zachery Taylor</dd></div>
+          <div><dt>Sheet</dt><dd>{{ sheet }}</dd></div>
+        </dl>
+        {{ ui.actions(project, "page") }}
+      </aside>
+    </div>
+
+    {%- if project.compare %}
+    <section class="case-section" aria-labelledby="cmp-title">
+      {{ ui.sectionLabel("Compare", "Before / after") }}
+      <h2 id="cmp-title">{{ project.compare.label }}</h2>
+      {{ ui.compare(project.compare, "cmp-" + project.slug) }}
+    </section>
+    {%- endif %}
+
+    {%- if project.gallery.length %}
+    <section class="case-section gallery-inline" aria-labelledby="gal-title">
+      {{ ui.gallery(project, "gal-title", true) }}
+    </section>
+    {%- endif %}
+
+    <nav class="pager" aria-label="More projects">
+      {%- if prev %}<a class="prev" href="{{ prev.url }}"><small>← Previous</small><span>{{ prev.title }}</span></a>{% else %}<span></span>{% endif %}
+      {%- if next %}<a class="next" href="{{ next.url }}"><small>Next →</small><span>{{ next.title }}</span></a>{% else %}<a class="next" href="{{ parentUrl }}"><small>Back to</small><span>All {{ parentTitle }}</span></a>{% endif %}
+    </nav>
+  </div>
+</article>
+{%- if project.id == "quote-bank-export" %}
+<script src="/assets/js/quotes.js" defer></script>
+{%- endif %}

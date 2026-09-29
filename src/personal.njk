@@ -1,0 +1,103 @@
+---
+layout: base.njk
+permalink: /personal.html
+title: "Life & Interests"
+description: "The rest of Zachery Taylor's story: two podcasts, a Best Ball archive since 2021, data tools for fantasy football, apps built for friends, and a bank of quotes copied by hand from more than a hundred books."
+navKey: life
+sheet: L-301
+sheetTitle: "Life & interests"
+ogImagePath: "/img/og/quote-bank-export.jpg"
+scripts: ["/assets/js/quotes.js"]
+groups:
+  - id: quotes-project
+    anchor: reading
+    title: "Reading & writing"
+    blurb: "The lines worth stopping to copy down by hand — kept together so they can shape the book."
+    ids: ["quote-bank-export"]
+  - id: podcasts
+    anchor: podcasts
+    title: "Podcasts with friends"
+    blurb: "Long-form conversation: a weekly NBA show, and an interview show that keeps a dynasty league connected all year."
+    ids: ["dynasty-dimwits-podcast", "break-starter-podcast"]
+  - id: fantasy
+    anchor: fantasy
+    title: "Best Ball & the data behind it"
+    blurb: "A hobby that turned into a research habit — a season-by-season archive plus the spreadsheets and models I use to draft."
+    ids: ["bestball-archive", "bestball-value-surplus", "fantasy-cooccurrence", "bestball-draft-valuation", "bestball-drafting-plan"]
+  - id: apps
+    anchor: apps
+    title: "Apps built for my leagues"
+    blurb: "Small web apps for the people I play with — built because the group needed them."
+    ids: ["draft-the-stars", "bet-tracker"]
+---
+{%- import "macros.njk" as ui with context -%}
+<header class="page-header">
+  <div class="wrap">
+    <ol class="breadcrumb" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Life &amp; Interests</li></ol>
+    {{ ui.sectionLabel("L-301", "Life & interests") }}
+    <h1>Life &amp; <em>interests.</em></h1>
+    <p class="lead">The plan sheets are only part of the story. This is the rest of it — the friends I’ve talked ball with for 165 episodes, the Best Ball seasons I’ve archived since 2021, the tools I built because my leagues needed them, and the quotes I copied by hand because they changed how I see money, work, engineering, and life. It’s the part of the site I most want to keep adding to.</p>
+    {% include "partials/chapters.njk" %}
+  </div>
+</header>
+
+{%- set used = [] %}
+{%- for g in groups %}
+<section class="band" id="{{ g.anchor }}" aria-labelledby="g-{{ g.id }}">
+  <div class="wrap">
+    <div class="group-head">
+      <div>
+        <h2 id="g-{{ g.id }}">{{ g.title }}</h2>
+        <p>{{ g.blurb }}</p>
+      </div>
+      <p class="count">{{ g.ids.length }} {{ "project" if g.ids.length == 1 else "projects" }}</p>
+    </div>
+    <ul class="project-grid">
+      {%- for id in g.ids %}{% for p in projects.life %}{% if p.id == id %}
+      {{ ui.projectCard(p, 3, true) }}{% set _n = used.push(p.id) %}
+      {%- endif %}{% endfor %}{% endfor %}
+    </ul>
+  </div>
+</section>
+{%- endfor %}
+
+{#- Safety net: anything added to personal-projects-data.js but not grouped above still shows. -#}
+{%- set extra = [] %}
+{%- for p in projects.life %}{% if not (p.id in used) %}{% set _n = extra.push(p) %}{% endif %}{% endfor %}
+{%- if extra.length %}
+<section class="band" id="more" aria-labelledby="g-more">
+  <div class="wrap">
+    <div class="group-head"><h2 id="g-more">More projects</h2></div>
+    <ul class="project-grid">{% for p in extra %}{{ ui.projectCard(p, 3, true) }}{% endfor %}</ul>
+  </div>
+</section>
+{%- endif %}
+
+<section class="band" id="quotes" aria-labelledby="quotes-title">
+  <div class="wrap">
+    {{ ui.sectionLabel("L-310", "The quote bank") }}
+    <h2 id="quotes-title">Lines worth <em>copying by hand.</em></h2>
+    <p class="section-intro">{{ quotes.count }} quotes from more than a hundred books, logged since 2020. Starred ones are favorites. Search by author, book, or idea — or export the whole bank as a PDF.</p>
+    <div class="quote-log-controls">
+      <label class="visually-hidden" for="quote-log-search">Search quotes</label>
+      <input type="search" id="quote-log-search" placeholder="Search quotes, authors, tags…" autocomplete="off">
+      <label class="switch"><input type="checkbox" id="quote-log-fav-toggle"><span class="track" aria-hidden="true"></span>Favorites only</label>
+      <span class="count" id="quote-log-count" aria-live="polite">{{ quotes.count }} quotes</span>
+      <a class="btn btn-small" href="#quote-bank-export" data-action="quote-export-pdf">Export PDF</a>
+    </div>
+    <ul class="quote-log-list" id="quote-log-list">
+      {%- for q in quotes.all | reverse %}
+      <li class="quote-log-item"{% if q.favorite %} data-fav{% endif %}>
+        <p class="quote-log-text">“{{ q.quote }}”</p>
+        <p class="quote-log-meta"><span class="quote-log-origin">{{ q.origin }}</span><span class="quote-log-date">{{ q.date }}</span>{% if q.favorite %}<span class="quote-log-star" role="img" aria-label="Favorite">★</span>{% endif %}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+    <p class="count" id="quote-log-empty" hidden>No quotes match that search.</p>
+    <p class="quote-log-more" id="quote-log-more" hidden><button class="btn" type="button">Show more quotes</button></p>
+  </div>
+</section>
+
+{%- for p in projects.life %}
+{{ ui.projectDialog(p) }}
+{%- endfor %}

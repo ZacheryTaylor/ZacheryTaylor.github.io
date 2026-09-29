@@ -409,6 +409,19 @@ const projects = [
       }
     ],
     pdf: "pdfs/academic/CFDGroup.pdf",
+    compare: {
+      label: "Diffuser outlet: 46 × 46 mm vs. 36 × 36 mm",
+      before: {
+        src: "images/academic/CFDGroup/CFDGroup-02.png",
+        alt: "Velocity-magnitude pathlines for the 46 by 46 millimeter diffuser outlet",
+        label: "46 × 46 mm outlet"
+      },
+      after: {
+        src: "images/academic/CFDGroup/CFDGroup-03.png",
+        alt: "Velocity-magnitude pathlines for the 36 by 36 millimeter diffuser outlet",
+        label: "36 × 36 mm outlet"
+      }
+    },
     gallery: [
       {
         src: "images/academic/CFDGroup/CFDGroup-02.png",
@@ -550,7 +563,20 @@ const projects = [
           "Evaluated solution residuals, outlet temperature profiles, velocity-magnitude contours, pressure fields, and pathlines to visualize mixing and flow behavior through both configurations."
       }
     ],
-    pdf: "pdfs/academic/WaterFlowElbow.pdf",
+    // pdf: "pdfs/academic/WaterFlowElbow.pdf",  // report not uploaded yet — add the file to pdfs/academic/ and un-comment
+    compare: {
+      label: "Original vs. revised elbow geometry",
+      before: {
+        src: "images/academic/waterflowelbow-gallery/WaterFlowElbow-01.jpg",
+        alt: "Original elbow geometry with a 25 mm secondary inlet",
+        label: "Original · 25 mm inlet"
+      },
+      after: {
+        src: "images/academic/waterflowelbow-gallery/WaterFlowElbow-02.jpg",
+        alt: "Revised elbow geometry with the secondary inlet increased to 38 mm",
+        label: "Revised · 38 mm inlet"
+      }
+    },
     gallery: [
       {
         src: "images/academic/waterflowelbow-gallery/WaterFlowElbow-01.jpg",
@@ -625,6 +651,19 @@ const projects = [
     }
   ],
   pdf: "pdfs/academic/CableClip.pdf",
+  compare: {
+    label: "Original product vs. redesign",
+    before: {
+      src: "images/academic/cableclip-gallery/CableClip-01.jpg",
+      alt: "Original CableCuff PRO cable-management tool before redesign",
+      label: "Original"
+    },
+    after: {
+      src: "images/academic/cableclip-gallery/CableClip-02.jpg",
+      alt: "CAD model of the redesigned CableCuff PRO",
+      label: "Redesign"
+    }
+  },
   gallery: [
 
   {

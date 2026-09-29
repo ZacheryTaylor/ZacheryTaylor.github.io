@@ -1,0 +1,35 @@
+---
+layout: base.njk
+permalink: /academic.html
+title: "Engineering & Academic Projects"
+description: "Mechanical engineering and mathematics projects by Zachery Taylor, EI: an electric jet-driven surfboard, SAE Baja leadership, ANSYS Fluent CFD studies, Arduino mechatronics, and a regression study — with reports and photos."
+navKey: projects
+sheet: M-201
+sheetTitle: "Engineering & academic projects"
+ogImagePath: "/img/og/surfboard.jpg"
+---
+{%- import "macros.njk" as ui with context -%}
+<header class="page-header">
+  <div class="wrap">
+    <ol class="breadcrumb" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Projects</li></ol>
+    {{ ui.sectionLabel("M-201", "Project index") }}
+    <h1>Academic <em>projects.</em></h1>
+    <p class="lead">Engineering design, technical coursework, and academic work from my studies in mechanical engineering and mathematics at the University of West Florida. Every project has its own page — open a quick view here, or share the full page.</p>
+  </div>
+</header>
+<section class="band" aria-labelledby="idx-title">
+  <div class="wrap">
+    <div class="group-head">
+      <h2 id="idx-title">All projects</h2>
+      <p class="count">{{ projects.academic.length }} projects</p>
+    </div>
+    <ul class="project-grid">
+      {%- for p in projects.academic %}
+      {{ ui.projectCard(p, 3, true) }}
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+{%- for p in projects.academic %}
+{{ ui.projectDialog(p) }}
+{%- endfor %}
