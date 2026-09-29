@@ -1,0 +1,21 @@
+{#- Contact form. Configure in site.config.js -> formspree. Without it, submits open a pre-filled email. -#}
+{%- set fsConfigured = site.formspree -%}
+<form class="form card" method="post"
+      action="{{ ('https://formspree.io/f/' + site.formspree) if fsConfigured else ('mailto:' + site.author.email) }}"
+      {%- if not fsConfigured %} enctype="text/plain"{% endif %}
+      data-fallback-email="{{ site.author.email }}" data-subject="Hello from your website"
+      data-configured="{{ 'true' if fsConfigured else 'false' }}" data-ajax="true"
+      data-success="Thanks — your message is on its way. I'll reply by email.">
+  <h3>Send a message</h3>
+  <div class="form-row">
+    <div class="field"><label for="c-name">Name</label><input id="c-name" name="name" autocomplete="name" required></div>
+    <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
+  </div>
+  <div class="field"><label for="c-msg">Message</label><textarea id="c-msg" name="message" required></textarea></div>
+  <input type="hidden" name="_subject" value="Website message">
+  <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <div class="btn-row"><button class="btn btn-primary" type="submit">Send message</button></div>
+  <p class="form-note">Prefer email? <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+    {%- if not fsConfigured and site.isStaging %} <span class="pending-badge" title="Set site.config.js → formspree">Form backend pending — Formspree account</span>{% endif %}</p>
+  <p class="form-status" role="status" aria-live="polite"></p>
+</form>

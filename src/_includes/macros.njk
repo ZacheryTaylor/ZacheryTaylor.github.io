@@ -1,0 +1,136 @@
+{#- Shared UI building blocks. All images go through the {% picture %} pipeline. -#}
+
+{% macro projectCard(p, headingLevel = 3, quick = true) %}
+<li class="project-card reveal">
+  <div class="project-cover">
+    <span class="project-type">{{ p.type }}</span>
+    {%- if p.coverImage %}{% picture p.coverImage, (p.coverAlt or p.title), "card" %}{% endif %}
+  </div>
+  <div class="project-body">
+    <p class="project-date">{{ p.dateLine }}</p>
+    <h{{ headingLevel }}><a href="{{ p.url }}">{{ p.title }}</a></h{{ headingLevel }}>
+    <p>{{ p.cardDescription }}</p>
+    <div class="card-actions">
+      {%- if quick %}
+      <a class="card-button" href="{{ p.url }}" data-dialog="dlg-{{ p.slug }}" aria-haspopup="dialog">Quick view<span class="visually-hidden">: {{ p.title }}</span></a>
+      {%- else %}
+      <a class="card-button" href="{{ p.url }}">View project<span class="visually-hidden">: {{ p.title }}</span></a>
+      {%- endif %}
+    </div>
+  </div>
+</li>
+{% endmacro %}
+
+{% macro summary(items, limit = 99) %}
+{%- if items and items.length %}
+<div class="project-summary">
+  {%- for item in items %}{% if loop.index <= limit %}
+  <div class="summary-item">
+    <h3>{{ item.heading }}</h3>
+    <p>{{ item.text }}</p>
+  </div>
+  {%- endif %}{% endfor %}
+</div>
+{%- endif %}
+{% endmacro %}
+
+{% macro actions(p, context = "dialog") %}
+<div class="modal-actions">
+  {%- if context == "dialog" %}
+  <a class="btn btn-primary" href="{{ p.url }}">Open full page</a>
+  {%- endif %}
+  {%- if p.pdf %}
+  <a class="btn {{ 'btn-primary' if context == 'page' else '' }}" href="/{{ p.pdf }}" target="_blank" rel="noopener">View report (PDF)</a>
+  <a class="btn" href="/{{ p.pdf }}" download>Download report</a>
+  {%- endif %}
+  {%- if p.presentationPdf %}
+  <a class="btn" href="/{{ p.presentationPdf }}" target="_blank" rel="noopener">View presentation</a>
+  {%- endif %}
+  {%- if p.gallery.length and context == "dialog" %}
+  <button class="btn" type="button" data-dialog="gal-{{ p.slug }}" aria-haspopup="dialog">Photos ({{ p.gallery.length }})</button>
+  {%- endif %}
+  {%- for l in p.links %}
+  <a class="btn{{ ' btn-primary' if l.primary and context == 'page' and not p.pdf else '' }}" href="{{ l.href }}"{% if l.id %} data-action="{{ l.id }}"{% endif %}{% if l.newTab and not ('.html' in l.href) %} target="_blank" rel="noopener"{% endif %}>{{ l.label }}</a>
+  {%- endfor %}
+</div>
+{% endmacro %}
+
+{% macro projectDialog(p) %}
+<dialog class="modal" id="dlg-{{ p.slug }}" aria-label="{{ p.title }}">
+  <button class="modal-close" type="button" data-close aria-label="Close {{ p.title }}">×</button>
+  <template>
+    {%- if p.coverImage %}
+    <div class="modal-hero">{% picture p.coverImage, (p.coverAlt or p.title), "hero", { sizes: "(max-width: 860px) 100vw, 820px" } %}</div>
+    {%- endif %}
+    <div class="modal-content">
+      <p class="modal-kicker">{{ p.type }} · {{ p.dateLine }}</p>
+      <h2 id="dlg-{{ p.slug }}-title">{{ p.title }}</h2>
+      <p>{{ p.description or p.cardDescription }}</p>
+      {{ summary(p.summary, 4) }}
+      {{ actions(p, "dialog") }}
+    </div>
+  </template>
+</dialog>
+{%- if p.gallery.length %}
+<dialog class="modal gallery-modal" id="gal-{{ p.slug }}" aria-label="{{ p.title }} — photos">
+  <button class="modal-close" type="button" data-close aria-label="Close {{ p.title }} photos">×</button>
+  <template>{{ gallery(p, "gal-" + p.slug + "-title") }}</template>
+</dialog>
+{%- endif %}
+{% endmacro %}
+
+{% macro gallery(p, titleId, inline = false) %}
+<div class="gallery-content" data-gallery>
+  <div class="gallery-header">
+    <div>
+      <p class="modal-kicker">{{ p.title }}</p>
+      <h2 id="{{ titleId }}">{{ "Photos & figures" if inline else "Gallery" }}</h2>
+    </div>
+    <p class="gallery-counter" aria-live="polite"><span data-current>1</span> / {{ p.gallery.length }}</p>
+  </div>
+  <ul class="gallery-track" tabindex="0" aria-label="{{ p.title }} images — use arrow keys to browse">
+    {%- for g in p.gallery %}
+    <li class="gallery-item" aria-roledescription="slide" aria-label="{{ loop.index }} of {{ p.gallery.length }}">
+      <div class="gallery-stage">
+        {%- if g.type == "video" %}
+        <video controls preload="none" playsinline><source src="/{{ g.src }}"></video>
+        {%- else %}
+        {% picture g.src, (g.alt or g.caption or p.title), "gallery", { loading: "lazy" } %}
+        {%- endif %}
+      </div>
+      {%- if g.caption %}<p class="gallery-caption">{{ g.caption }}</p>{% endif %}
+    </li>
+    {%- endfor %}
+  </ul>
+  {%- if p.gallery.length > 1 %}
+  <div class="gallery-controls">
+    <button class="gallery-control" type="button" data-prev><span aria-hidden="true">←</span><span class="lbl">Previous</span><span class="visually-hidden">image</span></button>
+    <div class="gallery-dots">
+      {%- for g in p.gallery %}
+      <button class="gallery-dot" type="button" data-index="{{ loop.index0 }}" aria-label="Show image {{ loop.index }}"{% if loop.first %} aria-current="true"{% endif %}></button>
+      {%- endfor %}
+    </div>
+    <button class="gallery-control" type="button" data-next><span class="lbl">Next</span><span class="visually-hidden">image</span><span aria-hidden="true">→</span></button>
+  </div>
+  {%- endif %}
+</div>
+{% endmacro %}
+
+{% macro compare(c, id) %}
+<figure class="compare" data-compare>
+  <div class="compare-frame">
+    <div class="layer before">{% picture c.before.src, c.before.alt, "compare" %}</div>
+    <div class="layer after">{% picture c.after.src, c.after.alt, "compare" %}</div>
+    <span class="tag b">{{ c.before.label or "Before" }}</span>
+    <span class="tag a">{{ c.after.label or "After" }}</span>
+    <span class="divider" aria-hidden="true"></span>
+    <label class="visually-hidden" for="{{ id }}">Reveal {{ c.after.label or "after" }} over {{ c.before.label or "before" }} (percent)</label>
+    <input class="compare-range" id="{{ id }}" type="range" min="0" max="100" value="50" step="1">
+  </div>
+  <figcaption>{{ c.label }} — drag the handle or use the arrow keys to compare.</figcaption>
+</figure>
+{% endmacro %}
+
+{% macro sectionLabel(sheet, text) %}
+<p class="section-label"><span class="sheet-no">{{ sheet }}</span> {{ text }}</p>
+{% endmacro %}

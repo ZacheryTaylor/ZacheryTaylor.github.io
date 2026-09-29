@@ -1,0 +1,30 @@
+{#- Book email list. Configure in site.config.js -> newsletter { provider, id }. -#}
+{%- set nl = site.newsletter -%}
+{%- set nlConfigured = nl and nl.id -%}
+{%- if nlConfigured and nl.provider == "kit" -%}
+  {%- set nlAction = "https://app.kit.com/forms/" + nl.id + "/subscriptions" -%}
+  {%- set nlEmailName = "email_address" -%}
+{%- elif nlConfigured -%}
+  {%- set nlAction = "https://buttondown.com/api/emails/embed-subscribe/" + nl.id -%}
+  {%- set nlEmailName = "email" -%}
+{%- else -%}
+  {%- set nlAction = "mailto:" + site.author.email + "?subject=Book%20updates" -%}
+  {%- set nlEmailName = "email" -%}
+{%- endif %}
+<form class="form newsletter" method="post" action="{{ nlAction }}"
+      {%- if nlConfigured and nl.provider != "kit" %} target="_blank"{% endif %}
+      data-fallback-email="{{ site.author.email }}" data-subject="Book updates — please add me"
+      data-configured="{{ 'true' if nlConfigured else 'false' }}" data-success="You're on the list — thank you.">
+  <div class="field">
+    <label for="nl-email-{{ formId or 'main' }}">Get one email when the book is ready</label>
+    <div class="inline-form">
+      <input id="nl-email-{{ formId or 'main' }}" name="{{ nlEmailName }}" type="email" autocomplete="email" required placeholder="you@example.com">
+      <button class="btn btn-primary" type="submit">Notify me</button>
+    </div>
+  </div>
+  {%- if nlConfigured and nl.provider != "kit" %}<input type="hidden" name="embed" value="1">{% endif %}
+  <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <p class="form-note">No spam — a launch note and the occasional update on the manuscript. Unsubscribe anytime.
+    {%- if not nlConfigured and site.isStaging %} <span class="pending-badge" title="Set site.config.js → newsletter.id">Email list pending — Buttondown/Kit account</span>{% endif %}</p>
+  <p class="form-status" role="status" aria-live="polite"></p>
+</form>

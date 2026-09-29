@@ -1,0 +1,52 @@
+{%- set person = {
+  "@type": "Person",
+  "@id": ("/" | absUrl) + "#person",
+  "name": site.author.name,
+  "alternateName": site.author.shortName,
+  "url": "/" | absUrl,
+  "image": "/assets/brand/og-default.png" | absUrl,
+  "jobTitle": site.author.jobTitle,
+  "email": "mailto:" + site.author.email,
+  "worksFor": { "@type": "Organization", "name": "Mullins, LLC" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of West Florida" },
+  "hasCredential": [{ "@type": "EducationalOccupationalCredential", "name": "Engineer Intern (EI), Florida — FE exam passed December 2025", "credentialCategory": "certification" }],
+  "knowsAbout": ["Civil site design", "Land development", "Stormwater management", "Utility coordination", "AutoCAD Civil 3D", "HydroCAD", "Mechanical engineering", "Mathematics"],
+  "address": { "@type": "PostalAddress", "addressLocality": site.author.city, "addressRegion": site.author.region, "addressCountry": "US" },
+  "sameAs": [site.author.linkedin]
+} -%}
+<script type="application/ld+json">
+{%- if schema == "project" %}
+{{ {
+  "@context": "https://schema.org",
+  "@graph": [
+    person,
+    {
+      "@type": "CreativeWork",
+      "name": project.title,
+      "description": project.description or project.cardDescription,
+      "url": page.url | absUrl,
+      "author": { "@id": ("/" | absUrl) + "#person" },
+      "genre": project.type,
+      "image": (ogImagePath or "/assets/brand/og-default.png") | absUrl
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "/" | absUrl },
+        { "@type": "ListItem", "position": 2, "name": parentTitle, "item": parentUrl | absUrl },
+        { "@type": "ListItem", "position": 3, "name": project.title, "item": page.url | absUrl }
+      ]
+    }
+  ]
+} | json | safe }}
+{%- else %}
+{{ {
+  "@context": "https://schema.org",
+  "@graph": [
+    person,
+    { "@type": "WebSite", "name": site.title, "url": "/" | absUrl, "author": { "@id": ("/" | absUrl) + "#person" } },
+    { "@type": "WebPage", "name": title or site.title, "url": page.url | absUrl, "about": { "@id": ("/" | absUrl) + "#person" } }
+  ]
+} | json | safe }}
+{%- endif %}
+</script>

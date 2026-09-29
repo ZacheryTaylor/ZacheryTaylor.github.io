@@ -1,0 +1,30 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="titleblock" role="group" aria-label="Site title block">
+      <div class="tb-brand">
+        {{ site.monogram | monogram | safe }}
+        <div><span class="tb-k">Drawn by</span><span class="tb-v">Zachery Taylor, EI</span></div>
+      </div>
+      <div><span class="tb-k">Project</span><span class="tb-v">{{ sheetTitle or title or "The story so far" }}</span></div>
+      <div><span class="tb-k">Location · Date</span><span class="tb-v">Pensacola, FL · {{ site.buildTime.toLocaleDateString("en-US", { month: "short", year: "numeric" }) }}</span></div>
+      <div class="tb-sheet"><span class="tb-k">Sheet</span><span class="tb-v">{{ sheet or "G-001" }}</span></div>
+      <div class="tb-row">
+        <nav aria-label="Footer">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/civil.html">Civil Work</a></li>
+            <li><a href="/academic.html">Projects</a></li>
+            <li><a href="/personal.html">Life &amp; Interests</a></li>
+            <li><a href="/book.html">The Book</a></li>
+            <li><a href="/resume.pdf">Résumé</a></li>
+            <li><a href="{{ site.author.linkedin }}" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </nav>
+        <p>© {{ site.year }} ZT, LLC · Zachery Taylor · Pensacola, Florida</p>
+      </div>
+      <div class="tb-row">
+        <p>Civil work shown was performed as a designer and Engineer Intern under the responsible charge of licensed Professional Engineers. ZT, LLC is a publishing company and does not offer engineering services.</p>
+      </div>
+    </div>
+  </div>
+</footer>

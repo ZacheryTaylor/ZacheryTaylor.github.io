@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+{% include "partials/head.njk" %}
+</head>
+<body class="{{ bodyClass }}">
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="scroll-progress" aria-hidden="true"></div>
+{% include "partials/nav.njk" %}
+<main id="main" tabindex="-1">
+{{ content | safe }}
+</main>
+{% include "partials/footer.njk" %}
+{%- if site.isStaging %}<p class="staging-flag" aria-hidden="true">STAGING PREVIEW</p>{% endif %}
+<script src="/assets/js/site.js" defer></script>
+{%- for s in scripts or [] %}
+<script src="{{ s }}" defer></script>
+{%- endfor %}
+</body>
+</html>
