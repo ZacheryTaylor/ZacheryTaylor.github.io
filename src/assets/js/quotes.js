@@ -92,6 +92,8 @@
       if (more) more.hidden = !!(term || onlyFav) || matched <= limit;
       if (none) none.hidden = matched !== 0;
     };
+    // ?q=term (e.g. from the bookshelf) pre-fills the search
+    try { var q0 = new URLSearchParams(location.search).get("q"); if (q0 && search) search.value = q0; } catch (e) {}
     if (search) search.addEventListener("input", render);
     if (favOnly) favOnly.addEventListener("change", render);
     if (more) more.querySelector("button").addEventListener("click", function () { limit += PAGE * 2; render(); });

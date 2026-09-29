@@ -57,6 +57,9 @@ groups:
       {{ ui.projectCard(p, 3, true) }}{% set _n = used.push(p.id) %}
       {%- endif %}{% endfor %}{% endfor %}
     </ul>
+    {%- if g.anchor == "reading" %}
+    <p class="group-more"><a class="text-link" href="/bookshelf.html">Browse the bookshelf: {{ bookshelf.count }} books behind the quote bank</a></p>
+    {%- endif %}
   </div>
 </section>
 {%- endfor %}

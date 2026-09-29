@@ -1,0 +1,51 @@
+---
+layout: base.njk
+permalink: /bookshelf.html
+title: "Bookshelf — the books behind the quote bank"
+description: "The books Zachery Taylor has copied quotes from by hand — money and investing, business and building, and how we think and decide."
+navKey: life
+sheet: L-320
+sheetTitle: "Bookshelf"
+---
+{%- import "macros.njk" as ui with context -%}
+<header class="page-header">
+  <div class="wrap">
+    <ol class="breadcrumb" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/personal.html">Life &amp; Interests</a></li><li aria-current="page">Bookshelf</li></ol>
+    {{ ui.sectionLabel("L-320", "Reading") }}
+    <h1>The <em>bookshelf.</em></h1>
+    <p class="lead">Every book here is one I’ve copied lines from into my <a href="/personal.html#quotes">quote bank</a>: {{ bookshelf.count }} books and {{ bookshelf.totalQuotes }} quotes so far. The thicker the spine, the more I wrote down.</p>
+  </div>
+</header>
+
+{%- for s in bookshelf.shelves %}
+<section class="band shelf-band" aria-labelledby="shelf-{{ s.id }}">
+  <div class="wrap">
+    <h2 id="shelf-{{ s.id }}" class="shelf-title">{{ s.title }} <span>{{ s.books.length }} books</span></h2>
+    <div class="shelf" tabindex="0" role="group" aria-label="{{ s.title }} shelf">
+      <ul class="spines">
+        {%- for b in s.books %}
+        <li><a class="spine spine-{{ b.color }}" href="#book-{{ b.id }}" style="--h: {{ b.height }}px; --w: {{ b.width }}px">
+          <span class="spine-title">{{ b.title }}</span>
+          <span class="visually-hidden">by {{ b.author }}</span>
+          <span class="spine-mark" aria-hidden="true"></span>
+        </a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <ul class="book-cards">
+      {%- for b in s.books %}
+      <li class="book-card reveal" id="book-{{ b.id }}">
+        <h3>{{ b.title }}</h3>
+        <p class="by">{{ b.author }}{% if b.status == "reading" %} · <span class="status status-active">Reading</span>{% endif %}</p>
+        {%- if b.sample %}<blockquote>“{{ b.sample }}”</blockquote>{% endif %}
+        {%- if b.note %}<p class="note-text">{{ b.note }}</p>{% endif %}
+        <p class="book-meta">
+          <span>{{ b.quoteCount }} {{ "quote" if b.quoteCount == 1 else "quotes" }} logged{% if b.since %} · since {{ b.since }}{% endif %}</span>
+          {%- if b.quoteCount %}<a href="/personal.html?q={{ b.title | urlencode }}#quotes">Read them</a>{% endif %}
+        </p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+{%- endfor %}

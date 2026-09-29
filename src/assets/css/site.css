@@ -883,3 +883,29 @@ dialog.gallery-modal .modal-close:hover { background: var(--bronze-light); }
 .notes-list .d { color: var(--muted); font-size: 0.94rem; }
 .notes-empty { padding: 44px 24px; border: 1.5px dashed var(--line); border-radius: 16px; text-align: center; color: var(--muted); }
 .notes-empty .cs-soon { margin: 0 0 12px; font-size: 1.8rem; }
+
+/* ---------- Bookshelf ---------- */
+.shelf-band { padding: 56px 0; }
+.shelf-title { max-width: none; margin-bottom: 18px; font-size: 1.9rem; }
+.shelf-title span { margin-left: 12px; vertical-align: 0.35em; color: var(--grey-text); font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.shelf { position: relative; overflow-x: auto; padding: 18px 16px 0; border-radius: 12px 12px 0 0; background: linear-gradient(rgb(var(--surface) / 0.35), rgb(var(--surface) / 0.7)); scrollbar-width: thin; }
+.shelf::after { content: ""; position: sticky; display: block; left: 0; height: 14px; margin: 0 -16px; background: linear-gradient(#b08546, #86612a); box-shadow: 0 10px 18px rgba(60, 40, 10, 0.22); }
+.spines { display: flex; align-items: flex-end; gap: 3px; min-width: max-content; list-style: none; }
+.spine { position: relative; display: flex; flex-direction: column; justify-content: space-between; align-items: center; width: var(--w); height: var(--h); padding: 12px 0 10px; border-radius: 3px 3px 1px 1px; color: #f3f0e8; text-decoration: none;
+  box-shadow: inset 3px 0 0 rgba(255,255,255,0.12), inset -4px 0 0 rgba(0,0,0,0.18); transition: transform 0.25s var(--ease); }
+.spine::before, .spine::after { content: ""; position: absolute; left: 5px; right: 5px; height: 2px; background: currentColor; opacity: 0.35; }
+.spine::before { top: 7px; } .spine::after { bottom: 28px; }
+.spine:hover, .spine:focus-visible { transform: translateY(-10px); text-decoration: none; }
+.spine-title { writing-mode: vertical-rl; transform: rotate(180deg); max-height: calc(var(--h) - 52px); overflow: hidden; font-family: var(--serif); font-size: 0.92rem; line-height: 1.05; text-overflow: ellipsis; white-space: nowrap; }
+.spine-mark { width: 10px; height: 10px; border: 1.5px solid currentColor; border-radius: 50%; opacity: 0.55; }
+.spine-blue { background: #0a4f9c; } .spine-ink { background: #1e2730; } .spine-bronze { background: #86612a; }
+.spine-paper { background: #e6e1d4; color: #0f1419; } .spine-navy { background: #0a2f5a; } .spine-sand { background: #c9b389; color: #0f1419; }
+.book-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-top: 28px; list-style: none; }
+.book-card { display: flex; flex-direction: column; gap: 8px; padding: 20px 22px; border: 1px solid var(--border); border-radius: 14px; background: rgb(var(--surface) / 0.8); scroll-margin-top: calc(var(--nav-h) + 24px); }
+.book-card:target { border-color: var(--blueprint); box-shadow: 0 0 0 3px var(--blueprint-soft); }
+.book-card h3 { font-size: 1.35rem; line-height: 1.15; }
+.book-card .by { color: var(--bronze-text); font-size: 0.82rem; font-weight: 700; }
+.book-card blockquote { color: var(--muted); font-family: var(--serif); font-size: 1.05rem; line-height: 1.4; }
+.book-meta { display: flex; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 10px; border-top: 1px solid var(--border); color: var(--grey-text); font-size: 0.8rem; font-weight: 600; }
+
+.group-more { margin-top: 22px; }
