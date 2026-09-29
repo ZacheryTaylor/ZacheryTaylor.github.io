@@ -19,8 +19,9 @@ eleventyComputed:
 <article class="story-page">
   <header class="page-header">
     <div class="wrap">
-      <ol class="breadcrumb" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/personal.html#chapters">The story</a></li><li aria-current="page">{{ m.title }}</li></ol>
-      {{ ui.sectionLabel(m.when, (m.chapter and ("Chapter " + m.chapter.numeral + " · " + m.chapter.title)) or m.thread) }}
+      <ol class="breadcrumb" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/personal.html#story-index">The story</a></li><li aria-current="page">{{ m.title }}</li></ol>
+      {%- set labels = { work: "Work", life: "Life", writing: "Writing", education: "Education", license: "Licensure" } %}
+      {{ ui.sectionLabel(m.when, labels[m.thread] or m.thread) }}
       <h1>{{ m.title }}</h1>
       <p class="lead">{{ m.text }}</p>
     </div>

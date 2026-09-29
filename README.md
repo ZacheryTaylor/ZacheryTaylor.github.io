@@ -35,8 +35,8 @@ at the commit *"Move site source into src/ …"*.
     Optional `compare: { before, after }` adds a before/after slider to that project page.
   - `quotes-data.js`, `bestball-data.js` — unchanged format.
   - **new** `timeline-data.js` — the story index (home shows the latest slice, Life &
-    Interests shows every milestone grouped by year, with chapter/type filters). Years and
-    chapters are derived from the entries; add `story` (paragraphs) and/or `photos` to an
+    Interests shows every milestone grouped by year, with a type filter). Year groups
+    are derived from the entries; add `story` (paragraphs) and/or `photos` to an
     entry to give it its own page at `/story/<slug>/`. Also published as `feed.xml` / `feed.json`.
   - **new** `civil-work-data.js` — the Civil Work page. Its `projects` list uses the same
     shape as the academic projects: an entry with a `title` gets a gallery card and its own

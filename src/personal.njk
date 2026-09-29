@@ -38,15 +38,15 @@ groups:
     {{ ui.sectionLabel("L-301", "Life & interests") }}
     <h1>Life &amp; <em>interests.</em></h1>
     <p class="lead">The plan sheets are only part of the story. This is the rest of it — the friends I’ve talked ball with for 165 episodes, the Best Ball seasons I’ve archived since 2021, the tools I built because my leagues needed them, and the quotes I copied by hand because they changed how I see money, work, engineering, and life. It’s the part of the site I most want to keep adding to.</p>
-    {% include "partials/chapters.njk" %}
+    {% include "partials/story-links.njk" %}
   </div>
 </header>
 
-<section class="band story-index-band" id="chapters" aria-labelledby="chapters-title">
+<section class="band story-index-band" id="story-index" aria-labelledby="story-index-title">
   <div class="wrap">
     {{ ui.sectionLabel("L-302", "The story index") }}
-    <h2 id="chapters-title">Every milestone, <em>by year.</em></h2>
-    <p class="section-intro">The whole story since {{ storyIndex.years[storyIndex.years.length - 1].year }}, newest first: {{ storyIndex.entries.length }} milestones across {{ storyIndex.chapters.length }} chapters. Filter by chapter or by type, and open any line for the detail.</p>
+    <h2 id="story-index-title">Every milestone, <em>by year.</em></h2>
+    <p class="section-intro">The whole story since {{ storyIndex.years[storyIndex.years.length - 1].year }}, newest first: {{ storyIndex.entries.length }} milestones. Filter by type, and open any line for the detail.</p>
     {{ si.list(storyIndex.years, { filters: true, anchors: true }) }}
   </div>
 </section>

@@ -146,7 +146,7 @@ scripts: ["/assets/js/quotes.js"]
     <div class="story-grid">
       <div>
         {{ si.list(storyIndex.recent, { prefix: "home-" }) }}
-        <p class="si-all"><a class="btn" href="/personal.html#chapters">The full story: all {{ storyIndex.entries.length }} milestones →</a></p>
+        <p class="si-all"><a class="btn" href="/personal.html#story-index">The full story: all {{ storyIndex.entries.length }} milestones →</a></p>
       </div>
       <div class="story-cards">
         <article class="card reveal">
@@ -174,7 +174,7 @@ scripts: ["/assets/js/quotes.js"]
     {{ ui.sectionLabel("L-301", "Life & interests") }}
     <h2 id="life-title">The rest <em>of the story.</em></h2>
     <p class="section-intro">Work is only part of it. There are the podcasts I’ve hosted with friends, a Best Ball archive going back to 2021, apps I built for my leagues, and a bank of quotes copied by hand from more than a hundred books.</p>
-    {% include "partials/chapters.njk" %}
+    {% include "partials/story-links.njk" %}
   </div>
 </section>
 

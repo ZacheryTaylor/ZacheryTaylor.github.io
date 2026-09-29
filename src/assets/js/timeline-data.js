@@ -2,8 +2,8 @@
   TIMELINE — the story index on the home page (latest six) and on
   Life & Interests (everything), plus the milestones in the RSS/JSON feeds.
   -----------------------------------------------------------------------
-  Newest first. Copy an entry to add a milestone. Years and chapters are
-  worked out automatically from `date` (chapters: see lifeChapters below).
+  Newest first. Copy an entry to add a milestone. The year group is worked
+  out automatically from `date`.
 
   {
     when: "Month YYYY",          // shown as the date label
@@ -133,38 +133,5 @@ const timeline = [
     thread: "work",
     title: "CAD Drafter — FlynnBuilt",
     text: "Drafted for a Pensacola custom home builder, developing 20+ home elevations and floor plans and cutting design turnaround time by 50%."
-  }
-];
-
-/*
-  LIFE CHAPTERS — each milestone is labelled with the chapter whose
-  [from, to] range (YYYY-MM) contains its `date`; the chapter chips on
-  Life & Interests filter by them. Add a chapter or move a boundary here.
-  (`summary` is shown when a chapter chip is selected.)
-*/
-const lifeChapters = [
-  {
-    numeral: "I",
-    title: "Foundations",
-    from: "2020-01", to: "2021-04",
-    summary: "A math degree, a drafting table at a custom home builder, and meeting the woman who would become my wife."
-  },
-  {
-    numeral: "II",
-    title: "Learning the trade",
-    from: "2021-05", to: "2025-06",
-    summary: "Four years at McKim & Creed, a first home in Pensacola, and a proposal."
-  },
-  {
-    numeral: "III",
-    title: "Engineer Intern",
-    from: "2025-07", to: "2026-08",
-    summary: "A new role at Mullins, the FE exam, a wedding, a second degree, and the first section of the book."
-  },
-  {
-    numeral: "IV",
-    title: "What comes next",
-    from: "2026-09", to: "2027-12",
-    summary: "Writing the book, sitting for the Civil PE exam, and publishing through ZT, LLC."
   }
 ];

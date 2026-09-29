@@ -235,24 +235,21 @@
     });
   }
 
-  /* ---------- Story index: chapter + type filters, open linked entries ---------- */
+  /* ---------- Story index: type filter, open linked entries ---------- */
   doc.querySelectorAll("[data-story-index]").forEach(function (idx) {
     var bar = idx.querySelector("[data-si-filters]");
     var rows = [].slice.call(idx.querySelectorAll(".si-row"));
     if (bar) {
       var status = bar.querySelector("[data-si-status]");
-      var state = { chapter: "all", thread: "all" };
+      var state = { thread: "all" };
       var apply = function () {
         var shown = 0;
         rows.forEach(function (r) {
-          var ok = (state.chapter === "all" || r.getAttribute("data-chapter") === state.chapter) &&
-                   (state.thread === "all" || r.getAttribute("data-thread") === state.thread);
+          var ok = state.thread === "all" || r.getAttribute("data-thread") === state.thread;
           r.hidden = !ok; if (ok) shown++;
         });
         idx.querySelectorAll(".si-year").forEach(function (y) { y.hidden = !y.querySelector(".si-row:not([hidden])"); });
-        var chip = bar.querySelector('[data-f="chapter"][aria-pressed="true"]');
-        var lead = state.chapter === "all" ? "" : "<strong>" + chip.getAttribute("data-label") + ".</strong> " + chip.getAttribute("data-summary") + " ";
-        status.innerHTML = lead + "Showing " + shown + " of " + rows.length + " milestones.";
+        status.textContent = "Showing " + shown + " of " + rows.length + " milestones.";
       };
       bar.hidden = false;
       bar.addEventListener("click", function (e) {
