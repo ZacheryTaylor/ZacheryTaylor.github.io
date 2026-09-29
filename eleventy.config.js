@@ -3,6 +3,7 @@ import path from "node:path";
 import { HtmlBasePlugin } from "@11ty/eleventy";
 import Image from "@11ty/eleventy-img";
 import sharp from "sharp";
+import sizeOf from "image-size";
 import { transform as cssTransform } from "lightningcss";
 import site from "./site.config.js";
 
@@ -73,7 +74,11 @@ export default function (eleventyConfig) {
   function generate(src, opts) {
     const job = Image(srcPath(src), opts);
     pending.push(job);
-    return Image.statsSync(srcPath(src), opts);
+    // Use EXIF-orientation-aware dimensions (phone photos are often stored
+    // sideways), otherwise the predicted file names/widths won't match the output.
+    const d = sizeOf(srcPath(src));
+    const rotated = d.orientation >= 5 && d.orientation <= 8;
+    return Image.statsByDimensionsSync(srcPath(src), rotated ? d.height : d.width, rotated ? d.width : d.height, opts);
   }
   eleventyConfig.addShortcode("picture", function (src, alt = "", preset = "card", attrs = {}) {
     if (!exists(src)) {
