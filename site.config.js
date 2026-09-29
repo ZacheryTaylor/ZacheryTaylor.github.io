@@ -30,7 +30,8 @@ export default {
   /* ---------- Brand ---------- */
 
   // Which monogram drives the nav mark, footer mark + favicons:
-  // "a" | "b" | "c" (round 1) or "d" | "e" | "f" | "g" (round 2).
+  // "a" | "b" | "c" (round 1), "d" | "e" | "f" | "g" (round 2),
+  // or "h" | "i" | "j" | "k" (round 3, statement marks).
   // Options with a horizontal lockup (currently "g") use it in the nav automatically.
   // See /brand.html for all options.
   monogram: "a",

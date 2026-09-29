@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t d">
+  <title id="t">ZT monogram — option H, contour line</title>
+  <desc id="d">One continuous heavy line forms the Z; its top stroke ends in a survey point, so stroke and point read as the crossbar of a T.</desc>
+  <rect width="64" height="64" rx="14" fill="#0a4f9c"/>
+  <path d="M11.5 20H34L16.5 44.5H40" stroke="#f3f0e8" fill="none" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="48.5" cy="20" r="6.2" fill="#d2a766"/>
+</svg>

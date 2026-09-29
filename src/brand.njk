@@ -8,6 +8,22 @@ sheetTitle: "Brand — monogram options"
 noSitemap: true
 noindex: true
 rounds:
+  - title: "Round 3 — statement marks"
+    label: "B-003"
+    silhouette: true
+    options:
+      - key: h
+        name: "H · Contour line"
+        note: "One continuous heavy line draws the Z, with no stacked layers. Its top stroke ends in a survey point, so stroke and point read as the crossbar of a T, with the diagonal as its stem. The most minimal of the set: two strokes of a pen."
+      - key: i
+        name: "I · Lot split"
+        note: "A square parcel split by a Z-shaped right-of-way that enters on the left and exits on the right. The road's lower run is the frontage, and a lot line dropping from it forms the T. Solid shape, negative-space letters."
+      - key: j
+        name: "J · Section cut"
+        note: "The section-cut marker from every plan set, a circle plus its view arrow, with a heavy ZT ligature standing on the cut line that splits the marker. The teardrop silhouette alone is recognisable at 16 px."
+      - key: k
+        name: "K · Route shield"
+        note: "A highway route-marker shield with a heavy ZT ligature (one shared top stroke) cut out of it. Roads, signage, infrastructure. Reads like a badge on a hard hat and holds up as a one-colour stamp."
   - title: "Round 2 — new directions"
     label: "B-002"
     options:
@@ -61,13 +77,19 @@ rounds:
   .round-title { display: flex; align-items: baseline; gap: 14px; margin: 8px 0 -6px; }
   .round-title h2 { font-size: 1.7rem; }
   .navmock small { display: block; font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; opacity: .7; }
+  .sil { display: grid; gap: 8px; margin-top: 18px; }
+  .sil .k { font-size: .66rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--grey-text); }
+  .sil-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .sil-box { display: inline-flex; align-items: flex-end; gap: 10px; padding: 12px; border: 1px solid var(--border-strong); border-radius: 12px; background: #fff; }
+  .sil-box.inv { background: #0f1419; }
+  .sil-box.inv img { filter: invert(1); }
   @media (max-width: 900px) { .mono { grid-template-columns: 1fr; } }
 </style>
 <header class="page-header">
   <div class="wrap">
     {{ ui.sectionLabel("B-001", "For review") }}
     <h1>Monogram <em>options.</em></h1>
-    <p class="lead">Seven directions for the ZT mark — four new ones in round 2, plus the original three — each shown as a browser-tab favicon (16 and 32&nbsp;px), at navigation size (40&nbsp;px), and large, on paper and on ink. Option {{ site.monogram | upper }} is live in the nav, footer, and favicons right now. To switch, change <code>monogram: "{{ site.monogram }}"</code> in <code>site.config.js</code> to any letter <code>"a"</code>–<code>"g"</code>.</p>
+    <p class="lead">Eleven directions for the ZT mark. Round 3 adds four bold “statement” marks (each also shown as a one-colour silhouette for hard hats, stamps, and book spines), followed by rounds 2 and 1. Each is shown as a browser-tab favicon (16 and 32&nbsp;px), at navigation size (40&nbsp;px), and large, on paper and on ink. Option {{ site.monogram | upper }} is live in the nav, footer, and favicons right now. To switch, change <code>monogram: "{{ site.monogram }}"</code> in <code>site.config.js</code> to any letter <code>"a"</code>–<code>"k"</code>.</p>
   </div>
 </header>
 <section class="band" aria-label="Options">
@@ -81,7 +103,16 @@ rounds:
         {%- if o.key == site.monogram %}<span class="current">IN USE</span>{% endif %}
         <h2 id="opt-{{ o.key }}">{{ o.name }}</h2>
         <p>{{ o.note }}</p>
-        <p style="margin-top:14px"><a href="/assets/brand/monogram-{{ o.key }}.svg">Download SVG</a>{% if lk %} · <a href="/assets/brand/lockup-{{ o.key }}.svg">Lockup SVG</a>{% endif %}</p>
+        <p style="margin-top:14px"><a href="/assets/brand/monogram-{{ o.key }}.svg">Download SVG</a>{% if lk %} · <a href="/assets/brand/lockup-{{ o.key }}.svg">Lockup SVG</a>{% endif %}{% if r.silhouette %} · <a href="/assets/brand/monogram-{{ o.key }}-mono.svg">One-colour SVG</a>{% endif %}</p>
+        {%- if r.silhouette %}
+        <div class="sil" aria-label="Single-colour silhouette">
+          <span class="k">One colour</span>
+          <div class="sil-row">
+            <span class="sil-box"><img src="/assets/brand/monogram-{{ o.key }}-mono.svg" width="84" height="84" alt="Option {{ o.key | upper }} as a black silhouette"><img src="/assets/brand/monogram-{{ o.key }}-mono.svg" width="16" height="16" alt=""></span>
+            <span class="sil-box inv"><img src="/assets/brand/monogram-{{ o.key }}-mono.svg" width="84" height="84" alt="Option {{ o.key | upper }} as a white silhouette"><img src="/assets/brand/monogram-{{ o.key }}-mono.svg" width="16" height="16" alt=""></span>
+          </div>
+        </div>
+        {%- endif %}
       </div>
       {%- for tone in ["light", "dark"] %}
       <div class="swatch {{ tone }}">
