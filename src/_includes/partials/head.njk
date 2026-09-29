@@ -12,7 +12,7 @@
 {%- endif %}
 <meta name="author" content="{{ site.author.name }}">
 <meta name="theme-color" content="#f3f0e8">
-<meta name="color-scheme" content="light">
+<meta name="color-scheme" content="light dark">
 
 <meta property="og:type" content="{{ ogType or 'website' }}">
 <meta property="og:site_name" content="{{ site.title }}">
@@ -39,7 +39,7 @@
 <link rel="preload" href="/assets/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/dm-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>{{ ["assets/css/site.css"].concat(extraCss or []) | inlineCss | safe }}</style>
-<script>document.documentElement.classList.replace("no-js","js");</script>
+<script>(function(d){d.classList.replace("no-js","js");var t;try{t=localStorage.getItem("zt-theme")}catch(e){}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==="dark"?"#0d1823":"#f3f0e8"})(document.documentElement);</script>
 {%- include "partials/jsonld.njk" %}
 {%- if site.goatcounter %}
 <script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>

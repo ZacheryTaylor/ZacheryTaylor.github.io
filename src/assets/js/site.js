@@ -194,4 +194,30 @@
       }
     });
   });
+
+  /* ---------- Theme (light / dark "night sheet") ----------
+     The <head> script already applied the saved or system theme; this wires
+     the toggle, saves an explicit choice, and follows the system until then. */
+  var themeBtn = doc.querySelector(".theme-toggle");
+  if (themeBtn) {
+    var root = doc.documentElement;
+    var themeMeta = doc.querySelector('meta[name="theme-color"]');
+    var sysDark = window.matchMedia("(prefers-color-scheme: dark)");
+    var saved = function () { try { return localStorage.getItem("zt-theme"); } catch (e) { return null; } };
+    var apply = function (t) {
+      root.dataset.theme = t;
+      themeBtn.setAttribute("aria-pressed", String(t === "dark"));
+      if (themeMeta) themeMeta.content = t === "dark" ? "#0d1823" : "#f3f0e8";
+    };
+    apply(root.dataset.theme === "dark" ? "dark" : "light");
+    themeBtn.hidden = false;
+    themeBtn.addEventListener("click", function () {
+      var next = root.dataset.theme === "dark" ? "light" : "dark";
+      try { localStorage.setItem("zt-theme", next); } catch (e) {}
+      if (doc.startViewTransition && !reduceMotion) doc.startViewTransition(function () { apply(next); });
+      else apply(next);
+    });
+    var onSys = function (e) { if (!saved()) apply(e.matches ? "dark" : "light"); };
+    if (sysDark.addEventListener) sysDark.addEventListener("change", onSys);
+  }
 })();

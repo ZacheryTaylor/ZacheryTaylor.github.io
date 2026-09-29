@@ -56,7 +56,7 @@ scripts: ["/assets/js/quotes.js"]
     <div class="quote-flashcard-wrap">
       <figure class="quote-flashcard" id="quote-flashcard" data-quote-id="{{ quotes.featured.id }}">
         <p class="kicker">From the quote bank · {{ quotes.count }} lines copied by hand</p>
-        <blockquote class="quote-flashcard-text" id="quote-flashcard-text">“{{ quotes.featured.quote }}”</blockquote>
+        <blockquote class="quote-flashcard-text" id="quote-flashcard-text" tabindex="0" aria-label="Quote">“{{ quotes.featured.quote }}”</blockquote>
         <figcaption class="quote-flashcard-origin" id="quote-flashcard-origin">— {{ quotes.featured.origin }}</figcaption>
         <div class="quote-flashcard-footer">
           <button type="button" class="btn btn-primary btn-small" id="quote-flashcard-shuffle">Shuffle</button>

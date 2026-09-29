@@ -39,13 +39,13 @@ rounds:
 {%- import "macros.njk" as ui with context -%}
 <style>
   .mono-grid { display: grid; gap: 28px; }
-  .mono { display: grid; grid-template-columns: 1.1fr 1fr 1fr; border: 1px solid var(--border-strong); border-radius: 20px; overflow: hidden; background: rgba(255,255,255,.8); }
+  .mono { display: grid; grid-template-columns: 1.1fr 1fr 1fr; border: 1px solid var(--border-strong); border-radius: 20px; overflow: hidden; background: rgb(var(--surface) / .8); }
   .mono > div { padding: 26px; }
   .mono .info h2 { font-size: 2rem; margin-bottom: 8px; }
   .mono .info p { color: var(--muted); font-size: .95rem; }
-  .mono .current { display: inline-block; margin-bottom: 10px; padding: 3px 10px; border-radius: 999px; background: var(--blueprint); color: #fff; font-size: .72rem; font-weight: 700; letter-spacing: .08em; }
+  .mono .current { display: inline-block; margin-bottom: 10px; padding: 3px 10px; border-radius: 999px; background: var(--action); color: #fff; font-size: .72rem; font-weight: 700; letter-spacing: .08em; }
   .swatch { display: grid; gap: 18px; align-content: start; }
-  .swatch.light { background: var(--paper); }
+  .swatch.light { background: #f3f0e8; color: #0f1419; }
   .swatch.dark { background: #0f1419; color: #f3f0e8; }
   .swatch .k { font-size: .66rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; opacity: .75; }
   .big svg { width: 168px; height: 168px; }
