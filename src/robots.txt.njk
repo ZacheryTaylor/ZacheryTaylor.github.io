@@ -1,0 +1,15 @@
+---
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+---
+{%- if site.indexable -%}
+User-agent: *
+Allow: /
+
+Sitemap: {{ "/sitemap.xml" | absUrl }}
+{%- else -%}
+# STAGING build — not for search engines. (Pages also carry <meta name="robots" content="noindex">.)
+# Note: crawlers only read robots.txt at the host root, so this file is informational on a project site.
+User-agent: *
+Disallow: /
+{%- endif %}
