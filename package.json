@@ -6,6 +6,7 @@
   "scripts": {
     "build": "eleventy",
     "start": "eleventy --serve",
+    "start:drafts": "INCLUDE_DRAFTS=1 eleventy --serve",
     "brand": "node scripts/make-monograms.mjs"
   },
   "engines": {

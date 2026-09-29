@@ -5,12 +5,22 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Zachery Taylor — milestones</title>
+    <title>Zachery Taylor — notes &amp; milestones</title>
     <link>{{ "/" | absUrl }}</link>
     <atom:link href="{{ '/feed.xml' | absUrl }}" rel="self" type="application/rss+xml"/>
-    <description>Milestones from the story so far: work, licensure, writing, and life. New entries appear when the timeline is updated.</description>
+    <description>Notes and writing from Zachery Taylor, plus milestones from the story so far: work, licensure, writing, and life.</description>
     <language>en-us</language>
     <lastBuildDate>{{ site.buildTime | rfc822 }}</lastBuildDate>
+    {%- for n in collections.notes %}
+    <item>
+      <title>{{ n.data.title }}</title>
+      <link>{{ n.url | absUrl }}</link>
+      <guid isPermaLink="true">{{ n.url | absUrl }}</guid>
+      <pubDate>{{ n.date | rfc822 }}</pubDate>
+      <category>note</category>
+      <description>{{ n.content | absContent }}</description>
+    </item>
+    {%- endfor %}
     {%- for t in timeline %}{% if t.state != "future" %}
     <item>
       <title>{{ t.title }}</title>

@@ -131,14 +131,33 @@ export default function (eleventyConfig) {
     if (/^https?:/.test(u)) return u;
     return site.url.replace(/\/$/, "") + prefix + (u.startsWith("/") ? u : "/" + u);
   });
+  // Make root-relative links/images in note HTML absolute (for RSS / JSON feed readers).
+  eleventyConfig.addFilter("absContent", (html) =>
+    String(html || "").replace(/(href|src)="\/(?!\/)([^"]*)"/g, (m, attr, rest) => {
+      const prefix = site.pathPrefix.replace(/\/$/, "");
+      const pathOnly = ("/" + rest).startsWith(prefix + "/") && prefix ? "/" + rest : prefix + "/" + rest;
+      return `${attr}="${site.url.replace(/\/$/, "")}${pathOnly}"`;
+    }));
+  eleventyConfig.addFilter("readingTime", (html) => {
+    const words = String(html || "").replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+    return Math.max(1, Math.round(words / 230)) + " min read";
+  });
+
+  /* ---- Notes (src/notes/*.md). Drafts (draft: true) are never published;
+     run `npm run start:drafts` to preview them locally. ---- */
+  eleventyConfig.addCollection("notes", (api) =>
+    api.getFilteredByGlob("src/notes/*.md")
+      .filter((n) => !n.data.draft || process.env.INCLUDE_DRAFTS)
+      .sort((a, b) => b.date - a.date));
   eleventyConfig.addFilter("prefixed", (u) => site.pathPrefix.replace(/\/$/, "") + u);
   eleventyConfig.addFilter("lines", (v) => String(v || "").split("\n"));
   eleventyConfig.addFilter("oneLine", (v) => String(v || "").replace(/\s*\n\s*/g, " · "));
   // "2026-09-29" (or a Date) -> "September 29, 2026", no timezone drift.
   eleventyConfig.addFilter("longDate", (d) => {
     const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(typeof d === "string" ? d : "");
-    const date = m ? new Date(+m[1], +m[2] - 1, +m[3]) : new Date(d);
-    return date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+    // Front-matter dates are UTC midnight; format them in UTC so they don't slip a day.
+    const date = m ? new Date(Date.UTC(+m[1], +m[2] - 1, +m[3])) : new Date(d);
+    return date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
   });
   eleventyConfig.addFilter("isoDate", (d) => new Date(d).toISOString());
   eleventyConfig.addFilter("rfc822", (d) => new Date(d).toUTCString());

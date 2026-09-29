@@ -1,0 +1,23 @@
+---
+layout: base.njk
+---
+{%- import "macros.njk" as ui with context -%}
+<article class="note-article">
+  <header class="page-header note-header">
+    <div class="wrap wrap-narrow">
+      <ol class="breadcrumb" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/notes/">Notes</a></li><li aria-current="page">{{ title }}</li></ol>
+      {{ ui.sectionLabel(sheet, "Note") }}
+      <h1>{{ title }}</h1>
+      <p class="note-meta"><time datetime="{{ page.date | isoDate }}">{{ page.date | longDate }}</time> · {{ content | readingTime }}{% if draft %} · <strong class="draft-flag">Draft</strong>{% endif %}</p>
+    </div>
+  </header>
+  <div class="band note-body-band">
+    <div class="wrap wrap-narrow prose">
+      {{ content | safe }}
+    </div>
+  </div>
+  <footer class="wrap wrap-narrow note-foot">
+    <a class="text-link" href="/notes/">All notes</a>
+    <a class="text-link" href="/feed.xml">Subscribe via RSS</a>
+  </footer>
+</article>

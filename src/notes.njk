@@ -1,0 +1,42 @@
+---
+layout: base.njk
+permalink: /notes/
+title: "Notes — shorter writing"
+description: "Shorter writing from Zachery Taylor: notes alongside the book, civil design, and things worth remembering."
+navKey: notes
+sheet: W-410
+sheetTitle: "Notes — index"
+---
+{%- import "macros.njk" as ui with context -%}
+<header class="page-header">
+  <div class="wrap">
+    <ol class="breadcrumb" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Notes</li></ol>
+    {{ ui.sectionLabel("W-410", "Writing") }}
+    <h1>Notes <em>&amp; writing.</em></h1>
+    <p class="lead">Shorter pieces that sit alongside <a href="/book.html">the book</a>. Follow along with <a href="/feed.xml">RSS</a> or <a href="/feed.json">JSON Feed</a>.</p>
+  </div>
+</header>
+<section class="band" aria-labelledby="notes-title">
+  <div class="wrap">
+    <h2 class="visually-hidden" id="notes-title">All notes</h2>
+    {%- if collections.notes.length %}
+    <ol class="notes-list">
+      {%- for n in collections.notes %}
+      <li class="reveal">
+        <a href="{{ n.url }}">
+          <time datetime="{{ n.date | isoDate }}">{{ n.date | longDate }}</time>
+          <span class="t">{{ n.data.title }}</span>
+          {%- if n.data.description %}<span class="d">{{ n.data.description }}</span>{% endif %}
+          {%- if n.data.draft %}<span class="draft-flag">Draft</span>{% endif %}
+        </a>
+      </li>
+      {%- endfor %}
+    </ol>
+    {%- else %}
+    <div class="notes-empty">
+      <p class="cs-soon">The first notes are<br><em>on the drafting table.</em></p>
+      <p>Subscribe with <a href="/feed.xml">RSS</a> to get them when they’re published, or join the <a href="/book.html">book email list</a>.</p>
+    </div>
+    {%- endif %}
+  </div>
+</section>

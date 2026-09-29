@@ -3,6 +3,15 @@ permalink: /feed.json
 eleventyExcludeFromCollections: true
 ---
 {%- set items = [] -%}
+{%- for n in collections.notes %}{% set _n = items.push({
+  "id": n.url | absUrl,
+  "url": n.url | absUrl,
+  "title": n.data.title,
+  "summary": n.data.description or "",
+  "content_html": n.content | absContent,
+  "date_published": n.date | isoDate,
+  "tags": ["note"]
+}) %}{% endfor -%}
 {%- for t in timeline %}{% if t.state != "future" %}{% set _n = items.push({
   "id": "zt-milestone-" + t.date + "-" + loop.index,
   "url": ("/#t-" + t.date) | absUrl,
@@ -13,10 +22,10 @@ eleventyExcludeFromCollections: true
 }) %}{% endif %}{% endfor -%}
 {{ {
   "version": "https://jsonfeed.org/version/1.1",
-  "title": "Zachery Taylor — milestones",
+  "title": "Zachery Taylor — notes & milestones",
   "home_page_url": "/" | absUrl,
   "feed_url": "/feed.json" | absUrl,
-  "description": "Milestones from the story so far: work, licensure, writing, and life.",
+  "description": "Notes and writing from Zachery Taylor, plus milestones from the story so far.",
   "authors": [{ "name": "Zachery Taylor", "url": "/" | absUrl }],
   "language": "en-US",
   "items": items

@@ -857,3 +857,29 @@ dialog.gallery-modal .modal-close:hover { background: var(--bronze-light); }
   .now-status { justify-items: start; text-align: left; grid-auto-flow: column; justify-content: start; align-items: center; gap: 12px; }
   .now-done li { grid-template-columns: 1fr; gap: 2px; }
 }
+
+/* ---------- Notes ---------- */
+.wrap-narrow { width: min(760px, calc(100% - 48px)); }
+.note-meta { margin-top: 10px; color: var(--grey-text); font-size: 0.88rem; font-weight: 600; }
+.draft-flag { display: inline-block; padding: 1px 8px; border: 1px dashed var(--bronze-text); border-radius: 999px; color: var(--bronze-text); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.note-body-band { padding-top: 40px; }
+.prose { color: var(--graphite); font-size: 1.08rem; line-height: 1.8; }
+.prose > * + * { margin-top: 1.1em; }
+.prose h2 { margin-top: 1.8em; font-size: 1.9rem; }
+.prose h3 { margin-top: 1.5em; font-size: 1.4rem; }
+.prose ul, .prose ol { padding-left: 1.3em; }
+.prose li + li { margin-top: 0.4em; }
+.prose a { text-decoration: underline; text-underline-offset: 3px; }
+.prose blockquote { padding: 14px 18px; border-left: 3px solid var(--bronze); background: rgb(var(--surface) / 0.6); border-radius: 0 10px 10px 0; color: var(--muted); }
+.prose code { padding: 1px 6px; border-radius: 5px; background: var(--blueprint-soft); font-size: 0.9em; }
+.prose img { border-radius: 12px; }
+.note-foot { display: flex; gap: 24px; padding: 8px 0 72px; margin-top: -40px; }
+.note-body-band { padding-bottom: 72px; }
+.notes-list { list-style: none; display: grid; gap: 12px; }
+.notes-list a { display: grid; gap: 4px; padding: 20px 22px; border: 1px solid var(--border); border-radius: 14px; background: rgb(var(--surface) / 0.75); color: var(--ink); }
+.notes-list a:hover { border-color: var(--line); text-decoration: none; }
+.notes-list time { color: var(--bronze-text); font-size: 0.78rem; font-weight: 700; }
+.notes-list .t { font-family: var(--serif); font-size: 1.5rem; line-height: 1.15; }
+.notes-list .d { color: var(--muted); font-size: 0.94rem; }
+.notes-empty { padding: 44px 24px; border: 1.5px dashed var(--line); border-radius: 16px; text-align: center; color: var(--muted); }
+.notes-empty .cs-soon { margin: 0 0 12px; font-size: 1.8rem; }
