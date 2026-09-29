@@ -12,14 +12,14 @@ eleventyComputed:
   description: "{{ project.cardDescription }}"
   ogImagePath: "{{ project.ogImage }}"
   ogImageAlt: "{{ project.coverAlt or project.title }}"
-  navKey: "{{ 'projects' if project.section == 'academic' else 'life' }}"
-  parentTitle: "{{ 'Projects' if project.section == 'academic' else 'Life & Interests' }}"
-  parentUrl: "{{ '/academic.html' if project.section == 'academic' else '/personal.html' }}"
+  navKey: "{{ 'projects' if project.section == 'academic' else ('civil' if project.section == 'civil' else 'life') }}"
+  parentTitle: "{{ 'Projects' if project.section == 'academic' else ('Civil Work' if project.section == 'civil' else 'Life & Interests') }}"
+  parentUrl: "{{ '/academic.html' if project.section == 'academic' else ('/civil.html' if project.section == 'civil' else '/personal.html') }}"
   sheet: "{{ project.sheet }}"
   sheetTitle: "{{ project.title }}"
 ---
 {%- import "macros.njk" as ui with context -%}
-{%- set list = projects.academic if project.section == "academic" else projects.life -%}
+{%- set list = projects.academic if project.section == "academic" else (projects.civil if project.section == "civil" else projects.life) -%}
 {%- set idx = 0 -%}
 {%- for p in list %}{% if p.id == project.id %}{% set idx = loop.index0 %}{% endif %}{% endfor -%}
 {%- set prev = list[idx - 1] if idx > 0 else null -%}
@@ -47,6 +47,9 @@ eleventyComputed:
       <div class="prose">
         <p>{{ project.description or project.cardDescription }}</p>
         {{ ui.summary(project.summary, 99, 2) }}
+        {%- if project.section == "civil" %}
+        <p class="note"><span aria-hidden="true">ⓘ</span><span><strong>Licensing note.</strong> This work was performed as a designer and Engineer Intern under the responsible charge of licensed Professional Engineers.</span></p>
+        {%- endif %}
       </div>
       <aside class="case-aside" aria-label="Project details">
         <dl class="titleblock-card">

@@ -52,14 +52,19 @@ const academic = loadDataFile("academic-projects-data.js", "projects")
 const life = loadDataFile("personal-projects-data.js", "projects")
   .map((p) => normalize(p, "life"))
   .map((p, i) => ({ ...p, sheet: `L-3${pad(i + 11)}` }));
+// Civil gallery: only entries with a title get a card + page; blank ones stay placeholders.
+const civil = (loadDataFile("civil-work-data.js", "civilWork").projects || [])
+  .filter((p) => p && p.title)
+  .map((p) => normalize({ ...p, id: p.id || slugify(p.title) }, "civil"))
+  .map((p, i) => ({ ...p, sheet: p.sheet || `C-2${pad(i + 1)}` }));
 
 export default async function () {
-  for (const p of [...academic, ...life]) {
+  for (const p of [...academic, ...life, ...civil]) {
     p.ogImage = await ogImage(p);
     if (p.coverImage) {
       const m = await sharp(path.join("src", p.coverImage)).metadata();
       p.coverWide = m.width / m.height >= 1.45; // wide covers fill the banner; others are shown whole
     }
   }
-  return { academic, life, all: [...academic, ...life] };
+  return { academic, life, civil, all: [...academic, ...life, ...civil] };
 }

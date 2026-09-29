@@ -1088,3 +1088,12 @@ details[open] > summary { background: var(--blueprint-soft); }
 .story-photos figure img { width: 100%; border-radius: 12px; }
 .story-photos figcaption { margin-top: 6px; color: var(--grey-text); font-size: 0.82rem; }
 .story-back { margin-top: 26px; }
+
+/* ---------- Civil project gallery ---------- */
+.page-jump { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 18px; font-size: 0.92rem; color: var(--muted); }
+.civil-grid .cs-sheet { min-height: 320px; }
+.history-foot { display: grid; gap: 18px; margin-top: 34px; }
+.software-line { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 24px; padding-top: 16px; border-top: 1px solid var(--border); }
+.software-line dt { color: var(--muted); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.software-line dd { margin: 4px 0 0; font-size: 0.9rem; }
+@media (max-width: 840px) { .software-line { grid-template-columns: 1fr; } .civil-grid .cs-sheet { min-height: 200px; } }

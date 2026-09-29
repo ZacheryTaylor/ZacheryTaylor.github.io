@@ -96,19 +96,35 @@ const civilWork = {
   },
 
   /*
-    CASE STUDIES — shown as plan sheets on civil.html and the home page.
-    Leave `title` empty and the sheet renders as a blank "in preparation"
-    sheet. Fill it in (only for projects that are public / cleared to share):
-      title:   "Project name"
-      summary: "One or two sentences on the problem and what you designed."
-      scope:   ["Grading", "Stormwater", ...]      // optional chips
-      image:   "images/civil/<file>.jpg"          // optional, under src/
-      url:     "https://..." or "/projects/<id>/" // optional link
+    PROJECTS — the civil project gallery on civil.html (and the home page).
+    Same shape as academic-projects-data.js: every entry with a `title`
+    becomes a card plus its own page at /projects/<id>/, with the quick view,
+    photo gallery, PDF and links handled exactly like the academic projects.
+    Leave `title` empty and the slot renders as a blank "coming soon" plan
+    sheet (keep `type` and `sheet` so the placeholder still reads right).
+    Only add projects that are public / cleared to share.
+
+    {
+      id: "example-subdivision",            // URL: /projects/example-subdivision/
+      sheet: "CS-01",
+      type: "Subdivision",
+      date: "Mullins, LLC\n2025",           // "\n" becomes " · "
+      title: "Project name",
+      cardDescription: "One sentence for the card.",
+      coverImage: "images/civil/<file>.jpg",  // under src/ (optional)
+      coverAlt: "What the cover shows",
+      description: "A paragraph on the problem and what you designed.",
+      summary: [ { heading: "Scope", text: "Grading, stormwater, utilities." },
+                 { heading: "My role", text: "Designer under the EOR." } ],
+      gallery: [ { src: "images/civil/<file>.jpg", alt: "...", caption: "..." } ],
+      links: [ { label: "Project website", href: "https://..." } ],
+      pdf: ""                                  // e.g. "pdfs/civil/<file>.pdf"
+    }
   */
-  caseStudies: [
-    { sheet: "CS-01", type: "Commercial site", title: "", summary: "", scope: [], image: "", url: "" },
-    { sheet: "CS-02", type: "Subdivision", title: "", summary: "", scope: [], image: "", url: "" },
-    { sheet: "CS-03", type: "Municipal utilities", title: "", summary: "", scope: [], image: "", url: "" }
+  projects: [
+    { sheet: "CS-01", type: "Commercial site", title: "" },
+    { sheet: "CS-02", type: "Subdivision", title: "" },
+    { sheet: "CS-03", type: "Municipal utilities", title: "" }
   ],
 
   credentials: [

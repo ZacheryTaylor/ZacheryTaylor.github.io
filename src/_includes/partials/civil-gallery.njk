@@ -1,0 +1,26 @@
+{#- Civil project gallery, from civil-work-data.js -> projects.
+    Entries with a title render like the academic projects (card -> /projects/<id>/);
+    entries without one render as a blank "coming soon" plan sheet.
+    Set `galleryQuick = true` before including to enable quick-view dialogs
+    (the page must then also output ui.projectDialog for projects.civil). -#}
+{%- set slots = civil.projects or [] -%}
+{%- if slots.length %}
+<ul class="project-grid civil-grid">
+  {%- for slot in slots %}
+  {%- set cp = null -%}
+  {%- if slot.title %}{% for p in projects.civil %}{% if p.title == slot.title %}{% set cp = p %}{% endif %}{% endfor %}{% endif %}
+  {%- if cp %}
+  {{ ui.projectCard(cp, 3, galleryQuick or false) }}
+  {%- else %}
+  <li class="cs-sheet cs-blank reveal">
+    <div class="cs-body">
+      <span class="cs-crop" aria-hidden="true"></span>
+      <p class="cs-type">{{ slot.type }}</p>
+      <p class="cs-soon">Project<br><em>coming soon</em></p>
+    </div>
+    <div class="cs-tb"><span><em>Project</em>To be announced</span><span><em>Status</em>In preparation</span><span><em>Sheet</em>{{ slot.sheet }}</span></div>
+  </li>
+  {%- endif %}
+  {%- endfor %}
+</ul>
+{%- endif %}

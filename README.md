@@ -34,8 +34,13 @@ at the commit *"Move site source into src/ …"*.
     its own shareable page at `/projects/<id>/` with its own OG image, plus a quick-view dialog.
     Optional `compare: { before, after }` adds a before/after slider to that project page.
   - `quotes-data.js`, `bestball-data.js` — unchanged format.
-  - **new** `timeline-data.js` (the “story so far” on the home page, also published as the
-    `feed.xml` / `feed.json` milestones feed) and `civil-work-data.js` (the Civil Work page).
+  - **new** `timeline-data.js` — the story index (home shows the latest slice, Life &
+    Interests shows every milestone grouped by year, with chapter/type filters). Years and
+    chapters are derived from the entries; add `story` (paragraphs) and/or `photos` to an
+    entry to give it its own page at `/story/<slug>/`. Also published as `feed.xml` / `feed.json`.
+  - **new** `civil-work-data.js` — the Civil Work page. Its `projects` list uses the same
+    shape as the academic projects: an entry with a `title` gets a gallery card and its own
+    `/projects/<id>/` page; an entry without one stays a blank “coming soon” plan sheet.
 - **Image pipeline**: originals stay in `src/images/` (the archive — never published as-is).
   The build emits AVIF + WebP + JPEG/PNG at several widths with `width`/`height`, lazy-loading
   below the fold. Gallery and dialog images are inside `<template>` so they download only

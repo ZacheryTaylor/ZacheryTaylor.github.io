@@ -5,7 +5,7 @@ title: "Civil Work"
 description: "Civil site design by Zachery Taylor, EI in Pensacola, FL: roadway layout, grading and stormwater, water/sewer/storm utilities, utility conflict analysis, and permitting across land-development and municipal projects — at Mullins, LLC and McKim & Creed."
 navKey: civil
 sheet: C-101
-sheetTitle: "Civil work — scope & history"
+sheetTitle: "Civil work — projects & history"
 ---
 {%- import "macros.njk" as ui with context -%}
 <header class="page-header">
@@ -14,27 +14,25 @@ sheetTitle: "Civil work — scope & history"
     {{ ui.sectionLabel("C-101", "Civil work") }}
     <h1>Civil <em>work.</em></h1>
     <p class="lead">{{ civil.summary }} Most of my week is spent inside AutoCAD Civil 3D and HydroCAD turning a site into a buildable, permittable plan set.</p>
+    <p class="page-jump"><a class="text-link" href="#gallery-title">Projects</a> <a class="text-link" href="#history-title">Work history</a> <a class="text-link" href="#scope-title">Typical scope</a></p>
     <ul class="chips" aria-label="Project types" style="margin-top:22px">
       {%- for t in civil.projectTypes %}<li>{{ t }}</li>{% endfor %}
     </ul>
   </div>
 </header>
 
-<section class="band" aria-labelledby="scope-title">
+<section class="band" aria-labelledby="gallery-title">
   <div class="wrap">
-    {{ ui.sectionLabel("C-102", "Scope") }}
-    <h2 id="scope-title">What goes into <em>the plan set.</em></h2>
-    <p class="section-intro">The pieces of a land-development package I design and coordinate. Client and project names stay private; the scope below reflects the work itself.</p>
-    <ul class="sheet-grid">
-      {%- for s in civil.scope %}
-      <li class="sheet reveal">
-        <h3>{{ s.title }}</h3>
-        <p>{{ s.text }}</p>
-        <div class="tb" aria-hidden="true"><span>Scope</span><span>{{ s.code }}</span></div>
-      </li>
-      {%- endfor %}
-    </ul>
-    {% include "partials/case-studies.njk" %}
+    <div class="group-head">
+      <div>
+        {{ ui.sectionLabel("C-102", "Project gallery") }}
+        <h2 id="gallery-title">Civil <em>projects.</em></h2>
+      </div>
+      <p class="count">{% if projects.civil.length %}{{ projects.civil.length }} project{{ "s" if projects.civil.length != 1 }}{% else %}Write-ups in preparation{% endif %}</p>
+    </div>
+    <p class="section-intro">Each project gets its own page, just like the academic projects. Client and project names stay private until a project is public and cleared to share; blank sheets are write-ups still in preparation.</p>
+    {%- set galleryQuick = true %}
+    {% include "partials/civil-gallery.njk" %}
     <p class="note"><span aria-hidden="true">ⓘ</span><span><strong>Licensing note.</strong> This work was performed as a designer and Engineer Intern under the responsible charge of licensed Professional Engineers. I’m preparing for the Civil PE exam (January 2027).</span></p>
   </div>
 </section>
@@ -58,25 +56,15 @@ sheetTitle: "Civil work — scope & history"
       </article>
       {%- endfor %}
     </div>
-  </div>
-</section>
-
-<section class="band" aria-labelledby="creds-title">
-  <div class="wrap">
-    {{ ui.sectionLabel("C-104", "Credentials & tools") }}
-    <h2 id="creds-title">Credentials <em>&amp; tools.</em></h2>
-    <ul class="cred-list" style="margin-bottom:34px">
-      {%- for c in civil.credentials %}<li><strong>{{ c.label }}</strong><span>{{ c.detail }}</span></li>{% endfor %}
-    </ul>
-    <div class="tool-groups">
-      {%- for group, items in civil.tools %}
-      <div>
-        <h3>{{ group }}</h3>
-        <ul class="chips">{% for t in items %}<li>{{ t }}</li>{% endfor %}</ul>
-      </div>
-      {%- endfor %}
+    <div class="history-foot">
+      <ul class="cred-list">
+        {%- for c in civil.credentials %}<li><strong>{{ c.label }}</strong><span>{{ c.detail }}</span></li>{% endfor %}
+      </ul>
+      <dl class="software-line">
+        {%- for group, items in civil.tools %}<div><dt>{{ group }}</dt><dd>{{ items | join(" · ") }}</dd></div>{% endfor %}
+      </dl>
     </div>
-    <div class="btn-row" style="margin-top:34px">
+    <div class="btn-row" style="margin-top:30px">
       <a class="btn btn-primary" href="/resume.pdf">Download résumé (PDF)</a>
       <a class="btn" href="/resume.html">View résumé online</a>
       <a class="btn" href="/#contact">Get in touch</a>
@@ -84,11 +72,22 @@ sheetTitle: "Civil work — scope & history"
   </div>
 </section>
 
-<section class="band" aria-labelledby="learn-title">
+<section class="band" aria-labelledby="scope-title">
   <div class="wrap">
-    {{ ui.sectionLabel("C-150", "Learning tool") }}
-    <h2 id="learn-title">Try the <em>Rational Method.</em></h2>
-    <p class="lead">An interactive, educational take on Q = CiA, the peak-runoff formula behind a lot of small-site drainage work. The math is shown step by step. It’s for learning only: not engineering advice, and not a service.</p>
-    <div class="btn-row" style="margin-top:22px"><a class="btn" href="/tools/rational-method.html">Open the calculator →</a></div>
+    {{ ui.sectionLabel("C-104", "Typical scope") }}
+    <h2 id="scope-title">What goes into <em>the plan set.</em></h2>
+    <p class="section-intro">The pieces of a land-development package I design and coordinate.</p>
+    <ul class="sheet-grid">
+      {%- for s in civil.scope %}
+      <li class="sheet reveal">
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.text }}</p>
+        <div class="tb" aria-hidden="true"><span>Scope</span><span>{{ s.code }}</span></div>
+      </li>
+      {%- endfor %}
+    </ul>
   </div>
 </section>
+{%- for p in projects.civil %}
+{{ ui.projectDialog(p) }}
+{%- endfor %}
