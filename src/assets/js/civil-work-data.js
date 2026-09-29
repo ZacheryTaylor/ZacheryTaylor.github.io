@@ -95,6 +95,22 @@ const civilWork = {
     "Programming": ["Python", "JavaScript", "Arduino (C++)", "SAS"]
   },
 
+  /*
+    CASE STUDIES — shown as plan sheets on civil.html and the home page.
+    Leave `title` empty and the sheet renders as a blank "in preparation"
+    sheet. Fill it in (only for projects that are public / cleared to share):
+      title:   "Project name"
+      summary: "One or two sentences on the problem and what you designed."
+      scope:   ["Grading", "Stormwater", ...]      // optional chips
+      image:   "images/civil/<file>.jpg"          // optional, under src/
+      url:     "https://..." or "/projects/<id>/" // optional link
+  */
+  caseStudies: [
+    { sheet: "CS-01", type: "Commercial site", title: "", summary: "", scope: [], image: "", url: "" },
+    { sheet: "CS-02", type: "Subdivision", title: "", summary: "", scope: [], image: "", url: "" },
+    { sheet: "CS-03", type: "Municipal utilities", title: "", summary: "", scope: [], image: "", url: "" }
+  ],
+
   credentials: [
     { label: "Engineer Intern (EI)", detail: "FE exam passed December 2025" },
     { label: "Civil PE exam", detail: "Scheduled January 2027" },

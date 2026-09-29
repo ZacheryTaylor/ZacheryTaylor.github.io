@@ -683,3 +683,27 @@ dialog.gallery-modal .modal-close:hover { background: var(--bronze-light); }
   body { background: #fff; }
   .page-header, .hero, .case-hero { padding-top: 0; }
 }
+
+/* ---------- Civil case-study sheets (blank = "in preparation") ---------- */
+.cs-wrap { margin-top: 44px; }
+.cs-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; margin-bottom: 16px; }
+.cs-head .cs-title { font-size: 1.5rem; }
+.cs-head p { max-width: 560px; color: var(--grey-text); font-size: 0.92rem; }
+.cs-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; list-style: none; }
+.cs-sheet { position: relative; display: flex; flex-direction: column; min-height: 250px; padding: 7px; border: 1.5px solid rgba(15,20,25,0.55); border-radius: 4px; background: var(--sheet-bg, #fbfaf6); }
+.cs-sheet .cs-body { position: relative; flex: 1; padding: 18px 18px 14px; border: 0.75px solid rgba(15,20,25,0.35); border-bottom: 0;
+  background-image: linear-gradient(rgba(10,79,156,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(10,79,156,0.06) 1px, transparent 1px); background-size: 16px 16px; }
+.cs-type { color: var(--blueprint); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.cs-soon { margin-top: 36px; text-align: center; color: var(--grey-text); font-family: var(--serif); font-size: 1.45rem; line-height: 1.15; }
+.cs-soon em { color: var(--bronze-text); }
+.cs-crop { position: absolute; inset: 12px; pointer-events: none;
+  background: linear-gradient(var(--bronze-text), var(--bronze-text)) top left / 14px 1px, linear-gradient(var(--bronze-text), var(--bronze-text)) top left / 1px 14px,
+    linear-gradient(var(--bronze-text), var(--bronze-text)) bottom right / 14px 1px, linear-gradient(var(--bronze-text), var(--bronze-text)) bottom right / 1px 14px; background-repeat: no-repeat; opacity: 0.6; }
+.cs-filled h4 { margin: 6px 0 8px; font-family: var(--serif); font-size: 1.4rem; font-weight: 400; }
+.cs-filled p { font-size: 0.92rem; }
+.cs-media { margin: -6px -6px 12px; border-radius: 3px; overflow: hidden; }
+.cs-tb { display: grid; grid-template-columns: 1.4fr 1fr 0.7fr; border: 0.75px solid rgba(15,20,25,0.35); }
+.cs-tb span { padding: 6px 8px; font-size: 0.72rem; font-weight: 600; color: var(--ink); line-height: 1.2; }
+.cs-tb span + span { border-left: 0.75px solid rgba(15,20,25,0.35); }
+.cs-tb em { display: block; font-style: normal; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-text); }
+@media (max-width: 840px) { .cs-grid { grid-template-columns: 1fr; } .cs-sheet { min-height: 200px; } .cs-soon { margin-top: 18px; } }
