@@ -220,4 +220,33 @@
     var onSys = function (e) { if (!saved()) apply(e.matches ? "dark" : "light"); };
     if (sysDark.addEventListener) sysDark.addEventListener("change", onSys);
   }
+
+  /* ---------- Revision clouds (decorative, drawn to fit their box) ---------- */
+  var clouds = doc.querySelectorAll("svg.rev-cloud");
+  if (clouds.length) {
+    var drawCloud = function (svg) {
+      var w = svg.clientWidth, h = svg.clientHeight;
+      if (!w || !h) return;
+      var inset = 8, r = Math.min(46, h / 4), step = 26;
+      var x0 = inset, y0 = inset, x1 = w - inset, y1 = h - inset;
+      // sample a rounded rectangle clockwise, then bulge an arc between samples
+      var pts = [], seg = function (ax, ay, bx, by) { var len = Math.hypot(bx - ax, by - ay), n = Math.max(1, Math.round(len / step)); for (var i = 0; i < n; i++) pts.push([ax + (bx - ax) * i / n, ay + (by - ay) * i / n]); };
+      var corner = function (cx, cy, a0) { for (var i = 0; i < 3; i++) { var a = a0 + (i / 3) * Math.PI / 2; pts.push([cx + r * Math.cos(a), cy + r * Math.sin(a)]); } };
+      seg(x0 + r, y0, x1 - r, y0); corner(x1 - r, y0 + r, -Math.PI / 2);
+      seg(x1, y0 + r, x1, y1 - r); corner(x1 - r, y1 - r, 0);
+      seg(x1 - r, y1, x0 + r, y1); corner(x0 + r, y1 - r, Math.PI / 2);
+      seg(x0, y1 - r, x0, y0 + r); corner(x0 + r, y0 + r, Math.PI);
+      var d = "M" + pts[0][0].toFixed(1) + " " + pts[0][1].toFixed(1);
+      for (var i = 1; i <= pts.length; i++) {
+        var a = pts[i - 1], b = pts[i % pts.length], rr = Math.hypot(b[0] - a[0], b[1] - a[1]) * 0.62;
+        d += "A" + rr.toFixed(1) + " " + rr.toFixed(1) + " 0 0 1 " + b[0].toFixed(1) + " " + b[1].toFixed(1);
+      }
+      svg.setAttribute("viewBox", "0 0 " + w + " " + h);
+      svg.innerHTML = '<path d="' + d + 'Z"/>';
+    };
+    clouds.forEach(function (svg) {
+      drawCloud(svg);
+      if (window.ResizeObserver) new ResizeObserver(function () { drawCloud(svg); }).observe(svg);
+    });
+  }
 })();
