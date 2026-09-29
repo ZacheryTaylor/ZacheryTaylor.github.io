@@ -980,7 +980,7 @@ dialog.gallery-modal .modal-close:hover { background: var(--bronze-light); }
 .q-alt { display: flex; flex-wrap: wrap; gap: 6px 18px; list-style: none; color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
 .q-alt output { color: var(--ink); font-weight: 700; }
 .work { margin-top: 18px; padding: 14px 0 18px; border-top: 0.75px solid var(--sheet-line); }
-.mono { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 0.82rem; line-height: 1.75; color: var(--graphite); white-space: pre-wrap; overflow-wrap: anywhere; }
+.work-mono { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 0.82rem; line-height: 1.75; color: var(--graphite); white-space: pre-wrap; overflow-wrap: anywhere; }
 .tb-mini { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0 -26px; border-top: 1.5px solid var(--sheet-line-strong); }
 .tb-mini span { padding: 8px 12px; color: var(--grey-text); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
 .tb-mini span + span { border-left: 0.75px solid var(--sheet-line); }
