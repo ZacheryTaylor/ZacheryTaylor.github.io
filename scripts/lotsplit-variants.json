@@ -1,0 +1,42 @@
+[
+  {
+    "k": "i1",
+    "name": "Frontage + lot line",
+    "line": "Refined I: the Z road runs edge to edge (exactly two lots), its lower run is the frontage and the T's crossbar, and a lot line forms the stem."
+  },
+  {
+    "k": "i2",
+    "name": "Shared lot line",
+    "line": "The road enters along the top (one stroke for the Z top and T crossbar) and leaves through the T's stem, the line the two lots share."
+  },
+  {
+    "k": "i3",
+    "name": "Bronze road",
+    "line": "I1's two-lot frontage split with the right-of-way picked out in bronze on the blue parcel."
+  },
+  {
+    "k": "i4",
+    "name": "Cul-de-sac",
+    "line": "The T's stem becomes a dead-end street ending in a cul-de-sac bulb inside the lower lot."
+  },
+  {
+    "k": "i5",
+    "name": "Ink, sharp corners",
+    "line": "I2's shared-lot-line split on an ink parcel with sharp survey corners: the most graphic, stamp-like version."
+  },
+  {
+    "k": "i6",
+    "name": "Plat map",
+    "line": "Outlined parcel on paper: heavy ink boundary, blue road, plus a thin dashed property line and bearing tick that drop out at small sizes."
+  },
+  {
+    "k": "i7",
+    "name": "Circle parcel",
+    "line": "I1's frontage split inside a round parcel, like a site-location bubble or a hard-hat decal."
+  },
+  {
+    "k": "i8",
+    "name": "Shield parcel",
+    "line": "I2's shared-lot-line split inside the route-marker shield: badge-like, strongest on a hard hat or a truck door."
+  }
+]

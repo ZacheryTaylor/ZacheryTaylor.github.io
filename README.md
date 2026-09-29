@@ -60,7 +60,7 @@ npm run build        # writes _site/
 |---|---|
 | `pathPrefix` | `/zt-site-staging/` on staging, `/` on live or a custom domain. **In CI it is filled in automatically** from `actions/configure-pages`, so links/assets work on staging, at the root, or on a custom domain without edits. |
 | `indexable` | `false` on staging (noindex), `true` automatically when built from the live repo. Override with env `SITE_INDEXABLE`. |
-| `monogram` | `"a"`–`"k"` — swaps the nav mark, footer mark, and all favicons. Options with a `lockup-<key>.svg` (currently G) use that horizontal lockup in the nav. See `/brand.html`; regenerate the SVGs with `scripts/make-monograms*.mjs` (round 3 also writes one-colour `monogram-<key>-mono.svg` files). |
+| `monogram` | `"a"`–`"k"` or `"i1"`–`"i8"` — swaps the nav mark, footer mark, and all favicons. Options with a `lockup-<key>.svg` (currently G) use that horizontal lockup in the nav. See `/brand.html`; regenerate the SVGs with `scripts/make-monograms*.mjs` (round 3 also writes one-colour `monogram-<key>-mono.svg` files). |
 | `goatcounter` | GoatCounter site code → enables the privacy-friendly analytics snippet. Empty = off. |
 | `formspree` | Formspree form id → the contact form posts there. Empty = the form opens a pre-filled email instead. |
 | `newsletter` | `{ provider: "buttondown" \| "kit", id }` → the book email sign-up posts to that list. Empty = opens a pre-filled email. |
