@@ -134,6 +134,12 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("prefixed", (u) => site.pathPrefix.replace(/\/$/, "") + u);
   eleventyConfig.addFilter("lines", (v) => String(v || "").split("\n"));
   eleventyConfig.addFilter("oneLine", (v) => String(v || "").replace(/\s*\n\s*/g, " · "));
+  // "2026-09-29" (or a Date) -> "September 29, 2026", no timezone drift.
+  eleventyConfig.addFilter("longDate", (d) => {
+    const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(typeof d === "string" ? d : "");
+    const date = m ? new Date(+m[1], +m[2] - 1, +m[3]) : new Date(d);
+    return date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+  });
   eleventyConfig.addFilter("isoDate", (d) => new Date(d).toISOString());
   eleventyConfig.addFilter("rfc822", (d) => new Date(d).toUTCString());
   eleventyConfig.addFilter("truncate", (s, n = 155) => {

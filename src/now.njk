@@ -1,0 +1,56 @@
+---
+layout: base.njk
+permalink: /now.html
+title: "Now — what I'm working on"
+description: "What Zachery Taylor is focused on right now: preparing for the Civil PE exam (January 2027), writing his first book, building ZT, LLC, and civil site design at Mullins, LLC."
+navKey: now
+sheet: N-501
+sheetTitle: "Now — current work"
+---
+{%- import "macros.njk" as ui with context -%}
+<header class="page-header">
+  <div class="wrap">
+    <ol class="breadcrumb" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Now</li></ol>
+    {{ ui.sectionLabel("N-501", "Current work") }}
+    <h1>What I’m doing <em>now.</em></h1>
+    <p class="lead">A snapshot of where my time and attention go at the moment. It’s a <a href="https://nownownow.com/about" rel="noopener">now page</a>, and I update it when things change.</p>
+    <p class="now-updated"><span class="dot" aria-hidden="true"></span>Last updated <time datetime="{{ now.updated }}">{{ now.updated | longDate }}</time> · {{ now.location }}</p>
+  </div>
+</header>
+
+<section class="band" aria-labelledby="focus-title">
+  <div class="wrap">
+    <h2 class="visually-hidden" id="focus-title">Current focus</h2>
+    <ol class="now-board">
+      {%- for f in now.focus %}
+      <li class="now-item reveal">
+        <div class="now-meta">
+          <span class="now-no">{{ "0" + loop.index if loop.index < 10 else loop.index }}</span>
+          <span class="now-label">{{ f.label }}</span>
+        </div>
+        <div class="now-body">
+          <h3>{% if f.href %}<a href="{{ f.href }}">{{ f.title }}</a>{% else %}{{ f.title }}{% endif %}</h3>
+          <p>{{ f.text }}</p>
+        </div>
+        <div class="now-status">
+          <span class="status status-{{ f.status }}">{{ f.status | capitalize }}</span>
+          <span class="now-when">{{ f.when }}</span>
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="recent-title">
+  <div class="wrap now-recent">
+    {{ ui.sectionLabel("N-502", "Recently") }}
+    <h2 id="recent-title">Recently <em>completed.</em></h2>
+    <ul class="now-done">
+      {%- for r in now.recently %}
+      <li><span class="when">{{ r.when }}</span><span>{{ r.text }}</span></li>
+      {%- endfor %}
+    </ul>
+    <p style="margin-top:22px"><a class="text-link" href="/#story">The whole story so far</a></p>
+  </div>
+</section>

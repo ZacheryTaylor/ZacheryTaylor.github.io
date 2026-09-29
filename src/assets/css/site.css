@@ -830,3 +830,30 @@ dialog.gallery-modal .modal-close:hover { background: var(--bronze-light); }
   .nf-tb > div:nth-child(odd) { border-left: 0; }
   .nf-tb-brand { grid-column: 1 / -1; border-top: 0 !important; }
 }
+
+/* ---------- Now page: a status schedule ---------- */
+.now-updated { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 6px 12px; border: 1px solid var(--border-strong); border-radius: 999px; background: rgb(var(--surface) / 0.7); color: var(--grey-text); font-size: 0.8rem; font-weight: 600; }
+.now-updated .dot { width: 8px; height: 8px; border-radius: 50%; background: #2f9e5a; box-shadow: 0 0 0 4px rgba(47, 158, 90, 0.16); }
+.now-board { list-style: none; border: 1.5px solid var(--sheet-line-strong); border-radius: 6px; background: var(--sheet-bg); overflow: hidden; }
+.now-item { display: grid; grid-template-columns: 170px 1fr 170px; gap: 24px; padding: 24px 26px; align-items: start; }
+.now-item + .now-item { border-top: 0.75px solid var(--sheet-line); }
+.now-meta { display: grid; gap: 4px; }
+.now-no { font-family: var(--serif); font-size: 2rem; line-height: 1; color: var(--blueprint); }
+.now-label { color: var(--grey-text); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.now-body h3 { margin-bottom: 6px; font-size: 1.45rem; }
+.now-body h3 a { color: var(--ink); }
+.now-body p { color: var(--muted); max-width: 44em; }
+.now-status { display: grid; gap: 6px; justify-items: end; text-align: right; }
+.status { padding: 3px 10px; border-radius: 999px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid currentColor; }
+.status-active { color: #1f7a45; } .status-scheduled { color: var(--bronze-text); } .status-ongoing { color: var(--blueprint); }
+[data-theme="dark"] .status-active { color: #6fd39b; }
+.now-when { color: var(--grey-text); font-size: 0.82rem; font-weight: 600; }
+.now-done { list-style: none; display: grid; gap: 10px; max-width: 720px; }
+.now-done li { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px dashed var(--line); color: var(--muted); }
+.now-done .when { color: var(--bronze-text); font-size: 0.82rem; font-weight: 700; }
+@media (max-width: 840px) {
+  .now-item { grid-template-columns: 1fr; gap: 10px; padding: 20px 18px; }
+  .now-meta { grid-auto-flow: column; justify-content: start; align-items: baseline; gap: 12px; }
+  .now-status { justify-items: start; text-align: left; grid-auto-flow: column; justify-content: start; align-items: center; gap: 12px; }
+  .now-done li { grid-template-columns: 1fr; gap: 2px; }
+}
