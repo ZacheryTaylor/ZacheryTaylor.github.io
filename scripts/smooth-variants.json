@@ -1,0 +1,32 @@
+[
+  {
+    "k": "l1",
+    "name": "Shared stroke",
+    "line": "H's smooth heavy line as a ZT ligature: one rounded stroke is both the Z's top and the T's crossbar, cut from a rounded blue parcel."
+  },
+  {
+    "k": "l2",
+    "name": "Touching",
+    "line": "The Z and T are separate smooth strokes whose round ends just meet, so the pinch between them marks the lot corner."
+  },
+  {
+    "k": "l3",
+    "name": "Small gap, lighter",
+    "line": "A lighter stroke with a small gap between the letters: the most open and legible pair, like two lots with a setback."
+  },
+  {
+    "k": "l4",
+    "name": "Sharp parcel, heavy",
+    "line": "The shared-stroke ligature at its heaviest, on a square-cornered parcel: a crisp survey-lot outline around soft letters."
+  },
+  {
+    "k": "l5",
+    "name": "Outlined parcel",
+    "line": "Plat-map version: a heavy rounded boundary line on paper with the smooth blue ZT standing inside the lot."
+  },
+  {
+    "k": "l6",
+    "name": "Soft curves",
+    "line": "The Z's diagonal eases through a gentle S-curve, like a road winding between the two lots, with the shared top stroke to the T."
+  }
+]

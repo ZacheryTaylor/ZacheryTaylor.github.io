@@ -8,6 +8,28 @@ sheetTitle: "Brand — monogram options"
 noSitemap: true
 noindex: true
 rounds:
+  - title: "Smooth lot split — L1–L6"
+    label: "B-005"
+    silhouette: true
+    options:
+      - key: l1
+        name: "L1 · Shared stroke"
+        note: "H's smooth heavy line as a ZT ligature: one rounded stroke is both the Z's top and the T's crossbar, cut from a rounded blue parcel."
+      - key: l2
+        name: "L2 · Touching"
+        note: "The Z and T are separate smooth strokes whose round ends just meet, so the pinch between them marks the lot corner."
+      - key: l3
+        name: "L3 · Small gap, lighter"
+        note: "A lighter stroke with a small gap between the letters: the most open and legible pair, like two lots with a setback."
+      - key: l4
+        name: "L4 · Sharp parcel, heavy"
+        note: "The shared-stroke ligature at its heaviest, on a square-cornered parcel: a crisp survey-lot outline around soft letters."
+      - key: l5
+        name: "L5 · Outlined parcel"
+        note: "Plat-map version: a heavy rounded boundary line on paper with the smooth blue ZT standing inside the lot."
+      - key: l6
+        name: "L6 · Soft curves"
+        note: "The Z's diagonal eases through a gentle S-curve, like a road winding between the two lots, with the shared top stroke to the T."
   - title: "Lot split — variants of I"
     label: "B-004"
     silhouette: true
@@ -117,7 +139,7 @@ rounds:
   <div class="wrap">
     {{ ui.sectionLabel("B-001", "For review") }}
     <h1>Monogram <em>options.</em></h1>
-    <p class="lead">Directions for the ZT mark, newest first. Up top: eight variants of I (Lot split), the direction picked from round 3. Then round 3’s four bold “statement” marks, then rounds 2 and 1. Newer options also show a one-colour silhouette for hard hats, stamps, and book spines. Each is shown as a browser-tab favicon (16 and 32&nbsp;px), at navigation size (40&nbsp;px), and large, on paper and on ink. Option {{ site.monogram | upper }} is live in the nav, footer, and favicons right now. To switch, change <code>monogram: "{{ site.monogram }}"</code> in <code>site.config.js</code> to any key shown here, <code>"a"</code>–<code>"k"</code> or <code>"i1"</code>–<code>"i8"</code>.</p>
+    <p class="lead">Directions for the ZT mark, newest first. Up top: six smooth lot-split marks (L1–L6), H’s heavy rounded letterforms set inside a lot-split parcel. Then the eight I variants (Lot split), then round 3’s four bold “statement” marks, then rounds 2 and 1. Newer options also show a one-colour silhouette for hard hats, stamps, and book spines. Each is shown as a browser-tab favicon (16 and 32&nbsp;px), at navigation size (40&nbsp;px), and large, on paper and on ink. Option {{ site.monogram | upper }} is live in the nav, footer, and favicons right now. To switch, change <code>monogram: "{{ site.monogram }}"</code> in <code>site.config.js</code> to any key shown here, <code>"a"</code>–<code>"k"</code>, <code>"i1"</code>–<code>"i8"</code> or <code>"l1"</code>–<code>"l6"</code>.</p>
   </div>
 </header>
 <section class="band" aria-label="Options">

@@ -32,7 +32,8 @@ export default {
   // Which monogram drives the nav mark, footer mark + favicons:
   // "a" | "b" | "c" (round 1), "d" | "e" | "f" | "g" (round 2),
   // "h" | "i" | "j" | "k" (round 3, statement marks),
-  // or "i1" … "i8" (variants of I, lot split).
+  // "i1" … "i8" (variants of I, lot split),
+  // or "l1" … "l6" (smooth lot split: H-style rounded letters inside the parcel).
   // Options with a horizontal lockup (currently "g") use it in the nav automatically.
   // See /brand.html for all options.
   monogram: "a",
