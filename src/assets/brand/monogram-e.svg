@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t d">
+  <title id="t">ZT monogram — option E, contour lines</title>
+  <desc id="d">ZT drawn as a ridge on a topographic map: the letters are the high ground and contour lines step out around them, the outer one a bronze index contour.</desc>
+  <rect width="64" height="64" rx="9" fill="#f3f0e8"/>
+  <rect x="1" y="1" width="62" height="62" rx="8" fill="none" stroke="#0a4f9c" stroke-opacity=".4" stroke-width="1.6"/>
+  <g transform="translate(32 32) scale(.86) translate(-32 -32)">
+  <path d="M11.5 19H27L11.5 45H27M35.5 19H52.5M44 19V45" fill="none" stroke="#9a6f2f" stroke-width="24" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M11.5 19H27L11.5 45H27M35.5 19H52.5M44 19V45" fill="none" stroke="#f3f0e8" stroke-width="21.6" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M11.5 19H27L11.5 45H27M35.5 19H52.5M44 19V45" fill="none" stroke="#0a4f9c" stroke-width="18" stroke-linejoin="round" stroke-linecap="round" stroke-opacity=".5"/>
+  <path d="M11.5 19H27L11.5 45H27M35.5 19H52.5M44 19V45" fill="none" stroke="#f3f0e8" stroke-width="16" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M11.5 19H27L11.5 45H27M35.5 19H52.5M44 19V45" fill="none" stroke="#0a4f9c" stroke-width="12.2" stroke-linejoin="round" stroke-linecap="round" stroke-opacity=".75"/>
+  <path d="M11.5 19H27L11.5 45H27M35.5 19H52.5M44 19V45" fill="none" stroke="#f3f0e8" stroke-width="10.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M11.5 19H27L11.5 45H27M35.5 19H52.5M44 19V45" fill="none" stroke="#0a4f9c" stroke-width="7.2" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+</svg>

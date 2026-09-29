@@ -2,21 +2,39 @@
 layout: base.njk
 permalink: /brand.html
 title: "Monogram options — for review"
-description: "Three ZT monogram options for Zachery Taylor's site, shown at favicon, navigation, and large sizes on light and dark backgrounds."
+description: "ZT monogram options for Zachery Taylor's site, shown at favicon, navigation, and large sizes on light and dark backgrounds."
 sheet: B-001
 sheetTitle: "Brand — monogram options"
 noSitemap: true
 noindex: true
-options:
-  - key: a
-    name: "A · Title block"
-    note: "Z and T share one top stroke, set inside a blueprint sheet frame with a title-block strip — the drawing-set motif used across the site."
-  - key: b
-    name: "B · Serif ligature"
-    note: "Instrument Serif Z overlapped by an italic blueprint-blue T, on paper with a bronze rule. The most literary of the three — leans toward the book."
-  - key: c
-    name: "C · Benchmark"
-    note: "A survey benchmark disk: graduated ring, section-marker circle split by a datum line, ZT above and a benchmark triangle below. The most ‘civil’."
+rounds:
+  - title: "Round 2 — new directions"
+    label: "B-002"
+    options:
+      - key: d
+        name: "D · North arrow"
+        note: "A surveyor's north arrow in a compass ring. The T is the arrow — half-filled north point, crossbar, shaft — and its crossbar doubles as the top of a bronze Z. Most ‘survey plat’ of the set."
+      - key: e
+        name: "E · Contour lines"
+        note: "ZT as a ridge on a topographic map: the letters are the high ground and contour lines step out around them, merging where the letters meet, with a bronze index contour outermost."
+      - key: f
+        name: "F · Lettering stencil"
+        note: "Bold stencil ZT cut from an ink lettering template (think Leroy guide), with stencil bridges, a scale along the bottom edge, and a bronze registration hole. The most minimal and graphic."
+      - key: g
+        name: "G · Firm block"
+        note: "A drawing sheet's firm block: heavy outer border, medium divider, fine rule. In the nav it becomes a horizontal lockup — ZT cell, then Zachery Taylor over Civil Designer · EI. The square ZT cell is the favicon."
+  - title: "Round 1"
+    label: "B-001"
+    options:
+      - key: a
+        name: "A · Title block"
+        note: "Z and T share one top stroke, set inside a blueprint sheet frame with a title-block strip — the drawing-set motif used across the site."
+      - key: b
+        name: "B · Serif ligature"
+        note: "Instrument Serif Z overlapped by an italic blueprint-blue T, on paper with a bronze rule. The most literary — leans toward the book."
+      - key: c
+        name: "C · Benchmark"
+        note: "A survey benchmark disk: graduated ring, section-marker circle split by a datum line, ZT above and a benchmark triangle below."
 ---
 {%- import "macros.njk" as ui with context -%}
 <style>
@@ -37,7 +55,11 @@ options:
   .tab svg { width: 16px; height: 16px; }
   .fav32 svg { width: 32px; height: 32px; }
   .navmock { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: .95rem; }
-  .navmock svg { width: 30px; height: 30px; }
+  .navmock svg { width: 40px; height: 40px; }
+  .navmock.lockupmock svg { width: auto; height: 40px; }
+  .big-lockup svg { width: 100%; max-width: 340px; height: auto; }
+  .round-title { display: flex; align-items: baseline; gap: 14px; margin: 8px 0 -6px; }
+  .round-title h2 { font-size: 1.7rem; }
   .navmock small { display: block; font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; opacity: .7; }
   @media (max-width: 900px) { .mono { grid-template-columns: 1fr; } }
 </style>
@@ -45,28 +67,37 @@ options:
   <div class="wrap">
     {{ ui.sectionLabel("B-001", "For review") }}
     <h1>Monogram <em>options.</em></h1>
-    <p class="lead">Three directions for the ZT mark, each shown as a browser-tab favicon, at navigation size, and large — on paper and on ink. Option {{ site.monogram | upper }} is live in the nav, footer, and favicons right now. To switch, change <code>monogram: "{{ site.monogram }}"</code> in <code>site.config.js</code> to <code>"a"</code>, <code>"b"</code>, or <code>"c"</code>.</p>
+    <p class="lead">Seven directions for the ZT mark — four new ones in round 2, plus the original three — each shown as a browser-tab favicon (16 and 32&nbsp;px), at navigation size (40&nbsp;px), and large, on paper and on ink. Option {{ site.monogram | upper }} is live in the nav, footer, and favicons right now. To switch, change <code>monogram: "{{ site.monogram }}"</code> in <code>site.config.js</code> to any letter <code>"a"</code>–<code>"g"</code>.</p>
   </div>
 </header>
 <section class="band" aria-label="Options">
   <div class="wrap mono-grid">
-    {%- for o in options %}
+    {%- for r in rounds %}
+    <div class="round-title">{{ ui.sectionLabel(r.label, r.title) }}</div>
+    {%- for o in r.options %}
+    {%- set lk = o.key | lockup %}
     <article class="mono" aria-labelledby="opt-{{ o.key }}">
       <div class="info">
         {%- if o.key == site.monogram %}<span class="current">IN USE</span>{% endif %}
         <h2 id="opt-{{ o.key }}">{{ o.name }}</h2>
         <p>{{ o.note }}</p>
-        <p style="margin-top:14px"><a href="/assets/brand/monogram-{{ o.key }}.svg">Download SVG</a></p>
+        <p style="margin-top:14px"><a href="/assets/brand/monogram-{{ o.key }}.svg">Download SVG</a>{% if lk %} · <a href="/assets/brand/lockup-{{ o.key }}.svg">Lockup SVG</a>{% endif %}</p>
       </div>
       {%- for tone in ["light", "dark"] %}
       <div class="swatch {{ tone }}">
         <span class="k">{{ "On paper" if tone == "light" else "On ink" }}</span>
         <div class="row"><span class="tab">{{ o.key | monogram | safe }} Zachery Taylor</span><span class="fav32">{{ o.key | monogram | safe }}</span></div>
+        {%- if lk %}
+        <span class="navmock lockupmock">{{ lk | safe }}</span>
+        {%- else %}
         <span class="navmock">{{ o.key | monogram | safe }}<span>Zachery Taylor<small>Civil Designer · EI</small></span></span>
+        {%- endif %}
         <div class="big">{{ o.key | monogram | safe }}</div>
+        {%- if lk %}<div class="big-lockup">{{ lk | safe }}</div>{% endif %}
       </div>
       {%- endfor %}
     </article>
+    {%- endfor %}
     {%- endfor %}
   </div>
 </section>

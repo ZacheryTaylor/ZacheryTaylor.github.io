@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t d">
+  <title id="t">ZT monogram — option D, north arrow</title>
+  <desc id="d">A surveyor's north arrow in a compass ring: the T is the arrow (half-filled north point, crossbar, shaft) and its crossbar doubles as the top of a bronze Z.</desc>
+  <circle cx="32" cy="32" r="31" fill="#0a4f9c"/>
+  <circle cx="32" cy="32" r="27.4" fill="none" stroke="#f3f0e8" stroke-opacity=".38" stroke-width="1"/>
+  <path d="M56.8 32L61 32M32 56.8L32 61M7.2 32L3 32M50.95 13.05L52.51 11.49M50.95 50.95L52.51 52.51M13.05 50.95L11.49 52.51M13.05 13.05L11.49 11.49" stroke="#f3f0e8" stroke-opacity=".75" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- north point: classic half-filled arrowhead -->
+  <path d="M32 4.6L40.2 20.4H23.8z" fill="#f3f0e8"/>
+  <path d="M32 4.6L40.2 20.4H32z" fill="#d2a766"/>
+  <!-- Z: shares the T crossbar as its top stroke; diagonal + base in bronze -->
+  <path d="M40.4 25.4H47L23.6 45H17z" fill="#d2a766"/>
+  <path d="M17 45h30v5H17z" fill="#d2a766"/>
+  <!-- T (paper): crossbar = arrow base + Z top, stem = arrow shaft -->
+  <path d="M17 20.4h30v5H17z" fill="#f3f0e8"/>
+  <path d="M29.5 25.4h5V50h-5z" fill="#f3f0e8"/>
+</svg>

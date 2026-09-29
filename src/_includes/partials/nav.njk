@@ -6,10 +6,18 @@
 ] -%}
 <header class="site-nav">
   <div class="inner">
+    {%- set lockupSvg = site.monogram | lockup %}
+    {%- if lockupSvg %}
+    <a class="brand brand--lockup" href="/">
+      <span class="lockup">{{ lockupSvg | safe }}</span>
+      <span class="visually-hidden">Zachery Taylor, Civil Designer · EI</span>
+    </a>
+    {%- else %}
     <a class="brand" href="/">
       <span class="mark" aria-hidden="true">{{ site.monogram | monogram | safe }}</span>
       <span class="brand-name">Zachery Taylor<small>Civil Designer · EI</small></span>
     </a>
+    {%- endif %}
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
       <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
       <span class="nav-toggle-label">Menu</span>

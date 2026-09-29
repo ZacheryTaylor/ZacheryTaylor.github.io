@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t d">
+  <title id="t">ZT monogram — option G, firm block</title>
+  <desc id="d">The ZT cell of a drawing sheet's firm block: bold ZT inside a heavy outer border and a fine inner rule, with a bronze rule below.</desc>
+  <rect width="64" height="64" rx="4.75" fill="#0f1419"/>
+  <rect x="4.5" y="4.5" width="55" height="55" rx=".6" fill="#f3f0e8"/>
+  <rect x="8" y="8" width="48" height="48" fill="none" stroke="#0f1419" stroke-opacity=".4" stroke-width=".7"/>
+  <path d="M29.9 41L14.13 41L14.13 37.58L24.74 21.68L14.19 21.68L14.19 18L29.83 18L29.83 21.42L19.19 37.32L29.9 37.32L29.9 41M43.17 41L38.77 41L38.77 21.58L32.03 21.58L32.03 18L49.87 18L49.87 21.58L43.17 21.58L43.17 41" fill="#0f1419"/>
+  <path d="M17 47.5h30" stroke="#86612a" stroke-width="2.6"/>
+</svg>

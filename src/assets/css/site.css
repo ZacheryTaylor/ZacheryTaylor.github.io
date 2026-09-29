@@ -153,6 +153,8 @@ p { text-wrap: pretty; }
 .brand .mark svg { width: 100%; height: 100%; }
 .brand-name small { display: block; color: var(--grey-text); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.1; }
 .brand-name { line-height: 1.15; }
+.brand--lockup .lockup { display: block; height: 40px; }
+.brand--lockup .lockup svg { display: block; height: 100%; width: auto; }
 .nav-links { display: flex; align-items: center; gap: 4px 22px; list-style: none; }
 .nav-links a { color: var(--muted); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.01em; padding: 6px 0; }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--blueprint); text-decoration: none; }

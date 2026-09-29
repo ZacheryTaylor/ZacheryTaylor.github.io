@@ -149,6 +149,17 @@ export default function (eleventyConfig) {
       .replace(/\srole="img"/, "")
       .replace(/\saria-labelledby="[^"]*"/, "")
       .replace("<svg ", '<svg aria-hidden="true" focusable="false" '));
+  // Horizontal lockup for options that have one (assets/brand/lockup-<key>.svg); "" otherwise.
+  eleventyConfig.addFilter("lockup", (option) => {
+    const f = srcPath(`assets/brand/lockup-${option || site.monogram}.svg`);
+    if (!fs.existsSync(f)) return "";
+    return fs.readFileSync(f, "utf8")
+      .replace(/<title[^>]*>.*?<\/title>\s*/s, "")
+      .replace(/<desc[^>]*>.*?<\/desc>\s*/s, "")
+      .replace(/\srole="img"/, "")
+      .replace(/\saria-labelledby="[^"]*"/, "")
+      .replace("<svg ", '<svg aria-hidden="true" focusable="false" ');
+  });
   eleventyConfig.addFilter("where", (arr, key, val) => (arr || []).filter((x) => x[key] === val));
 
   /* ---- favicons from the selected monogram ---- */
