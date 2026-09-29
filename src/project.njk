@@ -46,7 +46,7 @@ eleventyComputed:
     <div class="case-body">
       <div class="prose">
         <p>{{ project.description or project.cardDescription }}</p>
-        {{ ui.summary(project.summary) }}
+        {{ ui.summary(project.summary, 99, 2) }}
       </div>
       <aside class="case-aside" aria-label="Project details">
         <dl class="titleblock-card">

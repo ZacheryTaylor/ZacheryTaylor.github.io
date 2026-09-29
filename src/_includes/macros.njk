@@ -21,12 +21,12 @@
 </li>
 {% endmacro %}
 
-{% macro summary(items, limit = 99) %}
+{% macro summary(items, limit = 99, level = 3) %}
 {%- if items and items.length %}
 <div class="project-summary">
   {%- for item in items %}{% if loop.index <= limit %}
   <div class="summary-item">
-    <h3>{{ item.heading }}</h3>
+    <h{{ level }}>{{ item.heading }}</h{{ level }}>
     <p>{{ item.text }}</p>
   </div>
   {%- endif %}{% endfor %}
