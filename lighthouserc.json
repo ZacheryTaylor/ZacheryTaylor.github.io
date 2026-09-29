@@ -1,0 +1,37 @@
+{
+  "ci": {
+    "collect": {
+      "startServerCommand": "node scripts/serve.mjs 8080",
+      "startServerReadyPattern": "Serving _site",
+      "url": [
+        "http://localhost:8080/zt-site-staging/",
+        "http://localhost:8080/zt-site-staging/civil.html",
+        "http://localhost:8080/zt-site-staging/academic.html",
+        "http://localhost:8080/zt-site-staging/personal.html",
+        "http://localhost:8080/zt-site-staging/book.html",
+        "http://localhost:8080/zt-site-staging/now.html",
+        "http://localhost:8080/zt-site-staging/bookshelf.html",
+        "http://localhost:8080/zt-site-staging/notes/",
+        "http://localhost:8080/zt-site-staging/tools/rational-method.html",
+        "http://localhost:8080/zt-site-staging/resume.html"
+      ],
+      "numberOfRuns": 3,
+      "settings": {
+        "chromeFlags": "--no-sandbox --headless=new",
+        "onlyCategories": ["performance", "accessibility", "best-practices", "seo"]
+      }
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": ["error", { "minScore": 0.95, "aggregationMethod": "median-run" }],
+        "categories:accessibility": ["error", { "minScore": 0.95, "aggregationMethod": "median-run" }],
+        "categories:best-practices": ["error", { "minScore": 0.95, "aggregationMethod": "median-run" }],
+        "categories:seo": "off"
+      }
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": ".lighthouseci/reports"
+    }
+  }
+}

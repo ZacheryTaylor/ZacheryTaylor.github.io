@@ -1079,3 +1079,6 @@ dialog.gallery-modal .modal-close:hover { background: var(--bronze-light); }
   .resume a { color: inherit; text-decoration: none; }
   .reveal { transform: none !important; }
 }
+/* Links inside running text are underlined (not colour-only) */
+main p a:not([class]) { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.cv-contact a { display: inline-block; padding: 3px 0; }

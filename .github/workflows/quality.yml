@@ -1,0 +1,65 @@
+# Quality gate: every push to main (the staging branch) and every PR into it
+# must build, have zero broken internal links, and score ≥ 95 in Lighthouse
+# Performance, Accessibility and Best Practices (median of 3 mobile runs).
+# SEO isn't gated: staging is deliberately noindex, which caps that score.
+# Thresholds live in lighthouserc.json; the link checker is scripts/check-links.mjs.
+name: Quality gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      # Build exactly like the Pages deploy, so prefixed URLs are exercised.
+      SITE_URL: https://zacherytaylor.github.io
+      PATH_PREFIX: /zt-site-staging/
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - uses: actions/cache@v4
+        with:
+          path: _site/img
+          key: img-${{ hashFiles('src/images/**', 'eleventy.config.js') }}
+          restore-keys: img-
+
+      - run: npm ci
+
+      - name: Build
+        run: npx @11ty/eleventy
+
+      - name: Link check (internal links fail the build; external ones warn)
+        run: |
+          node scripts/serve.mjs 8081 &
+          npx --yes wait-on@8 -t 30000 http-get://localhost:8081/zt-site-staging/
+          node scripts/check-links.mjs http://localhost:8081/zt-site-staging/ --external
+
+      - name: Lighthouse CI (fails below 95 perf / a11y / best practices)
+        run: npx --yes @lhci/cli@0.15.1 autorun
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/
+          if-no-files-found: ignore
+          retention-days: 14
