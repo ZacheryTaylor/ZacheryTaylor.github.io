@@ -1,0 +1,40 @@
+{#- The story in chapters, from timeline-data.js (timeline + lifeChapters). -#}
+<section class="band story-chapters" id="chapters" aria-labelledby="chapters-title">
+  <div class="wrap">
+    {{ ui.sectionLabel("L-302", "The story in chapters") }}
+    <h2 id="chapters-title">Four chapters, <em>so far.</em></h2>
+    <p class="section-intro">The same milestones as the timeline on the home page, read as a story. Drag the year scrubber to move through it.</p>
+
+    <div class="scrubber" data-scrubber hidden>
+      <label class="visually-hidden" for="year-scrub">Year</label>
+      <input type="range" id="year-scrub" min="0" max="{{ lifeChapters.years.length - 1 }}" step="1" value="0"
+             data-years="{{ lifeChapters.years | join(',') }}" aria-valuetext="{{ lifeChapters.years[0] }}">
+      <ol class="scrub-ticks" aria-hidden="true">
+        {%- for y in lifeChapters.years %}<li>{{ y }}</li>{% endfor %}
+      </ol>
+      <p class="scrub-now" aria-live="polite"><span data-scrub-year>{{ lifeChapters.years[0] }}</span> · <span data-scrub-chapter>Chapter {{ lifeChapters.chapters[0].numeral }}</span></p>
+    </div>
+
+    <div class="chapter-list">
+      {%- for c in lifeChapters.chapters %}
+      <article class="chapter" id="{{ c.id }}" aria-labelledby="{{ c.id }}-t" data-chapter="{{ c.numeral }}">
+        <header class="chapter-head">
+          <p class="chapter-no">Chapter {{ c.numeral }}</p>
+          <h3 id="{{ c.id }}-t">{{ c.title }}</h3>
+          <p class="chapter-years">{{ c.fromYear }}{% if c.toYear != c.fromYear %}–{{ c.toYear }}{% endif %}</p>
+          <p class="chapter-sum">{{ c.summary }}</p>
+        </header>
+        <ol class="chapter-entries">
+          {%- for t in c.entries %}
+          <li class="chapter-entry thread-{{ t.thread }} state-{{ t.state }}" data-year="{{ t.year }}">
+            <p class="when">{{ t.when }} <span class="tag">{{ t.thread }}</span></p>
+            <h4>{{ t.title }}</h4>
+            <p>{{ t.text }}</p>
+          </li>
+          {%- endfor %}
+        </ol>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

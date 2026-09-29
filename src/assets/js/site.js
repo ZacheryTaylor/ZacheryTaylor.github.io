@@ -249,4 +249,45 @@
       if (window.ResizeObserver) new ResizeObserver(function () { drawCloud(svg); }).observe(svg);
     });
   }
+
+  /* ---------- Life chapters: year scrubber (two-way with scrolling) ---------- */
+  var scrub = doc.querySelector("[data-scrubber]");
+  if (scrub) {
+    var range = scrub.querySelector("input[type=range]");
+    var years = range.getAttribute("data-years").split(",").map(Number);
+    var entries = [].slice.call(doc.querySelectorAll(".chapter-entry"));
+    var yearOut = scrub.querySelector("[data-scrub-year]");
+    var chapOut = scrub.querySelector("[data-scrub-chapter]");
+    var hold = 0;
+    var show = function (i) {
+      var y = years[i];
+      range.value = i;
+      range.setAttribute("aria-valuetext", String(y));
+      range.style.setProperty("--p", (years.length > 1 ? (i / (years.length - 1)) * 100 : 0) + "%");
+      yearOut.textContent = y;
+      var first = null;
+      entries.forEach(function (e) { var on = +e.getAttribute("data-year") === y; e.classList.toggle("is-year", on); if (on && !first) first = e; });
+      var ch = first && first.closest(".chapter");
+      if (ch) chapOut.textContent = "Chapter " + ch.getAttribute("data-chapter");
+      return first;
+    };
+    scrub.hidden = false;
+    show(0);
+    range.addEventListener("input", function () {
+      var first = show(+range.value);
+      hold = Date.now() + 900;
+      if (first) first.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+    });
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (list) {
+        if (Date.now() < hold) return;
+        list.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          var i = years.indexOf(+en.target.getAttribute("data-year"));
+          if (i > -1 && i !== +range.value) show(i);
+        });
+      }, { rootMargin: "-45% 0px -50% 0px" });
+      entries.forEach(function (e) { io.observe(e); });
+    }
+  }
 })();

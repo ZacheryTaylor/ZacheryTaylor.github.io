@@ -127,3 +127,36 @@ const timeline = [
     text: "Drafted for a Pensacola custom home builder, developing 20+ home elevations and floor plans and cutting design turnaround time by 50%."
   }
 ];
+
+/*
+  LIFE CHAPTERS — the Life & Interests page groups the timeline above into
+  chapters. Each entry lands in the chapter whose [from, to] range (YYYY-MM)
+  contains its `date`. Add a chapter or move a boundary here; the entries'
+  text always comes from the timeline itself.
+*/
+const lifeChapters = [
+  {
+    numeral: "I",
+    title: "Foundations",
+    from: "2020-01", to: "2021-04",
+    summary: "A math degree, a drafting table at a custom home builder, and meeting the woman who would become my wife."
+  },
+  {
+    numeral: "II",
+    title: "Learning the trade",
+    from: "2021-05", to: "2025-06",
+    summary: "Four years at McKim & Creed, a first home in Pensacola, and a proposal."
+  },
+  {
+    numeral: "III",
+    title: "Engineer Intern",
+    from: "2025-07", to: "2026-08",
+    summary: "A new role at Mullins, the FE exam, a wedding, a second degree, and the first section of the book."
+  },
+  {
+    numeral: "IV",
+    title: "What comes next",
+    from: "2026-09", to: "2027-12",
+    summary: "Writing the book, sitting for the Civil PE exam, and publishing through ZT, LLC."
+  }
+];

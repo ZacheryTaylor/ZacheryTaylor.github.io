@@ -41,6 +41,8 @@ groups:
   </div>
 </header>
 
+{% include "partials/life-chapters.njk" %}
+
 {%- set used = [] %}
 {%- for g in groups %}
 <section class="band" id="{{ g.anchor }}" aria-labelledby="g-{{ g.id }}">
