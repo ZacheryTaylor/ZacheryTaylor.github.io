@@ -31,6 +31,7 @@ groups:
     ids: ["draft-the-stars", "bet-tracker"]
 ---
 {%- import "macros.njk" as ui with context -%}
+{%- import "story-index.njk" as si with context -%}
 <header class="page-header">
   <div class="wrap">
     <ol class="breadcrumb" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Life &amp; Interests</li></ol>
@@ -41,7 +42,14 @@ groups:
   </div>
 </header>
 
-{% include "partials/life-chapters.njk" %}
+<section class="band story-index-band" id="chapters" aria-labelledby="chapters-title">
+  <div class="wrap">
+    {{ ui.sectionLabel("L-302", "The story index") }}
+    <h2 id="chapters-title">Every milestone, <em>by year.</em></h2>
+    <p class="section-intro">The whole story since {{ storyIndex.years[storyIndex.years.length - 1].year }}, newest first: {{ storyIndex.entries.length }} milestones across {{ storyIndex.chapters.length }} chapters. Filter by chapter or by type, and open any line for the detail.</p>
+    {{ si.list(storyIndex.years, { filters: true, anchors: true }) }}
+  </div>
+</section>
 
 {%- set used = [] %}
 {%- for g in groups %}

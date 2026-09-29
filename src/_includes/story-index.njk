@@ -1,0 +1,52 @@
+{#- The story index: milestones grouped by year (sticky headings), one line
+    each, expandable inline. Data: _data/storyIndex.js (from timeline-data.js).
+    Usage: {% import "story-index.njk" as si with context %}
+           {{ si.list(storyIndex.years, { filters: true, anchors: true }) }} -#}
+{% macro list(groups, opts = {}) %}
+{%- set labels = { work: "Work", life: "Life", writing: "Writing", education: "Education", license: "Licensure" } -%}
+{%- set px = opts.prefix or "" -%}
+<div class="si" data-story-index>
+  {%- if opts.filters %}
+  <div class="si-filters" data-si-filters hidden>
+    <div class="si-chips" role="group" aria-label="Filter by chapter">
+      <button type="button" data-f="chapter" data-v="all" aria-pressed="true">All chapters</button>
+      {%- for c in storyIndex.chapters %}
+      <button type="button" data-f="chapter" data-v="{{ c.numeral }}" aria-pressed="false" data-label="Chapter {{ c.numeral }} · {{ c.title }}, {{ c.fromYear }}{% if c.toYear != c.fromYear %}–{{ c.toYear }}{% endif %}" data-summary="{{ c.summary }}"><span class="n">{{ c.numeral }}</span>{{ c.title }}</button>
+      {%- endfor %}
+    </div>
+    <div class="si-chips si-types" role="group" aria-label="Filter by type">
+      <button type="button" data-f="thread" data-v="all" aria-pressed="true">All types</button>
+      {%- for t in storyIndex.threads %}
+      <button type="button" data-f="thread" data-v="{{ t }}" aria-pressed="false">{{ labels[t] or t }}</button>
+      {%- endfor %}
+    </div>
+    <p class="si-status" data-si-status aria-live="polite"></p>
+  </div>
+  {%- endif %}
+  {%- for g in groups %}
+  <section class="si-year" aria-labelledby="{{ px }}y-{{ g.year }}">
+    <h3 class="si-year-h" id="{{ px }}y-{{ g.year }}">{{ g.year }}</h3>
+    <ol class="si-list">
+      {%- for e in g.entries %}
+      <li class="si-row state-{{ e.state }}" data-thread="{{ e.thread }}" data-chapter="{{ e.chapter.numeral if e.chapter else '' }}"{% if opts.anchors %} id="{{ e.anchor }}"{% endif %}>
+        <details>
+          <summary>
+            <span class="si-when">{{ e.short }}</span>
+            <span class="si-tag tag-{{ e.thread }}">{{ labels[e.thread] or e.thread }}</span>
+            <span class="si-title">{{ e.title }}</span>
+            {%- if e.chapterStart %}<span class="si-ch" title="Chapter {{ e.chapter.numeral }}: {{ e.chapter.title }}"><span class="n">{{ e.chapter.numeral }}</span>{{ e.chapter.title }}</span>{% endif %}
+            <span class="si-toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="si-detail">
+            <p class="si-meta">{{ e.when }}{% if e.chapter %} · Chapter {{ e.chapter.numeral }}, {{ e.chapter.title }}{% endif %}</p>
+            <p>{{ e.text }}</p>
+            {%- if e.url %}<a class="si-more" href="{{ e.url }}">Read the full story<span class="visually-hidden">: {{ e.title }}</span> →</a>{% endif %}
+          </div>
+        </details>
+      </li>
+      {%- endfor %}
+    </ol>
+  </section>
+  {%- endfor %}
+</div>
+{% endmacro %}

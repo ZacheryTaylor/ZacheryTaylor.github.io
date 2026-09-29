@@ -10,6 +10,7 @@ sheetTitle: "Cover sheet — the story so far"
 scripts: ["/assets/js/quotes.js"]
 ---
 {%- import "macros.njk" as ui with context -%}
+{%- import "story-index.njk" as si with context -%}
 {%- set featuredIds = ["surfboard", "baja", "cfd-wind-tunnel"] -%}
 
 <section class="hero" aria-labelledby="hero-title">
@@ -134,26 +135,11 @@ scripts: ["/assets/js/quotes.js"]
   <div class="wrap">
     {{ ui.sectionLabel("G-002", "The story so far") }}
     <h2 id="story-title">Ideas, rigor, <em>and the long game.</em></h2>
-    <p class="section-intro">Mathematics, then mechanical engineering, a passed FE exam, five years at civil design firms, a first home, a marriage, and a book — in the order they happened. <a class="text-link" href="/now.html">What I’m doing now</a></p>
+    <p class="section-intro">Mathematics, then mechanical engineering, a passed FE exam, five years at civil design firms, a first home, a marriage, and a book. The latest milestones are below, newest first. <a class="text-link" href="/now.html">What I’m doing now</a></p>
     <div class="story-grid">
       <div>
-        <div class="thread-filter" data-thread-filter hidden role="group" aria-label="Filter the timeline">
-          <button type="button" data-thread="all" aria-pressed="true">Everything</button>
-          <button type="button" data-thread="work" aria-pressed="false">Work</button>
-          <button type="button" data-thread="life" aria-pressed="false">Life</button>
-          <button type="button" data-thread="writing" aria-pressed="false">Writing</button>
-          <button type="button" data-thread="education" aria-pressed="false">Education</button>
-          <button type="button" data-thread="license" aria-pressed="false">Licensure</button>
-        </div>
-        <ol class="timeline">
-          {%- for t in timeline %}
-          <li class="t-item {{ t.state }}" id="t-{{ t.date }}" data-thread="{{ t.thread }}">
-            <p class="when">{{ t.when }} <span class="thread">{{ t.thread }}</span></p>
-            <h3>{{ t.title }}</h3>
-            <p>{{ t.text }}</p>
-          </li>
-          {%- endfor %}
-        </ol>
+        {{ si.list(storyIndex.recent, { prefix: "home-" }) }}
+        <p class="si-all"><a class="btn" href="/personal.html#chapters">The full story: all {{ storyIndex.entries.length }} milestones →</a></p>
       </div>
       <div class="story-cards">
         <article class="card reveal">

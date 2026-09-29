@@ -1,0 +1,41 @@
+---
+layout: base.njk
+pagination:
+  data: storyIndex.stories
+  size: 1
+  alias: m
+permalink: "/story/{{ m.slug }}/index.html"
+ogType: article
+navKey: life
+eleventyComputed:
+  title: "{{ m.title }}"
+  description: "{{ m.text }}"
+  sheet: "{{ 'L-3' + m.year }}"
+  sheetTitle: "{{ m.title }}"
+---
+{#- Per-milestone story page: only for timeline entries with `story` and/or
+    `photos` in timeline-data.js. -#}
+{%- import "macros.njk" as ui with context -%}
+<article class="story-page">
+  <header class="page-header">
+    <div class="wrap">
+      <ol class="breadcrumb" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/personal.html#chapters">The story</a></li><li aria-current="page">{{ m.title }}</li></ol>
+      {{ ui.sectionLabel(m.when, (m.chapter and ("Chapter " + m.chapter.numeral + " · " + m.chapter.title)) or m.thread) }}
+      <h1>{{ m.title }}</h1>
+      <p class="lead">{{ m.text }}</p>
+    </div>
+  </header>
+  <div class="wrap story-body">
+    <div class="prose">
+      {%- for p in m.story %}<p>{{ p }}</p>{% endfor %}
+    </div>
+    {%- if m.photos.length %}
+    <div class="story-photos">
+      {%- for ph in m.photos %}
+      <figure>{% picture ph.src, ph.alt, "card" %}{% if ph.caption %}<figcaption>{{ ph.caption }}</figcaption>{% endif %}</figure>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+    <p class="story-back"><a class="btn" href="/personal.html#{{ m.anchor }}">← Back to the story index</a></p>
+  </div>
+</article>

@@ -21,11 +21,11 @@ eleventyExcludeFromCollections: true
       <description>{{ n.content | absContent }}</description>
     </item>
     {%- endfor %}
-    {%- for t in timeline %}{% if t.state != "future" %}
+    {%- for t in storyIndex.entries %}{% if t.state != "future" %}
     <item>
       <title>{{ t.title }}</title>
-      <link>{{ ("/#t-" + t.date) | absUrl }}</link>
-      <guid isPermaLink="false">zt-milestone-{{ t.date }}-{{ loop.index }}</guid>
+      <link>{{ t.link | absUrl }}</link>
+      <guid isPermaLink="false">zt-milestone-{{ t.date }}-{{ t.feedIndex }}</guid>
       <pubDate>{{ t.date | rfc822 }}</pubDate>
       <category>{{ t.thread }}</category>
       <description>{{ t.when }} — {{ t.text }}</description>

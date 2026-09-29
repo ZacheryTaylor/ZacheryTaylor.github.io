@@ -147,21 +147,6 @@
     if (img) { if (img.complete) ratio(); else img.addEventListener("load", ratio); }
   });
 
-  /* ---------- Timeline thread filter ---------- */
-  var filter = doc.querySelector("[data-thread-filter]");
-  if (filter) {
-    filter.hidden = false;
-    filter.addEventListener("click", function (e) {
-      var b = e.target.closest("button[data-thread]");
-      if (!b) return;
-      var t = b.getAttribute("data-thread");
-      filter.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
-      doc.querySelectorAll(".timeline .t-item").forEach(function (li) {
-        li.hidden = t !== "all" && li.getAttribute("data-thread") !== t;
-      });
-    });
-  }
-
   /* ---------- Forms: work with a service when configured, email fallback otherwise ---------- */
   doc.querySelectorAll("form[data-fallback-email]").forEach(function (form) {
     var status = form.querySelector(".form-status");
@@ -250,44 +235,45 @@
     });
   }
 
-  /* ---------- Life chapters: year scrubber (two-way with scrolling) ---------- */
-  var scrub = doc.querySelector("[data-scrubber]");
-  if (scrub) {
-    var range = scrub.querySelector("input[type=range]");
-    var years = range.getAttribute("data-years").split(",").map(Number);
-    var entries = [].slice.call(doc.querySelectorAll(".chapter-entry"));
-    var yearOut = scrub.querySelector("[data-scrub-year]");
-    var chapOut = scrub.querySelector("[data-scrub-chapter]");
-    var hold = 0;
-    var show = function (i) {
-      var y = years[i];
-      range.value = i;
-      range.setAttribute("aria-valuetext", String(y));
-      range.style.setProperty("--p", (years.length > 1 ? (i / (years.length - 1)) * 100 : 0) + "%");
-      yearOut.textContent = y;
-      var first = null;
-      entries.forEach(function (e) { var on = +e.getAttribute("data-year") === y; e.classList.toggle("is-year", on); if (on && !first) first = e; });
-      var ch = first && first.closest(".chapter");
-      if (ch) chapOut.textContent = "Chapter " + ch.getAttribute("data-chapter");
-      return first;
-    };
-    scrub.hidden = false;
-    show(0);
-    range.addEventListener("input", function () {
-      var first = show(+range.value);
-      hold = Date.now() + 900;
-      if (first) first.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
-    });
-    if ("IntersectionObserver" in window) {
-      var io = new IntersectionObserver(function (list) {
-        if (Date.now() < hold) return;
-        list.forEach(function (en) {
-          if (!en.isIntersecting) return;
-          var i = years.indexOf(+en.target.getAttribute("data-year"));
-          if (i > -1 && i !== +range.value) show(i);
+  /* ---------- Story index: chapter + type filters, open linked entries ---------- */
+  doc.querySelectorAll("[data-story-index]").forEach(function (idx) {
+    var bar = idx.querySelector("[data-si-filters]");
+    var rows = [].slice.call(idx.querySelectorAll(".si-row"));
+    if (bar) {
+      var status = bar.querySelector("[data-si-status]");
+      var state = { chapter: "all", thread: "all" };
+      var apply = function () {
+        var shown = 0;
+        rows.forEach(function (r) {
+          var ok = (state.chapter === "all" || r.getAttribute("data-chapter") === state.chapter) &&
+                   (state.thread === "all" || r.getAttribute("data-thread") === state.thread);
+          r.hidden = !ok; if (ok) shown++;
         });
-      }, { rootMargin: "-45% 0px -50% 0px" });
-      entries.forEach(function (e) { io.observe(e); });
+        idx.querySelectorAll(".si-year").forEach(function (y) { y.hidden = !y.querySelector(".si-row:not([hidden])"); });
+        var chip = bar.querySelector('[data-f="chapter"][aria-pressed="true"]');
+        var lead = state.chapter === "all" ? "" : "<strong>" + chip.getAttribute("data-label") + ".</strong> " + chip.getAttribute("data-summary") + " ";
+        status.innerHTML = lead + "Showing " + shown + " of " + rows.length + " milestones.";
+      };
+      bar.hidden = false;
+      bar.addEventListener("click", function (e) {
+        var b = e.target.closest("button[data-f]");
+        if (!b) return;
+        var f = b.getAttribute("data-f");
+        state[f] = b.getAttribute("data-v");
+        bar.querySelectorAll('[data-f="' + f + '"]').forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+        apply();
+      });
+      apply();
     }
-  }
+  });
+  var openTarget = function () {
+    var id = decodeURIComponent(location.hash.slice(1));
+    var el = id && doc.getElementById(id);
+    if (el && el.classList.contains("si-row")) {
+      el.hidden = false;
+      var d = el.querySelector("details"); if (d) d.open = true;
+    }
+  };
+  openTarget();
+  window.addEventListener("hashchange", openTarget);
 })();

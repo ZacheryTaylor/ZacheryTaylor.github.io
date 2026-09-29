@@ -12,9 +12,9 @@ eleventyExcludeFromCollections: true
   "date_published": n.date | isoDate,
   "tags": ["note"]
 }) %}{% endfor -%}
-{%- for t in timeline %}{% if t.state != "future" %}{% set _n = items.push({
-  "id": "zt-milestone-" + t.date + "-" + loop.index,
-  "url": ("/#t-" + t.date) | absUrl,
+{%- for t in storyIndex.entries %}{% if t.state != "future" %}{% set _n = items.push({
+  "id": "zt-milestone-" + t.date + "-" + t.feedIndex,
+  "url": t.link | absUrl,
   "title": t.title,
   "content_text": t.when + " — " + t.text,
   "date_published": t.date | isoDate,

@@ -1,15 +1,23 @@
 /*
-  TIMELINE — "The story so far" on the home page.
-  ------------------------------------------------
-  Newest first. Copy an entry to add a milestone.
+  TIMELINE — the story index on the home page (latest six) and on
+  Life & Interests (everything), plus the milestones in the RSS/JSON feeds.
+  -----------------------------------------------------------------------
+  Newest first. Copy an entry to add a milestone. Years and chapters are
+  worked out automatically from `date` (chapters: see lifeChapters below).
 
   {
     when: "Month YYYY",          // shown as the date label
-    date: "YYYY-MM-01",          // used for sorting + the milestones feed
+    date: "YYYY-MM-01",          // used for sorting, the year group + the feeds
     state: "future" | "present" | "past",
     thread: "work" | "life" | "writing" | "education" | "license",
-    title: "Headline",
-    text: "One or two sentences."
+    title: "Headline",           // the one-line entry
+    text: "One or two sentences.", // shown when the entry is expanded
+
+    // Optional: give a milestone its own story page at /story/<slug>/.
+    // Add either (or both) and the entry gets a "Read the full story" link.
+    slug: "custom-url-part",     // default: made from the title
+    story: ["Paragraph one.", "Paragraph two."],   // or one string, blank-line separated
+    photos: [{ src: "images/story/<file>.jpg", alt: "What it shows", caption: "Optional" }]
   }
 */
 
@@ -129,10 +137,10 @@ const timeline = [
 ];
 
 /*
-  LIFE CHAPTERS — the Life & Interests page groups the timeline above into
-  chapters. Each entry lands in the chapter whose [from, to] range (YYYY-MM)
-  contains its `date`. Add a chapter or move a boundary here; the entries'
-  text always comes from the timeline itself.
+  LIFE CHAPTERS — each milestone is labelled with the chapter whose
+  [from, to] range (YYYY-MM) contains its `date`; the chapter chips on
+  Life & Interests filter by them. Add a chapter or move a boundary here.
+  (`summary` is shown when a chapter chip is selected.)
 */
 const lifeChapters = [
   {
