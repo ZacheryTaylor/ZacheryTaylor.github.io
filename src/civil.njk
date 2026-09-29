@@ -23,11 +23,9 @@ sheetTitle: "Civil work — projects & history"
 
 <section class="band" aria-labelledby="gallery-title">
   <div class="wrap">
+    {{ ui.sectionLabel("C-102", "Project gallery") }}
     <div class="group-head">
-      <div>
-        {{ ui.sectionLabel("C-102", "Project gallery") }}
-        <h2 id="gallery-title">Civil <em>projects.</em></h2>
-      </div>
+      <h2 id="gallery-title">Civil <em>projects.</em></h2>
       <p class="count">{% if projects.civil.length %}{{ projects.civil.length }} project{{ "s" if projects.civil.length != 1 }}{% else %}Write-ups in preparation{% endif %}</p>
     </div>
     <p class="section-intro">Each project gets its own page, just like the academic projects. Client and project names stay private until a project is public and cleared to share; blank sheets are write-ups still in preparation.</p>
