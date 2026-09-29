@@ -1,0 +1,92 @@
+---
+layout: base.njk
+permalink: /resume.html
+title: "Résumé"
+description: "Résumé of Zachery Taylor, EI: civil engineering designer in Pensacola, FL (land development, grading, stormwater, utilities), with B.S. degrees in Mechanical Engineering and Mathematics from UWF."
+navKey: civil
+sheet: G-002
+sheetTitle: "Résumé"
+bodyClass: "page-resume"
+scripts: ["/assets/js/resume.js"]
+---
+{%- set r = resume -%}
+<header class="page-header resume-head">
+  <div class="wrap">
+    <ol class="breadcrumb" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Résumé</li></ol>
+    <div class="resume-actions">
+      <button class="btn btn-primary btn-small" type="button" data-print hidden>Print / save as PDF</button>
+      <a class="btn btn-small" href="/resume.pdf">Download the PDF</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <article class="resume" aria-labelledby="cv-name">
+    <header class="cv-top">
+      <div>
+        <h1 id="cv-name">{{ r.name }}, <span>{{ r.credential }}</span></h1>
+        <p class="cv-headline">{{ r.headline }}</p>
+      </div>
+      <ul class="cv-contact">
+        <li>{{ r.location }}</li>
+        <li><a href="{{ r.linkedin }}" rel="noopener">{{ r.linkedinLabel }}</a></li>
+        <li class="screen-only"><a href="/#contact">Contact form</a> · <a href="/contact.vcf">vCard</a></li>
+        <li class="print-only">{{ "/resume.html" | absUrl | replace("https://", "") }}</li>
+      </ul>
+    </header>
+
+    <section class="cv-sec" aria-labelledby="cv-summary">
+      <h2 id="cv-summary">Professional summary</h2>
+      <p>{{ r.summary }}</p>
+    </section>
+
+    <section class="cv-sec" aria-labelledby="cv-exp">
+      <h2 id="cv-exp">Experience</h2>
+      {%- for x in r.experience %}
+      <div class="cv-item">
+        <div class="cv-row"><h3>{{ x.role }}</h3><p class="cv-when"><time datetime="{{ x.start }}">{{ x.dates.split(" – ")[0] }}</time> – {% if x.end %}<time datetime="{{ x.end }}">{{ x.dates.split(" – ")[1] }}</time>{% else %}Present{% endif %}</p></div>
+        <div class="cv-row cv-sub"><p>{{ x.org }} – {{ x.orgType }}</p><p>{{ x.location }}</p></div>
+        <ul>{% for p in x.points %}<li>{{ p }}</li>{% endfor %}</ul>
+      </div>
+      {%- endfor %}
+    </section>
+
+    <section class="cv-sec" aria-labelledby="cv-proj">
+      <h2 id="cv-proj">Selected projects</h2>
+      {%- for x in r.projects %}
+      <div class="cv-item">
+        <div class="cv-row"><h3>{{ x.name }}</h3><p class="cv-when">{{ x.dates }}</p></div>
+        <ul>{% for p in x.points %}<li>{{ p }}</li>{% endfor %}</ul>
+      </div>
+      {%- endfor %}
+    </section>
+
+    <div class="cv-cols">
+      <section class="cv-sec" aria-labelledby="cv-edu">
+        <h2 id="cv-edu">Education</h2>
+        {%- for d in r.education.degrees %}
+        <div class="cv-row"><h3>{{ d.name }}</h3><p class="cv-when">{{ d.year }}</p></div>
+        {%- endfor %}
+        <p class="cv-sub-line">{{ r.education.school }}, {{ r.education.location }}</p>
+        <p class="cv-sub-line">{{ r.education.honors }}</p>
+      </section>
+      <section class="cv-sec" aria-labelledby="cv-lic">
+        <h2 id="cv-lic">Licensure</h2>
+        {%- for l in r.licensure %}
+        <div class="cv-row"><h3>{{ l.name }}</h3></div>
+        <p class="cv-sub-line">{{ l.detail }}</p>
+        {%- endfor %}
+      </section>
+    </div>
+
+    <section class="cv-sec" aria-labelledby="cv-skills">
+      <h2 id="cv-skills">Skills</h2>
+      <dl class="cv-skills">
+        {%- for s in r.skills %}
+        <div><dt>{{ s.group }}</dt><dd>{{ s.items | join(", ") }}</dd></div>
+        {%- endfor %}
+      </dl>
+    </section>
+  </article>
+  <p class="resume-foot">Civil work was performed as a designer and Engineer Intern under the responsible charge of licensed Professional Engineers.</p>
+</div>
