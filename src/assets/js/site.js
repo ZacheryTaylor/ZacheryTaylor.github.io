@@ -10,12 +10,13 @@
   var toggle = doc.querySelector(".nav-toggle");
   var menu = doc.getElementById("nav-menu");
   if (toggle && menu) {
-    var mq = window.matchMedia("(max-width: 840px)");
+    var mq = window.matchMedia("(max-width: 840px), (max-height: 500px) and (pointer: coarse)");
     var setOpen = function (open, returnFocus) {
       toggle.setAttribute("aria-expanded", String(open));
       toggle.querySelector(".nav-toggle-label").textContent = open ? "Close" : "Menu";
       menu.classList.toggle("is-open", open);
-      doc.body.classList.toggle("menu-open", open);
+      // lock page scroll (class on <html> so iOS Safari honours overflow:hidden)
+      doc.documentElement.classList.toggle("menu-open", open);
       if (open) {
         var first = menu.querySelector("a");
         if (first) first.focus();
@@ -29,6 +30,22 @@
     menu.addEventListener("click", function (e) {
       if (e.target.closest("a")) setOpen(false);
     });
+    // Tap/click anywhere outside the panel (scrim, header, page) closes it;
+    // the Menu button and theme toggle keep their own behaviour. Handlers are
+    // bound on the scrim and header themselves as well as the document, because
+    // iOS Safari doesn't fire click for taps on non-interactive elements unless
+    // the element (or an ancestor below <body>) has a click listener.
+    var outside = function (e) {
+      if (!menu.classList.contains("is-open")) return;
+      var t = e.target;
+      if (menu.contains(t) || toggle.contains(t) || (t.closest && t.closest(".theme-toggle"))) return;
+      setOpen(false);
+    };
+    var scrim = doc.querySelector(".nav-scrim");
+    if (scrim) scrim.addEventListener("click", outside);
+    var header = doc.querySelector(".site-nav");
+    if (header) header.addEventListener("click", outside);
+    doc.addEventListener("click", outside);
     doc.addEventListener("keydown", function (e) {
       if (!menu.classList.contains("is-open")) return;
       if (e.key === "Escape") { setOpen(false, true); return; }
@@ -41,6 +58,11 @@
       }
     });
     mq.addEventListener("change", function () { if (!mq.matches) setOpen(false); });
+    // Older iOS ignores overflow:hidden for touch scrolling: block touch-scrolls
+    // that start outside the menu panel while it is open.
+    doc.addEventListener("touchmove", function (e) {
+      if (menu.classList.contains("is-open") && !menu.contains(e.target)) e.preventDefault();
+    }, { passive: false });
   }
 
   /* ---------- Native <dialog> modals ---------- */
