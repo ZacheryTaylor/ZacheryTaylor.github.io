@@ -41,6 +41,8 @@
 <link rel="preload" href="/assets/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/dm-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>{{ ["assets/css/site.css"].concat(extraCss or []) | inlineCss | safe }}</style>
+{#- Symbols font, registered synchronously (FontFace from bytes is ready at once): no system font-fallback search during the first layout. See src/assets/fonts-src/README-zt-symbols.txt -#}
+<script>(function(){try{var s=atob("{{ symbolsFont.base64 }}"),a=new Uint8Array(s.length);for(var i=0;i<s.length;i++)a[i]=s.charCodeAt(i);document.fonts.add(new FontFace("{{ symbolsFont.family }}",a.buffer,{unicodeRange:"{{ symbolsFont.unicodeRange }}"}))}catch(e){}})();</script>
 <script>(function(d){d.classList.replace("no-js","js");var t;try{t=localStorage.getItem("zt-theme")}catch(e){}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==="dark"?"#0d1823":"#f3f0e8"})(document.documentElement);</script>
 {%- include "partials/jsonld.njk" %}
 {%- if site.goatcounter %}

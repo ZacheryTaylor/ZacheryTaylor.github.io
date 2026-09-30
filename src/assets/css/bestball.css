@@ -120,7 +120,7 @@
 .bestball-item h3 {
   margin-bottom: 8px;
   color: var(--ink);
-  font-family: "DM Sans", system-ui, sans-serif;
+  font-family: "DM Sans", "ZT Symbols", system-ui, sans-serif;
   font-size: clamp(1.08rem, 2.2vw, 1.28rem);
   font-weight: 800;
   line-height: 1.25;
