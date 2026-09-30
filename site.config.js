@@ -46,8 +46,13 @@ export default {
   // GoatCounter analytics: the "code" part of https://CODE.goatcounter.com
   goatcounter: "",
 
-  // Formspree contact form: the form id from https://formspree.io/f/XXXXXXX
-  formspree: "",
+  // Contact form backend ("Send a message"), free tier. Paste ONE value in `key`:
+  //   provider "web3forms" -> key = the Access Key Web3Forms emails you (free, 250/month).
+  //                           It's public by design (it can only send mail TO you), so it's
+  //                           fine in this file. https://web3forms.com
+  //   provider "formspree" -> key = the form id from https://formspree.io/f/XXXXXXX (free, 50/month)
+  // Empty key = the form opens the visitor's email app with the message pre-filled.
+  contactForm: { provider: "web3forms", key: "" },
 
   // Book email list. provider: "buttondown" | "kit"
   //   buttondown -> id = your Buttondown username

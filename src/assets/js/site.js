@@ -193,35 +193,58 @@
     if (img) { if (img.complete) ratio(); else img.addEventListener("load", ratio); }
   });
 
-  /* ---------- Forms: work with a service when configured, email fallback otherwise ---------- */
+  /* ---------- Forms: work with a service when configured, email fallback otherwise ----------
+     Configured (site.config.js): POST in place (Web3Forms / Formspree / newsletter).
+     Not configured, or the service fails: open the visitor's email app, message pre-filled,
+     so nothing they typed is lost. Honeypot fields (_gotcha, botcheck) drop bot submissions. */
   doc.querySelectorAll("form[data-fallback-email]").forEach(function (form) {
     var status = form.querySelector(".form-status");
+    var btn = form.querySelector('[type="submit"]');
+    var mailto = function (data) {
+      var subject = form.getAttribute("data-subject") || "Hello from your website";
+      var lines = [];
+      data.forEach(function (v, k) { if (k.charAt(0) !== "_" && k !== "botcheck" && k !== "access_key" && k !== "subject" && k !== "from_name" && v) lines.push(k.charAt(0).toUpperCase() + k.slice(1) + ": " + v); });
+      return "mailto:" + form.getAttribute("data-fallback-email") +
+        "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n\n"));
+    };
+    var say = function (text, link) {
+      if (!status) return;
+      status.textContent = text;
+      if (link) {
+        var a = doc.createElement("a");
+        a.href = link; a.textContent = "Send it by email instead";
+        status.appendChild(doc.createTextNode(" ")); status.appendChild(a);
+      }
+    };
     form.addEventListener("submit", function (e) {
       var configured = form.getAttribute("data-configured") === "true";
       var data = new FormData(form);
-      if (data.get("_gotcha")) { e.preventDefault(); return; } // honeypot
+      if (data.get("_gotcha") || data.get("botcheck")) { e.preventDefault(); return; } // honeypot: drop silently
       if (!configured) {
         e.preventDefault();
-        var subject = form.getAttribute("data-subject") || "Hello from your website";
-        var lines = [];
-        data.forEach(function (v, k) { if (k.charAt(0) !== "_" && v) lines.push(k.charAt(0).toUpperCase() + k.slice(1) + ": " + v); });
-        window.location.href = "mailto:" + form.getAttribute("data-fallback-email") +
-          "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n\n"));
-        if (status) status.textContent = "Opening your email app…";
+        window.location.href = mailto(data);
+        say("Opening your email app…");
         return;
       }
       if (form.getAttribute("data-ajax") === "true" && window.fetch) {
         e.preventDefault();
-        if (status) status.textContent = "Sending…";
+        say("Sending…");
+        if (btn) btn.disabled = true;
+        data.delete("_gotcha"); data.delete("botcheck");
         fetch(form.action, { method: "POST", body: data, headers: { Accept: "application/json" } })
           .then(function (r) {
-            if (!r.ok) throw new Error(String(r.status));
+            return r.json().catch(function () { return {}; }).then(function (j) {
+              if (!r.ok || j.success === false) throw new Error(j.message || String(r.status));
+            });
+          })
+          .then(function () {
             form.reset();
-            if (status) status.textContent = form.getAttribute("data-success") || "Thanks — sent.";
+            say(form.getAttribute("data-success") || "Thanks — sent.");
           })
           .catch(function () {
-            if (status) status.textContent = "Something went wrong. Please email " + form.getAttribute("data-fallback-email") + ".";
-          });
+            say("Sorry, that didn't go through.", mailto(data));
+          })
+          .then(function () { if (btn) btn.disabled = false; });
       }
     });
   });

@@ -1,9 +1,15 @@
-{#- Contact form. Configure in site.config.js -> formspree. Without it, submits open a pre-filled email. -#}
-{%- set fsConfigured = site.formspree -%}
-<form class="form card" method="post"
-      {%- if fsConfigured %} action="https://formspree.io/f/{{ site.formspree }}"{% endif %}
+{#- Contact form ("Send a message"). Configure in site.config.js -> contactForm { provider, key }.
+    With a key it posts to Web3Forms or Formspree (JS: in place, no page change; no JS: the
+    provider's own thank-you page). Without a key, or if sending fails, the visitor's email app
+    opens with the message pre-filled (mailto fallback). Honeypot fields stop simple bots. -#}
+{%- set cf = site.contactForm or {} -%}
+{%- set cfKey = cf.key | trim -%}
+{%- set isW3F = cf.provider == "web3forms" -%}
+{%- set cfAction = ("https://api.web3forms.com/submit" if isW3F else "https://formspree.io/f/" + cfKey) if cfKey else "" -%}
+<form class="form card contact-form" method="post"
+      {%- if cfAction %} action="{{ cfAction }}"{% endif %}
       data-fallback-email="{{ site.author.email }}" data-subject="Hello from your website"
-      data-configured="{{ 'true' if fsConfigured else 'false' }}" data-ajax="true"
+      data-configured="{{ 'true' if cfAction else 'false' }}" data-ajax="true"
       data-success="Thanks — your message is on its way. I'll reply by email.">
   <h3>Send a message</h3>
   <div class="form-row">
@@ -11,10 +17,20 @@
     <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
   </div>
   <div class="field"><label for="c-msg">Message</label><textarea id="c-msg" name="message" required></textarea></div>
+  {%- if cfAction and isW3F %}
+  <input type="hidden" name="access_key" value="{{ cfKey }}">
+  <input type="hidden" name="subject" value="Website message">
+  <input type="hidden" name="from_name" value="{{ site.author.name }} website">
+  {%- else %}
   <input type="hidden" name="_subject" value="Website message">
-  <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+  {%- endif %}
+  {#- Honeypots: invisible to people (and screen readers); bots fill every field. -#}
+  <div class="hp" aria-hidden="true">
+    <label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+    <label>Don't tick this <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label>
+  </div>
   <div class="btn-row"><button class="btn btn-primary" type="submit">Send message</button></div>
   <p class="form-note">Prefer email? <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
-    {%- if not fsConfigured and site.isStaging %} <span class="pending-badge" title="Set site.config.js → formspree">Form backend pending — Formspree account</span>{% endif %}</p>
+    {%- if not cfAction and site.isStaging %} <span class="pending-badge" title="Set site.config.js → contactForm.key">Form backend pending — one free key</span>{% endif %}</p>
   <p class="form-status" role="status" aria-live="polite"></p>
 </form>

@@ -147,6 +147,28 @@ quotes are still in the deck, the source filter and the downloads.
 Not derived from the data: the phrase "more than a hundred books" (index, Life & Interests,
 the quote-bank project page). It's Zach's own wording, so change it by hand if you want.
 
+## Turning on the contact form (free, one value)
+
+"Send a message" works today by opening the visitor's email app with their message
+pre-filled. To have it send in place and land in the inbox instead (no subscription):
+
+1. Go to **https://web3forms.com**, enter `zach811taylor@gmail.com` under "Create your
+   Access Key", and confirm the email they send. They email you an **Access Key** (a long
+   code like `a1b2c3d4-…`). About 3 minutes; no password or card.
+2. On github.com, edit **`site.config.js`**, find
+   `contactForm: { provider: "web3forms", key: "" },` and paste the key between the
+   quotes. Commit to `main`. About 2 minutes; the site rebuilds by itself.
+3. Send yourself a test from the staging site's form. The first one can land in spam:
+   mark it "Not spam" once. Replying to the notification replies to the visitor.
+
+The key is meant to be public (it can only send mail **to** you), so it's fine in the repo.
+Free plan: 250 messages a month, emails carry a small Web3Forms footer, 30 days of history
+in their dashboard. Spam protection: two hidden honeypot fields, dropped before sending.
+Their captcha (hCaptcha) is optional and not added, which keeps the page fast.
+If Web3Forms ever fails, the visitor gets "Send it by email instead", with their message
+still filled in. Formspree also works: `provider: "formspree"`, `key` = the form id
+(free: 50 a month).
+
 ## The one config file: `site.config.js`
 
 | Setting | What it does |
@@ -155,7 +177,7 @@ the quote-bank project page). It's Zach's own wording, so change it by hand if y
 | `indexable` | `false` on staging (noindex), `true` automatically when built from the live repo. Override with env `SITE_INDEXABLE`. |
 | `monogram` | `"n1"` (selected: N1 · Ligature). Other explored keys: `"a"`–`"k"`, `"i1"`–`"i8"`, `"l1"`–`"l6"`, `"n2"`–`"n8"` — swaps the nav mark, footer mark, and all favicons. Options with a `lockup-<key>.svg` (currently G) use that horizontal lockup in the nav. See `/brand.html`; regenerate the SVGs with `scripts/make-monograms*.mjs` (round 3 also writes one-colour `monogram-<key>-mono.svg` files). |
 | `goatcounter` | GoatCounter site code → enables the privacy-friendly analytics snippet. Empty = off. |
-| `formspree` | Formspree form id → the contact form posts there. Empty = the form opens a pre-filled email instead. |
+| `contactForm` | `{ provider: "web3forms" \| "formspree", key }` → the contact form posts there (see *Turning on the contact form*). Empty key = the form opens a pre-filled email instead. |
 | `newsletter` | `{ provider: "buttondown" \| "kit", id }` → the book email sign-up posts to that list. Empty = opens a pre-filled email. |
 
 On staging, anything not yet configured shows a small dashed **“pending”** badge so it's easy to spot.
