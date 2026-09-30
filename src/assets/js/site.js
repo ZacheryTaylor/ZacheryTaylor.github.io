@@ -65,6 +65,30 @@
     }, { passive: false });
   }
 
+  /* ---------- Back to top ---------- */
+  // Shown only once the reader has scrolled past the first full viewport.
+  var toTop = doc.querySelector(".to-top");
+  if (toTop) {
+    toTop.hidden = false;
+    var ticking = false;
+    var update = function () {
+      ticking = false;
+      var show = (window.scrollY || doc.documentElement.scrollTop) > window.innerHeight;
+      toTop.classList.toggle("is-visible", show);
+    };
+    var onScroll = function () { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    update();
+    toTop.addEventListener("click", function () {
+      // "auto" follows CSS, which is scroll-behavior:auto (instant) under reduced motion
+      window.scrollTo({ top: 0, left: 0, behavior: reduceMotion ? "auto" : "smooth" });
+      // hand focus back to the top of the document (skip link) without a second jump
+      var target = doc.querySelector(".skip-link") || doc.getElementById("main");
+      if (target) target.focus({ preventScroll: true });
+    });
+  }
+
   /* ---------- Native <dialog> modals ---------- */
   var openers = [];
   function hydrate(dialog) {

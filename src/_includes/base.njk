@@ -12,6 +12,7 @@
 </main>
 {% include "partials/footer.njk" %}
 {%- if site.isStaging %}<p class="staging-flag" aria-hidden="true">STAGING PREVIEW</p>{% endif %}
+<button class="to-top" type="button" aria-label="Back to top" title="Back to top" hidden><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14.5l6-6 6 6"/></svg></button>
 <script src="/assets/js/site.js" defer></script>
 {%- for s in scripts or [] %}
 <script src="{{ s }}" defer></script>
