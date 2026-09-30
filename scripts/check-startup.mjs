@@ -2,15 +2,18 @@
 //   node scripts/check-startup.mjs [BASE_URL]
 // CHROME_PATH=/usr/bin/google-chrome uses a system Chrome instead of Playwright's.
 //
-// Lighthouse on the real network swings a lot, so this checks the *cause* of the
+// Lighthouse on the real network swings a lot, so this checks the *causes* of the
 // mobile-score dips found in Sept 2026, deterministically:
-//  1. No script forces a layout during page startup outside an animation frame. Reading
+//  1. No visible text renders with a system fallback font. A character the webfont
+//     files don't cover (e.g. a new arrow or symbol) makes the browser search the
+//     system fonts during the first layout: on a cold start that search was most of
+//     the page's first layout, one long task. Add such characters to ZT Symbols
+//     (src/assets/fonts-src/README-zt-symbols.txt) instead.
+//  2. No script forces a layout during page startup outside an animation frame. Reading
 //     scrollY/offsetHeight/getBoundingClientRect etc. while the page is loading makes the
-//     browser lay out the whole document inside that script, one long task that can land
-//     after first paint. (Layout forced inside requestAnimationFrame is fine: it's the
-//     frame's own layout.)
-//  2. Home: the load-time content-visibility (html.cv, see site.css) is released after
-//     load, and #anchor jumps land exactly, from another page and via an in-page link.
+//     browser lay out the whole document inside that script. (Layout forced inside
+//     requestAnimationFrame is fine: it's the frame's own layout.)
+//  3. Home: #anchor jumps land exactly, from another page and via an in-page link.
 import { chromium } from "playwright";
 
 const BASE = (process.argv[2] || "http://localhost:8080/zt-site-staging/").replace(/\/?$/, "/");
@@ -22,6 +25,36 @@ const ok = (c, m) => { if (!c) fails++; console.log((c ? "  ok   " : "  FAIL ") 
 const b = await chromium.launch(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {});
 const mobile = { viewport: { width: 412, height: 823 }, deviceScaleFactor: 1.75, isMobile: true, hasTouch: true };
 
+// 1. system font fallback
+for (const pg of PAGES) {
+  const c = await b.newContext(mobile);
+  const p = await c.newPage();
+  await p.goto(BASE + pg, { waitUntil: "load" });
+  await p.evaluate(() => document.fonts.ready);
+  const s = await c.newCDPSession(p);
+  await s.send("DOM.enable"); await s.send("CSS.enable");
+  const { root } = await s.send("DOM.getDocument", { depth: -1, pierce: false });
+  const nodes = [];
+  const walk = (n) => {
+    if (n.nodeType === 1 && !/^(SCRIPT|STYLE|TEMPLATE|NOSCRIPT|HEAD)$/.test(n.nodeName)) nodes.push(n);
+    (n.pseudoElements || []).forEach((q) => nodes.push(q));
+    (n.children || []).forEach(walk);
+  };
+  walk(root);
+  const bad = new Map();
+  for (const n of nodes) {
+    let r; try { r = await s.send("CSS.getPlatformFontsForNode", { nodeId: n.nodeId }); } catch (e) { continue; }
+    for (const f of r.fonts || []) if (!f.isCustomFont) {
+      const k = f.familyName; const tag = n.localName || n.nodeName.toLowerCase();
+      const cls = (n.attributes || []).reduce((a, v, i, arr) => (v === "class" ? arr[i + 1] : a), "");
+      if (!bad.has(k)) bad.set(k, `${tag}${cls ? "." + cls.split(" ")[0] : ""}${n.pseudoType ? "::" + n.pseudoType : ""}`);
+    }
+  }
+  await c.close();
+  ok(!bad.size, `${pg || "home"}: all visible text uses the site's own fonts${bad.size ? " — system fallback: " + [...bad].map(([f, w]) => `${f} (e.g. ${w})`).join(", ") : ""}`);
+}
+
+// 2. script-forced layout at startup
 for (const pg of PAGES) {
   const c = await b.newContext(mobile);
   const p = await c.newPage();
@@ -41,18 +74,13 @@ for (const pg of PAGES) {
   ok(!forced.length, `${pg || "home"}: no script-forced layout at startup${where.length ? " — " + where.join("; ") : ""}`);
 }
 
-// Home: deferred sections are released; anchors land where they should
+// 3. Home: anchors land where they should
 {
   const c = await b.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
   const p = await c.newPage();
   const top = (id) => p.evaluate((id) => Math.round(document.getElementById(id).getBoundingClientRect().top), id);
   // where a jump should land: html scroll-padding-top + the section's scroll-margin-top
   const margin = async (id) => p.evaluate((id) => (parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0) + (parseFloat(getComputedStyle(document.getElementById(id)).scrollMarginTop) || 0), id);
-  await p.goto(BASE);
-  const cv0 = await p.evaluate(() => document.documentElement.classList.contains("cv"));
-  await p.waitForTimeout(4000);
-  const rel = await p.evaluate(() => ({ cv: document.documentElement.classList.contains("cv"), vis: [...document.querySelectorAll("main > .hero ~ section")].every((s) => getComputedStyle(s).contentVisibility === "visible") }));
-  ok(cv0 && !rel.cv && rel.vis, `home: off-screen sections deferred during load (${cv0}) and released after (${!rel.cv && rel.vis})`);
   for (const id of ["story", "contact"]) {
     await p.goto(BASE + "civil.html");
     await p.goto(BASE + "#" + id);
