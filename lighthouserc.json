@@ -12,7 +12,6 @@
         "http://localhost:8080/zt-site-staging/now.html",
         "http://localhost:8080/zt-site-staging/bookshelf.html",
         "http://localhost:8080/zt-site-staging/notes/",
-        "http://localhost:8080/zt-site-staging/tools/rational-method.html",
         "http://localhost:8080/zt-site-staging/resume.html"
       ],
       "numberOfRuns": 3,

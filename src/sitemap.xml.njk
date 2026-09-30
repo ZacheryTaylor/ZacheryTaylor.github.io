@@ -4,7 +4,8 @@ eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{%- for item in collections.all %}{% if not item.data.noSitemap %}
+{#- the Notes index stays out of the sitemap until a note is published #}
+{%- for item in collections.all %}{% if not item.data.noSitemap and not (item.url == "/notes/" and not collections.notes.length) %}
   <url>
     <loc>{{ item.url | replace("/index.html", "/") | absUrl }}</loc>
     <lastmod>{{ site.buildTime | isoDate }}</lastmod>

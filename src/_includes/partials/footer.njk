@@ -17,9 +17,8 @@
             <li><a href="/personal.html">Life &amp; Interests</a></li>
             <li><a href="/book.html">The Book</a></li>
             <li><a href="/now.html">Now</a></li>
-            <li><a href="/notes/">Notes</a></li>
+            {%- if collections.notes.length %}<li><a href="/notes/">Notes</a></li>{% endif %}
             <li><a href="/bookshelf.html">Bookshelf</a></li>
-            <li><a href="/tools/rational-method.html">Q = CiA tool</a></li>
             <li><a href="/resume.html">Résumé</a></li>
             <li><a href="{{ site.author.linkedin }}" rel="noopener">LinkedIn</a></li>
           </ul>
