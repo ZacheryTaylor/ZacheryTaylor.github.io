@@ -222,7 +222,8 @@ Graph and quote-download links all follow automatically.
 **Keep live a straight copy of staging.** Don't commit directly to the live repo. If someone
 does, the ancestry check fails: run `git merge live/main` on staging, push it to staging
 first, then promote. The old URLs (`/academic.html`, `/personal.html`, `/bestball.html`,
-`/resume.pdf`, `/contact.vcf`, `/pdfs/academic/…`) still work. The other project sites
+`/resume.pdf`, `/contact.vcf`, `/pdfs/academic/…`, and the original photos at `/images/…`,
+copied as-is from `src/images`) still work. The other project sites
 (`/dwts-draft/`, `/bet-tracker/`) are separate repos and unaffected. `/brand.html` (the
 monogram options) is published but noindex; delete `src/brand.njk` to remove it.
 

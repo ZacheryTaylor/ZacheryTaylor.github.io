@@ -54,8 +54,11 @@ export default function (eleventyConfig) {
     "node_modules/@fontsource/instrument-serif/files/instrument-serif-latin-400-normal.woff2": "assets/fonts/instrument-serif-latin-400-normal.woff2",
     "node_modules/@fontsource/instrument-serif/files/instrument-serif-latin-400-italic.woff2": "assets/fonts/instrument-serif-latin-400-italic.woff2",
   });
-  // Original, full-resolution images stay in src/images (the archive);
-  // only optimized derivatives from the image pipeline are published.
+  // Original, full-resolution images stay in src/images (the archive). New pages only
+  // use the optimized derivatives from the image pipeline (/img/…). The originals are
+  // also copied, byte for byte, to their pre-2026 URLs (/images/…) so old external links
+  // keep working. Plain copies: nothing links to or preloads them, so pages don't get heavier.
+  eleventyConfig.addPassthroughCopy({ "src/images": "images" });
   eleventyConfig.ignores.add("src/images/**");
   eleventyConfig.ignores.add("src/assets/**");
   eleventyConfig.ignores.add("src/pdfs/**");
