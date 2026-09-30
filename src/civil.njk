@@ -55,9 +55,16 @@ sheetTitle: "Civil work — projects & history"
       {%- endfor %}
     </div>
     <div class="history-foot">
-      <ul class="cred-list">
-        {%- for c in civil.credentials %}<li><strong>{{ c.label }}</strong><span>{{ c.detail }}</span></li>{% endfor %}
-      </ul>
+      <div class="cred-groups">
+        {%- for g in civil.credentialGroups %}
+        <section class="cred-group" aria-labelledby="cred-{{ g.label | slugify }}">
+          <h3 class="cred-h" id="cred-{{ g.label | slugify }}">{{ g.label }}</h3>
+          <ol class="cred-list{% if g.path %} cred-list--path{% endif %}">
+            {%- for c in g.items %}<li><strong>{{ c.label }}</strong><span>{{ c.detail }}</span></li>{% endfor %}
+          </ol>
+        </section>
+        {%- endfor %}
+      </div>
       <dl class="software-line">
         {%- for group, items in civil.tools %}<div><dt>{{ group }}</dt><dd>{{ items | join(" · ") }}</dd></div>{% endfor %}
       </dl>

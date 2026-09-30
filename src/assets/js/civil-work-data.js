@@ -127,10 +127,23 @@ const civilWork = {
     { sheet: "CS-03", type: "Municipal utilities", title: "" }
   ],
 
-  credentials: [
-    { label: "Engineer Intern (EI)", detail: "FE exam passed December 2025" },
-    { label: "Civil PE exam", detail: "Scheduled January 2027" },
-    { label: "B.S. Mechanical Engineering", detail: "University of West Florida, 2026" },
-    { label: "B.S. Mathematics, minor in Statistics", detail: "University of West Florida, 2020" }
+  // Two labelled groups on the Civil Work page (side by side on desktop).
+  // Licensure is in path order (EI -> PE); Education is newest first.
+  credentialGroups: [
+    {
+      label: "Licensure",
+      path: true,
+      items: [
+        { label: "Engineer Intern (EI)", detail: "FE exam passed December 2025" },
+        { label: "Civil PE exam", detail: "Scheduled January 2027" }
+      ]
+    },
+    {
+      label: "Education",
+      items: [
+        { label: "B.S. Mechanical Engineering", detail: "University of West Florida, 2026" },
+        { label: "B.S. Mathematics, minor in Statistics", detail: "University of West Florida, 2020" }
+      ]
+    }
   ]
 };
