@@ -65,37 +65,6 @@
     }, { passive: false });
   }
 
-  /* ---------- Home: release the load-time content-visibility (see site.css) ---------- */
-  // One section per idle slot keeps each layout small; an in-page # link, a hash change or
-  // printing releases everything at once so anchors land exactly where they should.
-  if (doc.documentElement.classList.contains("cv")) {
-    var cvSecs = [].slice.call(doc.querySelectorAll("main > .hero ~ section"));
-    var cvAll = function () {
-      if (!doc.documentElement.classList.contains("cv")) return;
-      doc.documentElement.classList.remove("cv");
-      doc.removeEventListener("click", cvClick, true);
-    };
-    var cvClick = function (e) {
-      var a = e.target.closest && e.target.closest("a[href*='#']");
-      if (a && a.pathname === location.pathname) cvAll();
-    };
-    doc.addEventListener("click", cvClick, true);
-    window.addEventListener("hashchange", cvAll);
-    window.addEventListener("beforeprint", cvAll);
-    if (!cvSecs.length) cvAll();
-    else {
-      var idle = window.requestIdleCallback ? function (f) { requestIdleCallback(f, { timeout: 2000 }); } : function (f) { setTimeout(f, 120); };
-      var cvNext = function () {
-        var sec = cvSecs.shift();
-        if (!sec || !doc.documentElement.classList.contains("cv")) return cvAll();
-        sec.classList.add("cv-done");
-        if (cvSecs.length) idle(cvNext); else idle(cvAll);
-      };
-      var cvStart = function () { idle(cvNext); };
-      if (doc.readyState === "complete") cvStart(); else window.addEventListener("load", cvStart, { once: true });
-    }
-  }
-
   /* ---------- Back to top ---------- */
   // Shown only once the reader has scrolled past the first full viewport.
   var toTop = doc.querySelector(".to-top");
