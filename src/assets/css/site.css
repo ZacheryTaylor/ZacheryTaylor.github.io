@@ -581,6 +581,8 @@ dialog.gallery-modal .modal-close:hover { background: var(--bronze-light); }
 .field textarea { min-height: 130px; resize: vertical; }
 .field input:focus, .field textarea:focus { outline: none; border-color: var(--blueprint); box-shadow: 0 0 0 3px rgba(10,79,156,0.18); }
 .hp { position: absolute; left: -9999px; }
+.captcha-slot { min-height: 78px; margin: 2px 0 16px; }
+.captcha-slot.is-compact { min-height: 144px; }
 .inline-form { display: flex; gap: 10px; }
 .inline-form input { flex: 1; min-width: 0; }
 .form-note { color: var(--grey-text); font-size: 0.8rem; }

@@ -200,10 +200,47 @@
   doc.querySelectorAll("form[data-fallback-email]").forEach(function (form) {
     var status = form.querySelector(".form-status");
     var btn = form.querySelector('[type="submit"]');
+    // hCaptcha (contact form + Web3Forms): loaded only when the form nears the viewport
+    // or gets focus, so it costs nothing on page load. Light/dark follows the site theme.
+    var cap = form.querySelector(".captcha-slot"), capId = null, capState = "";
+    var capTheme = function () { return doc.documentElement.dataset.theme === "dark" ? "dark" : "light"; };
+    var capRender = function () {
+      if (!window.hcaptcha || !cap) return;
+      if (capId !== null) { try { window.hcaptcha.remove(capId); } catch (e) {} }
+      cap.textContent = "";
+      capId = window.hcaptcha.render(cap.appendChild(doc.createElement("div")), {
+        sitekey: cap.getAttribute("data-sitekey"), theme: capTheme(),
+        size: cap.classList.contains("is-compact") ? "compact" : "normal"
+      });
+      cap.setAttribute("data-theme", capTheme());
+    };
+    var capLoad = function () {
+      if (!cap || capState) return;
+      capState = "loading";
+      cap.classList.toggle("is-compact", cap.clientWidth < 304); // reserve the widget's height now
+      window.ztCaptchaReady = function () { capState = "ready"; capRender(); };
+      var s = doc.createElement("script");
+      s.src = "https://js.hcaptcha.com/1/api.js?render=explicit&onload=ztCaptchaReady&recaptchacompat=off";
+      s.async = true;
+      s.onerror = function () { capState = "failed"; };
+      doc.head.appendChild(s);
+    };
+    if (cap) {
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (en) { if (en.some(function (x) { return x.isIntersecting; })) { io.disconnect(); capLoad(); } }, { rootMargin: "300px 0px" });
+        io.observe(form);
+      }
+      form.addEventListener("focusin", capLoad);
+      // re-draw in the new theme if it hasn't been ticked yet
+      new MutationObserver(function () {
+        if (capState === "ready" && cap.getAttribute("data-theme") !== capTheme() && !(window.hcaptcha.getResponse(capId))) capRender();
+      }).observe(doc.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    }
     var mailto = function (data) {
       var subject = form.getAttribute("data-subject") || "Hello from your website";
       var lines = [];
-      data.forEach(function (v, k) { if (k.charAt(0) !== "_" && k !== "botcheck" && k !== "access_key" && k !== "subject" && k !== "from_name" && v) lines.push(k.charAt(0).toUpperCase() + k.slice(1) + ": " + v); });
+      var skip = ["botcheck", "access_key", "subject", "from_name", "h-captcha-response", "g-recaptcha-response"];
+      data.forEach(function (v, k) { if (k.charAt(0) !== "_" && skip.indexOf(k) === -1 && v) lines.push(k.charAt(0).toUpperCase() + k.slice(1) + ": " + v); });
       return "mailto:" + form.getAttribute("data-fallback-email") +
         "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n\n"));
     };
@@ -226,6 +263,13 @@
         say("Opening your email app…");
         return;
       }
+      if (cap && !data.get("h-captcha-response")) {
+        e.preventDefault();
+        capLoad();
+        if (capState === "failed") say("The spam check didn't load.", mailto(data));
+        else say("Please tick \u201CI am human\u201D above, then send.");
+        return;
+      }
       if (form.getAttribute("data-ajax") === "true" && window.fetch) {
         e.preventDefault();
         say("Sending…");
@@ -244,7 +288,10 @@
           .catch(function () {
             say("Sorry, that didn't go through.", mailto(data));
           })
-          .then(function () { if (btn) btn.disabled = false; });
+          .then(function () {
+            if (btn) btn.disabled = false;
+            if (cap && window.hcaptcha && capId !== null) { try { window.hcaptcha.reset(capId); } catch (e) {} } // tokens are single-use
+          });
       }
     });
   });

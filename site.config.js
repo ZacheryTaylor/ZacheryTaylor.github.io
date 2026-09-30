@@ -52,7 +52,10 @@ export default {
   //                           fine in this file. https://web3forms.com
   //   provider "formspree" -> key = the form id from https://formspree.io/f/XXXXXXX (free, 50/month)
   // Empty key = the form opens the visitor's email app with the message pre-filled.
-  contactForm: { provider: "web3forms", key: "" },
+  // hcaptcha: true adds Web3Forms' free hCaptcha "I am human" check (web3forms only),
+  // loaded only when the form comes into view. Turn it on as the spam option in the
+  // Web3Forms dashboard too, so the check is enforced on their side.
+  contactForm: { provider: "web3forms", key: "9bee6a74-287b-45e6-9ea1-82d17a794cc7", hcaptcha: true },
 
   // Book email list. provider: "buttondown" | "kit"
   //   buttondown -> id = your Buttondown username
