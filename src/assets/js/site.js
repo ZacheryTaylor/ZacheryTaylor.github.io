@@ -79,7 +79,9 @@
     var onScroll = function () { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } };
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll, { passive: true });
-    update();
+    // first check on the next frame: reading scrollY now would force a full-page
+    // layout inside this script, before the browser's own first layout (a long task).
+    onScroll();
     toTop.addEventListener("click", function () {
       // "auto" follows CSS, which is scroll-behavior:auto (instant) under reduced motion
       window.scrollTo({ top: 0, left: 0, behavior: reduceMotion ? "auto" : "smooth" });
@@ -346,8 +348,9 @@
       svg.innerHTML = '<path d="' + d + 'Z"/>';
     };
     clouds.forEach(function (svg) {
-      drawCloud(svg);
+      // ResizeObserver's first callback runs after layout, so no forced reflow here
       if (window.ResizeObserver) new ResizeObserver(function () { drawCloud(svg); }).observe(svg);
+      else drawCloud(svg);
     });
   }
 

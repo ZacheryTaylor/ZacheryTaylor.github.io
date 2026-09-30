@@ -48,11 +48,13 @@
     var shelfBase = shelfLink.href.split("#")[0];
     var self = { deck: [], pos: 0 };
     var ready = opts.ready || Promise.resolve();
+    var textScrolled = false;
+    textEl.addEventListener("scroll", function () { textScrolled = textEl.scrollTop > 0; }, { passive: true });
 
     var paint = function (q) {
       card.setAttribute("data-id", q.id);
       textEl.textContent = "\u201C" + q.quote + "\u201D";
-      textEl.scrollTop = 0;
+      if (textScrolled) { textEl.scrollTop = 0; textScrolled = false; } // a write forces layout: only when needed
       srcEl.textContent = "\u2014 " + q.origin;
       dateEl.textContent = (q.fav ? "\u2605 " : "") + (q.date || "");
       if (q.book) { shelfLink.hidden = false; shelfLink.href = shelfBase + "#book-" + q.book; } else shelfLink.hidden = true;
@@ -97,7 +99,11 @@
       var idx = 0;
       if (keepId) for (var i = 0; i < list.length; i++) if (list[i].id === keepId) { idx = i; break; }
       self.pos = idx;
-      if (list.length && !silent && !timer) paint(list[idx]);
+      // skip the repaint when the card already shows exactly this (e.g. the home card's
+      // build-time quote once the full bank arrives): no DOM writes, no layout
+      var same = list.length && card.getAttribute("data-id") === list[idx].id &&
+        countEl.textContent === (idx + 1) + " / " + list.length;
+      if (list.length && !silent && !timer && !same) paint(list[idx]);
     };
     self.current = function () { return self.deck[self.pos]; };
     // Shuffle = pull a random quote from the deck (on Life & Interests: the current
