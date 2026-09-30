@@ -5,7 +5,10 @@
 <div class="qd-stage" id="{{ p }}-stage">
   <figure class="qd-card" id="{{ p }}-card" data-id="{{ q.id }}" aria-labelledby="{{ p }}-count">
     <div class="qd-card-top">
-      <span class="qd-kicker">Quote <span class="qd-count" id="{{ p }}-count">{{ pos }} / {{ total }}</span></span>
+      <span class="qd-top-l">
+        <span class="qd-kicker">Quote <span class="qd-count" id="{{ p }}-count">{{ pos }} / {{ total }}</span></span>
+        <button type="button" class="qd-order" id="{{ p }}-order" hidden aria-label="Shuffled order: put the deck back in order, newest first">Shuffled <span aria-hidden="true">×</span></button>
+      </span>
       <span class="qd-date">{% if q.favorite %}★ {% endif %}{{ q.date }}</span>
     </div>
     <blockquote class="qd-text" tabindex="0" aria-label="Quote text">“{{ q.quote }}”</blockquote>

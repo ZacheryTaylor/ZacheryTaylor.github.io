@@ -2,12 +2,13 @@
   "name": "zt-site",
   "private": true,
   "type": "module",
-  "description": "Zachery Taylor personal site — Eleventy build",
+  "description": "Zachery Taylor personal site \u2014 Eleventy build",
   "scripts": {
     "build": "eleventy",
     "start": "eleventy --serve",
     "start:drafts": "INCLUDE_DRAFTS=1 eleventy --serve",
-    "brand": "node scripts/make-monograms.mjs"
+    "brand": "node scripts/make-monograms.mjs",
+    "test:shuffle": "node scripts/test-shuffle.mjs"
   },
   "engines": {
     "node": ">=20"
@@ -23,6 +24,7 @@
     "lightningcss": "^1.33.0",
     "opentype.js": "^2.0.0",
     "pdfkit": "^0.15.2",
+    "playwright": "^1.63.0",
     "polygon-clipping": "^0.15.7",
     "sharp": "^0.33.5",
     "terser": "^5.51.2"

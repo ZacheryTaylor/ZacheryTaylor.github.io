@@ -1,5 +1,6 @@
 # Quality gate: every push to main (the staging branch) and every PR into it
-# must build, have zero broken internal links, and score ≥ 95 in Lighthouse
+# must build, have zero broken internal links, pass the quote-deck shuffle
+# test (scripts/test-shuffle.mjs), and score ≥ 95 in Lighthouse
 # Performance, Accessibility and Best Practices (median of 3 mobile runs).
 # SEO isn't gated: staging is deliberately noindex, which caps that score.
 # Thresholds live in lighthouserc.json; the link checker is scripts/check-links.mjs.
@@ -51,6 +52,13 @@ jobs:
           node scripts/serve.mjs 8081 &
           npx --yes wait-on@8 -t 30000 http-get://localhost:8081/zt-site-staging/
           node scripts/check-links.mjs http://localhost:8081/zt-site-staging/ --external
+
+      - name: Quote deck shuffle test (Chromium; run locally with --engines=chromium,webkit)
+        run: |
+          npx playwright install --with-deps chromium
+          node scripts/serve.mjs 8082 &
+          npx --yes wait-on@8 -t 30000 http-get://localhost:8082/zt-site-staging/
+          node scripts/test-shuffle.mjs http://localhost:8082/zt-site-staging/ --engines=chromium
 
       - name: Lighthouse CI (fails below 95 perf / a11y / best practices)
         run: npx --yes @lhci/cli@0.15.1 autorun

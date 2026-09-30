@@ -652,6 +652,13 @@ dialog.gallery-modal .modal-close:hover { background: var(--bronze-light); }
 .qd-card.is-in { opacity: 0; transform: translateX(var(--dx)); transition: none; }
 .qd-card-top { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 14px; color: var(--grey-text); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
 .qd-kicker { color: var(--blueprint); }
+.qd-top-l { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.qd-order { display: inline-flex; align-items: center; gap: 5px; min-height: 24px; padding: 0 9px; border: 1px solid currentColor; border-radius: 999px; background: transparent; color: var(--bronze-text); font: inherit; font-size: 0.64rem; letter-spacing: 0.12em; cursor: pointer; }
+.qd-order[hidden] { display: none; }
+.qd-order span { font-size: 0.9rem; line-height: 1; letter-spacing: 0; }
+.qd-order:hover { background: color-mix(in srgb, currentColor 10%, transparent); }
+.qd-card.is-shuffling.is-out { transform: translateY(10px) rotate(-1.4deg) scale(0.97); }
+.qd-card.is-shuffled .qd-shuffle { border-color: var(--bronze-text); color: var(--bronze-text); }
 .qd-date { color: var(--bronze-text); letter-spacing: 0.06em; }
 .qd-text { flex: 1 1 auto; min-height: 0; margin: 0 0 14px; padding-right: 8px; overflow-y: auto; font-family: var(--serif); font-size: clamp(1.4rem, 2.5vw, 1.85rem); line-height: 1.36; white-space: pre-wrap; overscroll-behavior: contain; }
 .qd-text:focus-visible { outline: 2px solid var(--blueprint); outline-offset: 4px; border-radius: 4px; }
