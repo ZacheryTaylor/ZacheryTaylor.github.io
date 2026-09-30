@@ -57,6 +57,39 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Advisory: Lighthouse on the real deployed home page (real network, so it varies run
+  # to run). Median of 5 mobile runs goes in the job summary; below 95 raises a warning
+  # annotation but never fails the deploy. The blocking checks are in the Quality gate.
+  lighthouse-deployed:
+    needs: deploy
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    permissions:
+      contents: read
+    steps:
+      - name: Lighthouse, deployed home page (median of 5 mobile runs)
+        env:
+          URL: ${{ needs.deploy.outputs.page_url }}
+        run: |
+          sleep 45  # let the Pages CDN pick up the new build
+          for i in 1 2 3 4 5; do
+            npx --yes lighthouse@12 "$URL" --only-categories=performance \
+              --chrome-flags="--headless=new --no-sandbox" --output=json --output-path=lh-$i.json --quiet || true
+          done
+          node -e '
+            const fs = require("fs");
+            const runs = [1,2,3,4,5].filter(i => fs.existsSync(`lh-${i}.json`)).map(i => JSON.parse(fs.readFileSync(`lh-${i}.json`)));
+            const s = runs.map(r => Math.round(r.categories.performance.score * 100));
+            const tbt = runs.map(r => Math.round(r.audits["total-blocking-time"].numericValue));
+            const med = [...s].sort((a, b) => a - b)[Math.floor(s.length / 2)];
+            const line = `Deployed ${process.env.URL} mobile performance: median ${med} (runs ${s.join(", ")}; TBT ms ${tbt.join(", ")})`;
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, line + "\n");
+            console.log(line);
+            if (!s.length || med < 95) console.log(`::warning title=Deployed Lighthouse below 95::${line}`);
+          '

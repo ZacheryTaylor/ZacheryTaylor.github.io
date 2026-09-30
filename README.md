@@ -202,7 +202,10 @@ Graph and quote-download links all follow automatically.
 
 1. Commit it to **staging** `main` (one commit per change). The *Build & deploy* workflow
    publishes it to the staging URL and the *Quality gate* checks it: build, zero broken links,
-   quote-deck shuffle test, Lighthouse ≥ 95.
+   quote-deck shuffle test, startup guard (no script-forced layout while a page loads, home
+   anchors land exactly: `scripts/check-startup.mjs`), Lighthouse ≥ 95. After each deploy,
+   *Build & deploy* also runs Lighthouse 5 times on the real deployed home page and writes the
+   median in the run summary. It only warns below 95 (real-network scores vary run to run).
 2. Review it on the staging URL (phone and desktop).
 3. When approved, **promote** it with a normal fast-forward push. Never force-push:
    ```bash
