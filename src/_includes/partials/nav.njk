@@ -2,6 +2,7 @@
   { key: "civil", href: "/civil.html", label: "Civil Work", sheet: "C-101" },
   { key: "projects", href: "/academic.html", label: "Projects", sheet: "M-201" },
   { key: "life", href: "/personal.html", label: "Life & Interests", sheet: "L-301" },
+  { key: "bookshelf", href: "/bookshelf.html", label: "Bookshelf", sheet: "L-320", sub: true },
   { key: "book", href: "/book.html", label: "The Book", sheet: "W-401" }
 ] -%}
 <header class="site-nav">
@@ -29,7 +30,7 @@
     <nav class="nav-menu" id="nav-menu" aria-label="Primary">
       <ul class="nav-links">
         {%- for l in links %}
-        <li><a href="{{ l.href }}" data-sheet="{{ l.sheet }}"{% if navKey == l.key %} aria-current="page"{% endif %}>{{ l.label }}</a></li>
+        <li{% if l.sub %} class="nav-sub"{% endif %}><a href="{{ l.href }}" data-sheet="{{ l.sheet }}"{% if navKey == l.key %} aria-current="page"{% endif %}>{{ l.label }}</a></li>
         {%- endfor %}
         <li class="nav-cta"><a href="/#contact" data-sheet="">Contact</a></li>
       </ul>

@@ -231,11 +231,17 @@ p { text-wrap: pretty; }
   .nav-links a::after { content: attr(data-sheet); font-family: var(--sans); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; color: var(--grey-text); }
   .nav-links a[aria-current="page"] { box-shadow: none; color: var(--blueprint); }
   .nav-links .nav-cta { border: 0; margin-top: 18px; }
+  /* Bookshelf sits under Life & Interests in the menu */
+  .nav-links .nav-sub a { padding: 10px 4px 12px 22px; font-size: 1.25rem; color: var(--muted); }
+  .nav-links .nav-sub a::before { content: "↳"; content: "↳" / ""; position: absolute; margin-left: -20px; font-family: var(--sans); font-size: 0.9rem; color: var(--grey-text); }
+  .nav-links li:has(+ .nav-sub) { border-bottom-style: dashed; }
+  .nav-links .nav-sub a[aria-current="page"] { color: var(--blueprint); }
   .nav-links .nav-cta a { justify-content: center; padding: 14px; font-family: var(--sans); font-size: 1rem; font-weight: 700; background: var(--action); color: var(--white); }
   .nav-links .nav-cta a::after { content: none; }
   html.menu-open, html.menu-open body { overflow: hidden; }
-  /* short screens (phone landscape): tighter rows so most items fit; the rest scroll */
-  @media (max-height: 500px) {
+  /* short screens (small phones, phone landscape): tighter rows so the items fit
+     with page (scrim) still visible below; anything left over scrolls */
+  @media (max-height: 700px) {
     .nav-menu { padding-top: 8px; }
     .nav-links a { padding: 10px 4px; font-size: 1.35rem; }
     .nav-links .nav-cta { margin-top: 12px; }
