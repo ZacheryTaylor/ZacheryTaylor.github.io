@@ -1194,3 +1194,31 @@ details[open] > summary { background: var(--blueprint-soft); }
 .software-line dt { color: var(--muted); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
 .software-line dd { margin: 4px 0 0; font-size: 0.9rem; }
 @media (max-width: 840px) { .software-line { grid-template-columns: 1fr; } .civil-grid .cs-sheet { min-height: 200px; } }
+
+/* ---------- Home: defer laying out off-screen sections during page load ----------
+   The home page is long (about 11,000px on a phone) and its HTML streams in after the
+   first paint on slow connections, so laying it all out was one long main-thread task
+   (mobile Lighthouse swung 86–99). While html.cv is set, sections below the hero are only
+   laid out as they near the viewport. The head script sets html.cv only on a fresh load
+   with no #anchor (not on reload/back, so scroll restoration and anchor targets are
+   exact), and site.js releases the sections one at a time when the browser is idle, or
+   all at once on an in-page # link. After that the page behaves exactly as before.
+   Sizes are the measured phone / desktop heights. */
+html.cv main > .hero ~ section { content-visibility: auto; contain-intrinsic-size: auto 1400px; }
+html.cv main > .hero ~ .quote-band { contain-intrinsic-size: auto 590px; }
+html.cv main > .hero ~ #civil { contain-intrinsic-size: auto 2625px; }
+html.cv main > .hero ~ #projects { contain-intrinsic-size: auto 1930px; }
+html.cv main > .hero ~ #book { contain-intrinsic-size: auto 1245px; }
+html.cv main > .hero ~ #story { contain-intrinsic-size: auto 1830px; }
+html.cv main > .hero ~ #life { contain-intrinsic-size: auto 1080px; }
+html.cv main > .hero ~ #contact { contain-intrinsic-size: auto 1400px; }
+@media (min-width: 1000px) {
+  html.cv main > .hero ~ .quote-band { contain-intrinsic-size: auto 547px; }
+  html.cv main > .hero ~ #civil { contain-intrinsic-size: auto 1344px; }
+  html.cv main > .hero ~ #projects { contain-intrinsic-size: auto 974px; }
+  html.cv main > .hero ~ #book { contain-intrinsic-size: auto 820px; }
+  html.cv main > .hero ~ #story { contain-intrinsic-size: auto 1172px; }
+  html.cv main > .hero ~ #life { contain-intrinsic-size: auto 568px; }
+  html.cv main > .hero ~ #contact { contain-intrinsic-size: auto 949px; }
+}
+html.cv main > .hero ~ section.cv-done { content-visibility: visible; }
