@@ -23,19 +23,6 @@
   // ids are "q001"...; a bare number means the same (entry 262 is `id: "262"`)
   var normId = function (id) { id = String(id); return /^\d+$/.test(id) ? "q" + ("00" + id).slice(-Math.max(3, id.length)) : id; };
   var hashOf = function (id) { return "q-" + String(id).replace(/^q/i, ""); };
-  // Fisher-Yates; `first` (optional) is the list of indexes that can come up first,
-  // so the first card shown is never `avoidId` when there is any other choice.
-  var shuffled = function (list, avoidId, eligible) {
-    var a = list.slice();
-    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var x = a[i]; a[i] = a[j]; a[j] = x; }
-    var m = [];
-    for (var k = 0; k < a.length; k++) if (!eligible || eligible(a[k])) m.push(k);
-    if (m.length > 1 && a[m[0]].id === avoidId) {
-      var t = m[1 + Math.floor(Math.random() * (m.length - 1))], y = a[m[0]]; a[m[0]] = a[t]; a[t] = y;
-    }
-    return a;
-  };
-
   function loadQuotes() {
     /* global quoteBank */
     if (typeof quoteBank !== "undefined") return Promise.resolve(quoteBank);
@@ -52,14 +39,14 @@
   }
 
   /* ---------- the shared flashcard ---------- */
-  // opts: { items, deckUrl (page that owns #q- links), setHash, openLink, onShuffle, onUnshuffle, ready (Promise) }
+  // opts: { items, deckUrl (page that owns #q- links), setHash, openLink, ready (Promise) }
   function QuoteDeck(root, opts) {
     var q$ = function (sel) { return root.querySelector(sel); };
     var card = q$(".qd-card"), textEl = q$(".qd-text"), srcEl = q$(".qd-source"), dateEl = q$(".qd-date"),
-        countEl = q$(".qd-count"), shelfLink = q$(".qd-shelf-link"), copyBtn = q$(".qd-copy"), orderBtn = q$(".qd-order"),
+        countEl = q$(".qd-count"), shelfLink = q$(".qd-shelf-link"), copyBtn = q$(".qd-copy"),
         live = root.querySelector(".qd-live") || root.parentNode.querySelector(".qd-live");
     var shelfBase = shelfLink.href.split("#")[0];
-    var self = { deck: [], base: [], pos: 0, shuffled: false };
+    var self = { deck: [], pos: 0 };
     var ready = opts.ready || Promise.resolve();
 
     var paint = function (q) {
@@ -104,11 +91,6 @@
         done(pending);
       }, 170);
     };
-    self.setShuffled = function (on) {
-      self.shuffled = !!on;
-      if (orderBtn) orderBtn.hidden = !on;
-      card.classList.toggle("is-shuffled", !!on);
-    };
     // replace the deck; keep showing keepId if it's still in it
     self.setDeck = function (list, keepId, silent) {
       self.deck = list;
@@ -118,29 +100,28 @@
       if (list.length && !silent && !timer) paint(list[idx]);
     };
     self.current = function () { return self.deck[self.pos]; };
-    // Shuffle = a new random order of the whole deck, starting on a random quote
-    // that is never the one on screen. The "Shuffled ×" pill shows the order is
-    // shuffled and puts it back (newest first) while keeping the current quote.
-    var SHUF = { shuffle: true, prefix: "Shuffled. " };
+    // Shuffle = pull a random quote from the deck (on Life & Interests: the current
+    // filtered set), never the one on screen. A no-repeat bag: every quote comes up
+    // once before any repeats, then the bag refills. Order is untouched, so Prev/Next
+    // carry on from where it landed and the counter shows its real position.
+    var bag = [], bagKey = "";
     self.shuffle = function () {
-      var cur = self.current();
-      self.deck = shuffled(self.base.length ? self.base : self.deck, cur && cur.id);
-      self.setShuffled(true); self.show(0, 1, SHUF);
+      var n = self.deck.length; if (n < 2) return;
+      var key = self.deck.map(function (q) { return q.id; }).join();
+      if (key !== bagKey) { bagKey = key; bag = []; }
+      var pick = -1;
+      while (pick < 0) {
+        if (!bag.length) for (var i = 0; i < n; i++) if (i !== self.pos) bag.push(i);
+        var k = Math.floor(Math.random() * bag.length), idx = bag[k];
+        bag[k] = bag[bag.length - 1]; bag.pop();
+        if (idx !== self.pos) pick = idx;
+      }
+      self.show(pick, 0, { shuffle: true, prefix: "Random quote. " });
     };
-    self.unshuffle = function () {
-      var cur = self.current();
-      self.setDeck(self.base, cur && cur.id, true); self.setShuffled(false);
-      self.show(self.pos, 0, { instant: true, prefix: "Back in order, newest first. " });
-    };
-
     var act = function (fn) { return function () { ready.then(fn); }; };
     q$(".qd-prev").addEventListener("click", act(function () { self.show(self.pos - 1, -1); }));
     q$(".qd-next").addEventListener("click", act(function () { self.show(self.pos + 1, 1); }));
-    q$(".qd-shuffle").addEventListener("click", act(function () { if (opts.onShuffle) opts.onShuffle(SHUF); else self.shuffle(); }));
-    if (orderBtn) orderBtn.addEventListener("click", act(function () {
-      if (opts.onUnshuffle) opts.onUnshuffle(); else self.unshuffle();
-      q$(".qd-shuffle").focus({ preventScroll: true }); // the pill hides itself; keep focus nearby
-    }));
+    q$(".qd-shuffle").addEventListener("click", act(function () { self.shuffle(); }));
     copyBtn.addEventListener("click", act(function () {
       var q = self.current(); if (!q) return;
       var url = new URL(opts.deckUrl || location.href.split("#")[0], location.href).href.split("#")[0] + "#" + q.hash;
@@ -166,7 +147,7 @@
       if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.4) act(function () { if (dx < 0) self.show(self.pos + 1, 1); else self.show(self.pos - 1, -1); })();
     });
     card.addEventListener("pointercancel", function () { sx = null; });
-    if (opts.items) { self.base = opts.items; self.setDeck(opts.items, card.getAttribute("data-id")); }
+    if (opts.items) self.setDeck(opts.items, card.getAttribute("data-id"));
     return self;
   }
 
@@ -178,7 +159,7 @@
     var homeDeck;
     var homeReady = new Promise(function (resolve) {
       // Any of three triggers may fire (first press, focus, idle); only the first
-      // loads the deck. Before, each one reset it to the start and undid a Shuffle.
+      // loads the deck (each used to reset it to the start, undoing a Shuffle).
       var started = false;
       var go = function () {
         if (started) return;
@@ -189,7 +170,6 @@
             var id = normId(q.id);
             return { id: id, hash: hashOf(id), quote: q.quote, origin: q.origin, date: q.date, fav: !!q.favorite, book: books[q.origin] ? books[q.origin].id : null };
           });
-          homeDeck.base = items;
           homeDeck.setDeck(items, home.getAttribute("data-start"));
           resolve();
         });
@@ -223,22 +203,8 @@
         hay: (t + " " + li.getAttribute("data-origin") + " " + li.getAttribute("data-tags")).toLowerCase()
       };
     });
-    var state = { term: "", topic: "", source: "", view: "card", order: items.slice(), shuffled: false, listLimit: LIST_PAGE };
-    var deck = QuoteDeck(root, { setHash: true, deckUrl: location.pathname,
-      // shuffle the whole bank (so filters keep the shuffled order); the first
-      // matching quote is never the one on screen
-      onShuffle: function (o) {
-        var cur = deck.current() && deck.current().id;
-        state.order = shuffled(items, cur, matches); state.shuffled = true;
-        rebuild(null, true);
-        deck.show(0, 1, o);
-      },
-      onUnshuffle: function () {
-        var cur = deck.current() && deck.current().id;
-        state.order = items.slice(); state.shuffled = false;
-        rebuild(cur, true);
-        deck.show(deck.pos, 0, { instant: true, prefix: "Back in order, newest first. " });
-      } });
+    var state = { term: "", topic: "", source: "", view: "card", order: items.slice(), listLimit: LIST_PAGE };
+    var deck = QuoteDeck(root, { setHash: true, deckUrl: location.pathname });
 
     root.classList.add("is-enhanced");
     listEl.hidden = true;
@@ -260,7 +226,7 @@
     var rebuild = function (keepId, silent) {
       var list = state.order.filter(matches), n = list.length;
       status.textContent = !filtered()
-        ? "All " + TOTAL + " quotes" + (state.shuffled ? ", shuffled." : ", newest first.")
+        ? "All " + TOTAL + " quotes, newest first."
         : n + (n === 1 ? " quote matches" : " quotes match") + (state.term ? " \u201C" + searchEl.value.trim() + "\u201D" : "") + ".";
       emptyEl.hidden = n !== 0;
       stage.hidden = n === 0 || state.view !== "card";
@@ -268,7 +234,6 @@
       listEl.hidden = n === 0 || state.view !== "list";
       state.listLimit = LIST_PAGE;
       if (dlFiltered) { dlFiltered.hidden = !filtered() || !n; dlN.textContent = n; }
-      deck.setShuffled(state.shuffled);
       deck.setDeck(list, keepId, silent);
       if (!n) { moreEl.hidden = true; return; }
       if (state.view === "list") renderList();
@@ -351,7 +316,7 @@
       if (!m) return false;
       var id = "q" + ("000" + m[1]).slice(-Math.max(3, m[1].length));
       if (!items.some(function (q) { return q.id === id; })) return false;
-      clearAll(); state.order = items.slice(); state.shuffled = false;
+      clearAll();
       if (state.view !== "card") setView("card");
       rebuild(id);
       deck.show(deck.pos, 0, { instant: true, announce: false, hash: false });

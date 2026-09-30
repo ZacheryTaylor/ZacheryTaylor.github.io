@@ -2,9 +2,10 @@
 //   node scripts/test-shuffle.mjs [BASE_URL] [--engines=chromium,webkit]
 // BASE_URL defaults to http://localhost:8081/zt-site-staging/ (scripts/serve.mjs).
 // CHROME_PATH=/usr/bin/google-chrome uses a system Chrome instead of Playwright's.
-// Guards against: a Shuffle being undone by the home deck's lazy load; the card
-// showing a stale quote after presses during the slide; Shuffle repeating the
-// current quote; the shuffled order not being visible or undoable.
+// Shuffle = a random quote on every tap (from the filtered set on Life & Interests),
+// never the one showing, no repeats until the set is used up; order untouched.
+// Also guards against: a Shuffle being undone by the home deck's lazy load, and the
+// card showing a stale quote after presses during the slide.
 import { chromium, webkit } from "playwright";
 
 const args = process.argv.slice(2);
@@ -34,7 +35,6 @@ for (const eng of engines) for (const w of [390, 1440]) {
       order: o && !o.hidden && o.offsetParent !== null ? o.textContent.trim() : "",
     };
   }, P);
-  const total = async () => +(await p.getAttribute("[data-total]", "data-total"));
 
   // 1. home: an early Shuffle must survive the lazy-load trigger
   await p.goto(B, { waitUntil: "domcontentloaded" });
@@ -46,25 +46,30 @@ for (const eng of engines) for (const w of [390, 1440]) {
 
   for (const [page, P] of [["", "qdh"], ["personal.html", "qd"]]) {
     await p.goto(B + page); await p.waitForTimeout(page ? 600 : 3600);
-    const N = await total();
-    // 2. random, never the current quote
-    let prev = (await cur(P)).id, same = 0; const seen = new Set();
-    for (let i = 0; i < 25; i++) {
-      await click(P + "-shuffle"); await p.waitForTimeout(230);
-      const s = (await cur(P)).id; if (s === prev) same++; seen.add(s); prev = s;
+    // the deck's real order (newest first): ids by position
+    const order = await p.evaluate((P) => P === "qd"
+      ? [...document.querySelectorAll("#qd-list > li")].map((li) => li.dataset.id)
+      : (typeof quoteBank !== "undefined" ? quoteBank : []).slice().reverse().map((q) => (/^\d+$/.test(String(q.id)) ? "q" + String(q.id).padStart(3, "0") : q.id)), P);
+    const N = order.length;
+    // 2. every tap: a random quote, never the one showing; the counter is its real position
+    let prev = (await cur(P)).id, same = 0, badCount = 0; const seen = new Set();
+    for (let i = 0; i < 20; i++) {
+      await click(P + "-shuffle"); await p.waitForTimeout(260);
+      const s = await cur(P);
+      if (s.id === prev) same++;
+      if (s.count !== (order.indexOf(s.id) + 1) + " / " + N) { badCount++; console.log(`     count ${s.count} for ${s.id} (want ${order.indexOf(s.id) + 1} / ${N})`); }
+      seen.add(s.id); prev = s.id;
     }
-    ok(same === 0 && seen.size >= 20, `${P} 25 shuffles: ${seen.size} distinct, ${same} repeats`);
-    // 3. obvious: the shuffled state is visible + announced, and undoing it keeps the quote
+    ok(same === 0 && seen.size >= 15, `${P} 20 taps: ${seen.size} distinct, ${same} equal to the previous one`);
+    ok(badCount === 0, `${P} counter shows the quote's real position (${badCount} wrong)`);
+    // 3. no shuffled mode: no pill, no toggled button; announced; Prev/Next continue in order
     const s = await cur(P);
-    ok(/shuffled/i.test(s.order) && /shuffled/i.test(s.live), `${P} shuffled indicator "${s.order}" / live "${s.live.slice(0, 30)}"`);
-    await click(P + "-order"); await p.waitForTimeout(400);
-    const r = await cur(P);
-    const want = await p.evaluate((id) => { /* newest first: position of id among all ids, descending */
-      const ids = (window.quoteBank || []).map((q) => q.id);
-      return ids.length ? (ids.length - ids.indexOf(id)) + " / " + ids.length : "";
-    }, s.id);
-    const expect = want || (N + 1 - +s.id.slice(1)) + " / " + N;
-    ok(r.id === s.id && !r.order && r.count === expect, `${P} restore order keeps ${s.id}: ${r.count} (want ${expect})`);
+    const mode = await p.evaluate((P) => ({ pill: !!document.getElementById(P + "-order"), toggled: document.getElementById(P + "-card").classList.contains("is-shuffled") }), P);
+    ok(!mode.pill && !mode.toggled && /^Random quote\. Quote \d+ of \d+/.test(s.live), `${P} no shuffled mode; live "${s.live.slice(0, 32)}"`);
+    const at = order.indexOf(s.id);
+    await click(P + "-next"); await p.waitForTimeout(400); const nx = await cur(P);
+    await click(P + "-prev"); await p.waitForTimeout(400); await click(P + "-prev"); await p.waitForTimeout(400); const pv = await cur(P);
+    ok(nx.id === order[(at + 1) % N] && pv.id === order[(at - 1 + N) % N], `${P} Next/Prev carry on in order from ${s.id} (${nx.id}, ${pv.id})`);
     // 4. presses during the slide must not leave the card out of sync with the deck
     let bad = 0;
     for (const seq of [["shuffle", "shuffle"], ["next", "next"], ["shuffle", "next"], ["prev", "shuffle"]]) {
@@ -80,14 +85,15 @@ for (const eng of engines) for (const w of [390, 1440]) {
     }
     ok(bad === 0, `${P} rapid presses keep the card in sync (${bad}/4 desync)`);
   }
-  // 5. a small filtered deck: Shuffle alternates, never repeats
+  // 5. filtered sets: random within the filter; no repeats until the set is used up
   await p.goto(B + "personal.html"); await p.waitForTimeout(500);
-  const small = await p.evaluate(() => { const o = [...document.querySelectorAll("#qd-source option")].find((o) => /\((2|3)\)/.test(o.textContent)); return o && o.value; });
-  if (small) {
-    await p.selectOption("#qd-source", small); await p.waitForTimeout(300);
-    let pv = (await cur("qd")).id, rep = 0;
-    for (let i = 0; i < 6; i++) { await click("qd-shuffle"); await p.waitForTimeout(250); const s = (await cur("qd")).id; if (s === pv) rep++; pv = s; }
-    ok(rep === 0, `small filter (${small}): Shuffle never repeats (${rep})`);
+  const opts = await p.evaluate(() => [...document.querySelectorAll("#qd-source option")].map((o) => ({ v: o.value, n: +(/\((\d+)\)$/.exec(o.textContent) || [0, 0])[1] })).filter((o) => o.v));
+  for (const o of [opts.find((x) => x.n === 2), opts.find((x) => x.n >= 9 && x.n <= 15)].filter(Boolean)) {
+    await p.selectOption("#qd-source", o.v); await p.waitForTimeout(300);
+    const ids = await p.evaluate(() => [...document.querySelectorAll("#qd-list > li")].filter((li) => li.dataset.origin === document.getElementById("qd-source").value).map((li) => li.dataset.id));
+    let pv = (await cur("qd")).id; const got = [pv]; let rep = 0, out = 0;
+    for (let i = 0; i < o.n - 1; i++) { await click("qd-shuffle"); await p.waitForTimeout(260); const s = await cur("qd"); if (s.id === pv) rep++; if (!ids.includes(s.id) || !s.count.endsWith("/ " + o.n)) out++; got.push(s.id); pv = s.id; }
+    ok(rep === 0 && out === 0 && new Set(got).size === o.n, `filter "${o.v}" (${o.n}): ${o.n - 1} taps cover the set with no repeats (${new Set(got).size} distinct, ${out} outside)`);
   }
   ok(errs.length === 0, "no page errors " + errs.join(" | "));
   await b.close();
