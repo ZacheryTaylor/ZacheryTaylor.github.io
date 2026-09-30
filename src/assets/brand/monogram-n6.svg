@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t d">
+  <title id="t">ZT monogram — option N6, Dimension</title>
+  <desc id="d">Sharp ZT standing on one architectural dimension line with 45° ticks: the drafting reference is a single quiet rule that drops away at small sizes.</desc>
+  <style>.n6-i{fill:var(--mark-ink,#0f1419)}.n6-a{fill:var(--mark-accent,#0a4f9c)}@media (prefers-color-scheme:dark){.n6-i{fill:var(--mark-ink,#ece7db)}.n6-a{fill:var(--mark-accent,#8ab8f0)}}</style>
+  <path class="n6-i" d="M12 10.4L30 10.4L30 16.4L19.72 32.4L30 32.4L30 38.4L12 38.4L12 32.4L22.28 16.4L12 16.4ZM34 10.4L52 10.4L52 16.4L46.25 16.4L46.25 38.4L39.75 38.4L39.75 16.4L34 16.4Z"/>
+  <path class="n6-a" d="M9.6 51.8L11 47.79L11 44.4L12.18 44.4L12.6 43.2L14.4 45L13.56 47.4L51 47.4L51 44.4L52.18 44.4L52.6 43.2L54.4 45L53 49.01L53 52.4L51.82 52.4L51.4 53.6L49.6 51.8L50.44 49.4L13 49.4L13 52.4L11.82 52.4L11.4 53.6Z"/>
+</svg>

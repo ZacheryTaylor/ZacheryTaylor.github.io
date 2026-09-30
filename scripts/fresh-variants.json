@@ -1,0 +1,42 @@
+[
+  {
+    "k": "n1",
+    "name": "Ligature",
+    "line": "A pure ZT ligature with no container: one sharp top stroke is both the Z's top and the T's crossbar, medium-bold, optically centred."
+  },
+  {
+    "k": "n2",
+    "name": "Monoline",
+    "line": "Frame and letters share one precise line weight, like an architect's stamp: square-cut ends, sharp corners, generous margin inside the frame."
+  },
+  {
+    "k": "n3",
+    "name": "Negative space",
+    "line": "ZT knocked out of a solid blue square with subtly chamfered corners: two equal, sharp letters with a clean channel between them."
+  },
+  {
+    "k": "n4",
+    "name": "Step",
+    "line": "The Z's bottom stroke runs on to become the T's crossbar, so the mark steps down from top-left to bottom-right: one shared line, the flow of the lot split."
+  },
+  {
+    "k": "n5",
+    "name": "Engineered serif",
+    "line": "A serif/engineered hybrid: hairline-thin bars, heavy stems and diagonal, and small 45° wedge serifs, precise as lettering on a drawing."
+  },
+  {
+    "k": "n6",
+    "name": "Dimension",
+    "line": "Sharp ZT standing on one architectural dimension line with 45° ticks: the drafting reference is a single quiet rule that drops away at small sizes."
+  },
+  {
+    "k": "n7",
+    "name": "Section cut",
+    "line": "The ligature knocked out of a sharp blue square and sliced by one hairline section line, the cut every plan set is read through."
+  },
+  {
+    "k": "n8",
+    "name": "Column",
+    "line": "An abstract structural symbol: the silhouette is a bold T, a beam on its column, and the Z is carved through the column as negative space."
+  }
+]

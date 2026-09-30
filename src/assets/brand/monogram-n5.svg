@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t d">
+  <title id="t">ZT monogram — option N5, Engineered serif</title>
+  <desc id="d">A serif/engineered hybrid: hairline-thin bars, heavy stems and diagonal, and small 45° wedge serifs, precise as lettering on a drawing.</desc>
+  <style>.n5-i{fill:var(--mark-ink,#0f1419)}.n5-a{fill:var(--mark-accent,#0a4f9c)}@media (prefers-color-scheme:dark){.n5-i{fill:var(--mark-ink,#ece7db)}.n5-a{fill:var(--mark-accent,#8ab8f0)}}</style>
+  <path class="n5-i" d="M9.54 15L30.54 15L30.54 18.6L18.82 45.4L26.94 45.4L30.54 41.8L30.54 49L9.54 49L9.54 45.4L21.26 18.6L13.14 18.6L9.54 22.2ZM34.54 15L55.54 15L55.54 22.2L51.94 18.6L49.29 18.6L49.29 45.8L52.49 49L37.59 49L40.79 45.8L40.79 18.6L38.14 18.6L34.54 22.2Z"/>
+</svg>

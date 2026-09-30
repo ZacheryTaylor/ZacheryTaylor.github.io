@@ -161,6 +161,9 @@ p { text-wrap: pretty; }
 .brand:hover { text-decoration: none; opacity: 0.8; }
 .brand .mark { width: 30px; height: 30px; flex: 0 0 30px; }
 .brand .mark svg { width: 100%; height: 100%; }
+/* Colours for container-less monograms (their SVGs read these, with fallbacks) */
+:root { --mark-ink: #0f1419; --mark-accent: #0a4f9c; }
+:root[data-theme="dark"] { --mark-ink: #ece7db; --mark-accent: #8ab8f0; }
 .brand-name small { display: block; color: var(--grey-text); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.1; }
 .brand-name { line-height: 1.15; }
 .brand--lockup .lockup { display: block; height: 40px; }

@@ -8,6 +8,34 @@ sheetTitle: "Brand — monogram options"
 noSitemap: true
 noindex: true
 rounds:
+  - title: "Fresh concepts — N1–N8"
+    label: "B-006"
+    silhouette: true
+    options:
+      - key: n1
+        name: "N1 · Ligature"
+        note: "A pure ZT ligature with no container: one sharp top stroke is both the Z's top and the T's crossbar, medium-bold, optically centred."
+      - key: n2
+        name: "N2 · Monoline"
+        note: "Frame and letters share one precise line weight, like an architect's stamp: square-cut ends, sharp corners, generous margin inside the frame."
+      - key: n3
+        name: "N3 · Negative space"
+        note: "ZT knocked out of a solid blue square with subtly chamfered corners: two equal, sharp letters with a clean channel between them."
+      - key: n4
+        name: "N4 · Step"
+        note: "The Z's bottom stroke runs on to become the T's crossbar, so the mark steps down from top-left to bottom-right: one shared line, the flow of the lot split."
+      - key: n5
+        name: "N5 · Engineered serif"
+        note: "A serif/engineered hybrid: hairline-thin bars, heavy stems and diagonal, and small 45° wedge serifs, precise as lettering on a drawing."
+      - key: n6
+        name: "N6 · Dimension"
+        note: "Sharp ZT standing on one architectural dimension line with 45° ticks: the drafting reference is a single quiet rule that drops away at small sizes."
+      - key: n7
+        name: "N7 · Section cut"
+        note: "The ligature knocked out of a sharp blue square and sliced by one hairline section line, the cut every plan set is read through."
+      - key: n8
+        name: "N8 · Column"
+        note: "An abstract structural symbol: the silhouette is a bold T, a beam on its column, and the Z is carved through the column as negative space."
   - title: "Smooth lot split — L1–L6"
     label: "B-005"
     silhouette: true
@@ -111,8 +139,8 @@ rounds:
   .mono .info p { color: var(--muted); font-size: .95rem; }
   .mono .current { display: inline-block; margin-bottom: 10px; padding: 3px 10px; border-radius: 999px; background: var(--action); color: #fff; font-size: .72rem; font-weight: 700; letter-spacing: .08em; }
   .swatch { display: grid; gap: 18px; align-content: start; }
-  .swatch.light { background: #f3f0e8; color: #0f1419; }
-  .swatch.dark { background: #0f1419; color: #f3f0e8; }
+  .swatch.light { background: #f3f0e8; color: #0f1419; --mark-ink: #0f1419; --mark-accent: #0a4f9c; }
+  .swatch.dark { background: #0f1419; color: #f3f0e8; --mark-ink: #f3f0e8; --mark-accent: #8ab8f0; }
   .swatch .k { font-size: .66rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; opacity: .75; }
   .big svg { width: 168px; height: 168px; }
   .row { display: flex; align-items: center; gap: 14px; }
@@ -139,7 +167,7 @@ rounds:
   <div class="wrap">
     {{ ui.sectionLabel("B-001", "For review") }}
     <h1>Monogram <em>options.</em></h1>
-    <p class="lead">Directions for the ZT mark, newest first. Up top: six smooth lot-split marks (L1–L6), H’s heavy rounded letterforms set inside a lot-split parcel and balanced: equal-height, equal-width letters, centred with equal margins, the gap between them splitting the parcel into two near-equal lots. Then the eight I variants (Lot split), then round 3’s four bold “statement” marks, then rounds 2 and 1. Newer options also show a one-colour silhouette for hard hats, stamps, and book spines. Each is shown as a browser-tab favicon (16 and 32&nbsp;px), at navigation size (40&nbsp;px), and large, on paper and on ink. Option {{ site.monogram | upper }} is live in the nav, footer, and favicons right now. To switch, change <code>monogram: "{{ site.monogram }}"</code> in <code>site.config.js</code> to any key shown here, <code>"a"</code>–<code>"k"</code>, <code>"i1"</code>–<code>"i8"</code> or <code>"l1"</code>–<code>"l6"</code>.</p>
+    <p class="lead">Directions for the ZT mark, newest first. Up top: eight fresh concepts (N1–N8), started from scratch: crisp, precise, medium-bold marks with sharp or subtly chamfered corners. Then six smooth lot-split marks (L1–L6), H’s heavy rounded letterforms set inside a lot-split parcel and balanced: equal-height, equal-width letters, centred with equal margins, the gap between them splitting the parcel into two near-equal lots. Then the eight I variants (Lot split), then round 3’s four bold “statement” marks, then rounds 2 and 1. Newer options also show a one-colour silhouette for hard hats, stamps, and book spines. Each is shown as a browser-tab favicon (16 and 32&nbsp;px), at navigation size (40&nbsp;px), and large, on paper and on ink. Option {{ site.monogram | upper }} is live in the nav, footer, and favicons right now. To switch, change <code>monogram: "{{ site.monogram }}"</code> in <code>site.config.js</code> to any key shown here, <code>"a"</code>–<code>"k"</code>, <code>"i1"</code>–<code>"i8"</code>, <code>"l1"</code>–<code>"l6"</code> or <code>"n1"</code>–<code>"n8"</code>.</p>
   </div>
 </header>
 <section class="band" aria-label="Options">
