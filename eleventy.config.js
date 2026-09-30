@@ -188,24 +188,42 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addFilter("where", (arr, key, val) => (arr || []).filter((x) => x[key] === val));
 
-  /* ---- favicons from the selected monogram ---- */
+  /* ---- favicons + app icons from the selected monogram ----
+     favicon.svg          the mark itself (container-less marks adapt to the
+                          OS light/dark setting through their own <style>)
+     favicon.ico, favicon-16/32.png, icon-192/512.png
+                          from monogram-<key>-tile.svg when it exists (a solid
+                          tile reads on light and dark browser chrome alike)
+     apple-touch-icon.png, icon-maskable-192/512.png
+                          from monogram-<key>-app.svg (full-bleed, safe zone) */
   eleventyConfig.on("eleventy.after", async ({ dir }) => {
-    const svg = srcPath(`assets/brand/monogram-${site.monogram}.svg`);
+    const base = `assets/brand/monogram-${site.monogram}`;
+    const pick = (...c) => c.map((f) => srcPath(`${base}${f}.svg`)).find((f) => fs.existsSync(f));
+    const svg = pick(""), tile = pick("-tile", ""), app = pick("-app", "-tile", "");
     const out = dir.output;
     fs.copyFileSync(svg, path.join(out, "favicon.svg"));
-    const png = async (size, file) =>
-      sharp(svg, { density: 600 }).resize(size, size).png().toFile(path.join(out, file));
-    await png(180, "apple-touch-icon.png");
-    await png(192, "icon-192.png");
-    await png(512, "icon-512.png");
-    const ico32 = await sharp(svg, { density: 600 }).resize(32, 32).png().toBuffer();
-    // Minimal ICO container wrapping a 32px PNG (supported by all modern browsers).
-    const header = Buffer.alloc(22);
-    header.writeUInt16LE(0, 0); header.writeUInt16LE(1, 2); header.writeUInt16LE(1, 4);
-    header.writeUInt8(32, 6); header.writeUInt8(32, 7); header.writeUInt8(0, 8); header.writeUInt8(0, 9);
-    header.writeUInt16LE(1, 10); header.writeUInt16LE(32, 12);
-    header.writeUInt32LE(ico32.length, 14); header.writeUInt32LE(22, 18);
-    fs.writeFileSync(path.join(out, "favicon.ico"), Buffer.concat([header, ico32]));
+    const raster = (src, size) => sharp(src, { density: 600 }).resize(size, size).png().toBuffer();
+    const write = async (src, size, file) => fs.writeFileSync(path.join(out, file), await raster(src, size));
+    await write(tile, 16, "favicon-16.png");
+    await write(tile, 32, "favicon-32.png");
+    await write(tile, 192, "icon-192.png");
+    await write(tile, 512, "icon-512.png");
+    await write(app, 180, "apple-touch-icon.png");
+    await write(app, 192, "icon-maskable-192.png");
+    await write(app, 512, "icon-maskable-512.png");
+    // ICO container holding the 16 px and 32 px PNGs.
+    const imgs = [await raster(tile, 16), await raster(tile, 32)];
+    const head = Buffer.alloc(6 + 16 * imgs.length);
+    head.writeUInt16LE(0, 0); head.writeUInt16LE(1, 2); head.writeUInt16LE(imgs.length, 4);
+    let offset = head.length;
+    imgs.forEach((buf, i) => {
+      const size = i ? 32 : 16, o = 6 + 16 * i;
+      head.writeUInt8(size, o); head.writeUInt8(size, o + 1); head.writeUInt8(0, o + 2); head.writeUInt8(0, o + 3);
+      head.writeUInt16LE(1, o + 4); head.writeUInt16LE(32, o + 6);
+      head.writeUInt32LE(buf.length, o + 8); head.writeUInt32LE(offset, o + 12);
+      offset += buf.length;
+    });
+    fs.writeFileSync(path.join(out, "favicon.ico"), Buffer.concat([head, ...imgs]));
   });
 
   return {

@@ -68,13 +68,13 @@ function opticalCentre(g, { cx = 32, cy = 32, k = 1 } = {}) {
 /* ---------- colour helpers ---------- */
 const themed = (k) => `  <style>.${k}-i{fill:var(--mark-ink,${C.ink})}.${k}-a{fill:var(--mark-accent,${C.blue})}@media (prefers-color-scheme:dark){.${k}-i{fill:var(--mark-ink,#ece7db)}.${k}-a{fill:var(--mark-accent,#8ab8f0)}}</style>\n`;
 function free(k, parts) { // container-less: parts = [{ g, c: "i" | "a" }]
-  return {
+  return { mark: U(...parts.map((p) => p.g)),
     color: themed(k) + parts.map((p) => `  <path class="${k}-${p.c}" d="${d(p.g)}"/>\n`).join(""),
     mono: `  <path fill="${C.black}" d="${d(U(...parts.map((p) => p.g)))}"/>\n`,
   };
 }
 function tile(shape, letters, fill = C.blue, letterFill = C.paper) { // solid tile, letters knocked out
-  return {
+  return { mark: letters,
     color: `  <path fill="${fill}" d="${d(shape)}"/>\n  <path fill="${letterFill}" d="${d(pc.intersection(shape, letters))}"/>\n`,
     mono: `  <path fill="${C.black}" d="${d(pc.difference(shape, letters))}"/>\n`,
   };
@@ -178,6 +178,26 @@ const V = [];
   const z = Z([24.5, 26.5, 39.5, 51.5], 4.4, 5.2);
   V.push({ k: "n8", name: "Column", line: "An abstract structural symbol: the silhouette is a bold T, a beam on its column, and the Z is carved through the column as negative space.",
     ...tile(body, z) });
+}
+
+/* ---------- app/favicon tiles for the chosen mark (N1) ----------
+   monogram-n1-tile.svg  rounded blue tile, paper N1: raster favicons (ico,
+                          16/32 png) and the "any" manifest icons, legible on
+                          light and dark browser chrome alike.
+   monogram-n1-app.svg   full-bleed blue square, N1 inside the maskable safe
+                          zone: apple-touch-icon and the maskable icons. */
+{
+  const n1 = V.find((v) => v.k === "n1");
+  const g = n1.mark;
+  const [bx0, by0, bx1, by1] = bbox(g), mx = (bx0 + bx1) / 2, my = (by0 + by1) / 2;
+  const [cxn] = centroid(g);
+  const scaled = (k) => g.map((p) => p.map((r) => r.map(([x, y]) => [32 + (x - mx) * k + (mx - cxn) * k * 0.6, 32 + (y - my) * k])));
+  const tileT = "ZT monogram — N1 on a blue tile (favicon)", appT = "ZT monogram — N1 app icon";
+  const desc = "The N1 ligature in paper on the brand blue.";
+  fs.writeFileSync(path.join(out, "monogram-n1-tile.svg"), header(tileT, desc) +
+    `  <rect width="64" height="64" rx="12" fill="${C.blue}"/>\n  <path fill="${C.paper}" d="${d(scaled(0.8))}"/>\n</svg>\n`);
+  fs.writeFileSync(path.join(out, "monogram-n1-app.svg"), header(appT, desc) +
+    `  <rect width="64" height="64" fill="${C.blue}"/>\n  <path fill="${C.paper}" d="${d(scaled(0.62))}"/>\n</svg>\n`);
 }
 
 for (const v of V) {

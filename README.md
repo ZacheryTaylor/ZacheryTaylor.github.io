@@ -46,8 +46,11 @@ at the commit *"Move site source into src/ …"*.
   below the fold. Gallery and dialog images are inside `<template>` so they download only
   when opened.
 - **Generated**: `sitemap.xml`, `robots.txt`, `feed.xml`, `feed.json`, `site.webmanifest`,
-  favicons (`favicon.svg/.ico`, `apple-touch-icon.png`, `icon-192/512.png`) from the chosen
-  monogram, and 1200×630 social cards per project.
+  favicons and app icons from the chosen monogram (`favicon.svg` is the mark itself; `favicon.ico`,
+  `favicon-16/32.png` and `icon-192/512.png` use its blue tile `monogram-<key>-tile.svg`;
+  `apple-touch-icon.png` and `icon-maskable-192/512.png` use the full-bleed `monogram-<key>-app.svg`),
+  and 1200×630 social cards per project. The default share card `assets/brand/og-default.png` is
+  rendered from `scripts/og-card.html`.
 - A reference or image that doesn't exist (e.g. a PDF not uploaded yet) is **skipped with a
   build warning** instead of producing a dead link.
 
@@ -65,7 +68,7 @@ npm run build        # writes _site/
 |---|---|
 | `pathPrefix` | `/zt-site-staging/` on staging, `/` on live or a custom domain. **In CI it is filled in automatically** from `actions/configure-pages`, so links/assets work on staging, at the root, or on a custom domain without edits. |
 | `indexable` | `false` on staging (noindex), `true` automatically when built from the live repo. Override with env `SITE_INDEXABLE`. |
-| `monogram` | `"a"`–`"k"`, `"i1"`–`"i8"`, `"l1"`–`"l6"` or `"n1"`–`"n8"` — swaps the nav mark, footer mark, and all favicons. Options with a `lockup-<key>.svg` (currently G) use that horizontal lockup in the nav. See `/brand.html`; regenerate the SVGs with `scripts/make-monograms*.mjs` (round 3 also writes one-colour `monogram-<key>-mono.svg` files). |
+| `monogram` | `"n1"` (selected: N1 · Ligature). Other explored keys: `"a"`–`"k"`, `"i1"`–`"i8"`, `"l1"`–`"l6"`, `"n2"`–`"n8"` — swaps the nav mark, footer mark, and all favicons. Options with a `lockup-<key>.svg` (currently G) use that horizontal lockup in the nav. See `/brand.html`; regenerate the SVGs with `scripts/make-monograms*.mjs` (round 3 also writes one-colour `monogram-<key>-mono.svg` files). |
 | `goatcounter` | GoatCounter site code → enables the privacy-friendly analytics snippet. Empty = off. |
 | `formspree` | Formspree form id → the contact form posts there. Empty = the form opens a pre-filled email instead. |
 | `newsletter` | `{ provider: "buttondown" \| "kit", id }` → the book email sign-up posts to that list. Empty = opens a pre-filled email. |
@@ -96,7 +99,7 @@ Staging `main` descends from live `main`, so promotion is a fast-forward push �
 4. Check https://zacherytaylor.github.io/ — the old URLs (`/academic.html`, `/personal.html`,
    `/bestball.html`, `/resume.pdf`, `/contact.vcf`) are unchanged; the other project sites
    (`/dwts-draft/`, `/bet-tracker/`) are separate repos and unaffected.
-5. Optional: delete `src/brand.njk` (the monogram review page) once a monogram is chosen.
+5. Optional: `src/brand.njk` shows the selected mark (N1) with the explored options collapsed below; delete it if you don't want it published.
 
 **Custom domain later:** add it in the repo's *Settings → Pages*. `configure-pages` passes the
 new origin automatically; if that repo isn't named `*.github.io`, set `SITE_INDEXABLE: "true"`

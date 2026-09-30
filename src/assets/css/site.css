@@ -975,6 +975,8 @@ dialog.gallery-modal .modal-close:hover { background: var(--bronze-light); }
 .cv-top { display: flex; justify-content: space-between; gap: 24px; align-items: flex-end; padding-bottom: 18px; border-bottom: 2px solid var(--ink); }
 .cv-top h1 { font-size: clamp(2.2rem, 5vw, 3.1rem); line-height: 1; letter-spacing: -0.01em; }
 .cv-top h1 span { color: var(--blueprint); font-style: italic; }
+.cv-mark { display: block; width: 56px; height: 56px; margin: -14px 0 2px -9px; }
+.cv-mark svg { display: block; width: 100%; height: 100%; }
 .cv-headline { margin-top: 8px; color: var(--bronze-text); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
 .cv-contact { list-style: none; text-align: right; color: var(--muted); font-size: 0.84rem; line-height: 1.6; }
 .cv-sec { padding-top: 22px; }
@@ -1005,7 +1007,7 @@ dialog.gallery-modal .modal-close:hover { background: var(--bronze-light); }
 }
 @page { size: letter; margin: 0.5in 0.55in; }
 @media print {
-  :root, :root[data-theme="dark"] { --ink: #000; --graphite: #1a1a1a; --muted: #333; --grey-text: #444; --blueprint: #0a4f9c; --bronze: #86612a; --bronze-text: #86612a; --sheet-line: #999; --sheet-bg: #fff; color-scheme: light; }
+  :root, :root[data-theme="dark"] { --mark-ink: #000; --mark-accent: #0a4f9c; --ink: #000; --graphite: #1a1a1a; --muted: #333; --grey-text: #444; --blueprint: #0a4f9c; --bronze: #86612a; --bronze-text: #86612a; --sheet-line: #999; --sheet-bg: #fff; color-scheme: light; }
   html, body { background: #fff !important; color: #000; }
   body::before, body::after { display: none; }
   .page-resume .site-footer, .page-resume .resume-head, .page-resume .resume-foot, .page-resume .skip-link, .theme-toggle { display: none !important; }
@@ -1014,6 +1016,7 @@ dialog.gallery-modal .modal-close:hover { background: var(--bronze-light); }
   .resume { max-width: none; margin: 0; padding: 0; border: 0; box-shadow: none; background: #fff; font-size: 10pt; line-height: 1.36; }
   .cv-top { padding-bottom: 8px; }
   .cv-top h1 { font-size: 24pt; }
+  .cv-mark { width: 0.5in; height: 0.5in; margin: -0.12in 0 0 -0.08in; }
   .cv-contact { font-size: 9pt; }
   .cv-sec { padding-top: 10px; }
   .cv-sec h2 { break-after: avoid; }

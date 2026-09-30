@@ -1,10 +1,10 @@
 ---
 layout: base.njk
 permalink: /brand.html
-title: "Monogram options — for review"
-description: "ZT monogram options for Zachery Taylor's site, shown at favicon, navigation, and large sizes on light and dark backgrounds."
+title: "Brand mark — ZT monogram"
+description: "The ZT monogram for Zachery Taylor's site (N1, Ligature), with its favicon and app icons, plus the options explored along the way."
 sheet: B-001
-sheetTitle: "Brand — monogram options"
+sheetTitle: "Brand — the ZT mark"
 noSitemap: true
 noindex: true
 rounds:
@@ -161,24 +161,65 @@ rounds:
   .sil-box { display: inline-flex; align-items: flex-end; gap: 10px; padding: 12px; border: 1px solid var(--border-strong); border-radius: 12px; background: #fff; }
   .sil-box.inv { background: #0f1419; }
   .sil-box.inv img { filter: invert(1); }
+  .mono-selected { border-color: var(--action); box-shadow: var(--shadow); }
+  .explored > summary { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 18px; border: 1px solid var(--border-strong); border-radius: 999px; background: rgb(var(--surface) / .8); font-weight: 700; cursor: pointer; }
+  .explored[open] > summary { margin-bottom: 28px; }
   @media (max-width: 900px) { .mono { grid-template-columns: 1fr; } }
 </style>
 <header class="page-header">
   <div class="wrap">
-    {{ ui.sectionLabel("B-001", "For review") }}
-    <h1>Monogram <em>options.</em></h1>
-    <p class="lead">Directions for the ZT mark, newest first. Up top: eight fresh concepts (N1–N8), started from scratch: crisp, precise, medium-bold marks with sharp or subtly chamfered corners. Then six smooth lot-split marks (L1–L6), H’s heavy rounded letterforms set inside a lot-split parcel and balanced: equal-height, equal-width letters, centred with equal margins, the gap between them splitting the parcel into two near-equal lots. Then the eight I variants (Lot split), then round 3’s four bold “statement” marks, then rounds 2 and 1. Newer options also show a one-colour silhouette for hard hats, stamps, and book spines. Each is shown as a browser-tab favicon (16 and 32&nbsp;px), at navigation size (40&nbsp;px), and large, on paper and on ink. Option {{ site.monogram | upper }} is live in the nav, footer, and favicons right now. To switch, change <code>monogram: "{{ site.monogram }}"</code> in <code>site.config.js</code> to any key shown here, <code>"a"</code>–<code>"k"</code>, <code>"i1"</code>–<code>"i8"</code>, <code>"l1"</code>–<code>"l6"</code> or <code>"n1"</code>–<code>"n8"</code>.</p>
+    {{ ui.sectionLabel("B-001", "Brand") }}
+    <h1>The ZT <em>mark.</em></h1>
+    <p class="lead">The selected mark is <strong>N1 · Ligature</strong>: one sharp top stroke is both the Z’s top and the T’s crossbar, medium-bold, with no container. It’s live in the navigation, the footer title block, the 404 page, the résumé, the social share card, and every favicon and app icon.</p>
   </div>
 </header>
-<section class="band" aria-label="Options">
-  <div class="wrap mono-grid">
+{%- set sel = site.monogram %}
+<section class="band" aria-labelledby="sel-title">
+  <div class="wrap">
+    {{ ui.sectionLabel("B-010", "Selected mark") }}
+    <h2 id="sel-title" class="visually-hidden">Selected mark</h2>
+    <article class="mono mono-selected" aria-labelledby="opt-sel">
+      <div class="info">
+        <span class="current">SELECTED</span>
+        <h2 id="opt-sel">{{ sel | upper }} · Ligature</h2>
+        <p>Blue on paper, light blue on ink: container-less, so it takes its colours from the page (and from the device’s light/dark setting when it’s a browser-tab favicon). Raster favicons and app icons put it on a blue tile so it reads on any browser chrome or home screen.</p>
+        <div class="sil" aria-label="Icons">
+          <span class="k">Tile · app icon · one colour</span>
+          <div class="sil-row">
+            <span class="sil-box"><img src="/assets/brand/monogram-{{ sel }}-tile.svg" width="84" height="84" alt="N1 on a blue tile (favicon)"><img src="/assets/brand/monogram-{{ sel }}-tile.svg" width="16" height="16" alt=""></span>
+            <span class="sil-box"><img src="/assets/brand/monogram-{{ sel }}-app.svg" width="84" height="84" alt="N1 app icon" style="border-radius:18px"></span>
+            <span class="sil-box"><img src="/assets/brand/monogram-{{ sel }}-mono.svg" width="84" height="84" alt="N1 as a black silhouette"><img src="/assets/brand/monogram-{{ sel }}-mono.svg" width="16" height="16" alt=""></span>
+            <span class="sil-box inv"><img src="/assets/brand/monogram-{{ sel }}-mono.svg" width="84" height="84" alt="N1 as a white silhouette"><img src="/assets/brand/monogram-{{ sel }}-mono.svg" width="16" height="16" alt=""></span>
+          </div>
+        </div>
+        <p style="margin-top:14px"><a href="/assets/brand/monogram-{{ sel }}.svg">Mark SVG</a> · <a href="/assets/brand/monogram-{{ sel }}-mono.svg">One-colour SVG</a> · <a href="/assets/brand/monogram-{{ sel }}-tile.svg">Tile SVG</a> · <a href="/assets/brand/monogram-{{ sel }}-app.svg">App icon SVG</a> · <a href="/assets/brand/og-default.png">Share card</a></p>
+      </div>
+      {%- for tone in ["light", "dark"] %}
+      <div class="swatch {{ tone }}">
+        <span class="k">{{ "On paper" if tone == "light" else "On ink" }}</span>
+        <div class="row"><span class="tab">{{ sel | monogram | safe }} Zachery Taylor</span><span class="fav32">{{ sel | monogram | safe }}</span></div>
+        <span class="navmock">{{ sel | monogram | safe }}<span>Zachery Taylor<small>Civil Designer · EI</small></span></span>
+        <div class="big">{{ sel | monogram | safe }}</div>
+      </div>
+      {%- endfor %}
+    </article>
+  </div>
+</section>
+<section class="band" aria-labelledby="explored-title">
+  <div class="wrap">
+    {{ ui.sectionLabel("B-020", "Explored options") }}
+    <h2 id="explored-title">Explored <em>options.</em></h2>
+    <p class="section-intro">Every direction considered on the way to N1, newest round first, kept for reference.</p>
+    <details class="explored">
+      <summary>Show all {% set n = 0 %}{% for r in rounds %}{% set n = n + r.options.length %}{% endfor %}{{ n }} explored options</summary>
+  <div class="mono-grid">
     {%- for r in rounds %}
     <div class="round-title">{{ ui.sectionLabel(r.label, r.title) }}</div>
     {%- for o in r.options %}
     {%- set lk = o.key | lockup %}
     <article class="mono" aria-labelledby="opt-{{ o.key }}">
       <div class="info">
-        {%- if o.key == site.monogram %}<span class="current">IN USE</span>{% endif %}
+        {%- if o.key == site.monogram %}<span class="current">SELECTED</span>{% endif %}
         <h2 id="opt-{{ o.key }}">{{ o.name }}</h2>
         <p>{{ o.note }}</p>
         <p style="margin-top:14px"><a href="/assets/brand/monogram-{{ o.key }}.svg">Download SVG</a>{% if lk %} · <a href="/assets/brand/lockup-{{ o.key }}.svg">Lockup SVG</a>{% endif %}{% if r.silhouette %} · <a href="/assets/brand/monogram-{{ o.key }}-mono.svg">One-colour SVG</a>{% endif %}</p>
@@ -208,5 +249,7 @@ rounds:
     </article>
     {%- endfor %}
     {%- endfor %}
+  </div>
+    </details>
   </div>
 </section>

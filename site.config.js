@@ -29,7 +29,7 @@ export default {
 
   /* ---------- Brand ---------- */
 
-  // Which monogram drives the nav mark, footer mark + favicons:
+  // Which monogram drives the nav mark, footer mark + favicons (N1 is Zach's pick):
   // "a" | "b" | "c" (round 1), "d" | "e" | "f" | "g" (round 2),
   // "h" | "i" | "j" | "k" (round 3, statement marks),
   // "i1" … "i8" (variants of I, lot split),
@@ -37,7 +37,7 @@ export default {
   // or "n1" … "n8" (fresh concepts: crisp, precise marks).
   // Options with a horizontal lockup (currently "g") use it in the nav automatically.
   // See /brand.html for all options.
-  monogram: "a",
+  monogram: "n1",
 
   /* ---------- Third-party services (all optional) ---------- */
   // Leave a value empty ("") and the feature degrades gracefully:
