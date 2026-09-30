@@ -1,4 +1,4 @@
-# Quality gate: every push to main (the staging branch) and every PR into it
+# Quality gate (runs in both the staging and live repos): every push to main and every PR into it
 # must build, have zero broken internal links, pass the quote-deck shuffle
 # test (scripts/test-shuffle.mjs), and score ≥ 95 in Lighthouse
 # Performance, Accessibility and Best Practices (median of 3 mobile runs).
@@ -25,7 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
-      # Build exactly like the Pages deploy, so prefixed URLs are exercised.
+      # A test build under the staging prefix in both repos, so prefixed URLs are always
+      # exercised (the live deploy itself builds at / via configure-pages).
       SITE_URL: https://zacherytaylor.github.io
       PATH_PREFIX: /zt-site-staging/
     steps:

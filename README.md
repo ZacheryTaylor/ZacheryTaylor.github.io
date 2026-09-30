@@ -184,14 +184,27 @@ Formspree also works: `provider: "formspree"`, `key` = the form id (free: 50 a m
 On staging, anything not yet configured shows a small dashed **“pending”** badge so it's easy to spot.
 Those badges never appear on the live build.
 
-## Promote staging → live (when approved)
+## Workflow: staging first, then live
 
-Staging `main` descends from live `main`, so promotion is a fast-forward push — no force-push.
+Two repos, one codebase:
 
-1. **Switch the live repo's Pages source to Actions** (one time):
-   *ZacheryTaylor.github.io → Settings → Pages → Build and deployment → Source: **GitHub Actions***
-   (or `gh api -X PUT repos/ZacheryTaylor/ZacheryTaylor.github.io/pages -f build_type=workflow`).
-2. **Push staging to live:**
+| Repo | URL | Role |
+|---|---|---|
+| `ZacheryTaylor/zt-site-staging` | https://zacherytaylor.github.io/zt-site-staging/ | **Test ground.** Every new feature lands here first. noindex, with the "STAGING PREVIEW" badge and "pending" badges. |
+| `ZacheryTaylor/ZacheryTaylor.github.io` | https://zacherytaylor.github.io/ | **Live site.** Only receives commits that already passed on staging. Indexable, no badges. |
+
+The same code builds both. Nothing is edited per repo: the workflow's `configure-pages`
+step reports the path (`/zt-site-staging/` vs `/`), and a repo named `*.github.io` is built
+indexable with no staging badges (`site.config.js` → `indexable`). Canonical, sitemap, Open
+Graph and quote-download links all follow automatically.
+
+**Ongoing routine for a new feature:**
+
+1. Commit it to **staging** `main` (one commit per change). The *Build & deploy* workflow
+   publishes it to the staging URL and the *Quality gate* checks it: build, zero broken links,
+   quote-deck shuffle test, Lighthouse ≥ 95.
+2. Review it on the staging URL (phone and desktop).
+3. When approved, **promote** it with a normal fast-forward push. Never force-push:
    ```bash
    git clone https://github.com/ZacheryTaylor/zt-site-staging.git && cd zt-site-staging
    git remote add live https://github.com/ZacheryTaylor/ZacheryTaylor.github.io.git
@@ -199,15 +212,16 @@ Staging `main` descends from live `main`, so promotion is a fast-forward push �
    git merge-base --is-ancestor live/main main && echo "fast-forward OK"
    git push live main:main
    ```
-   If the check fails, someone committed to live after staging was created: `git merge live/main`,
-   move any edits of old root paths (`assets/js/…`, `images/…`) to `src/…`, then push.
-3. The same workflow runs in the live repo. There `configure-pages` reports path `/` and the repo
-   name ends in `.github.io`, so the build is **root-prefixed and indexable automatically**
-   (noindex removed, `robots.txt` allows crawling and lists the sitemap).
-4. Check https://zacherytaylor.github.io/ — the old URLs (`/academic.html`, `/personal.html`,
-   `/bestball.html`, `/resume.pdf`, `/contact.vcf`) are unchanged; the other project sites
-   (`/dwts-draft/`, `/bet-tracker/`) are separate repos and unaffected.
-5. Optional: `src/brand.njk` shows the selected mark (N1) with the explored options collapsed below; delete it if you don't want it published.
+   The live repo runs the same two workflows, and its Pages source is already set to
+   *GitHub Actions*.
+4. Check https://zacherytaylor.github.io/ once the live deploy finishes (about 1 minute).
+
+**Keep live a straight copy of staging.** Don't commit directly to the live repo. If someone
+does, the ancestry check fails: run `git merge live/main` on staging, push it to staging
+first, then promote. The old URLs (`/academic.html`, `/personal.html`, `/bestball.html`,
+`/resume.pdf`, `/contact.vcf`, `/pdfs/academic/…`) still work. The other project sites
+(`/dwts-draft/`, `/bet-tracker/`) are separate repos and unaffected. `/brand.html` (the
+monogram options) is published but noindex; delete `src/brand.njk` to remove it.
 
 **Custom domain later:** add it in the repo's *Settings → Pages*. `configure-pages` passes the
 new origin automatically; if that repo isn't named `*.github.io`, set `SITE_INDEXABLE: "true"`
