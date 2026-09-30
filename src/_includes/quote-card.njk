@@ -1,0 +1,23 @@
+{#- The quote flashcard, shared by the home page and the Life & Interests deck.
+    Behaviour lives in /assets/js/quotes.js (QuoteDeck). `p` = id prefix. -#}
+{% macro card(q, pos, total, p, shelf) %}
+{%- set b = shelf.byOrigin[q.origin] %}
+<div class="qd-stage" id="{{ p }}-stage">
+  <figure class="qd-card" id="{{ p }}-card" data-id="{{ q.id }}" aria-labelledby="{{ p }}-count">
+    <div class="qd-card-top">
+      <span class="qd-kicker">Quote <span class="qd-count" id="{{ p }}-count">{{ pos }} / {{ total }}</span></span>
+      <span class="qd-date">{% if q.favorite %}★ {% endif %}{{ q.date }}</span>
+    </div>
+    <blockquote class="qd-text" tabindex="0" aria-label="Quote text">“{{ q.quote }}”</blockquote>
+    <figcaption class="qd-origin"><span class="qd-source">— {{ q.origin }}</span><a class="qd-shelf-link" href="/bookshelf.html{% if b %}#book-{{ b.id }}{% endif %}"{% if not b %} hidden{% endif %}>On the shelf →</a></figcaption>
+    <div class="qd-nav">
+      <button type="button" class="qd-btn qd-prev" id="{{ p }}-prev" aria-label="Previous quote"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6l-6 6 6 6"/></svg></button>
+      <button type="button" class="qd-btn qd-shuffle" id="{{ p }}-shuffle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h3.5c2 0 3.2 1 4.5 3l2 4c1.3 2 2.5 3 4.5 3H20M4 17h3.5c1.3 0 2.2-.4 3-1.2M13.5 8.2c.8-.8 1.7-1.2 3-1.2H20M17.5 4.5 20 7l-2.5 2.5M17.5 14.5 20 17l-2.5 2.5"/></svg><span>Shuffle</span></button>
+      <button type="button" class="qd-btn qd-copy" id="{{ p }}-copy" aria-label="Copy link to this quote"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg><span class="lbl">Link</span></button>
+      <button type="button" class="qd-btn qd-next" id="{{ p }}-next" aria-label="Next quote"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6"/></svg></button>
+    </div>
+  </figure>
+  <p class="qd-hint" aria-hidden="true">Swipe or use ← → keys</p>
+</div>
+<p class="visually-hidden qd-live" id="{{ p }}-live" aria-live="polite" aria-atomic="true"></p>
+{% endmacro %}

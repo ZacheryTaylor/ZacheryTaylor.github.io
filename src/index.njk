@@ -51,21 +51,16 @@ scripts: ["/assets/js/quotes.js"]
   </div>
 </section>
 
+{%- import "quote-card.njk" as qc with context %}
 <section class="quote-band" aria-labelledby="quote-title">
   <div class="wrap">
-    <h2 class="visually-hidden" id="quote-title">From my quote bank</h2>
-    <div class="quote-flashcard-wrap">
-      <figure class="quote-flashcard" id="quote-flashcard" data-quote-id="{{ quotes.featured.id }}">
-        <p class="kicker">From the quote bank · {{ quotes.count }} lines copied by hand</p>
-        <blockquote class="quote-flashcard-text" id="quote-flashcard-text" tabindex="0" aria-label="Quote">“{{ quotes.featured.quote }}”</blockquote>
-        <figcaption class="quote-flashcard-origin" id="quote-flashcard-origin">— {{ quotes.featured.origin }}</figcaption>
-        <div class="quote-flashcard-footer">
-          <button type="button" class="btn btn-primary btn-small" id="quote-flashcard-shuffle">Shuffle</button>
-          <label class="switch"><input type="checkbox" id="quote-flashcard-fav-toggle"><span class="track" aria-hidden="true"></span>Favorites only</label>
-          <a class="text-link" id="quote-flashcard-open" href="/personal.html#{{ quotes.anchor }}">Open the full deck</a>
-        </div>
-      </figure>
-      <p class="quote-empty" id="quote-flashcard-empty" role="status">No favorites to show yet — switch off “Favorites only” to see every quote.</p>
+    <div class="qd qd--home" id="home-deck" data-total="{{ quotes.count }}" data-deck-url="{{ '/personal.html' | prefixed }}" data-start="{{ quotes.featured.id }}">
+      <div class="qd-home-head">
+        <h2 class="qd-home-title" id="quote-title">From the quote bank <span>{{ quotes.count }} lines copied by hand</span></h2>
+        <a class="text-link qd-open" id="qdh-open" href="/personal.html#{{ quotes.anchor }}">Open the full deck</a>
+      </div>
+      {{ qc.card(quotes.featured, quotes.featuredPos, quotes.count, "qdh", bookshelf) }}
+      <script type="application/json" id="qdh-books">{{ bookshelf.byOrigin | dump | safe }}</script>
     </div>
   </div>
 </section>

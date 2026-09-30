@@ -324,18 +324,6 @@ section.band { padding: 88px 0; border-top: 1px solid var(--border); }
 
 /* ---------- Quote card ---------- */
 .quote-band { padding: 8px 0 72px; }
-.quote-flashcard-wrap { max-width: 680px; margin: 0 auto; }
-.quote-flashcard {
-  position: relative; display: flex; flex-direction: column; height: 360px; padding: 34px 38px 24px; overflow: hidden;
-  background: linear-gradient(150deg, var(--card-a), var(--card-b)); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 10px 26px rgba(23,33,43,0.07);
-  transition: opacity 0.22s ease, transform 0.22s ease;
-}
-.quote-flashcard .kicker { margin-bottom: 14px; color: var(--grey-text); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
-.quote-flashcard.is-flipping { opacity: 0; transform: scale(0.98); }
-.quote-flashcard-text { min-height: 0; margin-bottom: 14px; padding-right: 8px; overflow-y: auto; font-family: var(--serif); font-size: clamp(1.35rem, 2.4vw, 1.72rem); line-height: 1.36; white-space: pre-wrap; }
-.quote-flashcard-origin { margin-bottom: 18px; color: var(--bronze-text); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; }
-.quote-flashcard-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: auto; padding-top: 18px; border-top: 1px solid var(--border); }
-.quote-flashcard-footer .meta { color: var(--grey-text); font-size: 0.8rem; font-weight: 600; }
 .switch { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; color: var(--muted); font-size: 0.82rem; font-weight: 700; }
 .switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
 .switch .track { position: relative; width: 46px; height: 26px; border-radius: 999px; background: #8a949c; transition: background 0.25s ease; }
@@ -343,7 +331,6 @@ section.band { padding: 88px 0; border-top: 1px solid var(--border); }
 .switch input:checked + .track { background: var(--bronze); }
 .switch input:checked + .track::before { transform: translateX(20px); }
 .switch input:focus-visible + .track { outline: 2.5px solid var(--blueprint); outline-offset: 2px; }
-.quote-empty { display: none; margin-top: 8px; color: var(--muted); font-size: 0.92rem; text-align: center; }
 
 /* ---------- Plan sheets (civil scope cards) ---------- */
 .sheet-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; list-style: none; }
@@ -625,6 +612,12 @@ dialog.gallery-modal .modal-close:hover { background: var(--bronze-light); }
 .story-links strong { display: block; margin: 4px 0; font-family: var(--serif); font-size: 1.35rem; font-weight: 400; line-height: 1.1; }
 .story-links span { color: var(--muted); font-size: 0.86rem; }
 /* ---------- Reading & quotes: the quote deck ---------- */
+.qd--home { max-width: 760px; margin: 0 auto; }
+.qd-home-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; margin-bottom: 14px; }
+.qd-home-title { max-width: none; margin: 0; line-height: 1.5; color: var(--grey-text); font-family: var(--sans); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.qd-home-title span { display: inline-block; white-space: nowrap; margin-left: 8px; color: var(--grey-text); font-weight: 600; letter-spacing: 0.06em; text-transform: none; }
+.qd-home-title span::before { content: "· "; }
+.qd-open { font-size: 0.86rem; }
 .anchor-alias { display: block; position: relative; top: calc(-1 * var(--nav-h)); }
 .qd-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 12px; }
 .qd-controls input[type="search"] { flex: 1 1 240px; min-width: 0; min-height: 46px; padding: 10px 16px; border: 1px solid var(--border-strong); border-radius: 999px; background: rgb(var(--surface) / 0.9); color: var(--ink); }
@@ -633,7 +626,7 @@ dialog.gallery-modal .modal-close:hover { background: var(--bronze-light); }
 .qd-view { display: inline-flex; padding: 3px; border: 1px solid var(--border-strong); border-radius: 999px; background: rgb(var(--surface) / 0.9); }
 .qd-view-btn { min-height: 38px; padding: 0 14px; border: 0; border-radius: 999px; background: none; color: var(--muted); font-size: 0.82rem; font-weight: 700; cursor: pointer; }
 .qd-view-btn[aria-pressed="true"] { background: var(--action); color: #fff; }
-.no-js .qd-view, .no-js .qd-chips, .no-js .qd-controls, .no-js .qd-status, .no-js .qd-stage, .no-js .shelf-mini { display: none; }
+.no-js .qd-view, .no-js .qd-chips, .no-js .qd-controls, .no-js .qd-status, .no-js #quote-deck .qd-stage, .no-js .shelf-mini, .no-js .qd--home .qd-nav, .no-js .qd--home .qd-hint, .no-js .qd-dl-filtered { display: none; }
 .qd-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
 .qd-chip { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 14px; border: 1px solid var(--border-strong); border-radius: 999px; background: rgb(var(--surface) / 0.7); color: var(--muted); font-size: 0.8rem; font-weight: 700; cursor: pointer; transition: background-color 0.18s, color 0.18s, border-color 0.18s; }
 .qd-chip .n { color: var(--grey-text); font-size: 0.72rem; font-weight: 600; }
@@ -816,8 +809,6 @@ dialog.gallery-modal .modal-close:hover { background: var(--bronze-light); }
   .hero-panel { min-height: 480px; }
   .motto { font-size: 1.15rem; }
   .book-feature { padding: 24px; }
-  .quote-flashcard { height: 340px; padding: 24px 22px 18px; }
-  .quote-flashcard-footer { flex-wrap: wrap; }
   .modal-content { padding: 22px 20px 26px; }
   .gallery-content { padding: 16px; }
   .gallery-control .lbl { display: none; }

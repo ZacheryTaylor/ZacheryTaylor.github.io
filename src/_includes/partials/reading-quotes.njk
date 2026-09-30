@@ -1,6 +1,7 @@
 {#- Reading & quotes: the quote deck (flashcards + search/filters + list view)
     and the books behind it, in one place. Enhanced by /assets/js/quotes.js;
     without JavaScript the full quote list is shown instead of the deck. -#}
+{%- import "quote-card.njk" as qc with context -%}
 {%- set first = quotes.deck[0] %}
 {%- set qproj = null %}{% for p in projects.life %}{% if p.id == "quote-bank-export" %}{% set qproj = p %}{% endif %}{% endfor %}
 <section class="band reading-band" id="reading" aria-labelledby="reading-title">
@@ -10,7 +11,7 @@
     <h2 id="reading-title">Lines worth <em>copying by hand.</em></h2>
     <p class="section-intro">{{ quotes.count }} quotes from more than a hundred books, logged since 2020 — one card at a time. Starred ones are favorites. Search, filter by topic or book, or <a href="/bookshelf.html">browse the bookshelf</a> they came from.</p>
 
-    <div class="qd" id="quote-deck" data-total="{{ quotes.count }}">
+    <div class="qd" id="quote-deck" data-total="{{ quotes.count }}" data-hash="true">
       <div class="qd-controls">
         <label class="visually-hidden" for="qd-search">Search quotes</label>
         <input type="search" id="qd-search" placeholder="Search quotes, authors, books…" autocomplete="off" enterkeyhint="search">
@@ -33,24 +34,7 @@
       </div>
       <p class="qd-status" id="qd-status" aria-live="polite">All {{ quotes.count }} quotes, newest first.</p>
 
-      <div class="qd-stage" id="qd-stage">
-        <figure class="qd-card" id="qd-card" data-id="{{ first.id }}" aria-labelledby="qd-count">
-          <div class="qd-card-top">
-            <span class="qd-kicker">Quote <span id="qd-count">1 / {{ quotes.count }}</span></span>
-            <span class="qd-date" id="qd-date">{{ first.date }}</span>
-          </div>
-          <blockquote class="qd-text" id="qd-text" tabindex="0" aria-label="Quote text">“{{ first.quote }}”</blockquote>
-          <figcaption class="qd-origin"><span id="qd-origin">— {{ first.origin }}</span>{% set fb = bookshelf.byOrigin[first.origin] %}<a class="qd-shelf-link" id="qd-shelf-link" href="{{ ('/bookshelf.html#book-' + fb.id) if fb else '/bookshelf.html' }}"{% if not fb %} hidden{% endif %}>On the shelf →</a></figcaption>
-          <div class="qd-nav">
-            <button type="button" class="qd-btn qd-prev" id="qd-prev" aria-label="Previous quote"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6l-6 6 6 6"/></svg></button>
-            <button type="button" class="qd-btn qd-shuffle" id="qd-shuffle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h3.5c2 0 3.2 1 4.5 3l2 4c1.3 2 2.5 3 4.5 3H20M4 17h3.5c1.3 0 2.2-.4 3-1.2M13.5 8.2c.8-.8 1.7-1.2 3-1.2H20M17.5 4.5 20 7l-2.5 2.5M17.5 14.5 20 17l-2.5 2.5"/></svg><span>Shuffle</span></button>
-            <button type="button" class="qd-btn qd-copy" id="qd-copy" aria-label="Copy link to this quote"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg><span class="lbl">Link</span></button>
-            <button type="button" class="qd-btn qd-next" id="qd-next" aria-label="Next quote"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6"/></svg></button>
-          </div>
-        </figure>
-        <p class="qd-hint" aria-hidden="true">Swipe or use ← → keys</p>
-      </div>
-      <p class="visually-hidden" id="qd-live" aria-live="polite" aria-atomic="true"></p>
+      {{ qc.card(first, 1, quotes.count, "qd", bookshelf) }}
 
       {#- List view + no-JS fallback: every quote, newest first -#}
       <ol class="qd-list" id="qd-list" aria-label="Quotes">
@@ -82,7 +66,6 @@
         </ul>
       </div>
       <p class="reading-foot">
-        <a class="btn btn-small" href="#quote-bank-export" data-action="quote-export-pdf">Export all quotes (PDF)</a>
         {%- if qproj %}<a class="text-link" href="{{ qproj.url }}" data-dialog="dlg-{{ qproj.slug }}" aria-haspopup="dialog">About the quote bank project</a>{% endif %}
       </p>
     </div>

@@ -1,103 +1,192 @@
 /*
-  QUOTE ENGINE
-  ------------
-  Home: the flashcard is rendered at build time with one quote; Shuffle and
-  the Favorites switch load quotes-data.js on demand.
-  Life & Interests: every quote is rendered at build time (list view and
-  no-JS fallback); this turns it into a flashcard deck with search, topic and
-  source filters, shuffle, swipe/arrow keys, a list view and #q-037 deep links.
-  Favorites come only from `favorite: true` in quotes-data.js.
+  QUOTE DECK
+  ----------
+  One flashcard component (QuoteDeck) drives both the home page card and the
+  Life & Interests deck: prev/next, swipe, arrow keys, Shuffle, "n / total",
+  copy link, a slide transition (instant under reduced motion) and a polite
+  live region that announces each quote. Markup: _includes/quote-card.njk.
+
+  Home (#home-deck): the card is rendered at build time; quotes-data.js loads
+  when the browser is idle (or on the first button press).
+  Life & Interests (#quote-deck): every quote is rendered at build time in
+  #qd-list (list view + no-JS fallback); search, topic chips, the source
+  filter, the spine strip and #q-037 deep links narrow or jump the deck.
+  Downloads of the full bank are static files built by scripts/quote-downloads.mjs.
 */
 (function () {
   "use strict";
   var doc = document;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var script = doc.currentScript;
   var base = script ? script.src.replace(/quotes\.js(\?.*)?$/, "") : "assets/js/";
   var dataPromise = null;
+  var hashOf = function (id) { return "q-" + String(id).replace(/^q/i, ""); };
 
-  function loadScript(src) {
-    return new Promise(function (resolve, reject) {
-      var s = doc.createElement("script");
-      s.src = src; s.onload = resolve; s.onerror = reject;
-      doc.head.appendChild(s);
-    });
-  }
   function loadQuotes() {
     /* global quoteBank */
     if (typeof quoteBank !== "undefined") return Promise.resolve(quoteBank);
     if (!dataPromise) {
-      dataPromise = loadScript(base + "quotes-data.js").then(function () {
-        // quotes-data.js declares `const quoteBank` at top level
-        /* global quoteBank */
-        return typeof quoteBank !== "undefined" ? quoteBank : [];
+      dataPromise = new Promise(function (resolve, reject) {
+        var s = doc.createElement("script");
+        s.src = base + "quotes-data.js";
+        s.onload = function () { resolve(typeof quoteBank !== "undefined" ? quoteBank : []); };
+        s.onerror = reject;
+        doc.head.appendChild(s);
       });
     }
     return dataPromise;
   }
 
-  /* ---------- Home flashcard ---------- */
-  var card = doc.getElementById("quote-flashcard");
-  if (card) {
-    var text = doc.getElementById("quote-flashcard-text");
-    var origin = doc.getElementById("quote-flashcard-origin");
-    var shuffle = doc.getElementById("quote-flashcard-shuffle");
-    var fav = doc.getElementById("quote-flashcard-fav-toggle");
-    var empty = doc.getElementById("quote-flashcard-empty");
-    var openLink = doc.getElementById("quote-flashcard-open");
-    var currentId = card.getAttribute("data-quote-id");
+  /* ---------- the shared flashcard ---------- */
+  // opts: { items, deckUrl (page that owns #q- links), setHash, openLink, onShuffle, ready (Promise) }
+  function QuoteDeck(root, opts) {
+    var q$ = function (sel) { return root.querySelector(sel); };
+    var card = q$(".qd-card"), textEl = q$(".qd-text"), srcEl = q$(".qd-source"), dateEl = q$(".qd-date"),
+        countEl = q$(".qd-count"), shelfLink = q$(".qd-shelf-link"), copyBtn = q$(".qd-copy"),
+        live = root.querySelector(".qd-live") || root.parentNode.querySelector(".qd-live");
+    var shelfBase = shelfLink.href.split("#")[0];
+    var self = { deck: [], pos: 0 };
+    var ready = opts.ready || Promise.resolve();
 
-    var show = function () {
-      loadQuotes().then(function (all) {
-        var pool = fav && fav.checked ? all.filter(function (q) { return q.favorite; }) : all;
-        if (!pool.length) { if (empty) empty.style.display = "block"; return; }
-        if (empty) empty.style.display = "none";
-        var choices = pool.length > 1 ? pool.filter(function (q) { return q.id !== currentId; }) : pool;
-        var q = choices[Math.floor(Math.random() * choices.length)];
-        card.classList.add("is-flipping");
-        setTimeout(function () {
-          currentId = q.id;
-          // "Open the full deck" opens this same quote on the Life & Interests deck
-          if (openLink) openLink.href = openLink.href.split("#")[0] + "#q-" + q.id.replace(/^q/i, "");
-          text.textContent = "\u201C" + q.quote + "\u201D";
-          origin.textContent = "\u2014 " + q.origin;
-          card.classList.remove("is-flipping");
-        }, 180);
-      });
+    var paint = function (q) {
+      card.setAttribute("data-id", q.id);
+      textEl.textContent = "\u201C" + q.quote + "\u201D";
+      textEl.scrollTop = 0;
+      srcEl.textContent = "\u2014 " + q.origin;
+      dateEl.textContent = (q.fav ? "\u2605 " : "") + (q.date || "");
+      if (q.book) { shelfLink.hidden = false; shelfLink.href = shelfBase + "#book-" + q.book; } else shelfLink.hidden = true;
+      countEl.textContent = (self.pos + 1) + " / " + self.deck.length;
+      if (opts.openLink) opts.openLink.href = opts.openLink.href.split("#")[0] + "#" + q.hash;
     };
-    if (shuffle) shuffle.addEventListener("click", show);
-    if (fav) fav.addEventListener("change", show);
-    if ("requestIdleCallback" in window) requestIdleCallback(function () { loadQuotes(); }, { timeout: 4000 });
+    var busy = false;
+    // dir: 1 next, -1 previous, 0 jump
+    self.show = function (pos, dir, o) {
+      o = o || {};
+      if (!self.deck.length) return;
+      self.pos = (pos + self.deck.length) % self.deck.length;
+      var q = self.deck[self.pos];
+      var done = function () {
+        if (o.announce !== false) live.textContent = "Quote " + (self.pos + 1) + " of " + self.deck.length + ": " + q.quote + " \u2014 " + q.origin;
+        if (opts.setHash && o.hash !== false) { try { history.replaceState(null, "", "#" + q.hash); } catch (e) {} }
+      };
+      if (reduce || o.instant || busy) { paint(q); done(); return; }
+      busy = true;
+      card.style.setProperty("--dx", (dir || 0) * -28 + "px");
+      card.classList.add("is-out");
+      setTimeout(function () {
+        paint(q);
+        card.style.setProperty("--dx", (dir || 0) * 28 + "px");
+        card.classList.remove("is-out"); card.classList.add("is-in");
+        void card.offsetWidth; // restart the transition from the entry side
+        card.classList.remove("is-in");
+        busy = false; done();
+      }, 170);
+    };
+    // replace the deck; keep showing keepId if it's still in it
+    self.setDeck = function (list, keepId) {
+      self.deck = list;
+      var idx = 0;
+      if (keepId) for (var i = 0; i < list.length; i++) if (list[i].id === keepId) { idx = i; break; }
+      self.pos = idx;
+      if (list.length) paint(list[idx]);
+    };
+    self.current = function () { return self.deck[self.pos]; };
+    self.shuffle = function () {
+      var a = self.deck.slice(), cur = self.current();
+      for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var x = a[i]; a[i] = a[j]; a[j] = x; }
+      if (a.length > 1 && cur && a[0].id === cur.id) a.push(a.shift()); // never the same quote twice in a row
+      self.deck = a; self.show(0, 1);
+    };
+
+    var act = function (fn) { return function () { ready.then(fn); }; };
+    q$(".qd-prev").addEventListener("click", act(function () { self.show(self.pos - 1, -1); }));
+    q$(".qd-next").addEventListener("click", act(function () { self.show(self.pos + 1, 1); }));
+    q$(".qd-shuffle").addEventListener("click", act(function () { if (opts.onShuffle) opts.onShuffle(); else self.shuffle(); }));
+    copyBtn.addEventListener("click", act(function () {
+      var q = self.current(); if (!q) return;
+      var url = new URL(opts.deckUrl || location.href.split("#")[0], location.href).href.split("#")[0] + "#" + q.hash;
+      var lbl = copyBtn.querySelector(".lbl");
+      var ok = function () { lbl.textContent = "Copied"; live.textContent = "Link to this quote copied."; setTimeout(function () { lbl.textContent = "Link"; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(ok, function () { window.prompt("Copy this link:", url); });
+      else window.prompt("Copy this link:", url);
+    }));
+    // arrow keys anywhere in the deck (not while typing)
+    root.addEventListener("keydown", function (e) {
+      if (self.hidden || e.altKey || e.ctrlKey || e.metaKey) return;
+      var tag = (e.target.tagName || "").toLowerCase();
+      if (tag === "input" || tag === "select" || tag === "textarea") return;
+      if (e.key === "ArrowLeft") { e.preventDefault(); act(function () { self.show(self.pos - 1, -1); })(); }
+      else if (e.key === "ArrowRight") { e.preventDefault(); act(function () { self.show(self.pos + 1, 1); })(); }
+    });
+    // swipe (touch / pen); vertical scrolling stays native (touch-action: pan-y)
+    var sx = null, sy = 0;
+    card.addEventListener("pointerdown", function (e) { if (e.pointerType === "mouse") return; sx = e.clientX; sy = e.clientY; });
+    card.addEventListener("pointerup", function (e) {
+      if (sx === null) return;
+      var dx = e.clientX - sx, dy = e.clientY - sy; sx = null;
+      if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.4) act(function () { if (dx < 0) self.show(self.pos + 1, 1); else self.show(self.pos - 1, -1); })();
+    });
+    card.addEventListener("pointercancel", function () { sx = null; });
+    if (opts.items) self.setDeck(opts.items, card.getAttribute("data-id"));
+    return self;
   }
 
-  /* ---------- Life & Interests: the quote deck ---------- */
-  // One flashcard at a time; search / topic chips / source narrow the deck.
-  // The build renders every quote as <li> in #qd-list (list view + no-JS
-  // fallback); the deck reads its data from those items.
+  /* ---------- Home: the same card over the whole bank ---------- */
+  var home = doc.getElementById("home-deck");
+  if (home) {
+    var books = {};
+    try { books = JSON.parse(doc.getElementById("qdh-books").textContent); } catch (e) {}
+    var homeDeck;
+    var homeReady = new Promise(function (resolve) {
+      var go = function () {
+        loadQuotes().then(function (all) {
+          // newest first, like the full deck; start on the build-time pick
+          var items = all.slice().reverse().map(function (q) {
+            return { id: q.id, hash: hashOf(q.id), quote: q.quote, origin: q.origin, date: q.date, fav: !!q.favorite, book: books[q.origin] ? books[q.origin].id : null };
+          });
+          homeDeck.setDeck(items, home.getAttribute("data-start"));
+          resolve();
+        });
+      };
+      home.addEventListener("pointerdown", go, { once: true });
+      home.addEventListener("focusin", go, { once: true });
+      if ("requestIdleCallback" in window) requestIdleCallback(go, { timeout: 4000 }); else setTimeout(go, 2500);
+    });
+    homeDeck = QuoteDeck(home, { deckUrl: home.getAttribute("data-deck-url"), openLink: doc.getElementById("qdh-open"), ready: homeReady });
+  }
+
+  /* ---------- Life & Interests: the full deck ---------- */
   var root = doc.getElementById("quote-deck");
   if (root) {
-    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var $ = function (id) { return doc.getElementById(id); };
-    var card = $("qd-card"), stage = $("qd-stage"), textEl = $("qd-text"), originEl = $("qd-origin"),
-        dateEl = $("qd-date"), countEl = $("qd-count"), shelfLink = $("qd-shelf-link"),
-        status = $("qd-status"), live = $("qd-live"), listEl = $("qd-list"), emptyEl = $("qd-empty"),
-        moreEl = $("qd-more"), searchEl = $("qd-search"), sourceEl = $("qd-source"), copyBtn = $("qd-copy");
+    var stage = $("qd-stage"), status = $("qd-status"), listEl = $("qd-list"), emptyEl = $("qd-empty"),
+        moreEl = $("qd-more"), searchEl = $("qd-search"), sourceEl = $("qd-source"),
+        dlFiltered = $("qd-dl-filtered"), dlN = $("qd-dl-n");
     var chips = [].slice.call(root.querySelectorAll(".qd-chip"));
     var viewBtns = [].slice.call(root.querySelectorAll(".qd-view-btn"));
     var spines = [].slice.call(doc.querySelectorAll(".shelf-mini .spine"));
     var TOTAL = +root.getAttribute("data-total");
-    var shelfBase = shelfLink.href.split("#")[0];
     var LIST_PAGE = 12;
-    var items = [].slice.call(listEl.children).map(function (li, i) {
+    var items = [].slice.call(listEl.children).map(function (li) {
       var t = li.querySelector(".qd-list-text").textContent;
       return {
-        li: li, order: i, id: li.getAttribute("data-id"), hash: li.id,
+        li: li, id: li.getAttribute("data-id"), hash: li.id,
         quote: t.replace(/^\u201C|\u201D$/g, ""), origin: li.getAttribute("data-origin"),
         date: li.getAttribute("data-date"), tags: (li.getAttribute("data-tags") || "").split(" ").filter(Boolean),
         fav: li.hasAttribute("data-fav"), book: li.getAttribute("data-book"),
         hay: (t + " " + li.getAttribute("data-origin") + " " + li.getAttribute("data-tags")).toLowerCase()
       };
     });
-    var state = { term: "", topic: "", source: "", view: "card", order: items.slice(), shuffled: false, deck: [], pos: 0, listLimit: LIST_PAGE };
+    var state = { term: "", topic: "", source: "", view: "card", order: items.slice(), shuffled: false, listLimit: LIST_PAGE };
+    var deck = QuoteDeck(root, { setHash: true, deckUrl: location.pathname, onShuffle: function () {
+      var a = items.slice();
+      for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var x = a[i]; a[i] = a[j]; a[j] = x; }
+      var cur = deck.current() && deck.current().id;
+      state.order = a; state.shuffled = true;
+      rebuild();
+      if (deck.deck.length > 1 && deck.deck[0].id === cur) deck.deck.push(deck.deck.shift());
+      deck.show(0, 1);
+    } });
 
     root.classList.add("is-enhanced");
     listEl.hidden = true;
@@ -111,82 +200,35 @@
     };
     var filtered = function () { return !!(state.term || state.topic || state.source); };
 
-    var paint = function (q) {
-      card.setAttribute("data-id", q.id);
-      textEl.textContent = "\u201C" + q.quote + "\u201D";
-      textEl.scrollTop = 0;
-      originEl.textContent = "\u2014 " + q.origin;
-      dateEl.textContent = (q.fav ? "\u2605 " : "") + (q.date || "");
-      if (q.book) { shelfLink.hidden = false; shelfLink.href = shelfBase + "#book-" + q.book; }
-      else shelfLink.hidden = true;
-      countEl.textContent = (state.pos + 1) + " / " + state.deck.length;
-    };
-    var announce = function (q) {
-      live.textContent = "Quote " + (state.pos + 1) + " of " + state.deck.length + ": " + q.quote + " \u2014 " + q.origin;
-    };
-    var setHash = function (q) {
-      try { history.replaceState(null, "", "#" + q.hash); } catch (e) {}
-    };
-    var busy = false;
-    // dir: 1 next, -1 prev, 0 jump (fade only)
-    var show = function (pos, dir, opts) {
-      opts = opts || {};
-      if (!state.deck.length) return;
-      state.pos = (pos + state.deck.length) % state.deck.length;
-      var q = state.deck[state.pos];
-      var done = function () {
-        if (opts.announce !== false) announce(q);
-        if (opts.hash !== false) setHash(q);
-      };
-      if (reduce || opts.instant) { paint(q); done(); return; }
-      if (busy) { paint(q); done(); return; }
-      busy = true;
-      card.style.setProperty("--dx", (dir || 0) * -28 + "px");
-      card.classList.add("is-out");
-      setTimeout(function () {
-        paint(q);
-        card.style.setProperty("--dx", (dir || 0) * 28 + "px");
-        card.classList.remove("is-out"); card.classList.add("is-in");
-        void card.offsetWidth; // restart transition from the entry side
-        card.classList.remove("is-in");
-        busy = false; done();
-      }, 170);
-    };
-
     var renderList = function () {
-      var shown = 0;
       items.forEach(function (q) { q.li.hidden = true; });
-      state.deck.forEach(function (q, i) {
-        if (i < state.listLimit) { q.li.hidden = false; shown++; listEl.appendChild(q.li); }
-      });
-      moreEl.hidden = state.view !== "list" || state.deck.length <= state.listLimit;
+      deck.deck.forEach(function (q, i) { if (i < state.listLimit) { q.li.hidden = false; listEl.appendChild(q.li); } });
+      moreEl.hidden = state.view !== "list" || deck.deck.length <= state.listLimit;
     };
-
     var rebuild = function (keepId) {
-      state.deck = state.order.filter(matches);
-      var n = state.deck.length;
-      var msg;
-      if (!filtered()) msg = "All " + TOTAL + " quotes" + (state.shuffled ? ", shuffled." : ", newest first.");
-      else msg = n + (n === 1 ? " quote matches" : " quotes match") + (state.term ? " \u201C" + searchEl.value.trim() + "\u201D" : "") + ".";
-      status.textContent = msg;
+      var list = state.order.filter(matches), n = list.length;
+      status.textContent = !filtered()
+        ? "All " + TOTAL + " quotes" + (state.shuffled ? ", shuffled." : ", newest first.")
+        : n + (n === 1 ? " quote matches" : " quotes match") + (state.term ? " \u201C" + searchEl.value.trim() + "\u201D" : "") + ".";
       emptyEl.hidden = n !== 0;
       stage.hidden = n === 0 || state.view !== "card";
+      deck.hidden = state.view !== "card";
       listEl.hidden = n === 0 || state.view !== "list";
       state.listLimit = LIST_PAGE;
+      if (dlFiltered) { dlFiltered.hidden = !filtered() || !n; dlN.textContent = n; }
+      deck.setDeck(list, keepId);
       if (!n) { moreEl.hidden = true; return; }
-      var idx = 0;
-      if (keepId) { for (var i = 0; i < n; i++) if (state.deck[i].id === keepId) { idx = i; break; } }
-      state.pos = idx;
-      paint(state.deck[idx]);
       if (state.view === "list") renderList();
     };
 
-    // --- controls
     var t;
     searchEl.addEventListener("input", function () {
       clearTimeout(t);
       t = setTimeout(function () { state.term = searchEl.value.trim().toLowerCase(); rebuild(); }, 180);
     });
+    var syncSpines = function () {
+      spines.forEach(function (sp) { sp.setAttribute("aria-pressed", String(!!state.source && sp.getAttribute("data-origin") === state.source)); });
+    };
     sourceEl.addEventListener("change", function () { state.source = sourceEl.value; syncSpines(); rebuild(); });
     chips.forEach(function (c) {
       c.addEventListener("click", function () {
@@ -195,16 +237,12 @@
         rebuild();
       });
     });
-    var syncSpines = function () {
-      spines.forEach(function (sp) { sp.setAttribute("aria-pressed", String(!!state.source && sp.getAttribute("data-origin") === state.source)); });
-    };
     spines.forEach(function (sp) {
       sp.addEventListener("click", function () {
         var o = sp.getAttribute("data-origin");
         state.source = state.source === o ? "" : o;
         sourceEl.value = state.source;
         syncSpines(); rebuild();
-        if (state.view === "card") show(0, 0, { instant: true });
         root.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
       });
     });
@@ -219,76 +257,52 @@
       state.view = v;
       viewBtns.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-view") === v)); });
       root.classList.toggle("is-list", v === "list");
-      rebuild(state.deck[state.pos] && state.deck[state.pos].id);
+      rebuild(deck.current() && deck.current().id);
     };
     viewBtns.forEach(function (b) { b.addEventListener("click", function () { setView(b.getAttribute("data-view")); }); });
     moreEl.querySelector("button").addEventListener("click", function () { state.listLimit += LIST_PAGE; renderList(); });
 
-    $("qd-prev").addEventListener("click", function () { show(state.pos - 1, -1); });
-    $("qd-next").addEventListener("click", function () { show(state.pos + 1, 1); });
-    $("qd-shuffle").addEventListener("click", function () {
-      var a = items.slice();
-      for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var x = a[i]; a[i] = a[j]; a[j] = x; }
-      state.order = a; state.shuffled = true;
-      var cur = state.deck[state.pos] && state.deck[state.pos].id;
-      rebuild();
-      // never land on the same quote twice in a row
-      if (state.deck.length > 1 && state.deck[0].id === cur) state.deck.push(state.deck.shift());
-      show(0, 1);
-    });
-    copyBtn.addEventListener("click", function () {
-      var q = state.deck[state.pos]; if (!q) return;
-      var url = location.href.split("#")[0] + "#" + q.hash;
-      var lbl = copyBtn.querySelector(".lbl");
-      var ok = function () { lbl.textContent = "Copied"; live.textContent = "Link to this quote copied."; setTimeout(function () { lbl.textContent = "Link"; }, 1600); };
-      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(ok, function () { window.prompt("Copy this link:", url); });
-      else window.prompt("Copy this link:", url);
-    });
-
-    // list item -> open as the card
+    // list item -> open it on the card
     listEl.addEventListener("click", function (e) {
       var a = e.target.closest("a"); if (!a) return;
       e.preventDefault();
-      var id = a.parentNode.getAttribute("data-id");
       setView("card");
-      rebuild(id);
-      show(state.pos, 0, { instant: true });
-      card.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
-      textEl.focus({ preventScroll: true });
+      rebuild(a.parentNode.getAttribute("data-id"));
+      deck.show(deck.pos, 0, { instant: true });
+      $("qd-card").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+      root.querySelector(".qd-text").focus({ preventScroll: true });
     });
 
-    // arrow keys anywhere in the deck (not while typing)
-    root.addEventListener("keydown", function (e) {
-      if (state.view !== "card" || e.altKey || e.ctrlKey || e.metaKey) return;
-      var tag = (e.target.tagName || "").toLowerCase();
-      if (tag === "input" || tag === "select" || tag === "textarea") return;
-      if (e.key === "ArrowLeft") { e.preventDefault(); show(state.pos - 1, -1); }
-      else if (e.key === "ArrowRight") { e.preventDefault(); show(state.pos + 1, 1); }
+    // download just the filtered quotes (the full bank is a static file)
+    root.parentNode.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-dl]"); if (!b) return;
+      var list = deck.deck, kind = b.getAttribute("data-dl"), body, type;
+      if (kind === "csv") {
+        var esc = function (v) { v = String(v == null ? "" : v); return /[",\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
+        body = "\uFEFFid,quote,source,date,tags,favorite\r\n" + list.map(function (q) { return [q.id, q.quote, q.origin, q.date, q.tags.join("; "), q.fav ? "yes" : ""].map(esc).join(","); }).join("\r\n") + "\r\n";
+        type = "text/csv";
+      } else {
+        body = list.map(function (q) { return "\u201C" + q.quote + "\u201D\n  \u2014 " + q.origin + " \u00B7 " + q.id + " \u00B7 " + (q.date || "") + (q.tags.length ? " \u00B7 " + q.tags.join(", ") : "") + (q.fav ? " \u00B7 \u2605" : ""); }).join("\n\n") + "\n";
+        type = "text/plain";
+      }
+      var url = URL.createObjectURL(new Blob([body], { type: type + ";charset=utf-8" }));
+      var a = doc.createElement("a");
+      a.href = url; a.download = "Zachery-Taylor-quotes-filtered." + kind;
+      doc.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
     });
-
-    // swipe (touch / pen); vertical scrolling stays native (touch-action: pan-y)
-    var sx = null, sy = 0;
-    card.addEventListener("pointerdown", function (e) { if (e.pointerType === "mouse") return; sx = e.clientX; sy = e.clientY; });
-    card.addEventListener("pointerup", function (e) {
-      if (sx === null) return;
-      var dx = e.clientX - sx, dy = e.clientY - sy; sx = null;
-      if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.4) { if (dx < 0) show(state.pos + 1, 1); else show(state.pos - 1, -1); }
-    });
-    card.addEventListener("pointercancel", function () { sx = null; });
 
     // deep links: #q-037 opens that quote on the card
     var fromHash = function (scroll) {
-      var h = (location.hash || "").replace(/^#/, "");
-      var m = /^q-?q?(\d+)$/i.exec(h);
+      var m = /^#?q-?q?(\d+)$/i.exec(location.hash || "");
       if (!m) return false;
       var id = "q" + ("000" + m[1]).slice(-Math.max(3, m[1].length));
-      var hit = items.some(function (q) { return q.id === id; });
-      if (!hit) return false;
+      if (!items.some(function (q) { return q.id === id; })) return false;
       clearAll(); state.order = items.slice(); state.shuffled = false;
       if (state.view !== "card") setView("card");
       rebuild(id);
-      show(state.pos, 0, { instant: true, announce: false, hash: false });
-      if (scroll) setTimeout(function () { card.scrollIntoView({ block: "center" }); }, 0);
+      deck.show(deck.pos, 0, { instant: true, announce: false, hash: false });
+      if (scroll) setTimeout(function () { $("qd-card").scrollIntoView({ block: "center" }); }, 0);
       return true;
     };
     window.addEventListener("hashchange", function () { fromHash(true); });
@@ -300,39 +314,4 @@
     } catch (e) {}
     if (!fromHash(true)) rebuild();
   }
-
-  /* ---------- Quote bank PDF export (jsPDF loaded only when asked) ---------- */
-  doc.addEventListener("click", function (e) {
-    var btn = e.target.closest('[data-action="quote-export-pdf"], a[href$="#quote-bank-export"]');
-    if (!btn) return;
-    e.preventDefault();
-    var label = btn.textContent;
-    btn.textContent = "Preparing PDF…";
-    Promise.all([
-      loadQuotes(),
-      window.jspdf ? Promise.resolve() : loadScript("https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js")
-    ]).then(function (res) {
-      var bank = res[0];
-      var jsPDF = window.jspdf.jsPDF;
-      var pdf = new jsPDF({ unit: "pt", format: "letter" });
-      var left = 48, top = 56, lh = 16;
-      var h = pdf.internal.pageSize.getHeight(), w = pdf.internal.pageSize.getWidth();
-      var y = top;
-      var line = function (t) {
-        if (y > h - top) { pdf.addPage(); y = top; }
-        pdf.text(t, left, y); y += lh;
-      };
-      pdf.setFont("Times", "Normal"); pdf.setFontSize(14);
-      pdf.text("Quote Bank Export", left, y); y += 2 * lh;
-      pdf.setFontSize(11);
-      bank.forEach(function (q, i) {
-        if (i > 0) y += lh;
-        pdf.splitTextToSize("\u201C" + q.quote + "\u201D", w - 2 * left).forEach(line);
-        ["\u2014 " + q.origin, q.date || "", q.tags && q.tags.length ? "Tags: " + q.tags.join(", ") : "", q.favorite ? "\u2605 Favorite" : ""]
-          .forEach(function (t) { if (t) line(t); });
-      });
-      pdf.save("quote-bank.pdf");
-      btn.textContent = label;
-    }).catch(function () { btn.textContent = label; });
-  });
 })();

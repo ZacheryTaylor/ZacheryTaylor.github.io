@@ -16,4 +16,5 @@ const topics = Object.entries(tagCounts).filter(([, n]) => n >= 8).sort((a, b) =
 const originCounts = {};
 all.forEach((q) => (originCounts[q.origin] = (originCounts[q.origin] || 0) + 1));
 const origins = Object.entries(originCounts).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([origin, count]) => ({ origin, count }));
-export default { all, deck, favorites, featured, count: all.length, topics, origins, anchor: anchor(featured.id), anchorOf: Object.fromEntries(all.map((q) => [q.id, anchor(q.id)])) };
+const featuredPos = deck.indexOf(featured) + 1;
+export default { all, deck, featuredPos, favorites, featured, count: all.length, topics, origins, anchor: anchor(featured.id), anchorOf: Object.fromEntries(all.map((q) => [q.id, anchor(q.id)])) };
