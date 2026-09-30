@@ -7,7 +7,11 @@
 
   To add a book: copy an entry. `origin` must match the quote bank's origin
   text exactly if you want its quotes counted and linked.
-  Optional fields: note: "why it mattered", status: "reading" (shows a badge).
+  Optional fields: note: "why it mattered", status: "reading" (shows a badge),
+  color: "blue" | "ink" | "bronze" | "paper" | "navy" | "sand" (spine color;
+  otherwise it cycles through those six in list order, so add new books at
+  the end of the list to keep the other spines' colors).
+  Spine thickness follows the quote count; there are no cover images.
 */
 
 const bookshelf = {

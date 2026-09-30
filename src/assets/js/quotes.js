@@ -20,6 +20,8 @@
   var script = doc.currentScript;
   var base = script ? script.src.replace(/quotes\.js(\?.*)?$/, "") : "assets/js/";
   var dataPromise = null;
+  // ids are "q001"...; a bare number means the same (entry 262 is `id: "262"`)
+  var normId = function (id) { id = String(id); return /^\d+$/.test(id) ? "q" + ("00" + id).slice(-Math.max(3, id.length)) : id; };
   var hashOf = function (id) { return "q-" + String(id).replace(/^q/i, ""); };
   // Fisher-Yates; `first` (optional) is the list of indexes that can come up first,
   // so the first card shown is never `avoidId` when there is any other choice.
@@ -184,7 +186,8 @@
         loadQuotes().then(function (all) {
           // newest first, like the full deck; start on the build-time pick
           var items = all.slice().reverse().map(function (q) {
-            return { id: q.id, hash: hashOf(q.id), quote: q.quote, origin: q.origin, date: q.date, fav: !!q.favorite, book: books[q.origin] ? books[q.origin].id : null };
+            var id = normId(q.id);
+            return { id: id, hash: hashOf(id), quote: q.quote, origin: q.origin, date: q.date, fav: !!q.favorite, book: books[q.origin] ? books[q.origin].id : null };
           });
           homeDeck.base = items;
           homeDeck.setDeck(items, home.getAttribute("data-start"));

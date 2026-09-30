@@ -78,6 +78,75 @@ npm start            # http://localhost:8080/zt-site-staging/
 npm run build        # writes _site/
 ```
 
+## How to add a quote (no tools needed)
+
+Quotes live in one file: **`src/assets/js/quotes-data.js`**. Everything else is worked out
+from it on every build: the totals ("291 quotes"), the favorites count and chip, the topic
+chips, the source list, "logged since …", the homepage card, each book's quote count and
+spine thickness on the Bookshelf, and the PDF / CSV / text downloads. You never update a
+number by hand.
+
+1. On github.com (a phone browser works; the GitHub app can't edit files), open
+   `src/assets/js/quotes-data.js` in this repo and tap the pencil (✎ Edit).
+2. Scroll to the very bottom. Just above the final `];`, paste this and fill it in:
+
+   ```js
+     {
+       id: "q291",
+       quote: "The line, exactly as you wrote it.",
+       origin: "Author Name, Book Title",
+       date: "2026",
+       tags: ["mindset"],
+       favorite: false
+     },
+   ```
+
+   - **id** — the next number: one more than the last entry (the last is `q290` today). If
+     you get it wrong the build tells you the next free one.
+   - **quote** — the text between the straight `"` marks. If the quote itself contains a `"`,
+     type it as `\"` or use curly quotes “ ”. For a line break, type `\n`.
+   - **origin** — who/which book, as `Author, Title`. Copy it **exactly** from an earlier
+     quote of the same book (same spelling and commas) so the counts and the shelf match.
+     `UNKNOWN` if you don't know.
+   - **date** — the year (`"2026"`) or the full date (`"2026-09-30"`).
+   - **tags** — optional topics, e.g. `["business", "mindset"]`, or `[]`. Tags used by 8+
+     quotes become filter chips automatically.
+   - **favorite** — `true` stars it (the ★, the Favorites chip, the homepage pick, the stars
+     in the PDF); `false` otherwise. No quotes around true/false.
+3. Tap **Commit changes** → "Commit directly to the `main` branch". In about 2 minutes the
+   staging site is rebuilt with the new quote everywhere, downloads included. (This is the
+   staging repo: new quotes reach the live site when staging is promoted, see below.)
+4. If something is off (a missing comma, a duplicate id, `favorite: "true"` in quotes…), the
+   build stops, **nothing is published** (the site keeps its last good version), and GitHub
+   emails you (its default for failed runs). Open the failed run under **Actions** → it lists each problem in plain words
+   with the entry number, e.g. `entry 291 (q291): date "Sept 2026" should be a year…`. Fix
+   and commit again.
+
+Several quotes at once: paste one block per quote, each ending in `},`.
+
+**Putting a new book on the shelf.** The Bookshelf shows the books in
+`src/assets/js/bookshelf-data.js`. After you've added the book's quotes:
+
+1. Edit that file and add one line **at the end of the `books` list**:
+   `{ shelf: "mind", title: "Book Title", author: "Author Name", origin: "Author Name, Book Title" },`
+   - `shelf` is one of `money`, `business`, `mind` (the three shelves at the top of the file).
+   - `origin` must be **exactly** the origin you used on the quotes; that's how its quotes
+     are counted and linked ("On the shelf →" on the card, the spine strip under the deck).
+2. Spine: its thickness grows with the number of quotes; its height is automatic. The color
+   cycles through six (blue, ink, bronze, paper, navy, sand) in list order, which is why new
+   books go at the end (the other spines keep their colors). To pick one, add
+   `color: "bronze"` (any of the six) to the line. There are no cover images on the shelf;
+   the spine and the book's card (title, author, count, since, a sample quote) are drawn by
+   the site. Optional: `note: "why it mattered"`, `status: "reading"` (shows a badge).
+3. Commit. A mistake (unknown shelf, missing title, a color that isn't one of the six) stops
+   the build with a message, like the quotes.
+
+Sources that aren't books (e.g. `ZT`, `Elon Musk`, `UNKNOWN`) simply stay off the shelf; their
+quotes are still in the deck, the source filter and the downloads.
+
+Not derived from the data: the phrase "more than a hundred books" (index, Life & Interests,
+the quote-bank project page). It's Zach's own wording, so change it by hand if you want.
+
 ## The one config file: `site.config.js`
 
 | Setting | What it does |

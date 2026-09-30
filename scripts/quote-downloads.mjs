@@ -9,7 +9,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
 import PDFDocument from "pdfkit";
-import { loadDataFile } from "../src/_lib/load.js";
+import { loadQuoteBank } from "../src/_lib/validate-quotes.js";
 
 const require = createRequire(import.meta.url);
 const font = (pkg, file) => path.join(path.dirname(require.resolve(`${pkg}/package.json`)), "files", file);
@@ -174,7 +174,7 @@ function pdf(all, groups, meta, file) {
 }
 
 export async function buildQuoteDownloads(outDir, { deckUrl, date, author = "Zachery Taylor" }) {
-  const all = loadDataFile("quotes-data.js", "quoteBank");
+  const all = loadQuoteBank();
   const groups = quoteGroups(all);
   const meta = { deckUrl, date, author, range: years(all) };
   const dir = path.join(outDir, "downloads");

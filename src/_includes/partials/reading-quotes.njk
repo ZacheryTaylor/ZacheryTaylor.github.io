@@ -9,7 +9,7 @@
     <span id="quotes" class="anchor-alias" aria-hidden="true"></span>
     {{ ui.sectionLabel("L-310", "Reading & quotes") }}
     <h2 id="reading-title">Lines worth <em>copying by hand.</em></h2>
-    <p class="section-intro">{{ quotes.count }} quotes from more than a hundred books, logged since 2020 — one card at a time. Starred ones are favorites. Search, filter by topic or book, or <a href="/bookshelf.html">browse the bookshelf</a> they came from.</p>
+    <p class="section-intro">{{ quotes.count }} quotes from more than a hundred books, logged since {{ quotes.since }} — one card at a time. Starred ones are favorites. Search, filter by topic or book, or <a href="/bookshelf.html">browse the bookshelf</a> they came from.</p>
 
     <div class="qd" id="quote-deck" data-total="{{ quotes.count }}" data-hash="true">
       <div class="qd-controls">
@@ -66,9 +66,9 @@
       <div class="shelf shelf-mini" role="group" aria-label="Books — choose one to read its quotes">
         <ul class="spines">
           {%- for b in bookshelf.books %}{% if b.quoteCount %}
-          <li><button type="button" class="spine spine-{{ b.color }}" data-origin="{{ b.origin }}" aria-pressed="false" style="--h: {{ (b.height * 0.62) | round }}px; --w: {{ (b.width * 0.8) | round }}px" title="{{ b.title }} — {{ b.quoteCount }} quotes">
+          <li><button type="button" class="spine spine-{{ b.color }}" data-origin="{{ b.origin }}" aria-pressed="false" style="--h: {{ (b.height * 0.62) | round }}px; --w: {{ (b.width * 0.8) | round }}px" title="{{ b.title }} — {{ b.quoteCount }} {{ "quote" if b.quoteCount == 1 else "quotes" }}">
             <span class="spine-title">{{ b.title }}</span>
-            <span class="visually-hidden">by {{ b.author }}, {{ b.quoteCount }} quotes</span>
+            <span class="visually-hidden">by {{ b.author }}, {{ b.quoteCount }} {{ "quote" if b.quoteCount == 1 else "quotes" }}</span>
             <span class="spine-mark" aria-hidden="true"></span>
           </button></li>
           {%- endif %}{% endfor %}
