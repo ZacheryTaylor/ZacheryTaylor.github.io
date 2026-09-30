@@ -33,7 +33,14 @@ at the commit *"Move site source into src/ …"*.
   - `academic-projects-data.js`, `personal-projects-data.js` — every entry automatically gets
     its own shareable page at `/projects/<id>/` with its own OG image, plus a quick-view dialog.
     Optional `compare: { before, after }` adds a before/after slider to that project page.
-  - `quotes-data.js`, `bestball-data.js` — unchanged format.
+  - `quotes-data.js`, `bestball-data.js` — unchanged format. On Life & Interests the quotes
+    form the **Reading & quotes** deck (`partials/reading-quotes.njk` + `assets/js/quotes.js`):
+    one flashcard at a time with prev/next, swipe, arrow keys and Shuffle; search, topic chips
+    (tags used 8+ times) and a source filter narrow the deck; a List view shows 12 at a time.
+    Every quote has a deep link, `personal.html#q-037` for `id: "q037"`. The strip of spines
+    under the deck filters it by book and links to the Bookshelf.
+  - `bookshelf-data.js` — the Bookshelf page (`/bookshelf.html`, in the nav under Life &
+    Interests). Quote counts and samples are computed from `quotes-data.js` by `origin`.
   - **new** `timeline-data.js` — the story index (home shows the latest slice, Life &
     Interests shows every milestone grouped by year, with a type filter). Year groups
     are derived from the entries; add `story` (paragraphs) and/or `photos` to an

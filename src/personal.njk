@@ -9,11 +9,6 @@ sheetTitle: "Life & interests"
 ogImagePath: "/img/og/quote-bank-export.jpg"
 scripts: ["/assets/js/quotes.js"]
 groups:
-  - id: quotes-project
-    anchor: reading
-    title: "Reading & writing"
-    blurb: "The lines worth stopping to copy down by hand — kept together so they can shape the book."
-    ids: ["quote-bank-export"]
   - id: podcasts
     anchor: podcasts
     title: "Podcasts with friends"
@@ -51,7 +46,10 @@ groups:
   </div>
 </section>
 
-{%- set used = [] %}
+{% include "partials/reading-quotes.njk" %}
+
+{#- the quote bank project is presented inside Reading & quotes -#}
+{%- set used = ["quote-bank-export"] %}
 {%- for g in groups %}
 <section class="band" id="{{ g.anchor }}" aria-labelledby="g-{{ g.id }}">
   <div class="wrap">
@@ -67,9 +65,6 @@ groups:
       {{ ui.projectCard(p, 3, true) }}{% set _n = used.push(p.id) %}
       {%- endif %}{% endfor %}{% endfor %}
     </ul>
-    {%- if g.anchor == "reading" %}
-    <p class="group-more"><a class="text-link" href="/bookshelf.html">Browse the bookshelf: {{ bookshelf.count }} books behind the quote bank</a></p>
-    {%- endif %}
   </div>
 </section>
 {%- endfor %}
@@ -86,30 +81,6 @@ groups:
 </section>
 {%- endif %}
 
-<section class="band" id="quotes" aria-labelledby="quotes-title">
-  <div class="wrap">
-    {{ ui.sectionLabel("L-310", "The quote bank") }}
-    <h2 id="quotes-title">Lines worth <em>copying by hand.</em></h2>
-    <p class="section-intro">{{ quotes.count }} quotes from more than a hundred books, logged since 2020. Starred ones are favorites. Search by author, book, or idea — or export the whole bank as a PDF.</p>
-    <div class="quote-log-controls">
-      <label class="visually-hidden" for="quote-log-search">Search quotes</label>
-      <input type="search" id="quote-log-search" placeholder="Search quotes, authors, tags…" autocomplete="off">
-      <label class="switch"><input type="checkbox" id="quote-log-fav-toggle"><span class="track" aria-hidden="true"></span>Favorites only</label>
-      <span class="count" id="quote-log-count" aria-live="polite">{{ quotes.count }} quotes</span>
-      <a class="btn btn-small" href="#quote-bank-export" data-action="quote-export-pdf">Export PDF</a>
-    </div>
-    <ul class="quote-log-list" id="quote-log-list">
-      {%- for q in quotes.all | reverse %}
-      <li class="quote-log-item"{% if q.favorite %} data-fav{% endif %}>
-        <p class="quote-log-text">“{{ q.quote }}”</p>
-        <p class="quote-log-meta"><span class="quote-log-origin">{{ q.origin }}</span><span class="quote-log-date">{{ q.date }}</span>{% if q.favorite %}<span class="quote-log-star" role="img" aria-label="Favorite">★</span>{% endif %}</p>
-      </li>
-      {%- endfor %}
-    </ul>
-    <p class="count" id="quote-log-empty" hidden>No quotes match that search.</p>
-    <p class="quote-log-more" id="quote-log-more" hidden><button class="btn" type="button">Show more quotes</button></p>
-  </div>
-</section>
 
 {%- for p in projects.life %}
 {{ ui.projectDialog(p) }}

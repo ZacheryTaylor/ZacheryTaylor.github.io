@@ -25,7 +25,11 @@ export default function () {
     };
   });
   const totalQuotes = books.reduce((n, b) => n + b.quoteCount, 0);
+  // origin text -> book on the shelf (the quote deck links each quote to its book)
+  const byOrigin = Object.fromEntries(books.map((b) => [b.origin, { id: b.id, title: b.title }]));
   return {
+    books,
+    byOrigin,
     shelves: shelf.shelves.map((s) => ({ ...s, books: books.filter((b) => b.shelf === s.id) })),
     count: books.length,
     totalQuotes,

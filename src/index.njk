@@ -62,7 +62,7 @@ scripts: ["/assets/js/quotes.js"]
         <div class="quote-flashcard-footer">
           <button type="button" class="btn btn-primary btn-small" id="quote-flashcard-shuffle">Shuffle</button>
           <label class="switch"><input type="checkbox" id="quote-flashcard-fav-toggle"><span class="track" aria-hidden="true"></span>Favorites only</label>
-          <a class="text-link" href="/personal.html#quotes">Browse all</a>
+          <a class="text-link" id="quote-flashcard-open" href="/personal.html#{{ quotes.anchor }}">Open the full deck</a>
         </div>
       </figure>
       <p class="quote-empty" id="quote-flashcard-empty" role="status">No favorites to show yet — switch off “Favorites only” to see every quote.</p>
