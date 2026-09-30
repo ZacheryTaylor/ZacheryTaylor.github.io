@@ -48,6 +48,15 @@
       <p class="qd-more" id="qd-more" hidden><button class="btn" type="button">Show more</button></p>
     </div>
 
+    {#- Downloads: always the full bank (build-time files); plus the current filter as CSV/TXT -#}
+    <div class="qd-download" id="qd-download">
+      <a class="btn btn-primary qd-dl-main" href="/downloads/quote-bank.pdf" download="Zachery-Taylor-quote-bank.pdf">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></svg>
+        Download all {{ quotes.count }} quotes <span class="fmt">PDF</span>
+      </a>
+      <p class="qd-dl-alt">Also as <a href="/downloads/quote-bank.csv" download="Zachery-Taylor-quote-bank.csv">CSV<span class="visually-hidden"> (all {{ quotes.count }} quotes)</span></a> or <a href="/downloads/quote-bank.txt" download="Zachery-Taylor-quote-bank.txt">plain text<span class="visually-hidden"> (all {{ quotes.count }} quotes)</span></a>. Every quote with its source, date and tags.<span class="qd-dl-filtered" id="qd-dl-filtered" hidden> Just the <strong id="qd-dl-n">0</strong> you’ve filtered: <button type="button" class="link-btn" data-dl="csv">CSV</button> · <button type="button" class="link-btn" data-dl="txt">text</button>.</span></p>
+    </div>
+
     {#- The books behind the quotes: tap a spine to read its quotes on the card -#}
     <div class="reading-shelf">
       <div class="reading-shelf-head">

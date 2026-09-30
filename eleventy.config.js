@@ -6,6 +6,7 @@ import sharp from "sharp";
 import sizeOf from "image-size";
 import { transform as cssTransform } from "lightningcss";
 import site from "./site.config.js";
+import { buildQuoteDownloads } from "./scripts/quote-downloads.mjs";
 
 const OUT = "_site";
 const IMG_OPTS = {
@@ -224,6 +225,16 @@ export default function (eleventyConfig) {
       offset += buf.length;
     });
     fs.writeFileSync(path.join(out, "favicon.ico"), Buffer.concat([head, ...imgs]));
+  });
+
+  /* ---- Quote bank downloads: /downloads/quote-bank.pdf, .csv and .txt, always the
+     full bank from quotes-data.js (see scripts/quote-downloads.mjs). Static files,
+     so the download works the same in every browser, iOS Safari included. */
+  eleventyConfig.addWatchTarget("./scripts/quote-downloads.mjs");
+  eleventyConfig.on("eleventy.after", async ({ dir }) => {
+    const deckUrl = site.url.replace(/\/$/, "") + site.pathPrefix.replace(/\/$/, "") + "/personal.html";
+    const date = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "America/Chicago" });
+    await buildQuoteDownloads(dir.output, { deckUrl, date });
   });
 
   return {

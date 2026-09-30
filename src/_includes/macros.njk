@@ -50,7 +50,9 @@
   <button class="btn" type="button" data-dialog="gal-{{ p.slug }}" aria-haspopup="dialog">Photos ({{ p.gallery.length }})</button>
   {%- endif %}
   {%- for l in p.links %}
-  <a class="btn{{ ' btn-primary' if l.primary and context == 'page' and not p.pdf else '' }}" href="{{ l.href }}"{% if l.id %} data-action="{{ l.id }}"{% endif %}{% if l.newTab and not ('.html' in l.href) %} target="_blank" rel="noopener"{% endif %}>{{ l.label }}</a>
+  {#- the quote bank "export" link now points at the build-time PDF (scripts/quote-downloads.mjs) #}
+  {%- set isQuoteExport = l.href == "#quote-bank-export" %}
+  <a class="btn{{ ' btn-primary' if l.primary and context == 'page' and not p.pdf else '' }}" href="{{ '/downloads/quote-bank.pdf' if isQuoteExport else l.href }}"{% if isQuoteExport %} download{% elif l.id %} data-action="{{ l.id }}"{% endif %}{% if l.newTab and not ('.html' in l.href) %} target="_blank" rel="noopener"{% endif %}>{{ l.label }}</a>
   {%- endfor %}
 </div>
 {% endmacro %}

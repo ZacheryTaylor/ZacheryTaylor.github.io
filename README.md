@@ -39,6 +39,15 @@ at the commit *"Move site source into src/ …"*.
     (tags used 8+ times) and a source filter narrow the deck; a List view shows 12 at a time.
     Every quote has a deep link, `personal.html#q-037` for `id: "q037"`. The strip of spines
     under the deck filters it by book and links to the Bookshelf.
+    The card itself is the `quote-card.njk` macro and one shared `QuoteDeck` in `quotes.js`;
+    the homepage uses the same card and controls (`#home-deck`), loads `quotes-data.js` on idle
+    or first interaction, and its "Open the full deck" link follows the current quote.
+  - **Quote downloads** — `scripts/quote-downloads.mjs` runs after every build (`eleventy.after`)
+    and writes `_site/downloads/quote-bank.pdf` (US Letter, drawing-sheet cover, contents,
+    grouped by source, fonts embedded via pdfkit), `quote-bank.csv` and `quote-bank.txt`. They
+    always hold every quote; they are static files so a plain `<a download>` works everywhere,
+    including iOS Safari. When filters are active, the deck also offers the filtered set as
+    CSV/text, generated in the browser. The quote-bank-export project links to the same PDF.
   - `bookshelf-data.js` — the Bookshelf page (`/bookshelf.html`, in the nav under Life &
     Interests). Quote counts and samples are computed from `quotes-data.js` by `origin`.
   - **new** `timeline-data.js` — the story index (home shows the latest slice, Life &
