@@ -148,7 +148,7 @@ const quoteBank = [
   {
     id: "q017",
     quote: "I'm not in the hamburger business. My business is real estate. Now the largest single owner of real estate in the world, more than the Catholic Church.",
-    origin: "Ray Kroc, McDonalds",
+    origin: "Ray Kroc, McDonald's",
     date: "2020",
     tags: ["assets"],
     favorite: false
@@ -251,7 +251,7 @@ const quoteBank = [
   },
   {
     id: "q030",
-    quote: "The problem with 'secure' investments is that they are often sanitized, that is, make so safe that the gains are less.",
+    quote: "The problem with 'secure' investments is that they are often sanitized, that is, made so safe that the gains are less.",
     origin: "Robert T. Kiyosaki, Rich Dad Poor Dad",
     date: "2020",
     tags: ["assets"],
@@ -299,7 +299,7 @@ const quoteBank = [
   },
   {
     id: "q036",
-    quote: "I have never met a rich person who has never lost money. If you hate risk and worry, start early",
+    quote: "I have never met a rich person who has never lost money. If you hate risk and worry, start early.",
     origin: "Robert T. Kiyosaki, Rich Dad Poor Dad",
     date: "2020",
     tags: ["business"],
@@ -403,7 +403,7 @@ const quoteBank = [
   },
   {
     id: "q049",
-    quote: "Don't wants: to be a slave to my job.\nto miss out on the world.\nto miss out on my kids lives.\nto work for money.",
+    quote: "Don't wants: to be a slave to my job.\nto miss out on the world.\nto miss out on my kids' lives.\nto work for money.",
     origin: "Robert T. Kiyosaki, Rich Dad Poor Dad",
     date: "2020",
     tags: ["assets"],
@@ -499,7 +499,7 @@ const quoteBank = [
   },
   {
     id: "q061",
-    quote: "Moat - A competitive advantage that cannot be seperated from their business and is difficult and/or expensive to overcome as a competitor or consumer.",
+    quote: "Moat - A competitive advantage that cannot be separated from their business and is difficult and/or expensive to overcome as a competitor or consumer.",
     origin: "Danielle Town, Invested",
     date: "2020",
     tags: ["business"],
@@ -580,7 +580,7 @@ const quoteBank = [
   {
     id: "q071",
     quote: "Be ready to run outside with a washtub when it's raining gold.",
-    origin: "Warren Buffet",
+    origin: "Warren Buffett",
     date: "2020",
     tags: ["business"],
     favorite: true
@@ -667,7 +667,7 @@ const quoteBank = [
   },
   {
     id: "q082",
-    quote: "Does the company have and above-average sales organization?",
+    quote: "Does the company have an above-average sales organization?",
     origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
     date: "2020",
     tags: ["assets"],
@@ -699,7 +699,7 @@ const quoteBank = [
   },
   {
     id: "q086",
-    quote: "Does the compnay have outstanding executive relations?",
+    quote: "Does the company have outstanding executive relations?",
     origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
     date: "2020",
     tags: ["assets"],
@@ -723,7 +723,7 @@ const quoteBank = [
   },
   {
     id: "q089",
-    quote: "Are the other aspects of the business somewhat peculiar to the industry involved, which will give the investor important clues as to how outstanding the company may be in relation to its competition?",
+    quote: "Are there other aspects of the business somewhat peculiar to the industry involved, which will give the investor important clues as to how outstanding the company may be in relation to its competition?",
     origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
     date: "2020",
     tags: ["assets"],
@@ -739,7 +739,7 @@ const quoteBank = [
   },
   {
     id: "q091",
-    quote: "In the forseeable future will the growth of the company require sufficient equity financing so that the larger number of shares then outstanding will largely cancel the existing stockholders' benefit from this anticipated growth?",
+    quote: "In the foreseeable future will the growth of the company require sufficient equity financing so that the larger number of shares then outstanding will largely cancel the existing stockholders' benefit from this anticipated growth?",
     origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
     date: "2020",
     tags: ["assets"],
@@ -763,7 +763,7 @@ const quoteBank = [
   },
   {
     id: "q094",
-    quote: "It is important to view knowledge as sort of the semantic tree - make sure you understand the fundamental principles, i.e. the trunk and big branches, before you get into the leaves/details on there is nothing for them to hang on to.",
+    quote: "It is important to view knowledge as sort of the semantic tree - make sure you understand the fundamental principles, i.e. the trunk and big branches, before you get into the leaves/details or there is nothing for them to hang on to.",
     origin: "Elon Musk",
     date: "2020",
     tags: ["mindset","career"],
@@ -771,7 +771,7 @@ const quoteBank = [
   },
   {
     id: "q095",
-    quote: "Companies that are the most desireable:\nWorking on the frontiers of technology.\nVarious new products and processes.",
+    quote: "Companies that are the most desirable:\nWorking on the frontiers of technology.\nVarious new products and processes.",
     origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
     date: "2020",
     tags: ["business"],
@@ -819,7 +819,7 @@ const quoteBank = [
   },
   {
     id: "q101",
-    quote: "Misconceptions of who benefits from dividends:\nIf its the right company and you are just doing a DRIP method then the dividend is losing you upwards of 20% in taxes.",
+    quote: "Misconceptions of who benefits from dividends:\nIf it's the right company and you are just doing a DRIP method then the dividend is losing you upwards of 20% in taxes.",
     origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
     date: "2020",
     tags: ["assets"],
@@ -955,7 +955,7 @@ const quoteBank = [
   },
   {
     id: "q118",
-    quote: "There must be a conscious and co5ntinuous effort to make sure their company is a good place to work, at all levels.",
+    quote: "There must be a conscious and continuous effort to make sure their company is a good place to work, at all levels.",
     origin: "Philip A. Fisher, Conservative Investors Sleep Well",
     date: "2020",
     tags: ["assets","business"],
@@ -1004,7 +1004,7 @@ const quoteBank = [
   {
     id: "q124",
     quote: "Never promote someone who hasn't made some bad mistakes. If you do, you are promoting someone who has NEVER done anything.",
-    origin: "Dr. Herber Dow",
+    origin: "Dr. Herbert Dow",
     date: "2020",
     tags: ["assets","business","mindset"],
     favorite: true
@@ -1012,7 +1012,7 @@ const quoteBank = [
   {
     id: "q125",
     quote: "If you can't do something better than others are doing it, don't do it at all.",
-    origin: "Dr. Herber Dow",
+    origin: "Dr. Herbert Dow",
     date: "2020",
     tags: ["assets","business","mindset"],
     favorite: false
@@ -1099,7 +1099,7 @@ const quoteBank = [
   },
   {
     id: "q136",
-    quote: "Roadways we drive on are based on a 'passive optical' experience; being able to read road signs and curves at various distances. So the way to solve autonomous driving isn't by INPUTTING all road speeds, signs, etc. It is  by solving the problem of AI learning on passive optical vision as a human would.",
+    quote: "Roadways we drive on are based on a 'passive optical' experience; being able to read road signs and curves at various distances. So the way to solve autonomous driving isn't by INPUTTING all road speeds, signs, etc. It is by solving the problem of AI learning on passive optical vision as a human would.",
     origin: "UNKNOWN",
     date: "2020",
     tags: ["learning","mindset","business"],
@@ -1123,7 +1123,7 @@ const quoteBank = [
   },
   {
     id: "q139",
-    quote: "Criticism is given out too lightly; it is evil, desctructive, hurtful, and unnecessary in most instances. It will plant fear and resentment in the human hurt but iti will not build love or affection.",
+    quote: "Criticism is given out too lightly; it is evil, destructive, hurtful, and unnecessary in most instances. It will plant fear and resentment in the human heart but it will not build love or affection.",
     origin: "Napoleon Hill, Think and Grow Rich",
     date: "2020",
     tags: ["mindset"],
@@ -1171,7 +1171,7 @@ const quoteBank = [
   },
   {
     id: "q145",
-    quote: "Self-analysis Test Questions:\nBeing interrupted is the one habit that people do that annoys me the most. It is because I won't be heard in my full entirity, not just some of what I have to say.",
+    quote: "Self-analysis Test Questions:\nBeing interrupted is the one habit that people do that annoys me the most. It is because I won't be heard in my full entirety, not just some of what I have to say.",
     origin: "Napoleon Hill, Think and Grow Rich",
     date: "2020",
     tags: ["mindset"],
@@ -1267,7 +1267,7 @@ const quoteBank = [
   },
   {
     id: "q157",
-    quote: "If the government would have let the oil and gas industries stay as monopolies would we have had more advancements to remove the NEED of those fossil fuels.",
+    quote: "If the government would have let the oil and gas industries stay as monopolies would we have had more advancements to remove the NEED of those fossil fuels?",
     origin: "ZT",
     date: "2020",
     tags: ["business","theory"],
@@ -1275,7 +1275,7 @@ const quoteBank = [
   },
   {
     id: "q158",
-    quote: "Competition = allegedy necessary, supposedly valiant, but ultimately destructive.",
+    quote: "Competition = allegedly necessary, supposedly valiant, but ultimately destructive.",
     origin: "Peter Thiel, Zero to One",
     date: "2020",
     tags: ["business"],
@@ -1323,7 +1323,7 @@ const quoteBank = [
   },
   {
     id: "q164",
-    quote: "Characteristics of a Monopoly\n3) Economics of Scale: Fixed cost of creating but spread out over sales. Don't be limited by your service or number of workers.",
+    quote: "Characteristics of a Monopoly\n3) Economies of Scale: Fixed cost of creating but spread out over sales. Don't be limited by your service or number of workers.",
     origin: "Peter Thiel, Zero to One",
     date: "2020",
     tags: ["business"],
@@ -1331,7 +1331,7 @@ const quoteBank = [
   },
   {
     id: "q165",
-    quote: "Characteristics of a Monopoly\n4) Branding: Monopoly built soley on its own brand.",
+    quote: "Characteristics of a Monopoly\n4) Branding: Monopoly built solely on its own brand.",
     origin: "Peter Thiel, Zero to One",
     date: "2020",
     tags: ["business"],
@@ -1339,7 +1339,7 @@ const quoteBank = [
   },
   {
     id: "q166",
-    quote: "Where can you create or capture ALPHA from the market.",
+    quote: "Where can you create or capture ALPHA from the market?",
     origin: "UNKNOWN",
     date: "2020",
     tags: ["business","mindset"],
@@ -1459,7 +1459,7 @@ const quoteBank = [
   },
   {
     id: "q181",
-    quote: "The downfall of a great company:\nClearly, they were technologically capable of producing _________. Their falure resulted from delay in making the strategic commitment to enter the emerging market...",
+    quote: "The downfall of a great company:\nClearly, they were technologically capable of producing _________. Their failure resulted from delay in making the strategic commitment to enter the emerging market...",
     origin: "Clayton M. Christensen, The Innovator's Dilemma",
     date: "2020",
     tags: ["business"],
@@ -1483,7 +1483,7 @@ const quoteBank = [
   },
   {
     id: "q184",
-    quote: "Buying Hierarchy:\n1) Functionality - only product in the market\n2) Reliability - two or more products, so the best\n3) Convinience - most convinient to deal with\n4) Price - last phase before the next performance oversupply",
+    quote: "Buying Hierarchy:\n1) Functionality - only product in the market\n2) Reliability - two or more products, so the best\n3) Convenience - most convenient to deal with\n4) Price - last phase before the next performance oversupply",
     origin: "Clayton M. Christensen, The Innovator's Dilemma",
     date: "2020",
     tags: ["business"],
@@ -1499,7 +1499,7 @@ const quoteBank = [
   },
   {
     id: "q186",
-    quote: "Questions to ask when faced with a disruptive technological change:\nWhere is the market for _____?\nAcknowledge it can't be used in mainstream right now/immediately. Its not in an established market.",
+    quote: "Questions to ask when faced with a disruptive technological change:\nWhere is the market for _____?\nAcknowledge it can't be used in mainstream right now/immediately. It's not in an established market.",
     origin: "Clayton M. Christensen, The Innovator's Dilemma",
     date: "2020",
     tags: ["business"],
@@ -1539,7 +1539,7 @@ const quoteBank = [
   },
   {
     id: "q191",
-    quote: "Characteristics of a Disruptive Technology:\nThey are simpler and cheaper and lower performing.\nThey generally promise lower margins, not higher profits.\Most profitable subset of customers for a leading firm generally can't use and don't want them.\nThey are first commercialized in emerging or insignificant markets.",
+    quote: "Characteristics of a Disruptive Technology:\nThey are simpler and cheaper and lower performing.\nThey generally promise lower margins, not higher profits.\nMost profitable subset of customers for a leading firm generally can't use and don't want them.\nThey are first commercialized in emerging or insignificant markets.",
     origin: "Clayton M. Christensen, The Innovator's Dilemma",
     date: "2020",
     tags: ["business"],
@@ -1555,7 +1555,7 @@ const quoteBank = [
   },
   {
     id: "q193",
-    quote: "We forge our TRUST IDENTITY by putting our heads into the mouths of the scariest demons, the realities of our lives. Only by facing these can we transform the energy that is the source of our aggression/confusion/struggle.",
+    quote: "We forge our TRUEST IDENTITY by putting our heads into the mouths of the scariest demons, the realities of our lives. Only by facing these can we transform the energy that is the source of our aggression/confusion/struggle.",
     origin: "Jerry Colonna, Reboot",
     date: "2020",
     tags: ["mindset"],
@@ -1651,7 +1651,7 @@ const quoteBank = [
   },
   {
     id: "q205",
-    quote: "Global. Geogphaic. Network Flywheel.",
+    quote: "Global. Geographic. Network Flywheel.",
     origin: "ZT",
     date: "2021",
     tags: ["psychology","money"],
@@ -1667,7 +1667,7 @@ const quoteBank = [
   },
   {
     id: "q207",
-    quote: "Try to view all transactions as if you were a non-owner,putting some distance between myself and the item of interest.",
+    quote: "Try to view all transactions as if you were a non-owner, putting some distance between myself and the item of interest.",
     origin: "Dan Ariely, Predictably Irrational",
     date: "2021",
     tags: ["psychology"],
@@ -1763,7 +1763,7 @@ const quoteBank = [
   },
   {
     id: "q219",
-    quote: "Three Forms of Superintelligence:\n2) cOLLECTIVE - A system composed of a large number of smaller intellects such that the system's overall perfomance across many very general domains vastly outstrips that of any current cognitive system.",
+    quote: "Three Forms of Superintelligence:\n2) COLLECTIVE - A system composed of a large number of smaller intellects such that the system's overall performance across many very general domains vastly outstrips that of any current cognitive system.",
     origin: "Nick Bostrom, Superintelligence",
     date: "2021",
     tags: ["technology"],
@@ -1771,7 +1771,7 @@ const quoteBank = [
   },
   {
     id: "q220",
-    quote: "Three Forms of Superintelligence:\n1) QUALITY - A system that is at least as fast as a human mind and vastly qualitatively smarter.",
+    quote: "Three Forms of Superintelligence:\n3) QUALITY - A system that is at least as fast as a human mind and vastly qualitatively smarter.",
     origin: "Nick Bostrom, Superintelligence",
     date: "2021",
     tags: ["technology"],
@@ -1787,7 +1787,7 @@ const quoteBank = [
   },
   {
     id: "q222",
-    quote: "Wireheading - artificial stimulation of the brain to experience pleasure, through direct stimulation of an idividual's brain reward or pleasure center. Also, any kind of method that produces 'counterfeit utility' by producing a good feeling, but that fails to realize what we value.",
+    quote: "Wireheading - artificial stimulation of the brain to experience pleasure, through direct stimulation of an individual's brain reward or pleasure center. Also, any kind of method that produces 'counterfeit utility' by producing a good feeling, but that fails to realize what we value.",
     origin: "Nick Bostrom, Superintelligence",
     date: "2021",
     tags: ["technology"],
@@ -1819,7 +1819,7 @@ const quoteBank = [
   },
   {
     id: "q226",
-    quote: "Strategic Analysis - 'crucial consideration'\nLook for ideas/argument with the potential to change our views.",
+    quote: "Strategic Analysis - 'crucial consideration'\nLook for ideas/arguments with the potential to change our views.",
     origin: "Nick Bostrom, Superintelligence",
     date: "2021",
     tags: ["technology"],
@@ -1835,7 +1835,7 @@ const quoteBank = [
   },
   {
     id: "q228",
-    quote: "'That won't work in the real world.'\nWell the real world sounds awful, it's filled with pessimistic people who assume society isn't ready for a capable change.",
+    quote: "'That won't work in the real world.'\nWell, the real world sounds awful, it's filled with pessimistic people who assume society isn't ready for a capable change.",
     origin: "Jason Fried & David Hansson, Rework",
     date: "2021",
     tags: ["mindset"],
@@ -1867,7 +1867,7 @@ const quoteBank = [
   },
   {
     id: "q232",
-    quote: "Reasons to Quit:\nWhy are you doing this?\nWhat problem are you solving?\nIs this actually useful?\nAre you adding value?\nWill this change behavior?\nIs there an eaiser way?\nWhat could you be doing instead?\nIs it really worth it?",
+    quote: "Reasons to Quit:\nWhy are you doing this?\nWhat problem are you solving?\nIs this actually useful?\nAre you adding value?\nWill this change behavior?\nIs there an easier way?\nWhat could you be doing instead?\nIs it really worth it?",
     origin: "Jason Fried & David Hansson, Rework",
     date: "2021",
     tags: ["mindset"],
@@ -1915,7 +1915,7 @@ const quoteBank = [
   },
   {
     id: "q238",
-    quote: "Before we build a better mousetrap, we need to find ouit if there are any mice out there.",
+    quote: "Before we build a better mousetrap, we need to find out if there are any mice out there.",
     origin: "Mac Anderson & Tom Feltenstein, Change is Good... You Go First",
     date: "2021",
     tags: ["mindset","business"],
@@ -1932,7 +1932,7 @@ const quoteBank = [
   {
     id: "q240",
     quote: "I always wondered why somebody didn't do something about that. Then I realized I was somebody.",
-    origin: "Darrel Royal, Luck Follows Speed",
+    origin: "Darrell Royal, Luck Follows Speed",
     date: "2021",
     tags: ["mindset"],
     favorite: false
@@ -1995,7 +1995,7 @@ const quoteBank = [
   },
   {
     id: "q248",
-    quote: "Perfect Group Construction:\nA focus on accuracy, onjectivity, and truthseeking\nAccountability\nOpenness to a diversity of ideas",
+    quote: "Perfect Group Construction:\nA focus on accuracy, objectivity, and truthseeking\nAccountability\nOpenness to a diversity of ideas",
     origin: "Annie Duke, Thinking in Bets",
     date: "2021",
     tags: ["mindset"],
@@ -2035,7 +2035,7 @@ const quoteBank = [
   },
   {
     id: "q253",
-    quote: "Negotiation is the process of meeting your goals when dealing with another person:\n1. Forcing people to do what you will them to do.\n2. Getting people to think what you want them to think.\nGetting people to perceive what you want them to perceive.\n4. Getting people to feel what you want them to feel.",
+    quote: "Negotiation is the process of meeting your goals when dealing with another person:\n1. Forcing people to do what you will them to do.\n2. Getting people to think what you want them to think.\n3. Getting people to perceive what you want them to perceive.\n4. Getting people to feel what you want them to feel.",
     origin: "Stuart Diamond, Getting More",
     date: "2021",
     tags: ["negotiation"],
@@ -2043,7 +2043,7 @@ const quoteBank = [
   },
   {
     id: "q254",
-    quote: "Goals:\nYou negotiate to mee goals. Are my actions meeting your goals?",
+    quote: "Goals:\nYou negotiate to meet goals. Are my actions meeting your goals?",
     origin: "Stuart Diamond, Getting More",
     date: "2021",
     tags: ["negotiation"],
@@ -2059,7 +2059,7 @@ const quoteBank = [
   },
   {
     id: "q256",
-    quote: "Small Steps:\nDon't be greedy\nIf you can increase your success rate by even a few percent in your negotiations with others, you will fabulously more successful.",
+    quote: "Small Steps:\nDon't be greedy\nIf you can increase your success rate by even a few percent in your negotiations with others, you will be fabulously more successful.",
     origin: "Stuart Diamond, Getting More",
     date: "2021",
     tags: ["negotiation"],
@@ -2131,7 +2131,7 @@ const quoteBank = [
   },
   {
     id: "q265",
-    quote: "Naming bad behavior without making yourself the issue is powerful because it turns other the other party's entire being against them - all the focus is on them.",
+    quote: "Naming bad behavior without making yourself the issue is powerful because it turns the other party's entire being against them - all the focus is on them.",
     origin: "Stuart Diamond, Getting More",
     date: "2021",
     tags: ["negotiation"],
@@ -2187,7 +2187,7 @@ const quoteBank = [
   },
   {
     id: "q272",
-    quote: "What are my goals, Who are they, What will it take to persuade them.",
+    quote: "What are my goals? Who are they? What will it take to persuade them?",
     origin: "Stuart Diamond, Getting More",
     date: "2021",
     tags: ["negotiation"],
@@ -2227,7 +2227,7 @@ const quoteBank = [
   },
   {
     id: "q277",
-    quote: "Intensity Matching:\nAllows your brain to compare things that seem they should not be comparible.",
+    quote: "Intensity Matching:\nAllows your brain to compare things that seem they should not be comparable.",
     origin: "Daniel Kahneman, Thinking, Fast and Slow",
     date: "2021",
     tags: ["thinking"],
@@ -2283,7 +2283,7 @@ const quoteBank = [
   },
   {
     id: "q284",
-    quote: "When given context on a person or occurance we believe it is more likely than an event or outcome that is less detailed.",
+    quote: "When given context on a person or occurrence we believe it is more likely than an event or outcome that is less detailed.",
     origin: "Daniel Kahneman, Thinking, Fast and Slow",
     date: "2021",
     tags: ["thinking"],
@@ -2323,7 +2323,7 @@ const quoteBank = [
   },
   {
     id: "q289",
-    quote: "Duration Neglect:\nCounting all positive and negative memories as equal even though the length of positive far out weighs the length of the negative times.",
+    quote: "Duration Neglect:\nCounting all positive and negative memories as equal even though the length of positive far outweighs the length of the negative times.",
     origin: "Daniel Kahneman, Thinking, Fast and Slow",
     date: "2021",
     tags: ["thinking","marriage"],
@@ -2331,7 +2331,7 @@ const quoteBank = [
   },
   {
     id: "q290",
-    quote: "Focusing Illusion:\nNothing in life is as important in life, as you think it is, when you are thinking about it.",
+    quote: "Focusing Illusion:\nNothing in life is as important as you think it is, when you are thinking about it.",
     origin: "Daniel Kahneman, Thinking, Fast and Slow",
     date: "2021",
     tags: ["thinking","business","life"],
