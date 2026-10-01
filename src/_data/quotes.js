@@ -7,7 +7,7 @@ const pool = favorites.length ? favorites : all;
 const featured = pool[Math.floor(Math.random() * pool.length)];
 // Deck order: newest logged first (quotes-data.js is appended chronologically).
 const deck = all.slice().reverse();
-// Deep-link hash for a quote: q037 -> "q-037"
+// Deep-link hash for a quote: q038 -> "q-038"
 const anchor = (id) => "q-" + String(id).replace(/^q/i, "");
 // Filter chips: topics used by at least 8 quotes, most-used first.
 const tagCounts = {};

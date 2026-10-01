@@ -10,7 +10,7 @@
   when the browser is idle (or on the first button press).
   Life & Interests (#quote-deck): every quote is rendered at build time in
   #qd-list (list view + no-JS fallback); search, topic chips, the source
-  filter, the spine strip and #q-037 deep links narrow or jump the deck.
+  filter, the spine strip and #q-038 deep links narrow or jump the deck.
   Downloads of the full bank are static files built by scripts/quote-downloads.mjs.
 */
 (function () {
@@ -316,7 +316,7 @@
       setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
     });
 
-    // deep links: #q-037 opens that quote on the card
+    // deep links: #q-038 opens that quote on the card
     var fromHash = function (scroll) {
       var m = /^#?q-?q?(\d+)$/i.exec(location.hash || "");
       if (!m) return false;

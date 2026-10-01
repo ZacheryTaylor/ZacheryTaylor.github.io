@@ -37,7 +37,7 @@ at the commit *"Move site source into src/ …"*.
     form the **Reading & quotes** deck (`partials/reading-quotes.njk` + `assets/js/quotes.js`):
     one flashcard at a time with prev/next, swipe, arrow keys and Shuffle; search, topic chips
     (tags used 8+ times) and a source filter narrow the deck; a List view shows 12 at a time.
-    Every quote has a deep link, `personal.html#q-037` for `id: "q037"`. The strip of spines
+    Every quote has a deep link, `personal.html#q-038` for `id: "q038"`. The strip of spines
     under the deck filters it by book and links to the Bookshelf.
     The card itself is the `quote-card.njk` macro and one shared `QuoteDeck` in `quotes.js`;
     the homepage uses the same card and controls (`#home-deck`), loads `quotes-data.js` on idle

@@ -306,14 +306,6 @@ const quoteBank = [
     favorite: false
   },
   {
-    id: "q037",
-    quote: "Invest in companies you wish you could buy, instead of just invest in.",
-    origin: "Robert T. Kiyosaki, Rich Dad Poor Dad",
-    date: "2020",
-    tags: ["assets"],
-    favorite: false
-  },
-  {
     id: "q038",
     quote: "Everyone wants to go to Heaven, but no one wants to die.",
     origin: "Robert T. Kiyosaki, Rich Dad Poor Dad",
@@ -731,7 +723,7 @@ const quoteBank = [
   },
   {
     id: "q090",
-    quote: "Does the company have a short-range and long-range outlook in regard to profits?",
+    quote: "Does the company have a short-range or long-range outlook in regard to profits?",
     origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
     date: "2020",
     tags: ["assets"],
@@ -763,7 +755,7 @@ const quoteBank = [
   },
   {
     id: "q094",
-    quote: "It is important to view knowledge as sort of the semantic tree - make sure you understand the fundamental principles, i.e. the trunk and big branches, before you get into the leaves/details or there is nothing for them to hang on to.",
+    quote: "It is important to view knowledge as a sort of semantic tree - make sure you understand the fundamental principles, i.e. the trunk and big branches, before you get into the leaves/details or there is nothing for them to hang on to.",
     origin: "Elon Musk",
     date: "2020",
     tags: ["mindset","career"],
@@ -787,7 +779,7 @@ const quoteBank = [
   },
   {
     id: "q097",
-    quote: "Reasons to Sell:\n1. A mistake has been made in purchasing.\n2. A deteriorating business or losing its 15 values.\n3. Opportunities for attractive investments are hard to find.",
+    quote: "Reasons to Sell:\n1. A mistake has been made in purchasing.\n2. A deteriorating business or losing its 15 points.\n3. Opportunities for attractive investments are hard to find.",
     origin: "Philip A. Fisher, Common Stocks and Uncommon Profits",
     date: "2020",
     tags: ["assets"],
@@ -859,7 +851,7 @@ const quoteBank = [
   },
   {
     id: "q106",
-    quote: "Don't let a bad company mask its lack of creativity and vision with a consistent paying dividend. If the management is bad, no matter how long the dividend has been paid.",
+    quote: "Don't let a bad company mask its lack of creativity and vision with a consistent paying dividend. If the management is bad, it's still a bad investment, no matter how long the dividend has been paid.",
     origin: "ZT",
     date: "2020",
     tags: ["assets"],
@@ -1092,7 +1084,7 @@ const quoteBank = [
   {
     id: "q135",
     quote: "Reasoning by analogy or comparison is just wrong. Down to a first principles level it just doesn't hold up, just like the past doesn't project the future. Don't miss out on an opportunity that could change the world because you are too busy trying to find what it is similar to.",
-    origin: "UNKNOWN",
+    origin: "Elon Musk",
     date: "2020",
     tags: ["learning","mindset","business"],
     favorite: true
@@ -1100,7 +1092,7 @@ const quoteBank = [
   {
     id: "q136",
     quote: "Roadways we drive on are based on a 'passive optical' experience; being able to read road signs and curves at various distances. So the way to solve autonomous driving isn't by INPUTTING all road speeds, signs, etc. It is by solving the problem of AI learning on passive optical vision as a human would.",
-    origin: "UNKNOWN",
+    origin: "Elon Musk",
     date: "2020",
     tags: ["learning","mindset","business"],
     favorite: true
@@ -1108,7 +1100,7 @@ const quoteBank = [
   {
     id: "q137",
     quote: "The six basic fears:\nPoverty, Criticism, Ill Health, Loss of Love of Someone, Old Age, Death",
-    origin: "UNKNOWN",
+    origin: "Napoleon Hill, Think and Grow Rich",
     date: "2020",
     tags: ["mindset"],
     favorite: false
@@ -1523,7 +1515,7 @@ const quoteBank = [
   },
   {
     id: "q189",
-    quote: "Management must submit to the stigma of a strong bottom-line when TRUE growth opportunities are available.",
+    quote: "Management must submit to the stigma of a weaker short-term bottom line when TRUE growth opportunities are available.",
     origin: "Philip A. Fisher, Conservative Investors Sleep Well",
     date: "2020",
     tags: ["assets","business"],
@@ -1731,7 +1723,7 @@ const quoteBank = [
   },
   {
     id: "q215",
-    quote: "A super intelligent AI will be the last and greatest invention of the human race. Making machines extremely good at one task is one thing, but once they can be programmed to do the things a human does 'without thinking' is much harder.\n-Common Sense\n-Natural Language Understanding",
+    quote: "A super intelligent AI will be the last and greatest invention of the human race. Making machines extremely good at one task is one thing, but programming them to do the things a human does 'without thinking' is much harder.\n-Common Sense\n-Natural Language Understanding",
     origin: "ZT",
     date: "2021",
     tags: ["psychology"],
@@ -1908,7 +1900,7 @@ const quoteBank = [
   {
     id: "q237",
     quote: "Inspiration is a magical thing, a productivity multiplier, a motivator. Inspiration is a now thing. If it grabs you, grab it right back and put it to work.",
-    origin: "UNKNOWN",
+    origin: "Jason Fried & David Hansson, Rework",
     date: "2021",
     tags: ["mindset","business"],
     favorite: true
@@ -1932,7 +1924,7 @@ const quoteBank = [
   {
     id: "q240",
     quote: "I always wondered why somebody didn't do something about that. Then I realized I was somebody.",
-    origin: "Darrell Royal, Luck Follows Speed",
+    origin: "Lily Tomlin",
     date: "2021",
     tags: ["mindset"],
     favorite: false
@@ -2035,7 +2027,7 @@ const quoteBank = [
   },
   {
     id: "q253",
-    quote: "Negotiation is the process of meeting your goals when dealing with another person:\n1. Forcing people to do what you will them to do.\n2. Getting people to think what you want them to think.\n3. Getting people to perceive what you want them to perceive.\n4. Getting people to feel what you want them to feel.",
+    quote: "Negotiation is the process of meeting your goals when dealing with another person:\n1. Forcing people to do what you want them to do.\n2. Getting people to think what you want them to think.\n3. Getting people to perceive what you want them to perceive.\n4. Getting people to feel what you want them to feel.",
     origin: "Stuart Diamond, Getting More",
     date: "2021",
     tags: ["negotiation"],
@@ -2043,7 +2035,7 @@ const quoteBank = [
   },
   {
     id: "q254",
-    quote: "Goals:\nYou negotiate to meet goals. Are my actions meeting your goals?",
+    quote: "Goals:\nYou negotiate to meet goals. Are my actions meeting my goals?",
     origin: "Stuart Diamond, Getting More",
     date: "2021",
     tags: ["negotiation"],
@@ -2107,7 +2099,7 @@ const quoteBank = [
   },
   {
     id: "262",
-    quote: "Fundamental Attribution Error:\nAssuming that everyone else reacts to things the way that you do.",
+    quote: "False-Consensus Effect:\nAssuming that everyone else reacts to things the way that you do.",
     origin: "Stuart Diamond, Getting More",
     date: "2021",
     tags: ["business"],
@@ -2259,7 +2251,7 @@ const quoteBank = [
   },
   {
     id: "q281",
-    quote: "Anchoring as Priming Effect:\nDid Gandhi die before or after the age of 30?\n-> 30 is a young age but why would the number be too far off the actual number... he died at 61.",
+    quote: "Anchoring as Priming Effect:\nDid Gandhi die before or after the age of 30?\n-> 30 is a young age but why would the number be too far off the actual number... he died at 78.",
     origin: "Daniel Kahneman, Thinking, Fast and Slow",
     date: "2021",
     tags: ["thinking"],
