@@ -67,6 +67,9 @@ groups:
     </ul>
   </div>
 </section>
+{%- if g.id == "apps" %}
+{% include "partials/bet-tracker-feature.njk" %}
+{%- endif %}
 {%- endfor %}
 
 {#- Safety net: anything added to personal-projects-data.js but not grouped above still shows. -#}

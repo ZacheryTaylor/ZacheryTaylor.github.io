@@ -149,45 +149,45 @@ const projects = [
     title: "Bet Tracker",
   
     cardDescription:
-      "A sports-bet tracking dashboard for player props, team-win totals, and parlays, with ESPN-fed progress bars for season-long markets.",
+      "A season-long sports-bet tracker for player props, win totals, futures and parlays. It refreshes from ESPN every hour, scores each bet's pace, and tracks closing-line value.",
   
-    coverImage: "images/personal/betting/bets.png",
+    coverImage: "images/personal/betting/bet-tracker-dashboard.png",
     coverAlt:
-      "Bet Tracker dashboard showing filters, ESPN refresh controls, player props, award bets, and completion progress bars",
+      "Bet Tracker dashboard with summary cards for tickets, total staked, potential payout, record and closing-line value, above a stake versus payout chart",
   
     description:
-      "Bet Tracker is a custom web application built to organize and monitor a personal slate of season-long sports bets from any computer. The project tracks player props, team-win totals, award futures, and parlays in one shared dashboard. Every ticket records its target, current progress, stake, potential payout, and status, while solid red-to-green progress bars show how close each bet is to completion. Player and team data can refresh from ESPN, allowing season totals, touchdowns, yards, and win records to update without manually recalculating each ticket. Parlays are treated as contingent bets, with a combined ticket summary and separate progress tracking for every leg.",
+      "Bet Tracker is a web app I built to follow a shared slate of season-long sports bets from any phone or computer. It tracks player props, team-win totals, award and playoff futures, and parlays in one dashboard. A GitHub Action pulls player stats and team records from ESPN every hour and commits them, so progress updates without anyone doing the math. A Chart Report scores each bet's pace against what its line needs, a stake-versus-payout chart shows exposure by bet type or person, and summary cards cover record, P/L, ROI and closing-line value. Bets are added, edited and settled from a form in the browser that commits straight to the repo through the GitHub API. It's a static site on GitHub Pages with no build step, and changes are tested on a staging copy before they go live.",
   
     summary: [
       {
-        heading: "Bet setup",
+        heading: "ESPN auto-refresh",
         text:
-          "Organize season-long bets into player props, team win totals, award futures, and parlays. Each ticket records the player or team, stat market, target, current total, stake, potential payout, and open, hit, or miss status."
+          "An hourly GitHub Action pulls each player's season stats and every team's overall record from ESPN and commits the updated data file. A Refresh ESPN button gives an instant check in the browser."
       },
       {
-        heading: "Player props",
+        heading: "Pace scoring",
         text:
-          "Track individual season markets such as passing yards, rushing yards, receiving yards, passing touchdowns, and rushing touchdowns. Each prop compares the player’s current total with the target needed to complete the bet."
+          "The Chart Report scores every prop, win total and parlay leg on pace rather than raw progress. Player props blend progress with per-game pace against the line, win totals compare win or loss rate with what the line requires, and the overall score is weighted by payout."
       },
       {
-        heading: "Team records",
+        heading: "Charts and summary",
         text:
-          "Monitor team-win bets such as Bills or Lions season totals. ESPN standings supply the current wins and losses, allowing the tracker to measure each team’s progress toward its required win number."
+          "A Chart.js stake-versus-payout chart groups exposure by bet type or by person. Summary cards show tickets, money at stake, potential payout, record, net P/L and ROI, and every formula is explained behind a \"?\" button."
       },
       {
-        heading: "Parlay tracking",
+        heading: "Bet entry form",
         text:
-          "Display each parlay as one contingent ticket while preserving every individual leg beneath it. The overall card summarizes the parlay’s combined progress, and each player-prop leg receives its own current total, target, and completion bar."
+          "Add, edit and settle bets from a validated in-browser form. Saving commits to the data file through the GitHub API with a fine-grained token kept only in the browser, merged onto the newest data so the hourly refresh is never overwritten. It can also export the file instead."
       },
       {
-        heading: "Live progress",
+        heading: "Closing-line value",
         text:
-          "Refresh player and team data from ESPN to update current season totals. Completion is calculated as current progress divided by the bet target, with solid bar colors moving from red through yellow to green as a ticket approaches completion."
+          "Each ticket can store the odds when placed and the closing odds. The tracker shows CLV per bet, plus the average CLV and the share of bets that beat the closing line."
       },
       {
-        heading: "Shared dashboard",
+        heading: "Parlays and filters",
         text:
-          "Store the bet slate in a versioned JSON file hosted with the application. The shared data file allows the same dashboard, tickets, progress bars, and updated totals to be viewed from any computer through GitHub Pages."
+          "Parlays stay one contingent ticket with a progress bar for every leg. Search, sort, and filters for user, sport, bet type, timeline and status narrow the list, and it comes in light and dark modes."
       }
     ],
   
@@ -202,18 +202,25 @@ const projects = [
   
     gallery: [
       {
-        src: "images/personal/betting/parlay.png",
+        src: "images/personal/betting/bet-tracker-dashboard.png",
         alt:
-          "Bet Tracker parlay card showing three NFL player-prop legs for Jacory Croskey-Merritt, Kenneth Walker III, and Javonte Williams, each with its own completion bar and current versus target rushing-yard total.",
+          "Bet Tracker dashboard with summary cards for tickets, total staked, potential payout, record and closing-line value, above a stake versus payout chart grouped by bet type.",
         caption:
-          "A joint three-leg NFL parlay shown as one ticket. The parent card summarizes overall completion, while individual progress bars show the separate rushing-yard status of each leg."
+          "The dashboard: tickets, money at stake, potential payout, record and CLV, then exposure by bet type."
       },
       {
-        src: "images/personal/betting/bets.png",
+        src: "images/personal/betting/bet-tracker-chart-report.png",
         alt:
-          "Bet Tracker dashboard showing ESPN refresh controls, sport and status filters, and NFL bet cards for Caleb Williams MVP, Darian Mensah first overall pick, and Caleb Williams passing yards.",
+          "Bet Tracker Chart Report showing allocated stake, implied payout value, overall progress, and pace-scored rows for team win totals and player props.",
         caption:
-          "The main tracker dashboard combines filters, ESPN refresh status, stake-to-payout details, ticket labels, and solid color progress bars for season-long bets."
+          "The Chart Report scores each bet's pace and writes out the math under every row."
+      },
+      {
+        src: "images/personal/betting/bet-tracker-mobile.png",
+        alt:
+          "Bet Tracker on a phone, showing the header actions and summary cards in a single column.",
+        caption:
+          "The same tracker on a phone."
       }
     ]
   },

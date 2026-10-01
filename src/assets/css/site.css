@@ -1196,3 +1196,21 @@ details[open] > summary { background: var(--blueprint-soft); }
 .software-line dt { color: var(--muted); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
 .software-line dd { margin: 4px 0 0; font-size: 0.9rem; }
 @media (max-width: 840px) { .software-line { grid-template-columns: 1fr; } .civil-grid .cs-sheet { min-height: 200px; } }
+
+/* ---- Life & Interests: Bet Tracker feature (#bet-tracker) ---- */
+.bt-layout { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 28px; align-items: start; }
+.bt-shot { margin: 0; }
+.bt-shot picture, .bt-shot img { display: block; width: 100%; height: auto; }
+.bt-shot img { border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: #f6f7fb; box-shadow: 0 22px 44px -28px rgba(15, 20, 25, 0.5); }
+.bt-shot-phone img { border: 7px solid var(--graphite); border-radius: 30px; }
+.bt-shot figcaption { margin-top: 10px; color: var(--muted); font-size: 0.88rem; line-height: 1.55; }
+.bt-points { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 36px 0; padding: 0; list-style: none; }
+.bt-points li { padding: 20px 22px; border: 1px solid var(--border); border-radius: var(--radius); background: rgb(var(--surface) / 0.72); }
+.bt-points h3 { margin: 0 0 8px; font-size: 1.05rem; }
+.bt-points p { margin: 0; color: var(--muted); font-size: 0.96rem; line-height: 1.65; }
+.bt-shot-wide { max-width: 900px; }
+.bt-actions { margin-top: 28px; }
+@media (max-width: 820px) {
+  .bt-layout, .bt-points { grid-template-columns: 1fr; }
+  .bt-shot-phone { max-width: 240px; margin: 0 auto; }
+}
