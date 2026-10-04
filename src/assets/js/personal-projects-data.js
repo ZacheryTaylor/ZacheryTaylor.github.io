@@ -98,7 +98,7 @@ const projects = [
     links: [
       {
         label: "Open Draft the Stars",
-        href: "https://zacherytaylor.github.io/dwts-draft/",
+        href: "https://draftthestars.com/",
         primary: true,
         newTab: true
       }
