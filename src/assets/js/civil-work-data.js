@@ -127,6 +127,98 @@ const civilWork = {
     { sheet: "CS-03", type: "Municipal utilities", title: "" }
   ],
 
+
+  /*
+    PRODUCTS — "Digital products" (C-105) on civil.html. Sold on Gumroad.
+    To add a product video later: compress to ~720p H.264 mp4 with faststart,
+    put it in src/media/products/, and set `video: "media/products/<file>.mp4"`.
+    `video: null` = no video yet (nothing renders).
+  */
+  productStore: "https://ztllc.gumroad.com",
+  products: [
+    {
+      title: 'PE Civil Construction Exam Bundle',
+      kind: 'Study guide',
+      price: '$39',
+      blurb: 'Reference navigator, 34 worked examples, 11 quick-reference sheets and a study tracker for the NCEES Civil: Construction exam.',
+      href: "https://ztllc.gumroad.com/l/qdnxn",
+      cover: "images/products/pe-construction-bundle.png",
+      video: "media/products/pe-construction-bundle.mp4"
+    },
+    {
+      title: 'PE Civil Construction Free Sample',
+      kind: 'Free sample',
+      price: 'Free',
+      blurb: 'A free taste of the exam bundle: sample reference pages and worked examples.',
+      href: "https://ztllc.gumroad.com/l/pe-construction-free-sample",
+      cover: "images/products/pe-construction-bundle.png",
+      video: "media/products/free-lead-magnets.mp4"
+    },
+    {
+      title: 'Sitework & Utility Estimating Workbook',
+      kind: 'Excel / Sheets',
+      price: '$79',
+      blurb: 'Excavation, trench and utility bid template for sitework contractors and estimators.',
+      href: "https://ztllc.gumroad.com/l/sitework-utility-estimator",
+      cover: "images/products/sitework-estimator.png",
+      video: "media/products/sitework-estimator.mp4"
+    },
+    {
+      title: 'Trench & Pipe Bedding Calculator',
+      kind: 'Free calculator',
+      price: 'Free',
+      blurb: 'Quick trench excavation and pipe bedding quantities in one sheet.',
+      href: "https://ztllc.gumroad.com/l/free-trench-calculator",
+      cover: "images/products/sitework-estimator.png",
+      video: "media/products/free-lead-magnets.mp4"
+    },
+    {
+      title: 'Land Development Lot Feasibility Pro Forma',
+      kind: 'Excel / Sheets',
+      price: '$59',
+      blurb: 'Subdivision feasibility, residual land value and IRR for raw-land deals.',
+      href: "https://ztllc.gumroad.com/l/land-dev-proforma",
+      cover: "images/products/land-dev-proforma.png",
+      video: "media/products/land-dev-proforma.mp4"
+    },
+    {
+      title: 'Rental Property Analyzer',
+      kind: 'Excel / Sheets',
+      price: '$29',
+      blurb: 'Cash flow, cap rate, DSCR and IRR for buy-and-hold rentals.',
+      href: "https://ztllc.gumroad.com/l/rental-property-analyzer",
+      cover: "images/products/rental-property-analyzer.png",
+      video: "media/products/rental-property-analyzer.mp4"
+    },
+    {
+      title: 'Fix & Flip Deal Analyzer',
+      kind: 'Excel / Sheets',
+      price: '$29',
+      blurb: '70% rule, rehab budget, max offer and ROI for flips.',
+      href: "https://ztllc.gumroad.com/l/fix-and-flip-analyzer",
+      cover: "images/products/fix-and-flip-analyzer.png",
+      video: "media/products/fix-and-flip-analyzer.mp4"
+    },
+    {
+      title: 'Land Development + Sitework Bundle',
+      kind: 'Bundle',
+      price: '$109',
+      blurb: 'The lot feasibility pro forma and sitework estimator together.',
+      href: "https://ztllc.gumroad.com/l/land-dev-sitework-bundle",
+      cover: "images/products/land-dev-sitework-bundle.png",
+      video: null
+    },
+    {
+      title: 'Real Estate Investor Bundle',
+      kind: 'Bundle',
+      price: '$79',
+      blurb: 'Rental analyzer, fix & flip analyzer and land pro forma together.',
+      href: "https://ztllc.gumroad.com/l/real-estate-investor-bundle",
+      cover: "images/products/real-estate-investor-bundle.png",
+      video: null
+    }
+  ],
+
   // Two labelled groups on the Civil Work page (side by side on desktop).
   // Licensure is in path order (EI -> PE); Education is newest first.
   credentialGroups: [
