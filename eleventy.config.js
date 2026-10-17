@@ -59,7 +59,7 @@ export default function (eleventyConfig) {
   // also copied, byte for byte, to their pre-2026 URLs (/images/…) so old external links
   // keep working. Plain copies: nothing links to or preloads them, so pages don't get heavier.
   eleventyConfig.addPassthroughCopy({ "src/images": "images" });
-  eleventyConfig.addPassthroughCopy({ "src/media": "media" });
+  // src/media (product videos) is kept in the repo but not published while unused.
   eleventyConfig.ignores.add("src/media/**");
   eleventyConfig.ignores.add("src/images/**");
   eleventyConfig.ignores.add("src/assets/**");

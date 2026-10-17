@@ -130,6 +130,11 @@ const civilWork = {
 
   /*
     PRODUCTS — "Digital products" (C-105) on civil.html. Sold on Gumroad.
+    `featured: true` = shown as a cover card (keep it to 3); the rest show in
+    the compact "More tools" text list. Videos are not shown on the site right
+    now; `video` paths are kept for later (files in src/media/products/, which
+    is not copied into the build — re-add the passthrough in eleventy.config.js
+    if videos come back).
     To add a product video later: compress to ~720p H.264 mp4 with faststart,
     put it in src/media/products/, and set `video: "media/products/<file>.mp4"`.
     `video: null` = no video yet (nothing renders).
@@ -138,6 +143,7 @@ const civilWork = {
   products: [
     {
       title: 'PE Civil Construction Exam Bundle',
+      featured: true,
       kind: 'Study guide',
       price: '$39',
       blurb: 'Reference navigator, 34 worked examples, 11 quick-reference sheets and a study tracker for the NCEES Civil: Construction exam.',
@@ -151,11 +157,12 @@ const civilWork = {
       price: 'Free',
       blurb: 'A free taste of the exam bundle: sample reference pages and worked examples.',
       href: "https://ztllc.gumroad.com/l/pe-construction-free-sample",
-      cover: "images/products/pe-construction-bundle.png",
+      cover: "images/products/pe-construction-free-sample.png",
       video: "media/products/free-lead-magnets.mp4"
     },
     {
       title: 'Sitework & Utility Estimating Workbook',
+      featured: true,
       kind: 'Excel / Sheets',
       price: '$79',
       blurb: 'Excavation, trench and utility bid template for sitework contractors and estimators.',
@@ -169,11 +176,12 @@ const civilWork = {
       price: 'Free',
       blurb: 'Quick trench excavation and pipe bedding quantities in one sheet.',
       href: "https://ztllc.gumroad.com/l/free-trench-calculator",
-      cover: "images/products/sitework-estimator.png",
+      cover: "images/products/free-trench-calculator.png",
       video: "media/products/free-lead-magnets.mp4"
     },
     {
       title: 'Land Development Lot Feasibility Pro Forma',
+      featured: true,
       kind: 'Excel / Sheets',
       price: '$59',
       blurb: 'Subdivision feasibility, residual land value and IRR for raw-land deals.',
