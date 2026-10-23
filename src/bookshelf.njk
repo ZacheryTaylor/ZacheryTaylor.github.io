@@ -41,7 +41,7 @@ sheetTitle: "Bookshelf"
         {%- if b.note %}<p class="note-text">{{ b.note }}</p>{% endif %}
         <p class="book-meta">
           <span>{{ b.quoteCount }} {{ "quote" if b.quoteCount == 1 else "quotes" }} logged{% if b.since %} · since {{ b.since }}{% endif %}</span>
-          {%- if b.quoteCount %}<a href="/personal.html?q={{ b.title | urlencode }}#quotes">Read them</a>{% endif %}
+          {%- if b.quoteCount %}<a href="/personal.html?q={{ b.title | urlencode | replace("'", "%27") }}#quotes">Read them</a>{% endif %}
         </p>
       </li>
       {%- endfor %}

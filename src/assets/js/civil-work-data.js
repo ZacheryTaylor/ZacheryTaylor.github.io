@@ -121,11 +121,7 @@ const civilWork = {
       pdf: ""                                  // e.g. "pdfs/civil/<file>.pdf"
     }
   */
-  projects: [
-    { sheet: "CS-01", type: "Commercial site", title: "" },
-    { sheet: "CS-02", type: "Subdivision", title: "" },
-    { sheet: "CS-03", type: "Municipal utilities", title: "" }
-  ],
+  projects: [],
 
 
   /*

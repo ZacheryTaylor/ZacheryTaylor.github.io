@@ -13,7 +13,7 @@ eleventyComputed:
   ogImagePath: "{{ project.ogImage }}"
   ogImageAlt: "{{ project.coverAlt or project.title }}"
   navKey: "{{ 'projects' if project.section == 'academic' else ('civil' if project.section == 'civil' else 'life') }}"
-  parentTitle: "{{ 'Projects' if project.section == 'academic' else ('Civil Work' if project.section == 'civil' else 'Life & Interests') }}"
+  parentTitle: "{{ 'Academia' if project.section == 'academic' else ('Civil Work' if project.section == 'civil' else 'Life & Interests') }}"
   parentUrl: "{{ '/academic.html' if project.section == 'academic' else ('/civil.html' if project.section == 'civil' else '/personal.html') }}"
   sheet: "{{ project.sheet }}"
   sheetTitle: "{{ project.title }}"

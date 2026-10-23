@@ -1,0 +1,12 @@
+{#- Plain project card (no project page). Same look as ui.projectCard. `a` = activeProjects item. -#}
+<li class="project-card reveal">
+  <div class="project-cover"><span class="project-type">{{ a.type }}</span>{% if a.cover %}<img src="/{{ a.cover }}" alt="" width="600" height="400" loading="lazy" decoding="async">{% endif %}</div>
+  <div class="project-body">
+    <p class="project-date">{{ a.status }}</p>
+    <h3>{% if a.href %}<a href="{{ a.href }}">{{ a.title }}</a>{% else %}{{ a.title }}{% endif %}</h3>
+    <p>{{ a.text }}</p>
+    {%- if a.href %}
+    <div class="card-actions"><a class="card-button" href="{{ a.href }}">{{ a.hrefLabel or "Open" }}<span class="visually-hidden">: {{ a.title }}</span></a></div>
+    {%- endif %}
+  </div>
+</li>

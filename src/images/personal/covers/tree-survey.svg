@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b4d96"/><stop offset="1" stop-color="#041d36"/></linearGradient></defs><rect width="600" height="400" fill="url(#bg)"/>
+<g fill="#5fbf7f" fill-opacity=".22" stroke="#9fe0b4" stroke-opacity=".8" stroke-width="2.5">
+<circle cx="150" cy="150" r="70"/><circle cx="280" cy="230" r="55"/><circle cx="170" cy="300" r="42"/><circle cx="330" cy="110" r="38"/>
+</g>
+<g fill="#fff"><circle cx="150" cy="150" r="5"/><circle cx="280" cy="230" r="5"/><circle cx="170" cy="300" r="5"/><circle cx="330" cy="110" r="5"/></g>
+<g fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2" stroke-dasharray="6 6"><path d="M40 360 L560 360"/><path d="M40 360 L40 40"/></g>
+<rect x="420" y="70" width="130" height="250" rx="22" fill="#041d36" stroke="#fff" stroke-opacity=".85" stroke-width="3"/>
+<g stroke="#9cc8ff" stroke-width="3" fill="none"><circle cx="485" cy="160" r="30"/><path d="M485 115 V140 M485 180 V205 M440 160 H465 M505 160 H530"/></g>
+<circle cx="485" cy="160" r="6" fill="#f28c38"/>
+<g fill="#fff" fill-opacity=".7"><rect x="445" y="230" width="80" height="9" rx="4.5"/><rect x="445" y="250" width="60" height="9" rx="4.5" fill-opacity=".45"/><rect x="445" y="280" width="80" height="22" rx="11" fill="#f28c38" fill-opacity=".9"/></g>
+</svg>
