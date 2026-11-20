@@ -2329,4 +2329,380 @@ const quoteBank = [
     tags: ["thinking","business","life"],
     favorite: true
   },
+  {
+    id: "q291",
+    quote: "Make your 100 Bagger matter, bet big.",
+    origin: "Christopher Mayer, 100 Baggers",
+    date: "2021",
+    tags: ["assets","investing"],
+    favorite: false
+  },
+  {
+    id: "q292",
+    quote: "Coffee Can Investment:\nBuy companies you would be willing to lock away in a safety deposit box for 10 years.",
+    origin: "Christopher Mayer, 100 Baggers",
+    date: "2021",
+    tags: ["assets","investing"],
+    favorite: false
+  },
+  {
+    id: "q293",
+    quote: "Dhandho = endeavors that create wealth, while taking virtually no risk in the process.",
+    origin: "Mohnish Pabrai, The Dhandho Investor",
+    date: "2021",
+    tags: ["assets","investing"],
+    favorite: false
+  },
+  {
+    id: "q294",
+    quote: "Look for a dislocating event or large singular event scares.",
+    origin: "Mohnish Pabrai, The Dhandho Investor",
+    date: "2021",
+    tags: ["assets","investing"],
+    favorite: false
+  },
+  {
+    id: "q295",
+    quote: "Low risk and high uncertainty is a combo of asset to look for.",
+    origin: "Mohnish Pabrai, The Dhandho Investor",
+    date: "2021",
+    tags: ["assets","investing"],
+    favorite: false
+  },
+  {
+    id: "q296",
+    quote: "The goal is not to eliminate the bad, but to pursue and experience the best in the world.",
+    origin: "Timothy Ferriss, The 4-Hour Workweek",
+    date: "2021",
+    tags: ["mindset","life"],
+    favorite: false
+  },
+  {
+    id: "q297",
+    quote: "Emphasize strengths, quit trying to fix weaknesses. Incremental increases towards average or multiplication of results.",
+    origin: "Timothy Ferriss, The 4-Hour Workweek",
+    date: "2021",
+    tags: ["mindset","career"],
+    favorite: true
+  },
+  {
+    id: "q298",
+    quote: "Time is wasted because of the illusion that there is so much time available.",
+    origin: "Timothy Ferriss, The 4-Hour Workweek",
+    date: "2021",
+    tags: ["mindset"],
+    favorite: false
+  },
+  {
+    id: "q299",
+    quote: "Parkinson's Law:\nWork expands so as to fill the time available for its completion.",
+    origin: "Timothy Ferriss, The 4-Hour Workweek",
+    date: "2021",
+    tags: ["mindset","business"],
+    favorite: false
+  },
+  {
+    id: "q300",
+    quote: "The person who makes the most money is not the one who plays the most hands.",
+    origin: "Tony Hsieh, Delivering Happiness",
+    date: "2021",
+    tags: ["business","mindset"],
+    favorite: false
+  },
+  {
+    id: "q301",
+    quote: "Build with happiness at the core.",
+    origin: "Tony Hsieh, Delivering Happiness",
+    date: "2021",
+    tags: ["business","mindset"],
+    favorite: false
+  },
+  {
+    id: "q302",
+    quote: "As machines get smarter and take on suitable tasks, humans might actually find it easier to be more humane.",
+    origin: "Eric Topol, Deep Medicine",
+    date: "2021",
+    tags: ["technology","health"],
+    favorite: false
+  },
+  {
+    id: "q303",
+    quote: "If you don't get feedback, your confidence grows much faster than your accuracy.",
+    origin: "Eric Topol, Deep Medicine",
+    date: "2021",
+    tags: ["learning","thinking"],
+    favorite: false
+  },
+  {
+    id: "q304",
+    quote: "Once we have entered the age of genetic prediction, how do you control discrimination from insurers who might not want to insure someone at all based on the genetic predictions of their health?",
+    origin: "ZT",
+    date: "2021",
+    tags: ["technology","health"],
+    favorite: false
+  },
+  {
+    id: "q305",
+    quote: "Machine Learning could replace nutritionists and bridge the health/wellness gap between celebrities/professional athletes and the average Joe.",
+    origin: "Eric Topol, Deep Medicine",
+    date: "2021",
+    tags: ["technology","health"],
+    favorite: false
+  },
+  {
+    id: "q306",
+    quote: "Health records and information are currently optimized for billing purposes, not for the patient's health.",
+    origin: "Eric Topol, Deep Medicine",
+    date: "2021",
+    tags: ["health","business"],
+    favorite: false
+  },
+  {
+    id: "q307",
+    quote: "The Four Stages of Societies:\n1. Hunter/Gatherer\n2. Agricultural\n3. Industrial\n4. Information",
+    origin: "James Dale Davidson & William Rees-Mogg, The Sovereign Individual",
+    date: "2021",
+    tags: ["theory","technology"],
+    favorite: false
+  },
+  {
+    id: "q308",
+    quote: "When the phrase \"all men are created equal\" did that really refer to the fact that now with equal opportunities to weapons, all men have an equal chance to kill each other? Prior to this many farmers had no access or money to acquire weapons equal to that of the military.",
+    origin: "James Dale Davidson & William Rees-Mogg, The Sovereign Individual",
+    date: "2021",
+    tags: ["theory"],
+    favorite: false
+  },
+  {
+    id: "q309",
+    quote: "The more widely dispersed key technologies are, the more widely dispersed power will tend to be and the smaller the optimum scale of government.",
+    origin: "James Dale Davidson & William Rees-Mogg, The Sovereign Individual",
+    date: "2021",
+    tags: ["technology","theory"],
+    favorite: false
+  },
+  {
+    id: "q310",
+    quote: "Too often it's a career limiting move to question the way things are done in an \"established\" organization.",
+    origin: "ZT",
+    date: "2021",
+    tags: ["career","mindset"],
+    favorite: true
+  },
+  {
+    id: "q311",
+    quote: "In the Industrial Age machines were made so that any input with a tool could produce the same output. Different skill levels, but a hammer is a hammer. In the Information Age outputs are individual and solely based on the input, magnifying the gap between skilled and unskilled workers.",
+    origin: "James Dale Davidson & William Rees-Mogg, The Sovereign Individual",
+    date: "2021",
+    tags: ["technology","career"],
+    favorite: false
+  },
+  {
+    id: "q312",
+    quote: "No government's laws have ever exclusively applied at sea. What makes you think a government will exclusively control the infinite world of cyberspace.",
+    origin: "James Dale Davidson & William Rees-Mogg, The Sovereign Individual",
+    date: "2021",
+    tags: ["technology","theory"],
+    favorite: false
+  },
+  {
+    id: "q313",
+    quote: "Cash transcended the world of barter, no longer did you need to find two who offer and want similar things.",
+    origin: "James Dale Davidson & William Rees-Mogg, The Sovereign Individual",
+    date: "2021",
+    tags: ["money","assets"],
+    favorite: false
+  },
+  {
+    id: "q314",
+    quote: "Big cities are leftover baggage from the Industrial Era.",
+    origin: "James Dale Davidson & William Rees-Mogg, The Sovereign Individual",
+    date: "2021",
+    tags: ["theory"],
+    favorite: false
+  },
+  {
+    id: "q315",
+    quote: "Emotional Granularity = the ability to put feelings into words with a high degree of specificity and precision.",
+    origin: "Lisa Feldman Barrett, How Emotions Are Made",
+    date: "2021",
+    tags: ["psychology","emotions"],
+    favorite: false
+  },
+  {
+    id: "q316",
+    quote: "Someone who uses anxious or depressed interchangeably has low emotional granularity since these descriptions are complete opposite.",
+    origin: "Lisa Feldman Barrett, How Emotions Are Made",
+    date: "2021",
+    tags: ["psychology","emotions"],
+    favorite: false
+  },
+  {
+    id: "q317",
+    quote: "All emotions should be seen as contextual, but to what extent. Your emotion about stomach churning are different at the dinner table, the start of flu season, or in a court room with a sketchy person. It's just your mind making sense of your body and the world around it.",
+    origin: "Lisa Feldman Barrett, How Emotions Are Made",
+    date: "2021",
+    tags: ["psychology","emotions"],
+    favorite: false
+  },
+  {
+    id: "q318",
+    quote: "Emotions cannot be broken down into ingredients, just like bread does not taste like each of its ingredients individually. They are irreducible.",
+    origin: "Lisa Feldman Barrett, How Emotions Are Made",
+    date: "2021",
+    tags: ["psychology","emotions"],
+    favorite: false
+  },
+  {
+    id: "q319",
+    quote: "Without a receiver there is no sound, only air moving. It is that air moving, hitting our ear drum which makes sound. Same with color, it is just the reflection of light into the eye as a known concept.",
+    origin: "Lisa Feldman Barrett, How Emotions Are Made",
+    date: "2021",
+    tags: ["psychology","thinking"],
+    favorite: false
+  },
+  {
+    id: "q320",
+    quote: "To communicate an emotion with someone you need a shared understanding of that emotion.",
+    origin: "Lisa Feldman Barrett, How Emotions Are Made",
+    date: "2021",
+    tags: ["psychology","emotions"],
+    favorite: false
+  },
+  {
+    id: "q321",
+    quote: "Emotions with Children:\nWrong: You're being bad, stop.\nWrong: Good job, proud of you.\nRight: Stop hitting your brother, it hurts him.\nRight: You did a good thing, restraining from hitting your brother.",
+    origin: "Lisa Feldman Barrett, How Emotions Are Made",
+    date: "2021",
+    tags: ["psychology","parenting"],
+    favorite: false
+  },
+  {
+    id: "q322",
+    quote: "Mathematics is simply a tool to meditate, rather than to compute.",
+    origin: "Nassim Nicholas Taleb, Fooled by Randomness",
+    date: "2021",
+    tags: ["thinking"],
+    favorite: false
+  },
+  {
+    id: "q323",
+    quote: "It's not how likely an event happens that matters, it is how much is made when it happens that matters. Frequency is not what matters, magnitude is.",
+    origin: "Nassim Nicholas Taleb, Fooled by Randomness",
+    date: "2021",
+    tags: ["thinking","assets"],
+    favorite: false
+  },
+  {
+    id: "q324",
+    quote: "No one accepts randomness on their success, but they are eager to accept randomness in failure.",
+    origin: "Nassim Nicholas Taleb, Fooled by Randomness",
+    date: "2021",
+    tags: ["thinking","mindset"],
+    favorite: false
+  },
+  {
+    id: "q325",
+    quote: "1. Madness of the Markets = The value of the company doesn't change as much as the stock price.\n2. How much is the business worth?\n3. P/E & Return on Assets.\n4. Magic Formula = High ROA & Low P/E; Rank each and add together to get total rank.",
+    origin: "Joel Greenblatt, The Little Book That Beats the Market",
+    date: "2021",
+    tags: ["assets","investing"],
+    favorite: false
+  },
+  {
+    id: "q326",
+    quote: "You are trained to believe you \"owe\" something to the government.",
+    origin: "Tom Wheelwright, Tax-Free Wealth",
+    date: "2021",
+    tags: ["taxes","mindset"],
+    favorite: false
+  },
+  {
+    id: "q327",
+    quote: "Make your business a family business; \"pay\" your child to be a bookkeeper at the normal bookkeeper rate.",
+    origin: "Tom Wheelwright, Tax-Free Wealth",
+    date: "2021",
+    tags: ["taxes","business"],
+    favorite: false
+  },
+  {
+    id: "q328",
+    quote: "DEPRECIATION.",
+    origin: "Tom Wheelwright, Tax-Free Wealth",
+    date: "2021",
+    tags: ["taxes","business"],
+    favorite: false
+  },
+  {
+    id: "q329",
+    quote: "Utilize cost segregation when available.",
+    origin: "Tom Wheelwright, Tax-Free Wealth",
+    date: "2021",
+    tags: ["taxes","business"],
+    favorite: false
+  },
+  {
+    id: "q330",
+    quote: "You only have to pay yourself the average amount for your position. Not too little or too much.",
+    origin: "Tom Wheelwright, Tax-Free Wealth",
+    date: "2021",
+    tags: ["taxes","business"],
+    favorite: false
+  },
+  {
+    id: "q331",
+    quote: "\"What do you think we pay you so much for?\"\nRealize you are trading your time for optionality and money. Sometimes your time isn't worth any amount of money.",
+    origin: "ZT",
+    date: "2021",
+    tags: ["career","mindset"],
+    favorite: true
+  },
+  {
+    id: "q332",
+    quote: "Look for a company that feels like they are wasting money by investing in anything BUT themselves.",
+    origin: "ZT",
+    date: "2021",
+    tags: ["assets","investing"],
+    favorite: true
+  },
+  {
+    id: "q333",
+    quote: "Imagine an AI that makes movies, it reads reviews of hundreds of thousands of movies in a genre. Learns what people liked and disliked and then curated movies from scratch based on the knowledge learned. The costs would be fractional and the movies would be an order of magnitude better.",
+    origin: "Max Tegmark, Life 3.0",
+    date: "2021",
+    tags: ["technology"],
+    favorite: false
+  },
+  {
+    id: "q334",
+    quote: "Technology is giving life the potential to flourish like never before - or to self-destruct.",
+    origin: "Max Tegmark, Life 3.0",
+    date: "2021",
+    tags: ["technology","life"],
+    favorite: true
+  },
+  {
+    id: "q335",
+    quote: "Winograd Schema Challenge = designed to be an improvement from the Turing test.\nUses multiple choice questions for natural language processing and \"common sense reasoning.\"",
+    origin: "Max Tegmark, Life 3.0",
+    date: "2021",
+    tags: ["technology"],
+    favorite: false
+  },
+  {
+    id: "q336",
+    quote: "A super intelligent AI could learn traits from people to figure out what the fastest/best way that person can learn something. Then create/cultivate the method of learning on any subject.",
+    origin: "Max Tegmark, Life 3.0",
+    date: "2021",
+    tags: ["technology","learning"],
+    favorite: false
+  },
+  {
+    id: "q337",
+    quote: "Job requirements in an AI world:\n1. Social interaction with people\n2. Creativity\n3. Unpredictable Environments",
+    origin: "Max Tegmark, Life 3.0",
+    date: "2021",
+    tags: ["technology","career"],
+    favorite: false
+  },
 ];

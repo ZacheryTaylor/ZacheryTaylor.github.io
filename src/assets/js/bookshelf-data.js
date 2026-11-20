@@ -40,6 +40,17 @@ const bookshelf = {
     { shelf: "mind", title: "Thinking in Bets", author: "Annie Duke", origin: "Annie Duke, Thinking in Bets" },
     { shelf: "mind", title: "Predictably Irrational", author: "Dan Ariely", origin: "Dan Ariely, Predictably Irrational" },
     { shelf: "mind", title: "Reboot", author: "Jerry Colonna", origin: "Jerry Colonna, Reboot" },
-    { shelf: "mind", title: "Superintelligence", author: "Nick Bostrom", origin: "Nick Bostrom, Superintelligence" }
+    { shelf: "mind", title: "Superintelligence", author: "Nick Bostrom", origin: "Nick Bostrom, Superintelligence" },
+    { shelf: "money", title: "100 Baggers", author: "Christopher Mayer", origin: "Christopher Mayer, 100 Baggers" },
+    { shelf: "money", title: "The Dhandho Investor", author: "Mohnish Pabrai", origin: "Mohnish Pabrai, The Dhandho Investor" },
+    { shelf: "business", title: "The 4-Hour Workweek", author: "Timothy Ferriss", origin: "Timothy Ferriss, The 4-Hour Workweek" },
+    { shelf: "business", title: "Delivering Happiness", author: "Tony Hsieh", origin: "Tony Hsieh, Delivering Happiness" },
+    { shelf: "mind", title: "Deep Medicine", author: "Eric Topol", origin: "Eric Topol, Deep Medicine" },
+    { shelf: "mind", title: "The Sovereign Individual", author: "James Dale Davidson & William Rees-Mogg", origin: "James Dale Davidson & William Rees-Mogg, The Sovereign Individual" },
+    { shelf: "mind", title: "How Emotions Are Made", author: "Lisa Feldman Barrett", origin: "Lisa Feldman Barrett, How Emotions Are Made" },
+    { shelf: "mind", title: "Fooled by Randomness", author: "Nassim Nicholas Taleb", origin: "Nassim Nicholas Taleb, Fooled by Randomness" },
+    { shelf: "money", title: "The Little Book That Beats the Market", author: "Joel Greenblatt", origin: "Joel Greenblatt, The Little Book That Beats the Market" },
+    { shelf: "money", title: "Tax-Free Wealth", author: "Tom Wheelwright", origin: "Tom Wheelwright, Tax-Free Wealth" },
+    { shelf: "mind", title: "Life 3.0", author: "Max Tegmark", origin: "Max Tegmark, Life 3.0" }
   ]
 };
